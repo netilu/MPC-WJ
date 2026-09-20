@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{11712c7b-74ef-4965-a813-5290f06e30a4}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{405fa87b-b576-4329-99eb-f6c49c3a84be}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc</Extensions>
+    </Filter>
+    <Filter Include="compact_enc_det">
+      <UniqueIdentifier>{53d6d220-5725-4969-b322-388d22714000}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="compact_enc_det\compact_enc_det">
+      <UniqueIdentifier>{f36ee2b3-73bc-4b2a-baa0-dbeb050b92a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="compact_enc_det\util">
+      <UniqueIdentifier>{a9ec19a9-c951-404b-9c05-b6b347d464fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="compact_enc_det\util\encodings">
+      <UniqueIdentifier>{eb15d31d-d784-46d3-b218-abca76d4af35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="compact_enc_det\util\languages">
+      <UniqueIdentifier>{a8792e9d-bef1-4d2b-a2fb-33c4d1cc4634}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BaseSub.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CCDecoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CompositionObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DVBSub.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HdmvSub.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rasterizer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RealTextParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderedHdmvSubtitle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RTS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SubtitleInputPin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="USFSubtitles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VobSubFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VobSubImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XSUBSubtitle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingCache.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ellipse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SubtitleHelpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorConvert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegexUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="compact_enc_det\util\encodings\encodings.cc">
+      <Filter>compact_enc_det\util\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="compact_enc_det\util\languages\languages.cc">
+      <Filter>compact_enc_det\util\languages</Filter>
+    </ClCompile>
+    <ClCompile Include="compact_enc_det\compact_enc_det\compact_enc_det.cc">
+      <Filter>compact_enc_det\compact_enc_det</Filter>
+    </ClCompile>
+    <ClCompile Include="compact_enc_det\compact_enc_det\compact_enc_det_hint_code.cc">
+      <Filter>compact_enc_det\compact_enc_det</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BaseSub.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CCDecoder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CompositionObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DVBSub.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HdmvSub.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rasterizer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RealTextParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderedHdmvSubtitle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RTS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SeparableFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SubtitleInputPin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="USFSubtitles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VobSubFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VobSubImage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XSUBSubtitle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingCache.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ellipse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SubtitleHelpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorConvert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegexUtil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="compact_enc_det\util\basictypes.h">
+      <Filter>compact_enc_det\util</Filter>
+    </ClInclude>
+    <ClInclude Include="compact_enc_det\util\case_insensitive_hash.h">
+      <Filter>compact_enc_det\util</Filter>
+    </ClInclude>
+    <ClInclude Include="compact_enc_det\util\commandlineflags.h">
+      <Filter>compact_enc_det\util</Filter>
+    </ClInclude>
+    <ClInclude Include="compact_enc_det\util\logging.h">
+      <Filter>compact_enc_det\util</Filter>
+    </ClInclude>
+    <ClInclude Include="compact_enc_det\util\port.h">
+      <Filter>compact_enc_det\util</Filter>
+    </ClInclude>
+    <ClInclude Include="compact_enc_det\util\string_util.h">
+      <Filter>compact_enc_det\util</Filter>
+    </ClInclude>
+    <ClInclude Include="compact_enc_det\util\varsetter.h">
+      <Filter>compact_enc_det\util</Filter>
+    </ClInclude>
+    <ClInclude Include="compact_enc_det\util\encodings\encodings.h">
+      <Filter>compact_enc_det\util\encodings</Filter>
+    </ClInclude>
+    <ClInclude Include="compact_enc_det\util\encodings\encodings.pb.h">
+      <Filter>compact_enc_det\util\encodings</Filter>
+    </ClInclude>
+    <ClInclude Include="compact_enc_det\util\languages\languages.h">
+      <Filter>compact_enc_det\util\languages</Filter>
+    </ClInclude>
+    <ClInclude Include="compact_enc_det\util\languages\languages.pb.h">
+      <Filter>compact_enc_det\util\languages</Filter>
+    </ClInclude>
+    <ClInclude Include="compact_enc_det\compact_enc_det\compact_enc_det.h">
+      <Filter>compact_enc_det\compact_enc_det</Filter>
+    </ClInclude>
+    <ClInclude Include="compact_enc_det\compact_enc_det\compact_enc_det_generated_tables.h">
+      <Filter>compact_enc_det\compact_enc_det</Filter>
+    </ClInclude>
+    <ClInclude Include="compact_enc_det\compact_enc_det\compact_enc_det_generated_tables2.h">
+      <Filter>compact_enc_det\compact_enc_det</Filter>
+    </ClInclude>
+    <ClInclude Include="compact_enc_det\compact_enc_det\compact_enc_det_hint_code.h">
+      <Filter>compact_enc_det\compact_enc_det</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

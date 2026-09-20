@@ -1,0 +1,74 @@
+#include "../ThumbnailResources.h"
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(65001)
+TH_DIALOG DIALOGEX 0, 0, 460, 374
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Create thumbnails"
+FONT 9, "Segoe UI", 0, 0, 1
+BEGIN
+ GROUPBOX "Files", 57100, 7, 5, 446, 108
+ CONTROL "", TH_FILES, "SysListView32", LVS_REPORT | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP, 14, 18, 432, 70
+ PUSHBUTTON "Add files...", TH_ADD, 14, 92, 70, 15
+ PUSHBUTTON "Remove", TH_REMOVE, 90, 92, 60, 15
+ PUSHBUTTON "Clear", TH_CLEAR, 156, 92, 60, 15
+ GROUPBOX "Output", 57101, 7, 116, 446, 61
+ EDITTEXT TH_DIRECTORY, 14, 128, 278, 14, ES_AUTOHSCROLL
+ PUSHBUTTON "...", TH_BROWSE, 297, 128, 23, 14
+ AUTOCHECKBOX "Save beside each video", TH_BESIDE, 326, 129, 119, 13
+ COMBOBOX TH_FORMAT, 14, 152, 65, 70, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+ LTEXT "JPG quality (%)", TH_Q_LABEL, 88, 154, 70, 12
+ EDITTEXT TH_QUALITY, 159, 151, 38, 15, ES_NUMBER | ES_AUTOHSCROLL
+ LTEXT "PNG compression", TH_P_LABEL, 209, 154, 82, 12
+ EDITTEXT TH_COMPRESSION, 292, 151, 30, 15, ES_NUMBER | ES_AUTOHSCROLL
+ AUTOCHECKBOX "Include subtitles", TH_SUBTITLES, 332, 153, 108, 13
+ GROUPBOX "Layout (width is the complete image in pixels)", 57102, 7, 180, 446, 41
+ LTEXT "Rows", 57103, 14, 197, 27, 12
+ EDITTEXT TH_ROWS, 42, 194, 32, 15, ES_NUMBER
+ LTEXT "Cols", 57104, 82, 197, 25, 12
+ EDITTEXT TH_COLS, 107, 194, 32, 15, ES_NUMBER
+ LTEXT "Width", 57105, 148, 197, 30, 12
+ EDITTEXT TH_WIDTH, 179, 194, 45, 15, ES_NUMBER
+ LTEXT "Margin", 57106, 235, 197, 35, 12
+ EDITTEXT TH_MARGIN, 271, 194, 32, 15, ES_NUMBER
+ PUSHBUTTON "Background...", TH_COLOR, 320, 194, 125, 15
+ GROUPBOX "Text and branding (font sizes in output pixels)", 57107, 7, 224, 446, 65
+ AUTOCHECKBOX "File information", TH_INFO, 14, 239, 105, 13
+ PUSHBUTTON "Segoe UI", TH_INFOFONT, 122, 237, 171, 16
+ EDITTEXT TH_INFOSIZE, 302, 238, 32, 15, ES_NUMBER
+ AUTOCHECKBOX "MPC-BE branding", TH_LOGO, 341, 239, 105, 13
+ AUTOCHECKBOX "Timestamps", TH_TIME, 14, 263, 105, 13
+ PUSHBUTTON "Segoe UI", TH_TIMEFONT, 122, 261, 171, 16
+ EDITTEXT TH_TIMESIZE, 302, 262, 32, 15, ES_NUMBER
+ AUTOCHECKBOX "Hide playback video while generating", TH_HIDEVIDEO, 14, 294, 431, 13
+ LTEXT "Total progress", 57120, 14, 312, 210, 11
+ LTEXT "Current video frames", 57121, 235, 312, 210, 11
+ CONTROL "", TH_TOTAL, "msctls_progress32", WS_BORDER, 14, 325, 210, 8
+ CONTROL "", TH_CURRENT, "msctls_progress32", WS_BORDER, 235, 325, 210, 8
+ LTEXT "", TH_SUMMARY, 14, 336, 431, 12
+ PUSHBUTTON "Open output folder", TH_OPENOUTPUT, 14, 353, 99, 16
+ DEFPUSHBUTTON "Generate", TH_START, 229, 353, 70, 16
+ PUSHBUTTON "Cancel task", TH_CANCEL, 305, 353, 70, 16
+ PUSHBUTTON "Close", IDCANCEL, 381, 353, 65, 16
+END
+STRINGTABLE
+BEGIN
+ TH_RESOURCE_VERSION "2"
+ TH_FILECOL "Full path"
+ TH_STATUSCOL "Status"
+ TH_READY "Pending"
+ TH_WORKING "Generating"
+ TH_DONE "Saved"
+ TH_FAILED "Failed"
+ TH_CANCELLED "Cancelled"
+ TH_INVALID "Invalid layout: check rows, columns, width, margins and font sizes. Pixel buffers must not exceed 512 MiB."
+ TH_OPENERROR "Cannot open video, unsupported frame capture, or opening timed out."
+ TH_FRAMEERROR "Frame capture failed or exceeded 15 seconds."
+ TH_WRITEERROR "Cannot save image. Check the output folder and write permissions."
+ TH_RESTOREERROR "Could not restore the original video. Please reopen it."
+ TH_SUMMARYTEXT "Saved %u / Failed %u / Cancelled %u / Total %u"
+ TH_WAITING "Opening"
+ TH_RESTORING "Restoring original video..."
+ TH_LOCALONLY "Choose local video files and an existing output folder."
+ TH_CANCELLING "Cancelling... waiting for the current operation to stop safely."
+ TH_OPENTIMEOUT "Opening exceeded 60 seconds."
+END

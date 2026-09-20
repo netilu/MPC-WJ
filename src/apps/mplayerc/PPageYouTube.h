@@ -1,0 +1,99 @@
+/*
+ * (C) 2012-2026 see Authors.txt
+ *
+ * This file is part of MPC-BE.
+ *
+ * MPC-BE is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * MPC-BE is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+#pragma once
+
+#include "PPageBase.h"
+
+// CPPageYoutube dialog
+
+class CPPageYoutube : public CPPageBase
+{
+	DECLARE_DYNAMIC(CPPageYoutube)
+
+private:
+	CButton   m_chkYDLEnable;
+	CComboBox m_cbYDLExePath;
+
+	CComboBox m_cbVideoCodec;
+	CComboBox m_cbMaxHeight;
+	CButton   m_chkHighFps;
+	CButton   m_chkHdr;
+	CComboBox m_cbAudioCodec;
+	CComboBox m_cbAudioLang;
+	CButton   m_chkHighBitrate;
+	CButton   m_chkLoadPlaylist;
+	CButton   m_chkIntYtPlaylistParser;
+
+	CEdit m_edAceStreamAddress;
+	CEdit m_edTorrServerAddress;
+	CEdit m_edUserAgent;
+
+	static constexpr LPCWSTR m_langcodes[] = {
+		L"en",
+		L"ru",
+		L"ar",
+		L"cs",
+		L"da",
+		L"de",
+		L"el",
+		L"es",
+		L"fi",
+		L"fil",
+		L"fr",
+		L"hi",
+		L"id",
+		L"it",
+		L"ja",
+		L"ko",
+		L"ms",
+		L"nl",
+		L"pl",
+		L"pt",
+		L"pt-BR",
+		L"ro",
+		L"sv",
+		L"th",
+		L"tr",
+		L"uk",
+		L"vi",
+		L"zh",
+	};
+
+public:
+	CPPageYoutube();
+	virtual ~CPPageYoutube();
+
+	enum { IDD = IDD_PPAGEYOUTUBE };
+	static CStringW GetDefaultLanguageCode();
+
+protected:
+	virtual void DoDataExchange(CDataExchange* pDX);
+	virtual BOOL OnInitDialog();
+	virtual BOOL OnApply();
+
+	DECLARE_MESSAGE_MAP()
+
+public:
+	afx_msg void OnCheck60fps();
+	afx_msg void OnCheckLoadPlaylist();
+	afx_msg void OnCheckYDLEnable();
+	afx_msg void OnBnClickedDefault();
+};

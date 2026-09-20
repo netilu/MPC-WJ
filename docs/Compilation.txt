@@ -1,0 +1,86 @@
+﻿1. Preparing the Visual Studio environment
+
+ Visual Studio 2019
+  Download URL: https://learn.microsoft.com/en-us/visualstudio/releases/2019/release-notes
+  Install Visual Studio 2019 (any edition will work fine). During installation, you must select the following components: 
+   * Desktop development with C++
+     * MSVC v142 - Build Tools C++ 
+     * Windows SDK 10.0.19041.0 or newer (latest).
+     * C++ ATL support
+     * C++ MFC support
+
+ Visual Studio 2022
+  Download URL: https://learn.microsoft.com/en-us/visualstudio/releases/2022/release-notes
+  Install Visual Studio 2022 (any edition will work fine). During installation, you must select the following components: 
+   * Desktop development with C++
+     * MSVC v143 - Build Tools C++ 
+     * Windows SDK 10.0.19041.0 or newer (latest).
+     * C++ ATL support
+     * C++ MFC support
+
+PS: Do not use Windows SDK 10.0.26100.0. It is broken and generates bad x86 code.
+
+
+2. Preparing the GCC environment (NASM is already included)
+  2.1. Download https://github.com/Aleksoid1978/MSYS/raw/main/MSYS_MinGW-w64_GCC_1521_x86-x64.7z
+  2.2. Unpack the archive to "C:\MSYS".
+    Example of downloading and unpacking:
+      curl -sSL https://github.com/Aleksoid1978/MSYS/raw/main/MSYS_MinGW-w64_GCC_1521_x86-x64.7z -o MSYS.7z
+      7z x MSYS.7z -oC:\MSYS
+  NOTES: If you installed the MSYS/MinGW package in an other directory you will have to use that path in the following steps.
+
+
+3. Additional optional components
+  3.1. Inno Setup 6.5.2 or never (https://jrsoftware.org/isdl.php).
+  3.2. 7-zip file archiver (https://www.7-zip.org/download.html).
+
+
+4. Downloading and preparing the MPC-BE source
+  4.1. Use a Git client to checkout MPC-BE's trunk to "C:\repos\MPC-BE" (or anywhere else you like)
+    Repository URL: https://github.com/Aleksoid1978/MPC-BE.git
+    Git for Windows: https://git-scm.com/download/win
+    The recommended Git client is TortoiseGit (https://tortoisegit.org/download/)
+  4.2. Clone the MPC-BE repository with all submodules
+    When using TortoiseGit
+      a) Navigate to the folder where you want to place the local copy of the repository (e.g: C:\repos).
+      b) Right-click on that directory and choose "Git Clone".
+      c) Put https://github.com/Aleksoid1978/MPC-BE.git in "URL", сheck the "Recursive" and press OK.
+      d) Wait for the source code to be downloaded.
+    When using Git CMD
+      a) Run Git CMD, CD "c:\repos"
+      b) run command "git clone --recursive https://github.com/Aleksoid1978/MPC-BE.git"
+      c) Wait for the source code to be downloaded.
+  4.3. Open the "C:\repos\MPC-BE" folder and create "environments.bat" containing the following entries:
+    @ECHO OFF
+    SET "MPCBE_MSYS=C:\MSYS"
+    SET "MPCBE_MINGW=C:\MSYS\mingw"
+  4.4. Execute the batch file update_gcc.bat (it is necessary to do to copy the files libgcc.a and libmingwex.a, in the folders "lib" and "lib64")
+
+
+5. Source code update
+  5.1. Receive changes from the server:
+    When using TortoiseGit
+      a) Navigate to the "C:\repos".
+      b) Select MPC-BE folder, right-click, choose "TortoiseGit > Pull.." and press OK.
+      с) Wait for the source code to be updated.
+    When using Git CMD
+      a) Run Git CMD, CD "c:\repos\MPC-BE".
+      b) Run command "git pull". Wait for the source code to be updated.
+      с) Wait for the source code to be updated.
+  5.2. Update submodules
+    When using TortoiseGit
+      a) Navigate to the "C:\repos".
+      b) Select MPC-BE folder, right-click, choose "TortoiseGit > Submodule Update..". Select all submodules in the list and press OK.
+      c) Wait for the submodules to be updated.
+    When using Git CMD
+      a) Run Git CMD, CD "c:\repos\MPC-BE".
+      b) Run command "git submodule update --init --recursive".
+      c) Wait for the submodules to be updated.
+
+
+6. Building of MPC-BE
+  6.1. Run one of the following commands or write your own.
+    Build MPC-BE: build.bat
+    Build MPC-BE x64 installer: build.bat Build x64 Installer
+    Build all packages: build.bat Build All Packages
+  6.2. If there were problems, then delete the "_bin" folder and try again.

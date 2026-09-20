@@ -1,0 +1,53 @@
+﻿The following files have MPC-BE specific custom code (compared to ffmpeg):
+
+* compat/w32dlfcn.h
+
+* libavcodec/aacsbr_template.c
+* libavcodec/allcodecs.c
+* libavcodec/cbs_av1_syntax_template.c
+* libavcodec/d3d12va_decode.c
+* libavcodec/d3d12va_hevc.c
+* libavcodec/dxva2.c
+* libavcodec/dxva2_hevc.c
+* libavcodec/dxva2_internal.h
+* libavcodec/ffv1.h
+* libavcodec/ffv1dec.c
+* libavcodec/h264_ps.h
+* libavcodec/h264_refs.c
+* libavcodec/h264_slice.c
+* libavcodec/h264dec.c
+* libavcodec/h264dec.h
+* libavcodec/hevc/hevcdec.c
+* libavcodec/hevc/ps.c
+* libavcodec/hwconfig.h
+* libavcodec/kbdwin.h
+* libavcodec/mpeg12dec.c
+* libavcodec/mpeg4audio.h
+* libavcodec/mpegaudio_parser.c
+* libavcodec/vc1.h
+* libavcodec/vc1dec.c
+* libavcodec/vvc/dec.c
+
+* libavutil/float_dsp.c
+* libavutil/float_dsp.h
+* libavutil/hwcontext_d3d11va.c
+* libavutil/hwcontext_d3d11va.h
+* libavutil/hwcontext_d3d12va.c
+* libavutil/hwcontext_d3d12va.h
+* libavutil/hwcontext_dxva2.c
+
+======
+The following files are available only in MPC-BE (compared with ffmpeg):
+
+* config.asm
+* config.c
+* config.h
+* config_components.h
+* ffmpeg.mak
+
+* compat/windows/initguid.h
+
+* libavcodec/ac4dec.c
+* libavcodec/ac4dec_data.h
+* libavcodec/float_fmul_reverse.c
+* libavcodec/libvvdec.c
