@@ -25,6 +25,7 @@
 #include "PlayerChildView.h"
 #include "PlayerPreView.h"
 #include "PlayerFlyBar.h"
+#include "PlayerOverlaySeekBar.h"
 #include "PlayerSeekBar.h"
 #include "PlayerToolBar.h"
 #include "PlayerInfoBar.h"
@@ -403,7 +404,8 @@ public:
 		TIMER_FLYBARWINDOWHIDER,
 		TIMER_DM_AUTOCHANGING,
 		TIMER_PAUSE,
-		TIMER_MOUSE_LEFT_LONGPRESS_SPEED
+		TIMER_MOUSE_LEFT_LONGPRESS_SPEED,
+		TIMER_OVERLAY_SEEKBAR
 	};
 
 	void SetColorMenu();
@@ -999,6 +1001,10 @@ public:
 	afx_msg void OnViewMinimal();
 	afx_msg void OnViewCompact();
 	afx_msg void OnViewNormal();
+	afx_msg void OnViewCustom();
+	afx_msg void OnViewSaveCustom();
+	afx_msg void OnUpdateViewCustom(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateViewSaveCustom(CCmdUI* pCmdUI);
 	afx_msg void OnViewFullscreen();
 	afx_msg void OnViewFullscreenSecondary();
 	afx_msg void OnMoveWindowToPrimaryScreen();
@@ -1181,6 +1187,10 @@ public:
 	CPlayerToolBar		m_wndToolBar;
 	CPlayerPlaylistBar	m_wndPlaylistBar;
 	CFlyBar				m_wndFlyBar;
+	CPlayerOverlaySeekBar m_wndOverlaySeekBar;
+	bool CanUseOverlaySeekBar();
+	void UpdateOverlaySeekBar();
+	bool SeekFromOverlay(REFERENCE_TIME position);
 	CPreView			m_wndPreView; // SmartSeek
 	bool				m_bWndPreViewOn = false;
 

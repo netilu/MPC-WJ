@@ -274,6 +274,8 @@ void CAppSettings::CreateCommands()
 	addcmd(ID_VIEW_PRESETS_MINIMAL,		IDS_AG_VIEW_MINIMAL,		'1');
 	addcmd(ID_VIEW_PRESETS_COMPACT,		IDS_AG_VIEW_COMPACT,		'2');
 	addcmd(ID_VIEW_PRESETS_NORMAL,		IDS_AG_VIEW_NORMAL,			'3');
+	addcmd(ID_VIEW_PRESETS_CUSTOM,		IDS_AG_VIEW_CUSTOM,			'4');
+	addcmd(ID_VIEW_PRESETS_SAVE_CUSTOM,	IDS_AG_SAVE_CUSTOM_PRESET);
 	addcmd(ID_VIEW_FULLSCREEN,			IDS_AG_FULLSCREEN,			VK_RETURN, FCONTROL, 0, wmcmd::LDBLCLK, wmcmd::LDBLCLK);
 	addcmd(ID_VIEW_FULLSCREEN_2,		IDS_AG_FULLSCREEN_2,		VK_RETURN, FALT);
 	addcmd(ID_VIEW_ZOOM_50,				IDS_AG_ZOOM_50,				'1', FALT);
@@ -453,6 +455,9 @@ void CAppSettings::ResetSettings()
 	iCaptionMenuMode = MODE_SHOWCAPTIONMENU;
 	fHideNavigation = false;
 	nCS = CS_SEEKBAR | CS_TOOLBAR | CS_STATUSBAR;
+	bCustomPresetValid = false;
+	iCustomPresetCaptionMode = MODE_SHOWCAPTIONMENU;
+	nCustomPresetCS = CS_SEEKBAR | CS_TOOLBAR | CS_STATUSBAR;
 
 	iDefaultVideoSize = DVS_FROMINSIDE;
 	bNoSmallUpscale = false;
@@ -685,6 +690,7 @@ void CAppSettings::ResetSettings()
 	bOSDFontShadow = false;
 	bOSDFontAA = true;
 	nOSDTransparent = 100;
+	nOverlaySeekBarTransparency = 30;
 	nOSDBorder = 1;
 
 	clrFaceABGR = 0x00ffffff;
@@ -899,6 +905,15 @@ void CAppSettings::LoadSettings(bool bForce/* = false*/)
 	profile.ReadInt(IDS_R_SETTINGS, IDS_RS_HIDECAPTIONMENU, iCaptionMenuMode, MODE_SHOWCAPTIONMENU, MODE_BORDERLESS);
 	profile.ReadBool(IDS_R_SETTINGS, IDS_RS_HIDENAVIGATION, fHideNavigation);
 	profile.ReadUInt(IDS_R_SETTINGS, IDS_RS_CONTROLSTATE, nCS);
+
+	// A saved preset is usable only when both layout values are present and valid.
+	bCustomPresetValid = false;
+	profile.ReadBool(IDS_R_SETTINGS, IDS_RS_CUSTOMPRESET_VALID, bCustomPresetValid);
+	const bool customCaptionValid = profile.ReadInt(IDS_R_SETTINGS, IDS_RS_CUSTOMPRESET_CAPTIONMODE,
+		iCustomPresetCaptionMode, MODE_SHOWCAPTIONMENU, MODE_BORDERLESS);
+	const bool customControlsValid = profile.ReadUInt(IDS_R_SETTINGS, IDS_RS_CUSTOMPRESET_CONTROLSTATE,
+		nCustomPresetCS, CS_NONE, CS_ALL);
+	bCustomPresetValid = bCustomPresetValid && customCaptionValid && customControlsValid;
 
 	profile.ReadInt(IDS_R_SETTINGS, IDS_RS_DEFAULTVIDEOFRAME, iDefaultVideoSize, DVS_HALF, DVS_ZOOM2);
 	profile.ReadBool(IDS_R_SETTINGS, IDS_RS_NOSMALLUPSCALE, bNoSmallUpscale);
@@ -1277,6 +1292,7 @@ void CAppSettings::LoadSettings(bool bForce/* = false*/)
 	profile.ReadHex32(IDS_R_OSD, IDS_RS_OSD_GRADCOLOR1, *(unsigned*)&clrGrad1ABGR);
 	profile.ReadHex32(IDS_R_OSD, IDS_RS_OSD_GRADCOLOR2, *(unsigned*)&clrGrad2ABGR);
 	profile.ReadInt(IDS_R_OSD, IDS_RS_OSD_TRANSPARENT, nOSDTransparent);
+	profile.ReadInt(IDS_R_OSD, IDS_RS_OVERLAY_SEEKBAR_TRANSPARENCY, nOverlaySeekBarTransparency, 0, 90);
 	profile.ReadInt(IDS_R_OSD, IDS_RS_OSD_BORDER, nOSDBorder);
 	profile.ReadBool(IDS_R_OSD, IDS_RS_OSD_REMAINING_TIME, bOSDRemainingTime);
 	profile.ReadBool(IDS_R_OSD, IDS_RS_OSD_LOCAL_TIME, bOSDLocalTime);
@@ -1627,6 +1643,9 @@ void CAppSettings::SaveSettings()
 	profile.WriteInt(IDS_R_SETTINGS, IDS_RS_HIDECAPTIONMENU, iCaptionMenuMode);
 	profile.WriteBool(IDS_R_SETTINGS, IDS_RS_HIDENAVIGATION, fHideNavigation);
 	profile.WriteUInt(IDS_R_SETTINGS, IDS_RS_CONTROLSTATE, nCS);
+	profile.WriteInt(IDS_R_SETTINGS, IDS_RS_CUSTOMPRESET_CAPTIONMODE, iCustomPresetCaptionMode);
+	profile.WriteUInt(IDS_R_SETTINGS, IDS_RS_CUSTOMPRESET_CONTROLSTATE, nCustomPresetCS);
+	profile.WriteBool(IDS_R_SETTINGS, IDS_RS_CUSTOMPRESET_VALID, bCustomPresetValid);
 
 	profile.WriteInt(IDS_R_SETTINGS, IDS_RS_DEFAULTVIDEOFRAME, iDefaultVideoSize);
 	profile.WriteBool(IDS_R_SETTINGS, IDS_RS_NOSMALLUPSCALE, bNoSmallUpscale);
@@ -1906,6 +1925,7 @@ void CAppSettings::SaveSettings()
 	profile.WriteHex32(IDS_R_OSD, IDS_RS_OSD_GRADCOLOR1, clrGrad1ABGR);
 	profile.WriteHex32(IDS_R_OSD, IDS_RS_OSD_GRADCOLOR2, clrGrad2ABGR);
 	profile.WriteInt(IDS_R_OSD, IDS_RS_OSD_TRANSPARENT, nOSDTransparent);
+	profile.WriteInt(IDS_R_OSD, IDS_RS_OVERLAY_SEEKBAR_TRANSPARENCY, nOverlaySeekBarTransparency);
 	profile.WriteInt(IDS_R_OSD, IDS_RS_OSD_BORDER, nOSDBorder);
 	profile.WriteBool(IDS_R_OSD, IDS_RS_OSD_REMAINING_TIME, bOSDRemainingTime);
 	profile.WriteBool(IDS_R_OSD, IDS_RS_OSD_LOCAL_TIME, bOSDLocalTime);

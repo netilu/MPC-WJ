@@ -42,6 +42,7 @@ constexpr auto EXTENDED_PATH_PREFIX = LR"(\\?\)";
 #define CS_INFOBAR		(1 << 2)
 #define CS_STATSBAR		(1 << 3)
 #define CS_STATUSBAR	(1 << 4)
+#define CS_ALL			(CS_SEEKBAR | CS_TOOLBAR | CS_INFOBAR | CS_STATSBAR | CS_STATUSBAR)
 
 constexpr auto CLSW_NONE               = 0ull;
 constexpr auto CLSW_OPEN               = 1ull;
@@ -748,6 +749,7 @@ public:
 	bool			bOSDFontShadow;
 	bool			bOSDFontAA;
 	int				nOSDTransparent;
+	int				nOverlaySeekBarTransparency;
 	int				nOSDBorder;
 	COLORREF		clrFontABGR;
 	COLORREF		clrGrad1ABGR;
@@ -780,6 +782,9 @@ public:
 	int				iCaptionMenuMode; // normal -> hidemenu -> frameonly -> borderless
 	bool			fHideNavigation;
 	UINT			nCS; // Control state for toolbars
+	bool			bCustomPresetValid;
+	int				iCustomPresetCaptionMode;
+	UINT			nCustomPresetCS;
 	// Language
 	int				iLanguage;
 	int				iCurrentLanguage;

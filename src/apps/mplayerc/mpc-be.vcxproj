@@ -119,6 +119,7 @@
     <ClCompile Include="OSD.cpp" />
     <ClCompile Include="PlayerCaptureDialog.cpp" />
     <ClCompile Include="PlayerFlyBar.cpp" />
+    <ClCompile Include="PlayerOverlaySeekBar.cpp" />
     <ClCompile Include="PlayerYouTube.cpp" />
     <ClCompile Include="PlayerYtDlp.cpp" />
     <ClCompile Include="PlaylistNameDlg.cpp" />
@@ -258,6 +259,8 @@
     <ClInclude Include="OSD.h" />
     <ClInclude Include="PlayerCaptureDialog.h" />
     <ClInclude Include="PlayerFlyBar.h" />
+    <ClInclude Include="OverlaySeekBarState.h" />
+    <ClInclude Include="PlayerOverlaySeekBar.h" />
     <ClInclude Include="PlayerYouTube.h" />
     <ClInclude Include="PlayerYtDlp.h" />
     <ClInclude Include="PlaylistNameDlg.h" />

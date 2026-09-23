@@ -490,6 +490,9 @@ BEGIN
     CONTROL         "影",IDC_CHECK_SHADOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,224,60,46,9
     CONTROL         "アンチエイリアス",IDC_CHECK_AA,"Button",BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,224,72,61,18
     PUSHBUTTON      "既定",IDC_BUTTON2,224,8,66,13
+    LTEXT           "Minimal mode seek bar transparency:",IDC_STATIC,12,121,270,10
+    CONTROL         "",IDC_SLIDER_MINIMAL_SEEK_TRANS,"msctls_trackbar32",TBS_NOTICKS | WS_TABSTOP,12,137,234,16
+    RTEXT           "30%",IDC_MINIMAL_SEEK_TRANS_VALUE,251,139,31,10
 END
 
 IDD_PPAGEWINDOWSIZE DIALOGEX 0, 0, 296, 264
@@ -1692,6 +1695,9 @@ BEGIN
             MENUITEM "最小(&M)",                          ID_VIEW_PRESETS_MINIMAL
             MENUITEM "コンパクト(&C)",                       ID_VIEW_PRESETS_COMPACT
             MENUITEM "標準(&N)",                          ID_VIEW_PRESETS_NORMAL
+            MENUITEM "C&ustom", ID_VIEW_PRESETS_CUSTOM
+            MENUITEM SEPARATOR
+            MENUITEM "&Save current as custom", ID_VIEW_PRESETS_SAVE_CUSTOM
         END
         MENUITEM SEPARATOR
         MENUITEM "全画面表示(&L)",        ID_VIEW_FULLSCREEN
@@ -1884,6 +1890,9 @@ BEGIN
                 MENUITEM "最小(&M)",                          ID_VIEW_PRESETS_MINIMAL
                 MENUITEM "コンパクト(&C)",                       ID_VIEW_PRESETS_COMPACT
                 MENUITEM "標準(&N)",                          ID_VIEW_PRESETS_NORMAL
+                MENUITEM "C&ustom", ID_VIEW_PRESETS_CUSTOM
+                MENUITEM SEPARATOR
+                MENUITEM "&Save current as custom", ID_VIEW_PRESETS_SAVE_CUSTOM
             END
         END
         MENUITEM SEPARATOR
@@ -1963,6 +1972,9 @@ BEGIN
                 MENUITEM "最小(&M)",                          ID_VIEW_PRESETS_MINIMAL
                 MENUITEM "コンパクト(&C)",                       ID_VIEW_PRESETS_COMPACT
                 MENUITEM "標準(&N)",                          ID_VIEW_PRESETS_NORMAL
+                MENUITEM "C&ustom", ID_VIEW_PRESETS_CUSTOM
+                MENUITEM SEPARATOR
+                MENUITEM "&Save current as custom", ID_VIEW_PRESETS_SAVE_CUSTOM
             END
             MENUITEM SEPARATOR
             MENUITEM "全画面表示(&L)",        ID_VIEW_FULLSCREEN
@@ -2945,6 +2957,9 @@ BEGIN
     IDS_AG_VIEW_MINIMAL     "最小表示"
     IDS_AG_VIEW_COMPACT     "コンパクト表示"
     IDS_AG_VIEW_NORMAL      "標準表示"
+    IDS_AG_VIEW_CUSTOM      "View Custom"
+    IDS_AG_SAVE_CUSTOM_PRESET "Save current as custom preset"
+    IDS_CUSTOM_PRESET_SAVED "Custom preset saved"
     IDS_AG_FULLSCREEN       "全画面表示"
     IDS_AG_FULLSCREEN_2     "全画面表示 (解像度変更なし)"
     IDS_AG_ZOOM_AUTO_FIT    "ズーム 自動調整"

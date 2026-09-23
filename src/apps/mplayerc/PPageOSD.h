@@ -47,6 +47,9 @@ public:
 	BOOL m_bFontAA      = TRUE;
 	int  m_nTransparent = 0;
 	CSliderCtrl m_TransparentCtrl;
+	int m_nOverlayTransparency = 30;
+	CSliderCtrl m_OverlayTransparencyCtrl;
+	void UpdateOverlayTransparencyLabel();
 	int  m_nBorder      = 1;
 	CSpinButtonCtrl m_BorderCtrl;
 

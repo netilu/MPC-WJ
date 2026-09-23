@@ -302,6 +302,10 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_COMMAND(ID_VIEW_PRESETS_MINIMAL, OnViewMinimal)
 	ON_COMMAND(ID_VIEW_PRESETS_COMPACT, OnViewCompact)
 	ON_COMMAND(ID_VIEW_PRESETS_NORMAL, OnViewNormal)
+	ON_COMMAND(ID_VIEW_PRESETS_CUSTOM, OnViewCustom)
+	ON_COMMAND(ID_VIEW_PRESETS_SAVE_CUSTOM, OnViewSaveCustom)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_PRESETS_CUSTOM, OnUpdateViewCustom)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_PRESETS_SAVE_CUSTOM, OnUpdateViewSaveCustom)
 	ON_COMMAND(ID_VIEW_FULLSCREEN, OnViewFullscreen)
 	ON_COMMAND(ID_VIEW_FULLSCREEN_2, OnViewFullscreenSecondary)
 
@@ -726,6 +730,9 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CreateFlyBar();
 	// Create OSD Window
 	CreateOSDBar();
+	if (m_wndOverlaySeekBar.Create(this)) {
+		SetTimer(TIMER_OVERLAY_SEEKBAR, 100, nullptr);
+	}
 
 	// Create Preview Window
 	if (!m_wndPreView.CreateEx(WS_EX_TOPMOST, AfxRegisterWndClass(0), nullptr, WS_POPUP | WS_CLIPCHILDREN | WS_CLIPSIBLINGS, CRect(0, 0, 160, 109), this, 0)) {
@@ -956,6 +963,11 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 void CMainFrame::OnDestroy()
 {
+	KillTimer(TIMER_OVERLAY_SEEKBAR);
+	m_wndOverlaySeekBar.Hide();
+	if (m_wndOverlaySeekBar.GetSafeHwnd()) {
+		m_wndOverlaySeekBar.DestroyWindow();
+	}
 	WTSUnRegisterSessionNotification();
 
 	ShowTrayIcon(false);
@@ -998,6 +1010,8 @@ void CMainFrame::OnClose()
 	DLog(L"CMainFrame::OnClose() : start");
 
 	m_bClosingState = true;
+	KillTimer(TIMER_OVERLAY_SEEKBAR);
+	m_wndOverlaySeekBar.Hide();
 
 	m_EventCmdLineQueue.Reset();
 	m_ExitCmdLineQueue.Set();
@@ -1364,6 +1378,7 @@ void CMainFrame::RecalcLayout(BOOL bNotify)
 
 	FlyBarSetPos();
 	OSDBarSetPos();
+	UpdateOverlaySeekBar();
 }
 
 static const bool IsMoveX(LONG x1, LONG x2, LONG y1, LONG y2)
@@ -1712,8 +1727,66 @@ void CMainFrame::OnGetMinMaxInfo(MINMAXINFO* lpMMI)
 
 	FlyBarSetPos();
 	OSDBarSetPos();
+	UpdateOverlaySeekBar();
 
 	__super::OnGetMinMaxInfo(lpMMI);
+}
+
+bool CMainFrame::CanUseOverlaySeekBar()
+{
+	const auto& s = AfxGetAppSettings();
+	if ((!m_bFullScreen && s.iCaptionMenuMode != MODE_BORDERLESS) || s.nCS != CS_NONE
+			|| m_eMediaLoadState != MLS_LOADED || IsD3DFullScreenMode()
+			|| m_bIsMadVRExclusiveMode || m_bIsMPCVRExclusiveMode || m_bClosingState
+			|| m_bFullScreenChangingMode || m_bInOptions || m_bInMenu
+			|| IsIconic() || !m_wndView.IsWindowVisible() || !m_wndSeekBar.HasDuration()) {
+		return false;
+	}
+	if (GetPlaybackMode() == PM_DVD) {
+		return m_iDVDDomain == DVD_DOMAIN_Title;
+	}
+	DWORD capabilities = AM_SEEKING_CanSeekAbsolute;
+	return GetPlaybackMode() == PM_FILE && m_pMS
+		&& m_pMS->CheckCapabilities(&capabilities) == S_OK;
+}
+
+void CMainFrame::UpdateOverlaySeekBar()
+{
+	if (!m_wndOverlaySeekBar.GetSafeHwnd()) {
+		return;
+	}
+	const HWND foreground = ::GetForegroundWindow();
+	if (!CanUseOverlaySeekBar() || (foreground != m_hWnd && foreground != m_wndOverlaySeekBar.m_hWnd)) {
+		m_wndOverlaySeekBar.Hide();
+		return;
+	}
+	CRect view;
+	m_wndView.GetWindowRect(view);
+	if (view.Width() < ScaleX(100) || view.Height() < ScaleY(64)) {
+		m_wndOverlaySeekBar.Hide();
+		return;
+	}
+	m_wndOverlaySeekBar.UpdateLayout(view, ScaleX(96), ScaleY(96), AfxGetAppSettings().nOverlaySeekBarTransparency);
+	m_wndOverlaySeekBar.UpdateProgress(m_wndSeekBar.GetPos(), m_wndSeekBar.GetRange());
+	CPoint cursor;
+	GetCursorPos(&cursor);
+	CRect hotZone(view);
+	hotZone.top = hotZone.bottom - ScaleY(48);
+	const HWND underCursor = ::WindowFromPoint(cursor);
+	const bool ourWindow = underCursor && ::GetAncestor(underCursor, GA_ROOTOWNER) == m_hWnd;
+	// Do not pop up over a video/window drag that began outside the seek bar.
+	const bool draggingElsewhere = (::GetKeyState(VK_LBUTTON) < 0)
+		&& ::GetCapture() != m_wndOverlaySeekBar.m_hWnd;
+	m_wndOverlaySeekBar.UpdateHover(ourWindow && !draggingElsewhere && hotZone.PtInRect(cursor));
+}
+
+bool CMainFrame::SeekFromOverlay(REFERENCE_TIME position)
+{
+	if (!CanUseOverlaySeekBar() || !ValidateSeek(position, m_wndSeekBar.GetRange())) {
+		return false;
+	}
+	SeekTo(position);
+	return true;
 }
 
 void CMainFrame::CreateFlyBar()
@@ -1926,6 +1999,7 @@ void CMainFrame::OnMove(int x, int y)
 
 	FlyBarSetPos();
 	OSDBarSetPos();
+	UpdateOverlaySeekBar();
 }
 
 void CMainFrame::ClipRectToMonitor(LPRECT prc)
@@ -2013,11 +2087,15 @@ void CMainFrame::OnMoving(UINT fwSide, LPRECT pRect)
 
 	FlyBarSetPos();
 	OSDBarSetPos();
+	UpdateOverlaySeekBar();
 }
 
 void CMainFrame::OnSize(UINT nType, int cx, int cy)
 {
 	__super::OnSize(nType, cx, cy);
+	if (nType == SIZE_MINIMIZED) {
+		m_wndOverlaySeekBar.Hide();
+	}
 
 	if (m_OSD && IsD3DFullScreenMode()) {
 		m_OSD.OnSize(nType, cx, cy);
@@ -2054,6 +2132,7 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
 	if (nType != SIZE_MINIMIZED) {
 		FlyBarSetPos();
 		OSDBarSetPos();
+		UpdateOverlaySeekBar();
 	}
 
 	if (nType == SIZE_MINIMIZED
@@ -2126,6 +2205,7 @@ void CMainFrame::OnSizing(UINT nSide, LPRECT pRect)
 
 	FlyBarSetPos();
 	OSDBarSetPos();
+	UpdateOverlaySeekBar();
 
 #if _DEBUG
 	CString msg;
@@ -2209,6 +2289,7 @@ LRESULT CMainFrame::OnDpiChanged(WPARAM wParam, LPARAM lParam)
 	m_wndStatusBar.ScaleFont();
 	m_wndPreView.ScaleFont();
 	m_wndFlyBar.Scale();
+	UpdateOverlaySeekBar();
 
 	CMenuEx::ScaleFont();
 	const auto& s = AfxGetAppSettings();
@@ -2318,6 +2399,9 @@ void CMainFrame::OnSysCommand(UINT nID, LPARAM lParam)
 void CMainFrame::OnActivateApp(BOOL bActive, DWORD dwThreadID)
 {
 	__super::OnActivateApp(bActive, dwThreadID);
+	if (!bActive) {
+		m_wndOverlaySeekBar.Hide();
+	}
 
 	if (bActive) {
 		if (!m_bHideCursor) {
@@ -2499,6 +2583,9 @@ void CMainFrame::OnTimer(UINT_PTR nIDEvent)
 	CAppSettings& s = AfxGetAppSettings();
 
 	switch (nIDEvent) {
+		case TIMER_OVERLAY_SEEKBAR:
+			UpdateOverlaySeekBar();
+			break;
 		case TIMER_FLYBARWINDOWHIDER:
 			if (!m_bInMenu) {
 				if (m_wndView &&
@@ -2524,10 +2611,12 @@ void CMainFrame::OnTimer(UINT_PTR nIDEvent)
 						m_wndFlyBar.ShowWindow(SW_HIDE);
 					}
 					OSDBarSetPos();
+					UpdateOverlaySeekBar();
 
 				} else if (m_wndFlyBar && m_wndFlyBar.IsWindowVisible()) {
 					m_wndFlyBar.ShowWindow(SW_HIDE);
 					OSDBarSetPos();
+					UpdateOverlaySeekBar();
 				}
 			}
 			break;
@@ -2627,6 +2716,7 @@ void CMainFrame::OnTimer(UINT_PTR nIDEvent)
 				m_wndSeekBar.Enable(!g_bNoDuration);
 				m_wndSeekBar.SetRange(rtDur);
 				m_wndSeekBar.SetPos(rtNow);
+				m_wndOverlaySeekBar.UpdateProgress(rtNow, rtDur);
 				m_OSD.SetPosAndRange(rtNow, rtDur);
 				m_Lcd.SetMediaRange(0, rtDur);
 				m_Lcd.SetMediaPos(rtNow);
@@ -4100,6 +4190,13 @@ void CMainFrame::OnMouseMove(UINT nFlags, CPoint point)
 			} else {
 				SetCursor(LoadCursorW(nullptr, IDC_ARROW));
 			}
+		} else if (m_bFullScreen && CanUseOverlaySeekBar()) {
+			// With the docked bars hidden, use the floating seek bar in fullscreen
+			// too. Repeated ShowControls calls would hide it and repaint the video.
+			StopAutoHideCursor();
+			KillTimer(TIMER_FULLSCREENCONTROLBARHIDER);
+			SetTimer(TIMER_MOUSEHIDER, 2000, nullptr);
+			UpdateOverlaySeekBar();
 		} else if (m_bFullScreen) {
 			int nTimeOut = s.nShowBarsWhenFullScreenTimeOut;
 
@@ -5566,6 +5663,7 @@ LRESULT CMainFrame::OnMPCVRSwitchFullscreen(WPARAM wParam, LPARAM lParam)
 
 	FlyBarSetPos();
 	OSDBarSetPos();
+	UpdateOverlaySeekBar();
 
 	return 0;
 }
@@ -7456,6 +7554,7 @@ void CMainFrame::OnUpdateFileClose(CCmdUI* pCmdUI)
 
 void CMainFrame::OnViewCaptionmenu()
 {
+	m_wndOverlaySeekBar.Hide();
 	CAppSettings& s = AfxGetAppSettings();
 	s.iCaptionMenuMode++;
 	s.iCaptionMenuMode %= MODE_COUNT; // three states: normal->borderless->frame only->
@@ -7524,6 +7623,7 @@ void CMainFrame::OnViewCaptionmenu()
 
 	FlyBarSetPos();
 	OSDBarSetPos();
+	UpdateOverlaySeekBar();
 }
 
 void CMainFrame::OnUpdateViewCaptionmenu(CCmdUI* pCmdUI)
@@ -7643,6 +7743,50 @@ void CMainFrame::OnViewNormal()
 		SendMessageW(WM_COMMAND, ID_VIEW_CAPTIONMENU);
 	}
 	ShowControls(CS_SEEKBAR | CS_TOOLBAR | CS_STATUSBAR);
+}
+
+void CMainFrame::OnViewCustom()
+{
+	const auto& s = AfxGetAppSettings();
+	if (!s.bCustomPresetValid || m_bFullScreen || IsD3DFullScreenMode()) {
+		return;
+	}
+
+	while (s.iCaptionMenuMode != s.iCustomPresetCaptionMode) {
+		SendMessageW(WM_COMMAND, ID_VIEW_CAPTIONMENU);
+	}
+	ShowControls(s.nCustomPresetCS);
+}
+
+void CMainFrame::OnViewSaveCustom()
+{
+	if (m_bFullScreen || IsD3DFullScreenMode()) {
+		return;
+	}
+
+	auto& s = AfxGetAppSettings();
+	s.iCustomPresetCaptionMode = s.iCaptionMenuMode;
+	s.nCustomPresetCS = s.nCS & CS_ALL;
+	s.bCustomPresetValid = true;
+	s.SaveSettings();
+
+	const CString message = ResStr(IDS_CUSTOM_PRESET_SAVED);
+	SendStatusMessage(message, 3000);
+	if (s.ShowOSD.Enable && m_eMediaLoadState == MLS_LOADED) {
+		m_OSD.DisplayMessage(OSD_TOPLEFT, message, 3000);
+	} else if (m_eMediaLoadState != MLS_LOADED || !m_wndStatusBar.IsWindowVisible()) {
+		AfxMessageBox(message, MB_OK | MB_ICONINFORMATION);
+	}
+}
+
+void CMainFrame::OnUpdateViewCustom(CCmdUI* pCmdUI)
+{
+	pCmdUI->Enable(AfxGetAppSettings().bCustomPresetValid && !m_bFullScreen && !IsD3DFullScreenMode());
+}
+
+void CMainFrame::OnUpdateViewSaveCustom(CCmdUI* pCmdUI)
+{
+	pCmdUI->Enable(!m_bFullScreen && !IsD3DFullScreenMode());
 }
 
 bool CMainFrame::CanSwitchD3DFS()
@@ -11005,6 +11149,7 @@ CSize CMainFrame::GetVideoSize()
 
 void CMainFrame::ToggleFullscreen(bool fToNearest, bool fSwitchScreenResWhenHasTo)
 {
+	m_wndOverlaySeekBar.Hide();
 	if (IsD3DFullScreenMode()) {
 		return;
 	}
@@ -11250,6 +11395,7 @@ void CMainFrame::ToggleFullscreen(bool fToNearest, bool fSwitchScreenResWhenHasT
 
 void CMainFrame::ToggleD3DFullscreen(bool fSwitchScreenResWhenHasTo)
 {
+	m_wndOverlaySeekBar.Hide();
 	if (m_pD3DFS) {
 		CAppSettings& s = AfxGetAppSettings();
 
@@ -16320,6 +16466,7 @@ void CMainFrame::ShowControls(int nCS, bool fSave)
 		return;
 	}
 
+	m_wndOverlaySeekBar.Hide();
 	auto& s = AfxGetAppSettings();
 	int nCSprev = s.nCS;
 	int hbefore = 0, hafter = 0;
@@ -17702,6 +17849,7 @@ void CMainFrame::ShowOptions(int idPage)
 	CPPageSheet options(ResStr(IDS_OPTIONS_CAPTION), GetModalParent(), idPage);
 
 	m_bInOptions = true;
+	m_wndOverlaySeekBar.Hide();
 	INT_PTR dResult = options.DoModal();
 
 	if (bOnTop) {
@@ -17931,6 +18079,7 @@ bool CMainFrame::DisplayChange()
 
 void CMainFrame::CloseMedia(BOOL bNextIsOpened/* = FALSE*/)
 {
+	m_wndOverlaySeekBar.Hide();
 	if (m_eMediaLoadState == MLS_CLOSING || m_eMediaLoadState == MLS_CLOSED) {
 		return;
 	}

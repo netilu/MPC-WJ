@@ -57,6 +57,8 @@ void CPPageOSD::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_SPIN3, m_spFontSize);
 	DDX_Control(pDX, IDC_SLIDER_OSDTRANS, m_TransparentCtrl);
 	DDX_Slider(pDX, IDC_SLIDER_OSDTRANS, m_nTransparent);
+	DDX_Control(pDX, IDC_SLIDER_MINIMAL_SEEK_TRANS, m_OverlayTransparencyCtrl);
+	DDX_Slider(pDX, IDC_SLIDER_MINIMAL_SEEK_TRANS, m_nOverlayTransparency);
 	DDX_Text(pDX, IDC_EDIT4, m_nBorder);
 	DDX_Control(pDX, IDC_SPIN10, m_BorderCtrl);
 	DDX_Check(pDX, IDC_CHECK_SHADOW, m_bFontShadow);
@@ -98,6 +100,10 @@ BOOL CPPageOSD::OnInitDialog()
 	m_nBorder      = m_nBorder_Old      = s.nOSDBorder;
 
 	m_TransparentCtrl.SetRange(0, 255, TRUE);
+	m_nOverlayTransparency = s.nOverlaySeekBarTransparency;
+	m_OverlayTransparencyCtrl.SetRange(0, 90, TRUE);
+	m_OverlayTransparencyCtrl.SetPageSize(10);
+	UpdateOverlayTransparencyLabel();
 	m_BorderCtrl.SetRange32(0, 5);
 
 	m_FontName = s.strOSDFont;
@@ -157,6 +163,8 @@ BOOL CPPageOSD::OnApply()
 	}
 
 	s.nOSDTransparent = m_nTransparent;
+	s.nOverlaySeekBarTransparency = m_nOverlayTransparency;
+	pFrame->UpdateOverlaySeekBar();
 	s.nOSDBorder      = m_nBorder;
 	s.nOSDSize        = m_edFontSize;
 	m_cbFontName.GetLBText(m_cbFontName.GetCurSel(), s.strOSDFont);
@@ -366,8 +374,21 @@ void CPPageOSD::OnCustomDrawBtns(NMHDR* pNMHDR, LRESULT* pResult)
 	}
 }
 
+void CPPageOSD::UpdateOverlayTransparencyLabel()
+{
+	CString text;
+	text.Format(L"%d%%", m_nOverlayTransparency);
+	SetDlgItemTextW(IDC_MINIMAL_SEEK_TRANS_VALUE, text);
+}
+
 void CPPageOSD::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 {
+	if (pScrollBar && pScrollBar->GetSafeHwnd() == m_OverlayTransparencyCtrl.GetSafeHwnd()) {
+		m_nOverlayTransparency = m_OverlayTransparencyCtrl.GetPos();
+		UpdateOverlayTransparencyLabel();
+		SetModified();
+		return;
+	}
 	CAppSettings& s = AfxGetAppSettings();
 
 	if (*pScrollBar == m_TransparentCtrl) {
@@ -397,6 +418,8 @@ void CPPageOSD::OnBnClickedDefault()
 	m_bFontShadow  = FALSE;
 	m_bFontAA      = TRUE;
 	m_nTransparent = s.nOSDTransparent = 100;
+	m_nOverlayTransparency = 30;
+	UpdateOverlayTransparencyLabel();
 	m_nBorder      = 1;
 	m_colorFont    = RGB(224, 224, 224);
 	m_colorGrad1   = RGB(32, 40, 48);

@@ -490,6 +490,9 @@ BEGIN
     CONTROL         "陰影",IDC_CHECK_SHADOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,224,60,46,9
     CONTROL         "去鋸齒",IDC_CHECK_AA,"Button",BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,224,72,61,18
     PUSHBUTTON      "重設",IDC_BUTTON2,224,8,66,13
+    LTEXT           "最小模式進度列透明度:",IDC_STATIC,12,121,270,10
+    CONTROL         "",IDC_SLIDER_MINIMAL_SEEK_TRANS,"msctls_trackbar32",TBS_NOTICKS | WS_TABSTOP,12,137,234,16
+    RTEXT           "30%",IDC_MINIMAL_SEEK_TRANS_VALUE,251,139,31,10
 END
 
 IDD_PPAGEWINDOWSIZE DIALOGEX 0, 0, 296, 264
@@ -1692,6 +1695,9 @@ BEGIN
             MENUITEM "最小(&M)",                          ID_VIEW_PRESETS_MINIMAL
             MENUITEM "輕巧(&C)",                          ID_VIEW_PRESETS_COMPACT
             MENUITEM "正常(&N)",                          ID_VIEW_PRESETS_NORMAL
+            MENUITEM "自訂(&U)", ID_VIEW_PRESETS_CUSTOM
+            MENUITEM SEPARATOR
+            MENUITEM "將目前配置儲存為自訂(&S)", ID_VIEW_PRESETS_SAVE_CUSTOM
         END
         MENUITEM SEPARATOR
         MENUITEM "全螢幕(&L)",            ID_VIEW_FULLSCREEN
@@ -1884,6 +1890,9 @@ BEGIN
                 MENUITEM "最小(&M)",                          ID_VIEW_PRESETS_MINIMAL
                 MENUITEM "輕巧(&C)",                          ID_VIEW_PRESETS_COMPACT
                 MENUITEM "正常(&N)",                          ID_VIEW_PRESETS_NORMAL
+                MENUITEM "自訂(&U)", ID_VIEW_PRESETS_CUSTOM
+                MENUITEM SEPARATOR
+                MENUITEM "將目前配置儲存為自訂(&S)", ID_VIEW_PRESETS_SAVE_CUSTOM
             END
         END
         MENUITEM SEPARATOR
@@ -1963,6 +1972,9 @@ BEGIN
                 MENUITEM "最小(&M)",                          ID_VIEW_PRESETS_MINIMAL
                 MENUITEM "輕巧(&C)",                          ID_VIEW_PRESETS_COMPACT
                 MENUITEM "正常(&N)",                          ID_VIEW_PRESETS_NORMAL
+                MENUITEM "自訂(&U)", ID_VIEW_PRESETS_CUSTOM
+                MENUITEM SEPARATOR
+                MENUITEM "將目前配置儲存為自訂(&S)", ID_VIEW_PRESETS_SAVE_CUSTOM
             END
             MENUITEM SEPARATOR
             MENUITEM "全螢幕(&L)",            ID_VIEW_FULLSCREEN
@@ -2945,6 +2957,9 @@ BEGIN
     IDS_AG_VIEW_MINIMAL     "最小視窗"
     IDS_AG_VIEW_COMPACT     "輕巧視窗"
     IDS_AG_VIEW_NORMAL      "正常視窗"
+    IDS_AG_VIEW_CUSTOM      "自訂視窗"
+    IDS_AG_SAVE_CUSTOM_PRESET "將目前配置儲存為自訂預設"
+    IDS_CUSTOM_PRESET_SAVED "已儲存自訂預設"
     IDS_AG_FULLSCREEN       "全螢幕"
     IDS_AG_FULLSCREEN_2     "全螢幕（不改變解析度）"
     IDS_AG_ZOOM_AUTO_FIT    "縮放自動調整"

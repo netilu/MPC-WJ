@@ -192,6 +192,9 @@
     <ClCompile Include="PlayerFlyBar.cpp">
       <Filter>Toolbars</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerOverlaySeekBar.cpp">
+      <Filter>Toolbars</Filter>
+    </ClCompile>
     <ClCompile Include="PlayerInfoBar.cpp">
       <Filter>Toolbars</Filter>
     </ClCompile>
@@ -660,6 +663,12 @@
       <Filter>Online</Filter>
     </ClInclude>
     <ClInclude Include="PlayerFlyBar.h">
+      <Filter>Toolbars</Filter>
+    </ClInclude>
+    <ClInclude Include="OverlaySeekBarState.h">
+      <Filter>Toolbars</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerOverlaySeekBar.h">
       <Filter>Toolbars</Filter>
     </ClInclude>
     <ClInclude Include="PlayerInfoBar.h">

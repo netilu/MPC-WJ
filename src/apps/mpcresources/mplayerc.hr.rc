@@ -490,6 +490,9 @@ BEGIN
     CONTROL         "Sjena",IDC_CHECK_SHADOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,224,60,46,9
     CONTROL         "Anti-aliasing",IDC_CHECK_AA,"Button",BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,224,72,61,18
     PUSHBUTTON      "Default",IDC_BUTTON2,224,8,66,13
+    LTEXT           "Minimal mode seek bar transparency:",IDC_STATIC,12,121,270,10
+    CONTROL         "",IDC_SLIDER_MINIMAL_SEEK_TRANS,"msctls_trackbar32",TBS_NOTICKS | WS_TABSTOP,12,137,234,16
+    RTEXT           "30%",IDC_MINIMAL_SEEK_TRANS_VALUE,251,139,31,10
 END
 
 IDD_PPAGEWINDOWSIZE DIALOGEX 0, 0, 296, 264
@@ -1692,6 +1695,9 @@ BEGIN
             MENUITEM "&Minimalno",                    ID_VIEW_PRESETS_MINIMAL
             MENUITEM "&Kompaktno",                    ID_VIEW_PRESETS_COMPACT
             MENUITEM "&Normalno",                     ID_VIEW_PRESETS_NORMAL
+            MENUITEM "C&ustom", ID_VIEW_PRESETS_CUSTOM
+            MENUITEM SEPARATOR
+            MENUITEM "&Save current as custom", ID_VIEW_PRESETS_SAVE_CUSTOM
         END
         MENUITEM SEPARATOR
         MENUITEM "Puni zaslon",                ID_VIEW_FULLSCREEN
@@ -1884,6 +1890,9 @@ BEGIN
                 MENUITEM "&Minimalno",                    ID_VIEW_PRESETS_MINIMAL
                 MENUITEM "&Kompaktno",                    ID_VIEW_PRESETS_COMPACT
                 MENUITEM "&Normalno",                     ID_VIEW_PRESETS_NORMAL
+                MENUITEM "C&ustom", ID_VIEW_PRESETS_CUSTOM
+                MENUITEM SEPARATOR
+                MENUITEM "&Save current as custom", ID_VIEW_PRESETS_SAVE_CUSTOM
             END
         END
         MENUITEM SEPARATOR
@@ -1963,6 +1972,9 @@ BEGIN
                 MENUITEM "&Minimalno",                    ID_VIEW_PRESETS_MINIMAL
                 MENUITEM "&Kompaktno",                    ID_VIEW_PRESETS_COMPACT
                 MENUITEM "&Normalno",                     ID_VIEW_PRESETS_NORMAL
+                MENUITEM "C&ustom", ID_VIEW_PRESETS_CUSTOM
+                MENUITEM SEPARATOR
+                MENUITEM "&Save current as custom", ID_VIEW_PRESETS_SAVE_CUSTOM
             END
             MENUITEM SEPARATOR
             MENUITEM "Puni zaslon",                ID_VIEW_FULLSCREEN
@@ -2945,6 +2957,9 @@ BEGIN
     IDS_AG_VIEW_MINIMAL     "Pogled Minimalno"
     IDS_AG_VIEW_COMPACT     "Pogled Kompaktno"
     IDS_AG_VIEW_NORMAL      "Pogled Normalno"
+    IDS_AG_VIEW_CUSTOM      "View Custom"
+    IDS_AG_SAVE_CUSTOM_PRESET "Save current as custom preset"
+    IDS_CUSTOM_PRESET_SAVED "Custom preset saved"
     IDS_AG_FULLSCREEN       "Puni zaslon"
     IDS_AG_FULLSCREEN_2     "Puni zaslon (w/o rez.promijena)"
     IDS_AG_ZOOM_AUTO_FIT    "Uvećavanje Automatska prilagodba"

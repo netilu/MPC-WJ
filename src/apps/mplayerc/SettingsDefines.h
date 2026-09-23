@@ -60,6 +60,9 @@
 #define IDS_RS_GLOBALMEDIA					L"UseGlobalMedia"
 
 #define IDS_RS_CONTROLSTATE					L"ControlState"
+#define IDS_RS_CUSTOMPRESET_VALID			L"CustomPresetValid"
+#define IDS_RS_CUSTOMPRESET_CAPTIONMODE		L"CustomPresetCaptionMode"
+#define IDS_RS_CUSTOMPRESET_CONTROLSTATE		L"CustomPresetControlState"
 #define IDS_RS_LOOP							L"Loop"
 #define IDS_RS_LOOPNUM						L"LoopNum"
 #define IDS_RS_ENABLESUBTITLES				L"EnableSubtitles"
@@ -214,6 +217,7 @@
 #define IDS_RS_OSD_GRADCOLOR1				L"GradColor1"
 #define IDS_RS_OSD_GRADCOLOR2				L"GradColor2"
 #define IDS_RS_OSD_TRANSPARENT				L"Transparent"
+#define IDS_RS_OVERLAY_SEEKBAR_TRANSPARENCY	L"MinimalSeekBarTransparency"
 #define IDS_RS_OSD_BORDER					L"Border"
 #define IDS_RS_OSD_REMAINING_TIME			L"RemainingTime"
 #define IDS_RS_OSD_LOCAL_TIME				L"LocalTime"

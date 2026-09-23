@@ -489,6 +489,9 @@ BEGIN
     CONTROL         "Đổ bóng",IDC_CHECK_SHADOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,224,60,46,9
     CONTROL         "Khử răng cưa",IDC_CHECK_AA,"Button",BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,224,72,61,18
     PUSHBUTTON      "Mặc định",IDC_BUTTON2,224,8,66,13
+    LTEXT           "Minimal mode seek bar transparency:",IDC_STATIC,12,121,270,10
+    CONTROL         "",IDC_SLIDER_MINIMAL_SEEK_TRANS,"msctls_trackbar32",TBS_NOTICKS | WS_TABSTOP,12,137,234,16
+    RTEXT           "30%",IDC_MINIMAL_SEEK_TRANS_VALUE,251,139,31,10
 END
 
 IDD_PPAGEWINDOWSIZE DIALOGEX 0, 0, 296, 264
@@ -1691,6 +1694,9 @@ BEGIN
             MENUITEM "&Tối thiểu",                    ID_VIEW_PRESETS_MINIMAL
             MENUITEM "&Thu gọn",                    ID_VIEW_PRESETS_COMPACT
             MENUITEM "&Bình thường",                     ID_VIEW_PRESETS_NORMAL
+            MENUITEM "C&ustom", ID_VIEW_PRESETS_CUSTOM
+            MENUITEM SEPARATOR
+            MENUITEM "&Save current as custom", ID_VIEW_PRESETS_SAVE_CUSTOM
         END
         MENUITEM SEPARATOR
         MENUITEM "Toàn màn &hình",                ID_VIEW_FULLSCREEN
@@ -1883,6 +1889,9 @@ BEGIN
                 MENUITEM "&Tối thiểu",                    ID_VIEW_PRESETS_MINIMAL
                 MENUITEM "&Thu gọn",                    ID_VIEW_PRESETS_COMPACT
                 MENUITEM "&Bình thường",                     ID_VIEW_PRESETS_NORMAL
+                MENUITEM "C&ustom", ID_VIEW_PRESETS_CUSTOM
+                MENUITEM SEPARATOR
+                MENUITEM "&Save current as custom", ID_VIEW_PRESETS_SAVE_CUSTOM
             END
         END
         MENUITEM SEPARATOR
@@ -1962,6 +1971,9 @@ BEGIN
                 MENUITEM "&Tối thiểu",                    ID_VIEW_PRESETS_MINIMAL
                 MENUITEM "&Thu gọn",                    ID_VIEW_PRESETS_COMPACT
                 MENUITEM "&Bình thường",                     ID_VIEW_PRESETS_NORMAL
+                MENUITEM "C&ustom", ID_VIEW_PRESETS_CUSTOM
+                MENUITEM SEPARATOR
+                MENUITEM "&Save current as custom", ID_VIEW_PRESETS_SAVE_CUSTOM
             END
             MENUITEM SEPARATOR
             MENUITEM "Toàn màn &hình",                ID_VIEW_FULLSCREEN
@@ -2944,6 +2956,9 @@ BEGIN
     IDS_AG_VIEW_MINIMAL     "Xem tối thiểu"
     IDS_AG_VIEW_COMPACT     "Xem thu gọn"
     IDS_AG_VIEW_NORMAL      "Xem bình thường"
+    IDS_AG_VIEW_CUSTOM      "View Custom"
+    IDS_AG_SAVE_CUSTOM_PRESET "Save current as custom preset"
+    IDS_CUSTOM_PRESET_SAVED "Custom preset saved"
     IDS_AG_FULLSCREEN       "Toàn màn hình"
     IDS_AG_FULLSCREEN_2     "Toàn màn hình (không đổi độ phân giải)"
     IDS_AG_ZOOM_AUTO_FIT    "Thu phóng tự động vừa"
