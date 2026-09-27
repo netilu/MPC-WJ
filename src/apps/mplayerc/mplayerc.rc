@@ -2977,6 +2977,7 @@ BEGIN
     IDS_AG_VIEW_CUSTOM      "View Custom"
     IDS_AG_SAVE_CUSTOM_PRESET "Save current as custom preset"
     IDS_CUSTOM_PRESET_SAVED "Custom preset saved"
+    IDS_SHOW_PASSIVE_SEEK_LINE "Show bottom progress line in minimal layout"
     IDS_AG_FULLSCREEN       "Fullscreen"
     IDS_AG_FULLSCREEN_2     "Fullscreen (w/o res.change)"
     IDS_AG_ZOOM_AUTO_FIT    "Zoom Auto Fit"

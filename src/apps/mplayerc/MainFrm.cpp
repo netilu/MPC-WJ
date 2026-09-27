@@ -1766,7 +1766,9 @@ void CMainFrame::UpdateOverlaySeekBar()
 		m_wndOverlaySeekBar.Hide();
 		return;
 	}
-	m_wndOverlaySeekBar.UpdateLayout(view, ScaleX(96), ScaleY(96), AfxGetAppSettings().nOverlaySeekBarTransparency);
+	const auto& s = AfxGetAppSettings();
+	const bool passiveAllowed = s.bShowPassiveSeekLine && s.iCaptionMenuMode == MODE_BORDERLESS && s.nCS == CS_NONE;
+	m_wndOverlaySeekBar.UpdateLayout(view, ScaleX(96), ScaleY(96), s.nOverlaySeekBarTransparency, passiveAllowed);
 	m_wndOverlaySeekBar.UpdateProgress(m_wndSeekBar.GetPos(), m_wndSeekBar.GetRange());
 	CPoint cursor;
 	GetCursorPos(&cursor);

@@ -49,6 +49,7 @@ public:
 	CSliderCtrl m_TransparentCtrl;
 	int m_nOverlayTransparency = 30;
 	CSliderCtrl m_OverlayTransparencyCtrl;
+	CButton m_ShowPassiveSeekLineCtrl;
 	void UpdateOverlayTransparencyLabel();
 	int  m_nBorder      = 1;
 	CSpinButtonCtrl m_BorderCtrl;
@@ -89,4 +90,5 @@ public:
 	afx_msg void OnCustomDrawBtns(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	afx_msg void OnBnClickedDefault();
+	afx_msg void OnShowPassiveSeekLine();
 };

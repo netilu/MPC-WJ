@@ -691,6 +691,7 @@ void CAppSettings::ResetSettings()
 	bOSDFontAA = true;
 	nOSDTransparent = 100;
 	nOverlaySeekBarTransparency = 30;
+	bShowPassiveSeekLine = true;
 	nOSDBorder = 1;
 
 	clrFaceABGR = 0x00ffffff;
@@ -1293,6 +1294,7 @@ void CAppSettings::LoadSettings(bool bForce/* = false*/)
 	profile.ReadHex32(IDS_R_OSD, IDS_RS_OSD_GRADCOLOR2, *(unsigned*)&clrGrad2ABGR);
 	profile.ReadInt(IDS_R_OSD, IDS_RS_OSD_TRANSPARENT, nOSDTransparent);
 	profile.ReadInt(IDS_R_OSD, IDS_RS_OVERLAY_SEEKBAR_TRANSPARENCY, nOverlaySeekBarTransparency, 0, 90);
+	profile.ReadBool(IDS_R_OSD, IDS_RS_SHOW_PASSIVE_SEEK_LINE, bShowPassiveSeekLine);
 	profile.ReadInt(IDS_R_OSD, IDS_RS_OSD_BORDER, nOSDBorder);
 	profile.ReadBool(IDS_R_OSD, IDS_RS_OSD_REMAINING_TIME, bOSDRemainingTime);
 	profile.ReadBool(IDS_R_OSD, IDS_RS_OSD_LOCAL_TIME, bOSDLocalTime);
@@ -1926,6 +1928,7 @@ void CAppSettings::SaveSettings()
 	profile.WriteHex32(IDS_R_OSD, IDS_RS_OSD_GRADCOLOR2, clrGrad2ABGR);
 	profile.WriteInt(IDS_R_OSD, IDS_RS_OSD_TRANSPARENT, nOSDTransparent);
 	profile.WriteInt(IDS_R_OSD, IDS_RS_OVERLAY_SEEKBAR_TRANSPARENCY, nOverlaySeekBarTransparency);
+	profile.WriteBool(IDS_R_OSD, IDS_RS_SHOW_PASSIVE_SEEK_LINE, bShowPassiveSeekLine);
 	profile.WriteInt(IDS_R_OSD, IDS_RS_OSD_BORDER, nOSDBorder);
 	profile.WriteBool(IDS_R_OSD, IDS_RS_OSD_REMAINING_TIME, bOSDRemainingTime);
 	profile.WriteBool(IDS_R_OSD, IDS_RS_OSD_LOCAL_TIME, bOSDLocalTime);

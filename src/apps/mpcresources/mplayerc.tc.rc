@@ -2960,6 +2960,7 @@ BEGIN
     IDS_AG_VIEW_CUSTOM      "自訂視窗"
     IDS_AG_SAVE_CUSTOM_PRESET "將目前配置儲存為自訂預設"
     IDS_CUSTOM_PRESET_SAVED "已儲存自訂預設"
+    IDS_SHOW_PASSIVE_SEEK_LINE "在最小版面顯示底部進度線"
     IDS_AG_FULLSCREEN       "全螢幕"
     IDS_AG_FULLSCREEN_2     "全螢幕（不改變解析度）"
     IDS_AG_ZOOM_AUTO_FIT    "縮放自動調整"
@@ -4023,4 +4024,3 @@ LANGUAGE 9, 1
 #endif
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
-

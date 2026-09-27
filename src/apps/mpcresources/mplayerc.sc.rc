@@ -2961,6 +2961,7 @@ BEGIN
     IDS_AG_VIEW_CUSTOM      "自定义视图"
     IDS_AG_SAVE_CUSTOM_PRESET "保存当前为自定义预设"
     IDS_CUSTOM_PRESET_SAVED "已保存自定义预设"
+    IDS_SHOW_PASSIVE_SEEK_LINE "在最小布局显示底部进度线"
     IDS_AG_FULLSCREEN       "全屏幕"
     IDS_AG_FULLSCREEN_2     "全屏幕 (不改分辨率)"
     IDS_AG_ZOOM_AUTO_FIT    "自动适应缩放"

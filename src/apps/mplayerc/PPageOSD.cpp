@@ -81,6 +81,7 @@ BEGIN_MESSAGE_MAP(CPPageOSD, CPPageBase)
 	ON_BN_CLICKED(IDC_BUTTON_CLRGRAD1, OnClickClrGrad1)
 	ON_BN_CLICKED(IDC_BUTTON_CLRGRAD2, OnClickClrGrad2)
 	ON_BN_CLICKED(IDC_BUTTON2, OnBnClickedDefault)
+	ON_BN_CLICKED(IDC_SHOW_PASSIVE_SEEK_LINE, OnShowPassiveSeekLine)
 	ON_WM_HSCROLL()
 END_MESSAGE_MAP()
 
@@ -104,6 +105,14 @@ BOOL CPPageOSD::OnInitDialog()
 	m_OverlayTransparencyCtrl.SetRange(0, 90, TRUE);
 	m_OverlayTransparencyCtrl.SetPageSize(10);
 	UpdateOverlayTransparencyLabel();
+	CRect passiveLineBounds(12, 159, 282, 172);
+	MapDialogRect(&passiveLineBounds);
+	if (m_ShowPassiveSeekLineCtrl.Create(ResStr(IDS_SHOW_PASSIVE_SEEK_LINE),
+			WS_CHILD | WS_VISIBLE | WS_TABSTOP | BS_AUTOCHECKBOX,
+			passiveLineBounds, this, IDC_SHOW_PASSIVE_SEEK_LINE)) {
+		m_ShowPassiveSeekLineCtrl.SetFont(GetFont());
+		m_ShowPassiveSeekLineCtrl.SetCheck(s.bShowPassiveSeekLine ? BST_CHECKED : BST_UNCHECKED);
+	}
 	m_BorderCtrl.SetRange32(0, 5);
 
 	m_FontName = s.strOSDFont;
@@ -164,6 +173,9 @@ BOOL CPPageOSD::OnApply()
 
 	s.nOSDTransparent = m_nTransparent;
 	s.nOverlaySeekBarTransparency = m_nOverlayTransparency;
+	if (m_ShowPassiveSeekLineCtrl.GetSafeHwnd()) {
+		s.bShowPassiveSeekLine = m_ShowPassiveSeekLineCtrl.GetCheck() == BST_CHECKED;
+	}
 	pFrame->UpdateOverlaySeekBar();
 	s.nOSDBorder      = m_nBorder;
 	s.nOSDSize        = m_edFontSize;
@@ -420,6 +432,9 @@ void CPPageOSD::OnBnClickedDefault()
 	m_nTransparent = s.nOSDTransparent = 100;
 	m_nOverlayTransparency = 30;
 	UpdateOverlayTransparencyLabel();
+	if (m_ShowPassiveSeekLineCtrl.GetSafeHwnd()) {
+		m_ShowPassiveSeekLineCtrl.SetCheck(BST_CHECKED);
+	}
 	m_nBorder      = 1;
 	m_colorFont    = RGB(224, 224, 224);
 	m_colorGrad1   = RGB(32, 40, 48);
@@ -438,4 +453,10 @@ void CPPageOSD::OnBnClickedDefault()
 	m_colorFont_Old    = s.clrFontABGR;
 	m_colorGrad1_Old   = s.clrGrad1ABGR;
 	m_colorGrad2_Old   = s.clrGrad2ABGR;
+	SetModified();
+}
+
+void CPPageOSD::OnShowPassiveSeekLine()
+{
+	SetModified();
 }

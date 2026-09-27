@@ -218,6 +218,7 @@
 #define IDS_RS_OSD_GRADCOLOR2				L"GradColor2"
 #define IDS_RS_OSD_TRANSPARENT				L"Transparent"
 #define IDS_RS_OVERLAY_SEEKBAR_TRANSPARENCY	L"MinimalSeekBarTransparency"
+#define IDS_RS_SHOW_PASSIVE_SEEK_LINE	L"ShowPassiveSeekLine"
 #define IDS_RS_OSD_BORDER					L"Border"
 #define IDS_RS_OSD_REMAINING_TIME			L"RemainingTime"
 #define IDS_RS_OSD_LOCAL_TIME				L"LocalTime"

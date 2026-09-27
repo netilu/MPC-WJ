@@ -17,6 +17,7 @@ BEGIN_MESSAGE_MAP(CPlayerOverlaySeekBar, CWnd)
 	ON_WM_CAPTURECHANGED()
 	ON_WM_CANCELMODE()
 	ON_WM_SETCURSOR()
+	ON_WM_NCHITTEST()
 END_MESSAGE_MAP()
 
 BOOL CPlayerOverlaySeekBar::Create(CMainFrame* pMainFrame)
@@ -28,12 +29,21 @@ BOOL CPlayerOverlaySeekBar::Create(CMainFrame* pMainFrame)
 		return FALSE;
 	}
 	ModifyStyleEx(WS_EX_LAYOUTRTL, WS_EX_NOINHERITLAYOUT);
+	if (m_tooltip.Create(this, TTS_NOPREFIX | TTS_ALWAYSTIP)) {
+		m_tooltip.SetMaxTipWidth(SHRT_MAX);
+		m_toolInfo.hwnd = m_hWnd;
+		m_toolInfo.hinst = AfxGetInstanceHandle();
+		m_toolInfo.uId = (UINT_PTR)m_hWnd;
+		m_tooltip.SendMessageW(TTM_ADDTOOLW, 0, (LPARAM)&m_toolInfo);
+	}
 	return TRUE;
 }
 
 void CPlayerOverlaySeekBar::Hide()
 {
+	HidePointerFeedback();
 	m_state.Hide();
+	m_passiveAllowed = false;
 	m_lastSeekPosition = -1;
 	if (!GetSafeHwnd()) {
 		return;
@@ -46,18 +56,37 @@ void CPlayerOverlaySeekBar::Hide()
 	}
 }
 
-void CPlayerOverlaySeekBar::UpdateLayout(const CRect& view, int dpiX, int dpiY, int transparency)
+void CPlayerOverlaySeekBar::UpdateLayout(const CRect& view, int dpiX, int dpiY, int transparency, bool passiveAllowed)
 {
+	m_viewRect = view;
+	m_passiveAllowed = passiveAllowed;
 	if (m_scaleX != dpiX || m_scaleY != dpiY || !m_font.GetSafeHandle()) {
 		m_scaleX = dpiX;
 		m_scaleY = dpiY;
 		m_font.DeleteObject();
-		m_font.CreateFontW(-ScaleY(12), 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE,
+		m_font.CreateFontW(-ScaleY(11), 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE,
 			DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS,
 			ANTIALIASED_QUALITY, DEFAULT_PITCH, L"Segoe UI");
+		UpdateTimeLabelWidth();
 	}
-	CRect bounds(view.left + ScaleX(12), view.bottom - ScaleY(48),
-		view.right - ScaleX(12), view.bottom - ScaleY(8));
+	m_transparency = std::clamp(transparency, 0, 90);
+	ApplyPresentation();
+}
+
+void CPlayerOverlaySeekBar::ApplyPresentation()
+{
+	const bool passive = m_passiveAllowed && !m_state.visible;
+	const CRect bounds = passive
+		? CRect(m_viewRect.left, m_viewRect.bottom - std::max(1, ScaleY(2)), m_viewRect.right, m_viewRect.bottom)
+		: CRect(m_viewRect.left + ScaleX(4), m_viewRect.bottom - ScaleY(29),
+			m_viewRect.right - ScaleX(4), m_viewRect.bottom - ScaleY(5));
+	const bool presentationChanged = m_passive != passive;
+	if (presentationChanged) {
+		m_passive = passive;
+		ModifyStyleEx(passive ? 0 : WS_EX_TRANSPARENT, passive ? WS_EX_TRANSPARENT : 0,
+			SWP_FRAMECHANGED | SWP_NOZORDER | SWP_NOACTIVATE);
+		Invalidate(FALSE);
+	}
 	CRect current;
 	GetWindowRect(current);
 	if (current != bounds) {
@@ -65,39 +94,186 @@ void CPlayerOverlaySeekBar::UpdateLayout(const CRect& view, int dpiX, int dpiY, 
 			SWP_NOZORDER | SWP_NOACTIVATE);
 		Invalidate(FALSE);
 	}
-	transparency = std::clamp(transparency, 0, 90);
-	if (m_transparency != transparency) {
-		m_transparency = transparency;
-		SetLayeredWindowAttributes(0, OverlaySeekBarState::AlphaFromTransparency(transparency), LWA_ALPHA);
+	const BYTE alpha = OverlaySeekBarState::AlphaFromTransparency(m_transparency);
+	const BYTE targetAlpha = passive ? std::min<BYTE>(alpha, 128) : alpha;
+	if (presentationChanged || m_displayAlpha != targetAlpha) {
+		m_displayAlpha = targetAlpha;
+		SetLayeredWindowAttributes(passive ? RGB(1, 2, 3) : 0, targetAlpha,
+			passive ? LWA_ALPHA | LWA_COLORKEY : LWA_ALPHA);
 	}
 }
 
 void CPlayerOverlaySeekBar::UpdateProgress(REFERENCE_TIME position, REFERENCE_TIME duration)
 {
-	if (m_state.UpdateProgress(position, duration) && GetSafeHwnd() && IsWindowVisible()) {
+	const auto oldDuration = m_state.duration;
+	const bool changed = m_state.UpdateProgress(position, duration);
+	if (m_state.duration != oldDuration) {
+		UpdateTimeLabelWidth();
+	}
+	if (changed && GetSafeHwnd() && IsWindowVisible()) {
 		Invalidate(FALSE);
 	}
 }
 
 void CPlayerOverlaySeekBar::UpdateHover(bool inHotZone)
 {
-	if (m_state.UpdateHover(inHotZone, GetTickCount64())) {
-		if (!IsWindowVisible()) {
-			ShowWindow(SW_SHOWNOACTIVATE);
-		}
-	} else if (IsWindowVisible()) {
+	const bool active = m_state.UpdateHover(inHotZone, GetTickCount64());
+	if (!active && !m_passiveAllowed) {
 		Hide();
+		return;
 	}
+	ApplyPresentation();
+	if (!IsWindowVisible()) {
+		ShowWindow(SW_SHOWNOACTIVATE);
+	}
+	if (active) {
+		UpdatePointerFeedback();
+	} else {
+		HidePointerFeedback();
+	}
+}
+
+void CPlayerOverlaySeekBar::UpdateTimeLabelWidth()
+{
+	if (!GetSafeHwnd() || !m_font.GetSafeHandle()) {
+		return;
+	}
+	CClientDC dc(this);
+	const auto oldFont = dc.SelectObject(&m_font);
+	m_timeLabelWidth = dc.GetTextExtent(ReftimeToString2(m_state.duration, false)).cx;
+	dc.SelectObject(oldFont);
+}
+
+bool CPlayerOverlaySeekBar::ShowTimeLabels() const
+{
+	CRect rect;
+	GetClientRect(rect);
+	const int innerWidth = rect.Width() - 2 * ScaleX(4);
+	return OverlaySeekBarState::TimeLabelsFit(innerWidth, m_timeLabelWidth, ScaleX(4), ScaleX(64));
 }
 
 CRect CPlayerOverlaySeekBar::TrackRect() const
 {
 	CRect rect;
 	GetClientRect(rect);
-	rect.DeflateRect(ScaleX(12), 0);
-	rect.top = ScaleY(26);
+	rect.DeflateRect(ScaleX(4), 0);
+	if (ShowTimeLabels()) {
+		rect.left += m_timeLabelWidth + ScaleX(4);
+		rect.right -= m_timeLabelWidth + ScaleX(4);
+	}
+	rect.top = (rect.Height() - std::max(2, ScaleY(4))) / 2;
 	rect.bottom = rect.top + std::max(2, ScaleY(4));
 	return rect;
+}
+
+void CPlayerOverlaySeekBar::HidePointerFeedback()
+{
+	if (m_tooltipVisible && m_tooltip.GetSafeHwnd()) {
+		m_tooltip.SendMessageW(TTM_TRACKACTIVATE, FALSE, (LPARAM)&m_toolInfo);
+	}
+	if (m_previewOwned) {
+		m_pMainFrame->PreviewWindowHide();
+	}
+	m_tooltipVisible = m_previewOwned = false;
+	m_hoverPosition = m_lastPreviewPosition = -1;
+	m_hoverStart = m_lastPreviewUpdate = 0;
+}
+
+void CPlayerOverlaySeekBar::ShowTimeTooltip(CPoint screenPoint, REFERENCE_TIME position)
+{
+	if (!m_tooltip.GetSafeHwnd()) {
+		return;
+	}
+	m_hoverText = ReftimeToString2(position, false);
+	m_toolInfo.lpszText = (LPWSTR)(LPCWSTR)m_hoverText;
+	m_tooltip.SendMessageW(TTM_SETTOOLINFOW, 0, (LPARAM)&m_toolInfo);
+	const CSize size = m_tooltip.GetBubbleSize(&m_toolInfo);
+	MONITORINFO monitor = { sizeof(monitor) };
+	GetMonitorInfoW(MonitorFromPoint(screenPoint, MONITOR_DEFAULTTONEAREST), &monitor);
+	const int minX = monitor.rcWork.left + 4;
+	const int maxX = std::max<int>(minX, monitor.rcWork.right - size.cx - 4);
+	const int x = std::clamp<int>(screenPoint.x - size.cx / 2, minX, maxX);
+	int y = screenPoint.y - size.cy - ScaleY(12);
+	if (y < monitor.rcWork.top + 4) {
+		y = screenPoint.y + ScaleY(16);
+	}
+	m_tooltip.SendMessageW(TTM_TRACKPOSITION, 0, MAKELPARAM(x, y));
+	if (!m_tooltipVisible) {
+		m_tooltip.SendMessageW(TTM_TRACKACTIVATE, TRUE, (LPARAM)&m_toolInfo);
+		m_tooltipVisible = true;
+	}
+}
+
+bool CPlayerOverlaySeekBar::ShowPreview(CPoint screenPoint, REFERENCE_TIME position)
+{
+	if (!m_pMainFrame->CanPreviewUse()) {
+		return false;
+	}
+	auto& preview = m_pMainFrame->m_wndPreView;
+	preview.SetWindowSize();
+	CRect bounds;
+	preview.GetWindowRect(bounds);
+	MONITORINFO monitor = { sizeof(monitor) };
+	GetMonitorInfoW(MonitorFromPoint(screenPoint, MONITOR_DEFAULTTONEAREST), &monitor);
+	const int minX = monitor.rcWork.left + 4;
+	const int maxX = std::max(minX, (int)monitor.rcWork.right - bounds.Width() - 4);
+	const int x = std::clamp<int>(screenPoint.x - bounds.Width() / 2, minX, maxX);
+	CRect bar;
+	GetWindowRect(bar);
+	const int y = std::max<int>(monitor.rcWork.top + 4, bar.top - bounds.Height() - ScaleY(10));
+	preview.SetWindowPos(nullptr, x, y, 0, 0, SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE);
+	const ULONGLONG now = GetTickCount64();
+	if (m_previewOwned && (position == m_lastPreviewPosition || now - m_lastPreviewUpdate < 50)) {
+		return true;
+	}
+	preview.SetWindowTextW(ReftimeToString2(position, false));
+	if (FAILED(m_pMainFrame->PreviewWindowShow(position))) {
+		return false;
+	}
+	m_previewOwned = true;
+	m_lastPreviewPosition = position;
+	m_lastPreviewUpdate = now;
+	return true;
+}
+
+void CPlayerOverlaySeekBar::UpdatePointerFeedback()
+{
+	if (!GetSafeHwnd() || !IsWindowVisible() || !m_state.visible || m_state.duration <= 0) {
+		HidePointerFeedback();
+		return;
+	}
+	CPoint screenPoint;
+	GetCursorPos(&screenPoint);
+	CPoint point(screenPoint);
+	ScreenToClient(&point);
+	CRect client;
+	GetClientRect(client);
+	const CRect track = TrackRect();
+	const bool overTrack = client.PtInRect(point) && point.x >= track.left && point.x <= track.right
+		&& ::WindowFromPoint(screenPoint) == m_hWnd;
+	if (!overTrack && !m_state.dragging) {
+		HidePointerFeedback();
+		return;
+	}
+	const REFERENCE_TIME position = OverlaySeekBarState::PositionAtPixel(
+		(std::int64_t)point.x - track.left, track.Width(), m_state.duration);
+	if (m_hoverPosition < 0) {
+		m_hoverStart = GetTickCount64();
+	}
+	m_hoverPosition = position;
+	if (m_pMainFrame->CanPreviewUse() && GetTickCount64() - m_hoverStart >= 200
+			&& ShowPreview(screenPoint, position)) {
+		if (m_tooltipVisible) {
+			m_tooltip.SendMessageW(TTM_TRACKACTIVATE, FALSE, (LPARAM)&m_toolInfo);
+			m_tooltipVisible = false;
+		}
+	} else {
+		if (m_previewOwned) {
+			m_pMainFrame->PreviewWindowHide();
+			m_previewOwned = false;
+		}
+		ShowTimeTooltip(screenPoint, position);
+	}
 }
 
 void CPlayerOverlaySeekBar::OnPaint()
@@ -106,6 +282,13 @@ void CPlayerOverlaySeekBar::OnPaint()
 	CRect rect;
 	GetClientRect(rect);
 	if (rect.IsRectEmpty()) {
+		return;
+	}
+	if (m_passive) {
+		const int progressX = rect.left + (m_state.duration > 0
+			? (int)(rect.Width() * (double)m_state.position / m_state.duration) : 0);
+		paint.FillSolidRect(rect, RGB(1, 2, 3));
+		paint.FillSolidRect(CRect(rect.left, rect.top, progressX, rect.bottom), RGB(41, 86, 110));
 		return;
 	}
 	CDC dc;
@@ -118,12 +301,12 @@ void CPlayerOverlaySeekBar::OnPaint()
 	const auto oldFont = dc.SelectObject(&m_font);
 	dc.SetBkMode(TRANSPARENT);
 	dc.SetTextColor(RGB(245, 245, 245));
-	CString text = ReftimeToString2(m_state.position, false) + L" / " + ReftimeToString2(m_state.duration, false);
-	CRect textRect(rect);
-	textRect.DeflateRect(ScaleX(12), 0);
-	textRect.top = ScaleY(3);
-	textRect.bottom = ScaleY(21);
-	dc.DrawTextW(text, textRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE | DT_END_ELLIPSIS | DT_NOPREFIX);
+	if (ShowTimeLabels()) {
+		CRect left(rect.left + ScaleX(4), rect.top, rect.left + ScaleX(4) + m_timeLabelWidth, rect.bottom);
+		CRect right(rect.right - ScaleX(4) - m_timeLabelWidth, rect.top, rect.right - ScaleX(4), rect.bottom);
+		dc.DrawTextW(ReftimeToString2(m_state.position, false), left, DT_LEFT | DT_VCENTER | DT_SINGLELINE | DT_NOPREFIX);
+		dc.DrawTextW(ReftimeToString2(m_state.duration, false), right, DT_RIGHT | DT_VCENTER | DT_SINGLELINE | DT_NOPREFIX);
+	}
 
 	const CRect track = TrackRect();
 	const int width = std::max(0, track.Width());
@@ -145,6 +328,9 @@ void CPlayerOverlaySeekBar::OnPaint()
 
 void CPlayerOverlaySeekBar::Seek(CPoint point)
 {
+	if (!m_state.visible) {
+		return;
+	}
 	const CRect track = TrackRect();
 	const int width = track.Width();
 	if (width <= 0 || m_state.duration <= 0) {
@@ -170,11 +356,12 @@ void CPlayerOverlaySeekBar::Seek(CPoint point)
 
 void CPlayerOverlaySeekBar::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	if (m_state.duration > 0) {
+	if (m_state.visible && m_state.duration > 0) {
 		m_lastSeekPosition = -1;
 		m_state.dragging = true;
 		SetCapture();
 		Seek(point);
+		UpdatePointerFeedback();
 	}
 }
 
@@ -186,6 +373,7 @@ void CPlayerOverlaySeekBar::OnLButtonUp(UINT nFlags, CPoint point)
 		if (::GetCapture() == m_hWnd) {
 			ReleaseCapture();
 		}
+		UpdatePointerFeedback();
 	}
 }
 
@@ -194,6 +382,7 @@ void CPlayerOverlaySeekBar::OnMouseMove(UINT nFlags, CPoint point)
 	if (m_state.dragging && (nFlags & MK_LBUTTON)) {
 		Seek(point);
 	}
+	UpdatePointerFeedback();
 }
 
 void CPlayerOverlaySeekBar::OnCaptureChanged(CWnd* pWnd)
@@ -211,6 +400,14 @@ void CPlayerOverlaySeekBar::OnCancelMode()
 
 BOOL CPlayerOverlaySeekBar::OnSetCursor(CWnd*, UINT, UINT)
 {
+	if (m_passive) {
+		return FALSE;
+	}
 	::SetCursor(LoadCursorW(nullptr, IDC_HAND));
 	return TRUE;
+}
+
+LRESULT CPlayerOverlaySeekBar::OnNcHitTest(CPoint point)
+{
+	return m_passive ? HTTRANSPARENT : __super::OnNcHitTest(point);
 }

@@ -134,6 +134,7 @@ class CMainFrame : public CFrameWnd, public CDropTarget, public CDPI
 	friend class CThumbsTaskDlg;
 	friend class CThumbnailGenerator;
 	friend class CThumbnailBatchDlg;
+	friend class CPlayerOverlaySeekBar;
 	bool m_bThumbnailBatch = false;
 	bool m_bThumbnailRestoring = false;
 	bool m_bThumbnailInternalOpen = false;

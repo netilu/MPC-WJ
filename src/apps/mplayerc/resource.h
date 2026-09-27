@@ -1815,17 +1815,19 @@
 #define IDS_AG_VIEW_CUSTOM             44105
 #define IDS_AG_SAVE_CUSTOM_PRESET      44106
 #define IDS_CUSTOM_PRESET_SAVED        44107
+#define IDS_SHOW_PASSIVE_SEEK_LINE      44108
 
 #define IDC_SLIDER_MINIMAL_SEEK_TRANS    22054
 #define IDC_MINIMAL_SEEK_TRANS_VALUE     22055
+#define IDC_SHOW_PASSIVE_SEEK_LINE       22056
 
 // Next default values for new objects
 //
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        44108
+#define _APS_NEXT_RESOURCE_VALUE        44109
 #define _APS_NEXT_COMMAND_VALUE         1206
-#define _APS_NEXT_CONTROL_VALUE         22056
+#define _APS_NEXT_CONTROL_VALUE         22057
 #define _APS_NEXT_SYMED_VALUE           24044
 #endif
 #endif

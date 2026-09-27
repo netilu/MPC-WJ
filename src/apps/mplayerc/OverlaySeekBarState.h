@@ -66,4 +66,9 @@ struct OverlaySeekBarState
 	{
 		return (unsigned char)((255 * (100 - std::clamp(percent, 0, 90)) + 50) / 100);
 	}
+
+	static bool TimeLabelsFit(int width, int labelWidth, int gap, int minTrackWidth)
+	{
+		return width >= 2 * (labelWidth + gap) + minTrackWidth;
+	}
 };

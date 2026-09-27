@@ -750,6 +750,7 @@ public:
 	bool			bOSDFontAA;
 	int				nOSDTransparent;
 	int				nOverlaySeekBarTransparency;
+	bool			bShowPassiveSeekLine;
 	int				nOSDBorder;
 	COLORREF		clrFontABGR;
 	COLORREF		clrGrad1ABGR;

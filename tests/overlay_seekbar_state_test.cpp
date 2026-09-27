@@ -58,5 +58,8 @@ int main()
 	assert(State::AlphaFromTransparency(90) == 26);
 	assert(State::AlphaFromTransparency(-10) == 255);
 	assert(State::AlphaFromTransparency(100) == 26);
-	std::cout << "PASS: overlay visibility, drag retention, time mapping, transparency.\n";
+	assert(State::TimeLabelsFit(200, 64, 4, 64));
+	assert(!State::TimeLabelsFit(199, 64, 4, 64));
+	assert(!State::TimeLabelsFit(100, 64, 4, 64));
+	std::cout << "PASS: overlay visibility, drag retention, time mapping, transparency, narrow layout.\n";
 }
