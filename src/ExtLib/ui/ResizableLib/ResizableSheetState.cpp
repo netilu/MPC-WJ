@@ -68,7 +68,7 @@ BOOL CResizableSheetState::SavePage(LPCTSTR pszName)
 	CString data;
 	data.Format(_T("%i"), page);
 
-	// MPC-BE custom code
+	// MPC-WJ custom code
 	return WriteState(CString(pszName), ACTIVEPAGE_ENT, data);
 }
 
@@ -85,7 +85,7 @@ BOOL CResizableSheetState::LoadPage(LPCTSTR pszName)
 	// restore active page, zero (the first) if not found
 
 	CString data;
-	// MPC-BE custom code
+	// MPC-WJ custom code
 	if (!ReadState(CString(pszName), ACTIVEPAGE_ENT, data))
 		return FALSE;
 

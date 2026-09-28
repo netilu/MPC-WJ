@@ -218,11 +218,11 @@ CAPTION "정보"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "Copyright © 2002-2026 'Authors.txt' 참조",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "버전 :",IDC_VERSION,30,34,90,8
-    LTEXT           "MPC-BE 컴파일러 :",IDC_STATIC,30,66,90,8
+    LTEXT           "MPC-WJ 컴파일러 :",IDC_STATIC,30,66,90,8
     LTEXT           "FFmpeg 컴파일러 :",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil :",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,9 +230,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "이 앱은 프리웨어이며 GNU GPL 라이선스로 배포됩니다.",IDC_STATIC,30,138,200,18
     LTEXT           "한글화 : Hack茶ん <https://blog.naver.com/jhacker>",IDC_STATIC,30,161,200,18
@@ -673,7 +673,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "경고"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "MPC-BE가 파일 생성에 실패했습니다. 추가적인 코덱이나 필터 설치가 필요할 수 있습니다.",IDC_STATIC1,5,5,286,18
+    LTEXT           "MPC-WJ가 파일 생성에 실패했습니다. 추가적인 코덱이나 필터 설치가 필요할 수 있습니다.",IDC_STATIC1,5,5,286,18
     LTEXT           "다음 핀이 연결 가능한 필터를 찾는 데 실패 :",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -1789,7 +1789,7 @@ BEGIN
         MENUITEM "명령 입력 스위치 옵션",                 ID_HELP_SHOWCOMMANDLINESWITCHES
         MENUITEM "도구 모음 이미지 받기(&T)",    ID_HELP_TOOLBARIMAGES
         MENUITEM SEPARATOR
-        MENUITEM "MPC-BE 정보(&A)...",            ID_HELP_ABOUT
+        MENUITEM "MPC-WJ 정보(&A)...",            ID_HELP_ABOUT
     END
 END
 
@@ -2048,7 +2048,7 @@ BEGIN
             MENUITEM "업데이트 확인(&U)",          ID_HELP_CHECKFORUPDATE
             MENUITEM "명령 입력 스위치 옵션(&C)",                 ID_HELP_SHOWCOMMANDLINESWITCHES
             MENUITEM SEPARATOR
-            MENUITEM "MPC-BE 정보(&A)...", ID_HELP_ABOUT
+            MENUITEM "MPC-WJ 정보(&A)...", ID_HELP_ABOUT
         END
         MENUITEM SEPARATOR
         MENUITEM "필터(&F)",                    ID_SUBMENU_FILTERS
@@ -2354,7 +2354,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2548,7 +2548,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2652,7 +2652,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "상대 색상 행렬"
     IDS_CM_INTENT_SATURATION "포화"
     IDS_CM_INTENT_ABSOLUTECM "절대 색상 행렬"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "현재 미리 보기가 비활성화되어 있습니다. MPC-BE의 옵션에서 활성화할 수 있습니다."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "현재 미리 보기가 비활성화되어 있습니다. MPC-WJ의 옵션에서 활성화할 수 있습니다."
 END
 
 STRINGTABLE
@@ -2698,7 +2698,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "기본 상태가 다른 스타일을 상속합니다."
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "이 옵션을 비활성화하면 자막이 깜박이지 않지만, 영상 렌더러가 일부 영상 프레임을 건너뛸 수 있습니다."
     IDC_CHECK_SPCANIMWITHBUFFER  "서브픽처 버퍼가 0보다 클 때 자막 애니메이션을 허용합니다. 이 옵션을 선택하면 CPU 사용률이 증가할 수 있습니다. 자막이 깜박이거나 비정상적으로 출력되면 이 옵션을 해제하십시오."
-    IDC_BUTTON_EXT_SET      "이 버튼을 클릭하면 파일 형식 그룹이 MPC-BE 파일에 연결됩니다. 새로 추가된 확장자는 보통 회색으로 표시되므로 이 대화 상자를 닫기 전에 확인하십시오."
+    IDC_BUTTON_EXT_SET      "이 버튼을 클릭하면 파일 형식 그룹이 MPC-WJ 파일에 연결됩니다. 새로 추가된 확장자는 보통 회색으로 표시되므로 이 대화 상자를 닫기 전에 확인하십시오."
 END
 
 STRINGTABLE
@@ -2891,8 +2891,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "영상 스트림(&T)"
     IDS_MENU_VIDEO_ANGLE    "영상 앵글(&L)"
     IDS_RESET_SETTINGS      "설정 초기화"
-    IDS_RESET_SETTINGS_WARNING  "MPC-BE 초기 설정으로 복원하시겠습니까?\n현재 설정들은 모두 지워집니다!"
-    IDS_RESET_SETTINGS_MUTEX  "초기 설정이 복원될 수 있도록 모든 MPC-BE 재생기를 종료해 주십시오."
+    IDS_RESET_SETTINGS_WARNING  "MPC-WJ 초기 설정으로 복원하시겠습니까?\n현재 설정들은 모두 지워집니다!"
+    IDS_RESET_SETTINGS_MUTEX  "초기 설정이 복원될 수 있도록 모든 MPC-WJ 재생기를 종료해 주십시오."
     IDS_EXPORT_SETTINGS     "내보내기 설정"
     IDS_EXPORT_SETTINGS_WARNING  "몇몇 변경사항이 아직 저장되지 않았습니다.\n내보내기 전에 바뀐 내용을 저장하시겠습니까?"
     IDS_EXPORT_SETTINGS_SUCCESS  "설정들을 정상적으로 내보냈습니다."
@@ -3125,8 +3125,8 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "자동 맞춤"
     IDS_ZOOM_AUTOFITLARGE   "자동 맞춤(확대)"
-    IDS_ADD_TO_PLAYLIST     "MPC-BE 재생 목록에 추가"
-    IDS_OPEN_WITH_MPC       "MPC-BE로 재생"
+    IDS_ADD_TO_PLAYLIST     "MPC-WJ 재생 목록에 추가"
+    IDS_OPEN_WITH_MPC       "MPC-WJ로 재생"
     IDS_CANNOT_CHANGE_FORMAT  "미디어 재생기 클래식 파일 형식을 바꿀 권한이 없습니다. ""수정"" 버튼을 눌러서 관리자 권한을 얻으십시오."
     IDS_APP_DESCRIPTION     "헝가리의 가베스트라는 개발자가 만든 강력한 구성의 윈도용 멀티미디어 재생기이다."
     IDS_MAINFRM_12          "채널"
@@ -3241,7 +3241,7 @@ BEGIN
     IDS_GAIN_OSD            "증폭 : %+.1f dB"
     IDS_BALANCE_OSD         "균형 : %s"
     IDS_FULLSCREENMONITOR_CURRENT "현재"
-    IDS_MPC_CRASH           "MPC-BE가 갑자기 멈춤. 문제 해결을 위해, '%s' 이 파일을 bug tracker에 보내주세요.\n\n미니 덤프 파일이 있는 폴더를 열고 지금 bug tracker로 가시겠습니까?"
+    IDS_MPC_CRASH           "MPC-WJ가 갑자기 멈춤. 문제 해결을 위해, '%s' 이 파일을 bug tracker에 보내주세요.\n\n미니 덤프 파일이 있는 폴더를 열고 지금 bug tracker로 가시겠습니까?"
     IDS_MPC_MINIDUMP_FAIL   "덤프 파일을 만드는 데 실패 '%s'(error %d)"
     IDS_MAINFRM_DIR_TITLE   "디렉터리 선택"
     IDS_MAINFRM_DIR_CHECK   "하위 폴더 포함"
@@ -3298,8 +3298,8 @@ BEGIN
     IDS_MAINFRM_132         "경고(CMainFrame::SeekTo) : 캡처모드에서 탐색"
     IDS_AG_REMOVING         "제거 : "
     IDS_MAINFRM_134         "경고 : CMainFrame::CloseMedia() 두 번 이상 호출됨\n"
-    IDS_MAINFRM_135         "치명적 에러 : !!! MPC-BE를 종료 !!!"
-    IDS_MAINFRM_136         "MPC-BE 전체 화면 전용"
+    IDS_MAINFRM_135         "치명적 에러 : !!! MPC-WJ를 종료 !!!"
+    IDS_MAINFRM_136         "MPC-WJ 전체 화면 전용"
     IDS_MAINFRM_137         "알려지지 않은 형식"
     IDS_MAINFRM_138         "자막 싱크 : %ld"
     IDS_VOLUME_GAIN_INC     "음량 증폭 증가"
@@ -3328,7 +3328,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "사용법 : mpc-be.exe ""경로명"" [스위치]"
+    IDS_CMD_USAGE           "사용법 : mpc-wj.exe ""경로명"" [스위치]"
     IDS_CMD_PATHNAME        """경로명""\t불러올 파일이나 디렉터리.(와일드 카드\n사용 가능)"
     IDS_CMD_HELP            "/help /h /?\t명령입력 스위치 옵션을 출력"
     IDS_CMD_DUB             "/dub ""더빙파일""\t추가적인 음향 파일"
@@ -3357,10 +3357,10 @@ END
 STRINGTABLE
 BEGIN
     IDS_CMD_RANDOMIZE       "/randomize\t재생 목록 무작위화"
-    IDS_CMD_REGVID          "/regvid\t영상 파일 확장명을 MPC-BE로 연결"
-    IDS_CMD_REGAUD          "/regaud\t음향 파일 확장명을 MPC-BE로 연결"
-    IDS_CMD_REGPL           "/regpl\t재생 목록 파일을 MPC-BE로 연결"
-    IDS_CMD_REGALL          "/regall\t지원가능한 모든 파일을 MPC-BE로 연결"
+    IDS_CMD_REGVID          "/regvid\t영상 파일 확장명을 MPC-WJ로 연결"
+    IDS_CMD_REGAUD          "/regaud\t음향 파일 확장명을 MPC-WJ로 연결"
+    IDS_CMD_REGPL           "/regpl\t재생 목록 파일을 MPC-WJ로 연결"
+    IDS_CMD_REGALL          "/regall\t지원가능한 모든 파일을 MPC-WJ로 연결"
     IDS_CMD_UNREGALL        "/unregall\t모든 연결 해제"
     IDS_CMD_START           "/start ms\t지정한 ""ms""(=밀리초)위치에서 재생 시작"
     IDS_CMD_STARTPOS        "/startpos hh:mm:ss\t위치 hh:mm:ss에서 재생 시작"
@@ -3769,7 +3769,7 @@ BEGIN
     IDS_RESET_COLOR         "색 설정 초기화"
     IDS_UPDATE_ERROR_DATA   "업데이트 서버 데이터에 오류가 있습니다.\n\n잠시 후 다시 시도하세요."
     IDS_USING_NEWER_VERSION "이미 최신 버전 %s 사용 중입니다."
-    IDS_NEW_UPDATE_AVAILABLE  "새 버전 %s이 있습니다.\n\n  MPC-BE 웹사이트로 가서 내려받으시겠습니까?"
+    IDS_NEW_UPDATE_AVAILABLE  "새 버전 %s이 있습니다.\n\n  MPC-WJ 웹사이트로 가서 내려받으시겠습니까?"
     IDS_UPDATE_ERROR_CONNECT  "업데이트 서버를 찾을 수 없습니다.\n\n인터넷 연결을 확인하고 다시 시도하세요."
     IDS_UPDATE_CLOSE        "종료(&C)"
     IDS_OSD_ZOOM            "확대/축소 : %.0lf%%"
@@ -3820,7 +3820,7 @@ BEGIN
     IDS_FILTERS_VIDEO       "영상 디코더"
     IDS_FILTERS_AUDIO       "음향 디코더"
     IDS_GOTO_ERROR_INVALID_TIME  "입력된 시간이 파일 재생 시간보다 깁니다."
-    IDS_SCREENSHOT_ERROR_MADVR  "'이미지 저장'과 '섬네일 저장'은 madVR 영상 렌더와 호환되지 않습니다.\nMPC-BE의 출력 옵션에서 영상 렌더러를 바꾼후 다시 파일을 여세요."
+    IDS_SCREENSHOT_ERROR_MADVR  "'이미지 저장'과 '섬네일 저장'은 madVR 영상 렌더와 호환되지 않습니다.\nMPC-WJ의 출력 옵션에서 영상 렌더러를 바꾼후 다시 파일을 여세요."
     IDS_SUBDL_DLG_FILENAME_COL "파일"
     IDS_SUBDL_DLG_LANGUAGE_COL "언어"
     IDS_SUBDL_DLG_FORMAT_COL "포맷"
@@ -3981,14 +3981,14 @@ BEGIN
     BEGIN
         BLOCK "041204b0"
         BEGIN
-            VALUE "Comments", "Korean language resource for MPC-BE"
+            VALUE "Comments", "Korean language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Korean language resource for MPC-BE"
+            VALUE "FileDescription", "Korean language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.kr.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

@@ -429,12 +429,12 @@ void CSizingControlBar::OnMouseMove(UINT nFlags, CPoint point)
         CPoint ptScreen = point;
         ClientToScreen(&ptScreen);
 
-        //MPC-BE custom code start
+        //MPC-WJ custom code start
         // Switch to parent window client coordinates to account for possible RTL layout
         CPoint ptParentClient = ptScreen;
         GetParentFrame()->ScreenToClient(&ptParentClient);
         OnTrackUpdateSize(ptParentClient);
-        //MPC-BE custom code end
+        //MPC-WJ custom code end
     }
 
     baseCSizingControlBar::OnMouseMove(nFlags, point);
@@ -461,9 +461,9 @@ void CSizingControlBar::OnNcCalcSize(BOOL bCalcValidRects,
         if (pFrame != NULL &&
             pFrame->IsKindOf(RUNTIME_CLASS(CMiniFrameWnd)))
         {
-//MPC-BE custom code start
+//MPC-WJ custom code start
             DWORD dwStyle = (DWORD)::GetWindowLongPtr(pFrame->m_hWnd, GWL_STYLE);
-//MPC-BE custom code end
+//MPC-WJ custom code end
             if ((dwStyle & MFS_4THICKFRAME) != 0)
             {
                 pFrame->ModifyStyle(MFS_4THICKFRAME, 0); // clear
@@ -497,11 +497,11 @@ void CSizingControlBar::OnNcCalcSize(BOOL bCalcValidRects,
 void CSizingControlBar::NcCalcClient(LPRECT pRc, UINT nDockBarID)
 {
     CRect rc(pRc);
-    //MPC-BE custom code start
+    //MPC-WJ custom code start
     // Work in screen coordinates before converting back to
     // client coordinates to account for possible RTL layout
     GetParent()->ClientToScreen(&rc);
-    //MPC-BE custom code end
+    //MPC-WJ custom code end
 
     rc.DeflateRect(3, 5, 3, 3);
     if (nDockBarID != AFX_IDW_DOCKBAR_FLOAT)
@@ -531,11 +531,11 @@ void CSizingControlBar::NcCalcClient(LPRECT pRc, UINT nDockBarID)
             (m_dwSCBStyle & SCBS_EDGERIGHT) ? m_cxEdge : 0,
             (m_dwSCBStyle & SCBS_EDGEBOTTOM) ? m_cxEdge : 0);
 
-    //MPC-BE custom code start
+    //MPC-WJ custom code start
     // Work in screen coordinates before converting back to
     // client coordinates to account for possible RTL layout
     GetParent()->ScreenToClient(&rc);
-    //MPC-BE custom code end
+    //MPC-WJ custom code end
 
     *pRc = rc;
 }
@@ -547,14 +547,14 @@ void CSizingControlBar::OnNcPaint()
 
     CRect rcClient, rcBar;
     GetClientRect(rcClient);
-    //MPC-BE custom code start
+    //MPC-WJ custom code start
     //ClientToScreen(rcClient);
-    //MPC-BE custom code end
+    //MPC-WJ custom code end
     GetWindowRect(rcBar);
-    //MPC-BE custom code start
+    //MPC-WJ custom code start
     // Convert to client coordinates to account for possible RTL layout
     ScreenToClient(rcBar);
-    //MPC-BE custom code end
+    //MPC-WJ custom code end
     rcClient.OffsetRect(-rcBar.TopLeft());
     rcBar.OffsetRect(-rcBar.TopLeft());
 
@@ -570,7 +570,7 @@ void CSizingControlBar::OnNcPaint()
     DrawBorders(&mdc, rcDraw);
 
     // erase the NC background
-    //MPC-BE custom code start
+    //MPC-WJ custom code start
     if (m_bUseDarkTheme) {
         const auto dwBrushColor = ColorThemeRGB(45, 50, 55);
         if (m_dwBrushColor != dwBrushColor && m_hBrush) {
@@ -581,7 +581,7 @@ void CSizingControlBar::OnNcPaint()
         if (!m_hBrush) {
             m_hBrush = ::CreateSolidBrush(dwBrushColor);
 		}
-        ::SetClassLongPtrW(m_hWnd, GCLP_HBRBACKGROUND, (LONG_PTR)m_hBrush); //MPC-BE patch
+        ::SetClassLongPtrW(m_hWnd, GCLP_HBRBACKGROUND, (LONG_PTR)m_hBrush); //MPC-WJ patch
 
         mdc.FrameRect(rcDraw, CBrush::FromHandle(m_hBrushFrame)); // Draw Black Frame
 
@@ -592,10 +592,10 @@ void CSizingControlBar::OnNcPaint()
         r.DeflateRect(1, 1, 1, 1);
         mdc.FillRect(r, CBrush::FromHandle(m_hBrush)); // Fill backround
     } else {
-        ::SetClassLongPtrW(m_hWnd, GCLP_HBRBACKGROUND, (LONG_PTR)m_hBrush_orig); //MPC-BE patch
+        ::SetClassLongPtrW(m_hWnd, GCLP_HBRBACKGROUND, (LONG_PTR)m_hBrush_orig); //MPC-WJ patch
         mdc.FillRect(rcDraw, CBrush::FromHandle(m_hBrush_orig));
     }
-    //MPC-BE custom code end
+    //MPC-WJ custom code end
 
     if (m_dwSCBStyle & SCBS_SHOWEDGES)
     {
@@ -636,11 +636,11 @@ LRESULT CSizingControlBar::OnNcHitTest(CPoint point)
     CRect rcBar, rcEdge;
     GetWindowRect(rcBar);
 
-    //MPC-BE custom code start
+    //MPC-WJ custom code start
     // Convert to client coordinates to account for possible RTL layout
     ScreenToClient(&rcBar);
     ScreenToClient(&point);
-    //MPC-BE custom code end
+    //MPC-WJ custom code end
 
     if (!IsFloating())
         for (int i = 0; i < 4; i++)
@@ -687,10 +687,10 @@ void CSizingControlBar::OnClose()
 
 void CSizingControlBar::StartTracking(UINT nHitTest, CPoint point)
 {
-    //MPC-BE custom code start
+    //MPC-WJ custom code start
     // Convert to client coordinates to account for possible RTL layout
     GetParentFrame()->ScreenToClient(&point);
-    //MPC-BE custom code end
+    //MPC-WJ custom code end
 
     SetCapture();
 
@@ -708,10 +708,10 @@ void CSizingControlBar::StartTracking(UINT nHitTest, CPoint point)
 
     CRect rcBar, rcEdge;
     GetWindowRect(rcBar);
-    //MPC-BE custom code start
+    //MPC-WJ custom code start
     // Convert to client coordinates to account for possible RTL layout
     GetParent()->ScreenToClient(&rcBar);
-    //MPC-BE custom code end
+    //MPC-WJ custom code end
     GetEdgeRect(rcBar, m_htEdge, rcEdge);
     m_nTrackEdgeOfs = m_nTrackPosOld -
         (bHorzTracking ? rcEdge.CenterPoint().x : rcEdge.CenterPoint().y);
@@ -1202,7 +1202,7 @@ void CSizingControlBar::LoadState(LPCTSTR lpszProfileName)
 
     CWinApp* pApp = AfxGetApp();
 
-	auto& szSection = lpszProfileName; //MPC-BE custom code
+	auto& szSection = lpszProfileName; //MPC-WJ custom code
 	/* original code
     TCHAR szSection[256];
     wsprintf(szSection, _T("%s-SCBar-%d"), lpszProfileName,
@@ -1234,7 +1234,7 @@ void CSizingControlBar::SaveState(LPCTSTR lpszProfileName)
 
     CWinApp* pApp = AfxGetApp();
 
-	auto& szSection = lpszProfileName; //MPC-BE custom code
+	auto& szSection = lpszProfileName; //MPC-WJ custom code
 	/* original code
     TCHAR szSection[256];
     wsprintf(szSection, _T("%s-SCBar-%d"), lpszProfileName,
@@ -1461,7 +1461,7 @@ void CSCBMiniDockFrameWnd::OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI)
 #endif //_SCB_MINIFRAME_CAPTION
         lpMMI->ptMinTrackSize.x = r.Width();
         lpMMI->ptMinTrackSize.y = r.Height();
-// MPC-BE custom code start
+// MPC-WJ custom code start
         if(pBar->m_bFixedFloat)
         {
             lpMMI->ptMinTrackSize.x = pBar->m_szFixedFloat.cx;
@@ -1469,7 +1469,7 @@ void CSCBMiniDockFrameWnd::OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI)
             lpMMI->ptMaxTrackSize.x = pBar->m_szFixedFloat.cx;
             lpMMI->ptMaxTrackSize.y = pBar->m_szFixedFloat.cy;
         }
-// MPC-BE custom code end
+// MPC-WJ custom code end
     }
 }
 

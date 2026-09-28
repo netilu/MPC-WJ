@@ -2469,10 +2469,10 @@ bool GoodUnicodeFromBase64(const uint8* start, const uint8* limit) {
       ++lower_count;
     } else if (('A' <= c) && (c <= 'Z')) {
       ++upper_count;
-    // MPC-BE patch start
+    // MPC-WJ patch start
     //} else if (('0' <= c) && (c <= '0')) {
     } else if (('0' <= c) && (c <= '9')) {
-    // MPC-BE patch end
+    // MPC-WJ patch end
       ++digit_count;
     } else if (*src == '+') {
       ++plus_count;

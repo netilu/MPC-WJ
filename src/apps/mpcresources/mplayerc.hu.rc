@@ -218,11 +218,11 @@ CAPTION "Névjegy"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "Szerzői jog © 2002-2026 lásd Authors.txt fájl",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "Verzió :",IDC_VERSION,30,34,90,8
-    LTEXT           "MPC-BE Fordítóprogram :",IDC_STATIC,30,66,90,8
+    LTEXT           "MPC-WJ Fordítóprogram :",IDC_STATIC,30,66,90,8
     LTEXT           "FFmpeg Fordítóprogram :",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil :",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,9 +230,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "Ez a program freeware és a GNU General Public License alatt lett kiadva.",IDC_STATIC,30,138,200,18
     LTEXT           "Magyar fordítás Kleiber Tamás, javította és folytatta mickey.",IDC_STATIC,30,161,200,18
@@ -673,7 +673,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Figyelem"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "A MPC-BE nem tudta megjeleníteni a gráf néhány elemét mert lehet, hogy nincsenek telepítve a szükséges kodekek vagy szűrők.",IDC_STATIC1,5,5,286,18
+    LTEXT           "A MPC-WJ nem tudta megjeleníteni a gráf néhány elemét mert lehet, hogy nincsenek telepítve a szükséges kodekek vagy szűrők.",IDC_STATIC1,5,5,286,18
     LTEXT           "A következő csatlakozó(k) nem talált(ak) csatlakoztatható szűrőt:",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -2356,7 +2356,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2550,7 +2550,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2654,7 +2654,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "Relatív színmérték"
     IDS_CM_INTENT_SATURATION "Telítettség"
     IDS_CM_INTENT_ABSOLUTECM "Abszolút színmérték"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Az előnézet jelenleg le van tiltva. Az MPC-BE opciói között engedélyezheti."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Az előnézet jelenleg le van tiltva. Az MPC-WJ opciói között engedélyezheti."
 END
 
 STRINGTABLE
@@ -2700,7 +2700,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "Az alapértelmezett pozíciót örökli a többi stílus, ahol ez még nincs meghatározva"
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "Ha letiltja ezt a beállítást, az megakadályozza a feliratok villogását, de előfordulhat, hogy a videó renderelője egyes képkockákat kihagyja."
     IDC_CHECK_SPCANIMWITHBUFFER  "Lehetővé teszi a felirat animálását, ha az előreolvasott feliratképek száma nagyobb, mint nulla. A funkció tiltása csökkenti a CPU terheltségét. Akkor is tiltsa, ha villódzik a felirat."
-    IDC_BUTTON_EXT_SET      "Miután rákattint erre a gombra, a formátumcsoport bepipált állapota az MPC-BE való aktuális fájlhozzárendeléseket fogja tükrözni. Egy újonnan hozzáadott kiterjesztéssel rendszerint szürkítettre fog váltani, tehát mielőtt bezárja a párbeszédpanelt, ne felejtse el újra bepipálni azt a csoportot!"
+    IDC_BUTTON_EXT_SET      "Miután rákattint erre a gombra, a formátumcsoport bepipált állapota az MPC-WJ való aktuális fájlhozzárendeléseket fogja tükrözni. Egy újonnan hozzáadott kiterjesztéssel rendszerint szürkítettre fog váltani, tehát mielőtt bezárja a párbeszédpanelt, ne felejtse el újra bepipálni azt a csoportot!"
 END
 
 STRINGTABLE
@@ -2893,8 +2893,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "Videó S&tream"
     IDS_MENU_VIDEO_ANGLE    "Videó látószög"
     IDS_RESET_SETTINGS      "Beállítások visszaállítása"
-    IDS_RESET_SETTINGS_WARNING  "Biztosan vissza akarja állítani a MPC-BE alapértelmezett beállításait?\nFigyelmeztetjük, hogy MINDEN jelenlegi beállítása elveszik!"
-    IDS_RESET_SETTINGS_MUTEX  "Az alapértelmezett beállítások visszaállítása érdekében zárja be az MPC-BE összes példányát."
+    IDS_RESET_SETTINGS_WARNING  "Biztosan vissza akarja állítani a MPC-WJ alapértelmezett beállításait?\nFigyelmeztetjük, hogy MINDEN jelenlegi beállítása elveszik!"
+    IDS_RESET_SETTINGS_MUTEX  "Az alapértelmezett beállítások visszaállítása érdekében zárja be az MPC-WJ összes példányát."
     IDS_EXPORT_SETTINGS     "Exportálja a beállításokat"
     IDS_EXPORT_SETTINGS_WARNING  "Néhány változtatás még nem lett mentve.\nKívánja menteni őket az exportálás előtt?"
     IDS_EXPORT_SETTINGS_SUCCESS  "A beállítások sikeresen exportálva."
@@ -3127,9 +3127,9 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "Automatikus illesztés"
     IDS_ZOOM_AUTOFITLARGE   "Automatikus illesztés (csak nagyobb)"
-    IDS_ADD_TO_PLAYLIST     "Hozzáadás az MPC-BE Lejátszási listához"
-    IDS_OPEN_WITH_MPC       "Lejátszás MPC-BE-vel"
-    IDS_CANNOT_CHANGE_FORMAT  "A MPC-BE nem rendelkezik elegendő jogosultságokkal, hogy módosítsa a fájl formátumok hozzárendelését. Kérem kattintson a ""Módosít"" gombra, hogy adminisztrátori jogosultságokat kapjon."
+    IDS_ADD_TO_PLAYLIST     "Hozzáadás az MPC-WJ Lejátszási listához"
+    IDS_OPEN_WITH_MPC       "Lejátszás MPC-WJ-vel"
+    IDS_CANNOT_CHANGE_FORMAT  "A MPC-WJ nem rendelkezik elegendő jogosultságokkal, hogy módosítsa a fájl formátumok hozzárendelését. Kérem kattintson a ""Módosít"" gombra, hogy adminisztrátori jogosultságokat kapjon."
     IDS_APP_DESCRIPTION     "Egyike a legjobb teljesítménnyel és testreszabhatósággal rendelkező multimédiás lejátszóknak Windows operációs rendszerekre. Eredetileg a Magyar fejlesztő, Gabest készítette. Ebben a verzióban további funkciók találhatóak, mint például a Direct 3D teljes képernyős mód és a jobb Windows Vista/7 támogatás."
     IDS_MAINFRM_12          "csatorna"
     IDS_MAINFRM_13          "csatorna"
@@ -3172,7 +3172,7 @@ STRINGTABLE
 BEGIN
     IDS_ADDTOPLS_FROMDIR_SIMILAR "hasonló fájlokat a mappából"
     IDS_ADDTOPLS_FROMDIR_ALL "összes fájl a mappából"
-    IDS_EXCLUSIVE_FS_WARNING  "Ennek az opciónak célja a szakadás elkerülése. Ugyanakkor, megakadályozza az MPC-BE-t a szövegkörnyezet és a párbeszédpanelek megjelenítésében a lejátszás során.\n\nAz exkluzív teljes képernyőből való kilépéshez használja a gombokat: Alt+Enter, Ctrl+Enter or Ctrl+C.\n\nTényleg aktiválni akarja ezt a lehetőséget?"
+    IDS_EXCLUSIVE_FS_WARNING  "Ennek az opciónak célja a szakadás elkerülése. Ugyanakkor, megakadályozza az MPC-WJ-t a szövegkörnyezet és a párbeszédpanelek megjelenítésében a lejátszás során.\n\nAz exkluzív teljes képernyőből való kilépéshez használja a gombokat: Enter, Ctrl+Enter or Ctrl+C.\n\nTényleg aktiválni akarja ezt a lehetőséget?"
     IDS_MAINFRM_139         "Felirat késl.: %ld ms"
     IDS_AG_TITLE2           "Cím: %02d/%02d"
     IDS_THUMB_ROWNUMBER     "Sorok:"
@@ -3243,7 +3243,7 @@ BEGIN
     IDS_GAIN_OSD            "Erősítés: %+.1f dB"
     IDS_BALANCE_OSD         "Balance: %s"
     IDS_FULLSCREENMONITOR_CURRENT "Aktuális"
-    IDS_MPC_CRASH           "MPC-BE váratlanul leállt. A probléma megoldásához kérjük küldje el ezt a fájlt '%s' a hibakövetőnkhöz.\n\nMeg szeretné nyitni a minidump fájlt tartalmazó mappát és most meglátogatja a hibakövetőt?"
+    IDS_MPC_CRASH           "MPC-WJ váratlanul leállt. A probléma megoldásához kérjük küldje el ezt a fájlt '%s' a hibakövetőnkhöz.\n\nMeg szeretné nyitni a minidump fájlt tartalmazó mappát és most meglátogatja a hibakövetőt?"
     IDS_MPC_MINIDUMP_FAIL   "A memóriakiíratás (dump) fájl nem hozható létre az adott helyen: '%s' (hiba %d)"
     IDS_MAINFRM_DIR_TITLE   "Könyvtár kiválasztása"
     IDS_MAINFRM_DIR_CHECK   "Tartalmazza az alkönyvtárakat"
@@ -3301,7 +3301,7 @@ BEGIN
     IDS_AG_REMOVING         "Eltávolítás: "
     IDS_MAINFRM_134         "FIGYELEM: CMainFrame::CloseMedia() kétszer, vagy többször lett meghívva\n"
     IDS_MAINFRM_135         "KRITIKUS HIBA: !!! Kill-el meg kell szüntetni a megnyitó szálat !!!"
-    IDS_MAINFRM_136         "MPC-BE Exkluzív teljesképernyő"
+    IDS_MAINFRM_136         "MPC-WJ Exkluzív teljesképernyő"
     IDS_MAINFRM_137         "Ismeretlen formátum"
     IDS_MAINFRM_138         "Felirat eltolás : %ld"
     IDS_VOLUME_GAIN_INC     "Hangerő erősítés növekszik"
@@ -3330,7 +3330,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Használat: mpc-be.exe ""pathname"" [kapcsolók]"
+    IDS_CMD_USAGE           "Használat: mpc-wj.exe ""pathname"" [kapcsolók]"
     IDS_CMD_PATHNAME        """pathname""\tA fő betöltendő fájl vagy könyvtár helye (spec. helyettesítő karakterek \nengedélyezve)"
     IDS_CMD_HELP            "/help /h /?\tMegmutatja a parancssori kapcsolókról szóló súgót"
     IDS_CMD_DUB             "/dub ""dubname""\tBetölt egy külön audió fájlt"
@@ -3771,7 +3771,7 @@ BEGIN
     IDS_RESET_COLOR         "Színbeállítások visszaállítása"
     IDS_UPDATE_ERROR_DATA   "A frissítési szerver rossz adatokat ad meg.\n\nKérjük, próbálja később."
     IDS_USING_NEWER_VERSION "Már használja a legújabb verziót %s."
-    IDS_NEW_UPDATE_AVAILABLE  "Egy új %s elérhető.\n\nSzeretné meglátogatni MPC-BE weboldalt a letöltéshez?"
+    IDS_NEW_UPDATE_AVAILABLE  "Egy új %s elérhető.\n\nSzeretné meglátogatni MPC-WJ weboldalt a letöltéshez?"
     IDS_UPDATE_ERROR_CONNECT  "A frissítő szerver nem található.\n\nEllenőrizze internetkapcsolatát vagy próbálja újra később."
     IDS_UPDATE_CLOSE        "&Bezárás"
     IDS_OSD_ZOOM            "Zoom: %.0lf%%"
@@ -3983,14 +3983,14 @@ BEGIN
     BEGIN
         BLOCK "040e04b0"
         BEGIN
-            VALUE "Comments", "Hungarian language resource for MPC-BE"
+            VALUE "Comments", "Hungarian language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Hungarian language resource for MPC-BE"
+            VALUE "FileDescription", "Hungarian language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.hu.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

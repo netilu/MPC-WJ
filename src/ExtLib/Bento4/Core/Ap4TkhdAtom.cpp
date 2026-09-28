@@ -123,7 +123,7 @@ AP4_TkhdAtom::AP4_TkhdAtom(AP4_Size size, AP4_ByteStream& stream) :
         AP4_UI32 width  = m_Width >> 16;
         AP4_UI32 height = m_Height >> 16;
 
-        // MPC-BE custom code start
+        // MPC-WJ custom code start
         auto ReduceDim = [](AP4_UI64& num, AP4_UI64& den) {
             const auto gcd = std::gcd(num, den);
             num /= gcd;
@@ -143,7 +143,7 @@ AP4_TkhdAtom::AP4_TkhdAtom(AP4_Size size, AP4_ByteStream& stream) :
                 m_PictARDen = den;
             }
         }
-        // MPC-BE custom code end
+        // MPC-WJ custom code end
     }
 }
 

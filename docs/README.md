@@ -1,7 +1,7 @@
-# Media Player Classic - Black Edition (MPC-BE)
+# Media Player Classic - Black Edition (MPC-WJ)
 ---
 
-MPC-BE – универсальный проигрыватель аудио и видеофайлов для операционной системы Windows.
+MPC-WJ – универсальный проигрыватель аудио и видеофайлов для операционной системы Windows.
 Этот проект имеет свою независимую разработку на базе оригинального кода «Media Player Classic» (Gabest) и «Media Player Classic - Home Cinema» (Casimir666).
 
 ## Системные требования:
@@ -11,8 +11,8 @@ MPC-BE – универсальный проигрыватель аудио и �
 
 ---
 
-MPC-BE is a free and open source audio and video player for Windows.
-MPC-BE is based on the original Guliverkli project and "Media Player Classic Home Cinema" project, contains additional features and bug fixes.
+MPC-WJ is a free and open source audio and video player for Windows.
+MPC-WJ is based on the original Guliverkli project and "Media Player Classic Home Cinema" project, contains additional features and bug fixes.
 
 ## System requirements:
 * An SSE2 capable CPU
@@ -20,24 +20,24 @@ MPC-BE is based on the original Guliverkli project and "Media Player Classic Hom
 * Windows 7, 8, 8.1, 10, 11 32-bit/64-bit
 
 ## Downloads
-- [Releases      ](https://github.com/Aleksoid1978/MPC-BE/releases)
-- [Nightly Builds](https://github.com/Aleksoid1978/MPC-BE/wiki/Nightly-builds)
+- [Releases      ](https://github.com/Aleksoid1978/MPC-WJ/releases)
+- [Nightly Builds](https://github.com/Aleksoid1978/MPC-WJ/wiki/Nightly-builds)
 
 ## Links
-- [Project Page  ](https://sourceforge.net/projects/mpcbe/)
-- [Wiki          ](https://github.com/Aleksoid1978/MPC-BE/wiki)
-- [Get code      ](https://github.com/Aleksoid1978/MPC-BE.git)
+- [Project Page  ](https://sourceforge.net/projects/mpcwj/)
+- [Wiki          ](https://github.com/Aleksoid1978/MPC-WJ/wiki)
+- [Get code      ](https://github.com/Aleksoid1978/MPC-WJ.git)
 
 ---
  
 For the people involved in the development, see Authors.txt.
-MPC-BE's code is licensed under GPL v3 (see LICENSE).
+MPC-WJ's code is licensed under GPL v3 (see LICENSE).
 
 Translations are done by various translators (see Authors.txt).
 
 ---
 
-MPC-BE makes use of the following 3rd party code:
+MPC-WJ makes use of the following 3rd party code:
 
 | Project           | License             | Website                                               |
 |-------------------|---------------------|-------------------------------------------------------|

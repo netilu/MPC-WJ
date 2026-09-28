@@ -19,9 +19,9 @@
 
 #include "stdafx.h"
 #include "PropPageFrameDefault.h"
-// <MPC-BE Custom Code>
+// <MPC-WJ Custom Code>
 #include "../../../DSUtil/SysVersion.h"
-// </MPC-BE Custom Code>
+// </MPC-WJ Custom Code>
 
 
 namespace TreePropSheet
@@ -298,9 +298,9 @@ CRect CPropPageFrameDefault::CalcCaptionArea()
 
 void CPropPageFrameDefault::DrawCaption(CDC *pDc, CRect rect, LPCTSTR lpszCaption, HICON hIcon)
 {
-	// <MPC-BE Custom Code>
+	// <MPC-WJ Custom Code>
 	COLORREF	clrLeft = GetSysColor(COLOR_ACTIVECAPTION);
-	// </MPC-BE Custom Code>
+	// </MPC-WJ Custom Code>
 	COLORREF	clrRight = pDc->GetPixel(rect.right-1, rect.top);
 	FillGradientRectH(pDc, rect, clrLeft, clrRight);
 
@@ -321,7 +321,7 @@ void CPropPageFrameDefault::DrawCaption(CDC *pDc, CRect rect, LPCTSTR lpszCaptio
 	int			nBkStyle = pDc->SetBkMode(TRANSPARENT);
 	//CFont*	pFont = (CFont*)pDc->SelectStockObject(SYSTEM_FONT);
 
-	// MPC-BE custom code start
+	// MPC-WJ custom code start
 	NONCLIENTMETRICSW ncm = { sizeof(NONCLIENTMETRICSW) };
 	VERIFY(SystemParametersInfoW(SPI_GETNONCLIENTMETRICS, ncm.cbSize, &ncm, 0));
 	auto& lf = ncm.lfMessageFont;
@@ -343,7 +343,7 @@ void CPropPageFrameDefault::DrawCaption(CDC *pDc, CRect rect, LPCTSTR lpszCaptio
 		GetTextMetricsW(pDc->GetSafeHdc(), &GDIMetrics);
 	}
 	rect.top -= GDIMetrics.tmDescent - 1;
-	// MPC-BE custom code end
+	// MPC-WJ custom code end
 
 	pDc->DrawTextW(lpszCaption, rect, DT_LEFT | DT_SINGLELINE | DT_END_ELLIPSIS);
 

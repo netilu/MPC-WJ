@@ -24,7 +24,7 @@
 #include "LCDText.h"
 #include "LCDBitmap.h"
 
-#define LCDIU_GDIPLUS_ENABLE 0 // MPC-BE no longer uses GDI+
+#define LCDIU_GDIPLUS_ENABLE 0 // MPC-WJ no longer uses GDI+
 
 
 //************************************************************************

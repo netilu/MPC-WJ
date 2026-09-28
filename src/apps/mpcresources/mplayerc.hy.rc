@@ -218,11 +218,11 @@ CAPTION "Ծրագրի մասին"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "Copyright © 2002-2026, նայեք Authors.txt ֆայլը",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "Version :",IDC_VERSION,30,34,90,8
-    LTEXT           "MPC-BE կազմարկիչ.",IDC_STATIC,30,66,90,8
+    LTEXT           "MPC-WJ կազմարկիչ.",IDC_STATIC,30,66,90,8
     LTEXT           "FFmpeg կազմարկիչ.",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil :",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,9 +230,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "Այս ծրագիրը անվճար է և տարածվում է GNU General Public-ի լիցենզիայով։",IDC_STATIC,30,138,200,18
     LTEXT           "Թարգմանեց Հրանտ Օհանյանը »»» http://haysoft.org",IDC_STATIC,30,161,200,18
@@ -673,7 +673,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Ուշադրություն"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "MPC-BE-ն չի կարողանում վերարտադրել որոշ հոսքեր, հնարավոր է, որ տեղակայված չէ համապատասխան կոդավորիչը կամ ֆիլտրը։",IDC_STATIC1,5,5,286,18
+    LTEXT           "MPC-WJ-ն չի կարողանում վերարտադրել որոշ հոսքեր, հնարավոր է, որ տեղակայված չէ համապատասխան կոդավորիչը կամ ֆիլտրը։",IDC_STATIC1,5,5,286,18
     LTEXT           "Այս հոսքերի համար ընտրված չէ համապատասխան ֆիլտր.",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -2356,7 +2356,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2550,7 +2550,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2654,7 +2654,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "Relative Colorimetric"
     IDS_CM_INTENT_SATURATION "Saturation"
     IDS_CM_INTENT_ABSOLUTECM "Absolute Colorimetric"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Preview is currently disabled. You can enable it in MPC-BE's options."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Preview is currently disabled. You can enable it in MPC-WJ's options."
 END
 
 STRINGTABLE
@@ -2700,7 +2700,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "Ծրագրային վիճակը որոշվում է այնտեղ, որտեղ այն դեռ չի որոշվել"
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "Disabling this option will prevent the subtitles from blinking but it may cause the video renderer to skip some video frames."
     IDC_CHECK_SPCANIMWITHBUFFER  "Հնարավորություն է տալիս շարժապատկերել տողագրերը։"
-    IDC_BUTTON_EXT_SET      "Այս կոճակը սեղմելուց հետո ցույց կտրվի MPC-BE-ի հետ ասոցացված տեսակների խմբերը։ Նոր ավելացումները երևում են մոխրագույն գույնով, ուստի մի մոռացեք նորից ստուգել դրանք պատուհանը փակելիս։"
+    IDC_BUTTON_EXT_SET      "Այս կոճակը սեղմելուց հետո ցույց կտրվի MPC-WJ-ի հետ ասոցացված տեսակների խմբերը։ Նոր ավելացումները երևում են մոխրագույն գույնով, ուստի մի մոռացեք նորից ստուգել դրանք պատուհանը փակելիս։"
 END
 
 STRINGTABLE
@@ -2893,8 +2893,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "Տեսանյութի հ&ոսքը"
     IDS_MENU_VIDEO_ANGLE    "Տեսանյութի անկ&յունը"
     IDS_RESET_SETTINGS      "Ետարկել կարգավորումները"
-    IDS_RESET_SETTINGS_WARNING  "Վերականգնե՞լ MPC-BE-ի ծրագրային կարգավորումները:\nԻմացած եղեք, որ ընթացիկ Ձեր ԲՈԼՈՐ կարգավորումներըև կկորսվեն!"
-    IDS_RESET_SETTINGS_MUTEX  "Ծրագրային կարգավորումները վերականգնելու համար նախ փակեք MPC-BE-ի բոլոր օրինակները։"
+    IDS_RESET_SETTINGS_WARNING  "Վերականգնե՞լ MPC-WJ-ի ծրագրային կարգավորումները:\nԻմացած եղեք, որ ընթացիկ Ձեր ԲՈԼՈՐ կարգավորումներըև կկորսվեն!"
+    IDS_RESET_SETTINGS_MUTEX  "Ծրագրային կարգավորումները վերականգնելու համար նախ փակեք MPC-WJ-ի բոլոր օրինակները։"
     IDS_EXPORT_SETTINGS     "Արտածման կարգավորումներ"
     IDS_EXPORT_SETTINGS_WARNING  "Որոշ փոփոխություններ դեռ չեն պահպանվել։\nՊահպանե՞լ դրանք արտածելուց առաջ։"
     IDS_EXPORT_SETTINGS_SUCCESS  "Կարգավորումները հաջողությամբ են արտածվել:"
@@ -3127,9 +3127,9 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "Auto fit"
     IDS_ZOOM_AUTOFITLARGE   "Auto fit (larger only)"
-    IDS_ADD_TO_PLAYLIST     "Ավելացնել MPC-BE-ի խաղացանկին"
-    IDS_OPEN_WITH_MPC       "Վերարատադրել MPC-BE-ով"
-    IDS_CANNOT_CHANGE_FORMAT  "MPC-BE-ն չունի համապատասխան լիազորություներ ֆայլերի ասոցացումները փոխելու համար։ Սեղմեք ""Փոխել"" կոճակը՝ ադմինի իրավունքները օգտագործելու համար։"
+    IDS_ADD_TO_PLAYLIST     "Ավելացնել MPC-WJ-ի խաղացանկին"
+    IDS_OPEN_WITH_MPC       "Վերարատադրել MPC-WJ-ով"
+    IDS_CANNOT_CHANGE_FORMAT  "MPC-WJ-ն չունի համապատասխան լիազորություներ ֆայլերի ասոցացումները փոխելու համար։ Սեղմեք ""Փոխել"" կոճակը՝ ադմինի իրավունքները օգտագործելու համար։"
     IDS_APP_DESCRIPTION     "Ամենահզոր և բազմաֆունկցիոնալ կարգավորվող վերարտադրիչներից մեկը Windows համակարգի համար։ Սկզբնապես ստեղծվել է հունգարացի ծրագրավորողի կողմից, որը հայտնի է Gabest անունով։ Այս տարբերակը ունի լրացուցիչ հնարավորություններ, որոնցից է Ամբողջ էկրանով Direct 3D եղանակը և Windows Vista/7-ի բարելավված աջակցումը։"
     IDS_MAINFRM_12          "ալիք"
     IDS_MAINFRM_13          "channels"
@@ -3243,7 +3243,7 @@ BEGIN
     IDS_GAIN_OSD            "Gain: %+.1f dB"
     IDS_BALANCE_OSD         "Բալանսը. %s"
     IDS_FULLSCREENMONITOR_CURRENT "Գործողը"
-    IDS_MPC_CRASH           "MPC-BE terminated unexpectedly. To help us fix this problem, please send this file '%s' to our bug tracker.\n\nDo you want to open the folder containing the minidump file and visit the bug tracker now?"
+    IDS_MPC_CRASH           "MPC-WJ terminated unexpectedly. To help us fix this problem, please send this file '%s' to our bug tracker.\n\nDo you want to open the folder containing the minidump file and visit the bug tracker now?"
     IDS_MPC_MINIDUMP_FAIL   "Սխալ՝ '%s' dump ֆայլը ստեղծելիս (սխալ %d)"
     IDS_MAINFRM_DIR_TITLE   "Ընտրեք թղթապանակը"
     IDS_MAINFRM_DIR_CHECK   "Ներառյալ ենթաթղթ.-ները"
@@ -3301,7 +3301,7 @@ BEGIN
     IDS_AG_REMOVING         "Ջնջվում է. "
     IDS_MAINFRM_134         "Ուշադրություն: CMainFrame::CloseMedia() կանչվել է մի կամ մի քանի անգամ\n"
     IDS_MAINFRM_135         "ԿՐԻՏԻԿԱԿԱՆ ՍԽԱԼ. !!! Անհրաժեշտ է հանել բացվող գործողությունը !!!"
-    IDS_MAINFRM_136         "MPC-BE Exclusive Fullscreen"
+    IDS_MAINFRM_136         "MPC-WJ Exclusive Fullscreen"
     IDS_MAINFRM_137         "Անհայտ տեսակ"
     IDS_MAINFRM_138         "Տողագրերի տեղափոխում. %ld ms"
     IDS_VOLUME_GAIN_INC     "Volume gain increase"
@@ -3330,7 +3330,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Օգտագործվում է. mpc-be.exe ""ճանապարհը"" [փոխանցիչներ]"
+    IDS_CMD_USAGE           "Օգտագործվում է. mpc-wj.exe ""ճանապարհը"" [փոխանցիչներ]"
     IDS_CMD_PATHNAME        """ճանապարհը""\tբեռնման ֆայլը կամ թղթապանակը։"
     IDS_CMD_HELP            "/help /h /?\tՑույց տալ հուշում"
     IDS_CMD_DUB             "/dub ""dubname""\tԲացել լրացուցիչ ձայնային ֆայլ"
@@ -3771,7 +3771,7 @@ BEGIN
     IDS_RESET_COLOR         "Ետարկել գույնի կարգավորումները"
     IDS_UPDATE_ERROR_DATA   "The update server gives the wrong data.\n\nPlease try later."
     IDS_USING_NEWER_VERSION "You are already using the latest version %s."
-    IDS_NEW_UPDATE_AVAILABLE  "A new %s is available.\n\nDo you want to visit MPC-BE's website to download it?"
+    IDS_NEW_UPDATE_AVAILABLE  "A new %s is available.\n\nDo you want to visit MPC-WJ's website to download it?"
     IDS_UPDATE_ERROR_CONNECT  "Թարմացումների սպասարկիչը չի գտնվել։\n\nՍտուգեք ինտերնետ կապը կամ փորձեք ավելի ուշ։"
     IDS_UPDATE_CLOSE        "&Փակել"
     IDS_OSD_ZOOM            "Չափը. %.0lf%%"
@@ -3983,14 +3983,14 @@ BEGIN
     BEGIN
         BLOCK "042b04b0"
         BEGIN
-            VALUE "Comments", "Armenian language resource for MPC-BE"
+            VALUE "Comments", "Armenian language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Armenian language resource for MPC-BE"
+            VALUE "FileDescription", "Armenian language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.hy.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

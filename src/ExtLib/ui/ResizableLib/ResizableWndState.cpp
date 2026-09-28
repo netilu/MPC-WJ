@@ -79,7 +79,7 @@ BOOL CResizableWndState::SaveWindowRect(LPCTSTR pszName, BOOL bRectOnly)
 			wp.ptMinPosition.x, wp.ptMinPosition.y);
 	}
 
-	// MPC-BE custom code
+	// MPC-WJ custom code
 	return WriteState(CString(pszName), PLACEMENT_ENT, data);
 }
 
@@ -102,7 +102,7 @@ BOOL CResizableWndState::LoadWindowRect(LPCTSTR pszName, BOOL bRectOnly)
 	WINDOWPLACEMENT wp;
 	wp.length = sizeof(WINDOWPLACEMENT);
 
-	// MPC-BE custom code
+	// MPC-WJ custom code
 	if (!ReadState(CString(pszName), PLACEMENT_ENT, data))	// never saved before
 		return FALSE;
 
@@ -118,7 +118,7 @@ BOOL CResizableWndState::LoadWindowRect(LPCTSTR pszName, BOOL bRectOnly)
 	{
 		if (bRectOnly)	// restore size/pos only
 		{
-			// MPC-BE custom code
+			// MPC-WJ custom code
 			wp.showCmd = SW_HIDE;
 			wp.flags = 0;
 		}

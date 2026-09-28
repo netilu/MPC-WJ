@@ -2,14 +2,14 @@
  * (C) 2003-2006 Gabest
  * (C) 2006-2025 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -2396,7 +2396,7 @@ void CSimpleTextSubtitle::Add(CStringW str, int start, int end, CString style, C
 
 	// Entries with a null duration don't belong to any segments since
 	// they are not to be rendered. We choose not to skip them completely
-	// so that they are not lost when saving a subtitle file from MPC-BE
+	// so that they are not lost when saving a subtitle file from MPC-WJ
 	// and so that one can change the timings of such entries using the
 	// Subresync bar if necessary.
 	if (start == end) {
@@ -3199,7 +3199,7 @@ bool CSimpleTextSubtitle::SaveAs(CString fn, Subtitle::SubType type, double fps,
 			str += L"; Advanced Sub Station Alpha script format developed by #Anime-Fansubs@EfNET\n";
 			str += L"; \n";
 		}
-		str += L"; Note: This file was saved by MPC-BE.\n";
+		str += L"; Note: This file was saved by MPC-WJ.\n";
 		str += L"; \n";
 		str += (type == Subtitle::SSA) ? L"ScriptType: v4.00\n" : L"ScriptType: v4.00+\n";
 		str += (m_collisions == 0) ? L"Collisions: Normal\n" : L"Collisions: Reverse\n";

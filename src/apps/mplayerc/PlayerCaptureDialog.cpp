@@ -2,14 +2,14 @@
  * (C) 2003-2006 Gabest
  * (C) 2006-2024 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -644,7 +644,7 @@ void CPlayerCaptureDialog::InitControls()
 			PWSTR pathVideos = nullptr;
 			HRESULT hr = SHGetKnownFolderPath(FOLDERID_Videos, 0, nullptr, &pathVideos);
 			if (SUCCEEDED(hr)) {
-				m_file = CStringW(pathVideos) + L"\\MPC-BE Capture";
+				m_file = CStringW(pathVideos) + L"\\MPC-WJ Capture";
 				if (!PathFileExistsW(m_file)) {
 					VERIFY(CreateDirectoryW(m_file, nullptr));
 				}

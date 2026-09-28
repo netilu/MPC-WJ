@@ -1,14 +1,14 @@
 /*
  * (C) 2008-2026 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -248,9 +248,9 @@ BOOL CRegisterCopyDataDlg::OnInitDialog()
 	m_strMPCPath = L"..\\";
 
 #if defined (_WIN64)
-	m_strMPCPath += L"mpc-be_x64";
+	m_strMPCPath += L"mpc-wj_x64";
 #else
-	m_strMPCPath += L"mpc-be_x86";
+	m_strMPCPath += L"mpc-wj_x86";
 #endif // _WIN64
 
 #if defined (_DEBUG)
@@ -260,9 +260,9 @@ BOOL CRegisterCopyDataDlg::OnInitDialog()
 #endif // _DEBUG
 
 #if defined (_WIN64)
-	m_strMPCPath += L"mpc-be64.exe";
+	m_strMPCPath += L"mpc-wj64.exe";
 #else
-	m_strMPCPath += L"mpc-be.exe";
+	m_strMPCPath += L"mpc-wj.exe";
 #endif // _WIN64
 
 	m_cbCommand.Clear();

@@ -218,11 +218,11 @@ CAPTION "Despre"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "Drepturi de autor © 2002-2026 - vezi fișierul Authors.txt",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "Versiunea :",IDC_VERSION,30,34,90,8
-    LTEXT           "Compilator pentru MPC-BE :",IDC_STATIC,30,66,90,8
+    LTEXT           "Compilator pentru MPC-WJ :",IDC_STATIC,30,66,90,8
     LTEXT           "Compilatorul FFmpeg :",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil :",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,9 +230,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "Acest program este gratuit și lansat sub licența GNU General Public License.",IDC_STATIC,30,138,200,18
     LTEXT           "Între anii 2023 și 2026 traducătorul este Andrei-Valentin Miloiu. În trecut, traducerea a fost făcută de Daniel Alămiță şi lordkag.",IDC_STATIC,30,161,200,18
@@ -673,7 +673,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Avertisment"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "MPC-BE nu a putut randa unii dintre pinii graficului, este posibil să nu ai codecurile sau filtrele necesare instalate pe sistem.",IDC_STATIC1,5,5,286,18
+    LTEXT           "MPC-WJ nu a putut randa unii dintre pinii graficului, este posibil să nu ai codecurile sau filtrele necesare instalate pe sistem.",IDC_STATIC1,5,5,286,18
     LTEXT           "Următorii pini au eșuat în găsirea unui filtru conectabil:",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -2355,7 +2355,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2549,7 +2549,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2653,7 +2653,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "Colorimetrică relativă"
     IDS_CM_INTENT_SATURATION "Saturație"
     IDS_CM_INTENT_ABSOLUTECM "Colorimetrică absolută"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Previzualizarea este deocamdată dezactivată. O poți activa din opțiunile pentru MPC-BE."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Previzualizarea este deocamdată dezactivată. O poți activa din opțiunile pentru MPC-WJ."
 END
 
 STRINGTABLE
@@ -2663,7 +2663,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDC_EXCLUSIVE_FULLSCREEN_CHECK  "Reduce ruperea, dar împiedică afișarea barei de instrumente. Pentru a ieși din ecran complet în acest mod, apasă Alt+Enter, Ctrl+Enter sau Ctrl+C."
+    IDC_EXCLUSIVE_FULLSCREEN_CHECK  "Reduce ruperea, dar împiedică afișarea barei de instrumente. Pentru a ieși din ecran complet în acest mod, apasă Enter, Ctrl+Enter sau Ctrl+C."
 END
 
 STRINGTABLE
@@ -2699,7 +2699,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "Starea implicită va fi moștenită și de celelalte stiluri unde ea încă nu este definită."
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "Dezactivarea acestei opțiuni va preveni subtitrările de la a clipi, dar pot cauza ca redarea video să sară peste câteva cadre video."
     IDC_CHECK_SPCANIMWITHBUFFER  "Permite animarea subtitrărilor atunci când este folosită o memorie tampon (un buffer) de subimagini mai mare decât 0. Dezactivând această opțiune va scădea și folosirea procesorului. Dezactiveaz-o și dacă ai subtitrări intermitente."
-    IDC_BUTTON_EXT_SET      "După ce dai clic pe acest buton, starea bifată a grupului de formate va reflecta asocierea concretă a fișierelor pentru MPC-BE. O extensie nou adăugată va fi de obicei un gri deschis, așa că nu uiți să o bifezi din nou înainte de a închide această casetă de dialog!"
+    IDC_BUTTON_EXT_SET      "După ce dai clic pe acest buton, starea bifată a grupului de formate va reflecta asocierea concretă a fișierelor pentru MPC-WJ. O extensie nou adăugată va fi de obicei un gri deschis, așa că nu uiți să o bifezi din nou înainte de a închide această casetă de dialog!"
 END
 
 STRINGTABLE
@@ -2892,8 +2892,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "F&lux video"
     IDS_MENU_VIDEO_ANGLE    "Un&ghi video"
     IDS_RESET_SETTINGS      "Resetează setările"
-    IDS_RESET_SETTINGS_WARNING  "Ești sigur(ă) că vrei să restaurezi MPC-BE la setările implicite?\nTrebuie să știi că TOATE setările actuale vor fi pierdute!"
-    IDS_RESET_SETTINGS_MUTEX  "Te rugăm să închizi toate instanțele programului MPC-BE pentru ca setările implicite să poată fi restaurate."
+    IDS_RESET_SETTINGS_WARNING  "Ești sigur(ă) că vrei să restaurezi MPC-WJ la setările implicite?\nTrebuie să știi că TOATE setările actuale vor fi pierdute!"
+    IDS_RESET_SETTINGS_MUTEX  "Te rugăm să închizi toate instanțele programului MPC-WJ pentru ca setările implicite să poată fi restaurate."
     IDS_EXPORT_SETTINGS     "Exportă setările"
     IDS_EXPORT_SETTINGS_WARNING  "Unele modificări nu au fost încă salvate.\nDorești să le salvezi înainte de a le exporta?"
     IDS_EXPORT_SETTINGS_SUCCESS  "Setările au fost exportate cu succes."
@@ -3126,9 +3126,9 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "Potrivire automată"
     IDS_ZOOM_AUTOFITLARGE   "Potrivire automată (doar mai mare)"
-    IDS_ADD_TO_PLAYLIST     "Adaugă la lista de redare (la playlist) a MPC-BE"
-    IDS_OPEN_WITH_MPC       "Redare cu MPC-BE"
-    IDS_CANNOT_CHANGE_FORMAT  "MPC-BE nu are destule drepturi pentru a schimba asocierea cu formatele de fișiere. Te rugăm să dai clic pe butonul „Modifică” pentru a obține drepturi de administrator."
+    IDS_ADD_TO_PLAYLIST     "Adaugă la lista de redare (la playlist) a MPC-WJ"
+    IDS_OPEN_WITH_MPC       "Redare cu MPC-WJ"
+    IDS_CANNOT_CHANGE_FORMAT  "MPC-WJ nu are destule drepturi pentru a schimba asocierea cu formatele de fișiere. Te rugăm să dai clic pe butonul „Modifică” pentru a obține drepturi de administrator."
     IDS_APP_DESCRIPTION     "Unul dintre cele mai puternice, configurabile playere multimedia pentru sistemul de operare Windows. Realizat inițial de un dezvoltator maghiar cunoscut sub numele de Gabest, această versiune are caracteristici suplimentare, cum ar fi modul ecran complet exclusiv și suport mai bun pentru Windows Vista/7."
     IDS_MAINFRM_12          "canal"
     IDS_MAINFRM_13          "canale"
@@ -3171,7 +3171,7 @@ STRINGTABLE
 BEGIN
     IDS_ADDTOPLS_FROMDIR_SIMILAR "fișiere similare din dosar (din folder)"
     IDS_ADDTOPLS_FROMDIR_ALL "toate fișierele dintr-un dosar (folder)"
-    IDS_EXCLUSIVE_FS_WARNING  "Această opțiune a fost proiectată pentru a evita ruperea. Cu toate acestea, va împiedica de asemenea MPC-BE să afișeze meniul contextual și orice căsuță de dialog în timpul redării.\n\nCa să ieși din modul ecran complet Direct3D și să oprești redarea, trebuie să apeși: Ctrl + C.\n\nEști sigur(ă) că dorești să activezi această opțiune?"
+    IDS_EXCLUSIVE_FS_WARNING  "Această opțiune a fost proiectată pentru a evita ruperea. Cu toate acestea, va împiedica de asemenea MPC-WJ să afișeze meniul contextual și orice căsuță de dialog în timpul redării.\n\nCa să ieși din modul ecran complet Direct3D și să oprești redarea, trebuie să apeși: Ctrl + C.\n\nEști sigur(ă) că dorești să activezi această opțiune?"
     IDS_MAINFRM_139         "Întârzierea subtitrărilor: %ld (de) ms"
     IDS_AG_TITLE2           "Titlul: %02d/%02d"
     IDS_THUMB_ROWNUMBER     "Rânduri:"
@@ -3242,7 +3242,7 @@ BEGIN
     IDS_GAIN_OSD            "Amplificare cu: %+.1f (de) dB"
     IDS_BALANCE_OSD         "Balansul: %s"
     IDS_FULLSCREENMONITOR_CURRENT "Actual"
-    IDS_MPC_CRASH           "MPC-BE s-a închis neașteptat. Pentru a ne ajuta să rezolvăm această problemă, te rugăm să trimiți acest fișier „%s” către sistemul nostru de urmărire a erorilor (bug tracker).\n\nDorești să deschizi dosarul (folderul) ce conţine fişierul de imagine memorie (minidump) şi să vizitezi acum sistemul de urmărire de erori?"
+    IDS_MPC_CRASH           "MPC-WJ s-a închis neașteptat. Pentru a ne ajuta să rezolvăm această problemă, te rugăm să trimiți acest fișier „%s” către sistemul nostru de urmărire a erorilor (bug tracker).\n\nDorești să deschizi dosarul (folderul) ce conţine fişierul de imagine memorie (minidump) şi să vizitezi acum sistemul de urmărire de erori?"
     IDS_MPC_MINIDUMP_FAIL   "Nu s-a putut crea fișierul de depanare „%s” (eroare %d)"
     IDS_MAINFRM_DIR_TITLE   "Selectează directorul"
     IDS_MAINFRM_DIR_CHECK   "Include subdirectoarele"
@@ -3300,7 +3300,7 @@ BEGIN
     IDS_AG_REMOVING         "Se șterge: "
     IDS_MAINFRM_134         "ATENȚIE: CMainFrame::CloseMedia() a fost apelat de două sau mai multe ori\n"
     IDS_MAINFRM_135         "EROARE CRITICĂ: !!! Trebuie închis forțat firul de execuție deschizător !!!"
-    IDS_MAINFRM_136         "Ecran complet exclusiv pentru MPC-BE"
+    IDS_MAINFRM_136         "Ecran complet exclusiv pentru MPC-WJ"
     IDS_MAINFRM_137         "Formatul e necunoscut"
     IDS_MAINFRM_138         "Decalajul subtitrărilor: %ld (de) ms"
     IDS_VOLUME_GAIN_INC     "Crește puterea volumului"
@@ -3329,7 +3329,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Utilizare: mpc-be.exe „numele căii” [comutatoare]"
+    IDS_CMD_USAGE           "Utilizare: mpc-wj.exe „numele căii” [comutatoare]"
     IDS_CMD_PATHNAME        "„numele căii”\tFișierul sau directorul principal ce trebuie încărcat (metacaractere\npermise)"
     IDS_CMD_HELP            "/help /h /?\tArată ajutorul pentru comutatoarele din linia de comandă"
     IDS_CMD_DUB             "/dub „numele dublajului”\tÎncarcă un fișier audio suplimentar"
@@ -3770,7 +3770,7 @@ BEGIN
     IDS_RESET_COLOR         "Resetează setările de culoare"
     IDS_UPDATE_ERROR_DATA   "Serverul pentru actualizare oferă date greșite.\n\nTe rugăm să încerci mai târziu."
     IDS_USING_NEWER_VERSION "Deja folosești ultima versiune %s."
-    IDS_NEW_UPDATE_AVAILABLE  "O nouă %s este disponibilă.\n\nVrei să vizitezi site-ul programului MPC-BE ca să o descarci?"
+    IDS_NEW_UPDATE_AVAILABLE  "O nouă %s este disponibilă.\n\nVrei să vizitezi site-ul programului MPC-WJ ca să o descarci?"
     IDS_UPDATE_ERROR_CONNECT  "Serverul pentru actualizare nu a fost găsit.\n\nTe rugăm să-ți verifici conexiunea la internet sau încearcă mai târziu."
     IDS_UPDATE_CLOSE        "În&chide"
     IDS_OSD_ZOOM            "Scalează: %.0lf%%"
@@ -3982,14 +3982,14 @@ BEGIN
     BEGIN
         BLOCK "041804b0"
         BEGIN
-            VALUE "Comments", "Romanian language resource for MPC-BE"
+            VALUE "Comments", "Romanian language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Romanian language resource for MPC-BE"
+            VALUE "FileDescription", "Romanian language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.ro.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

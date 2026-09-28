@@ -392,12 +392,12 @@ CAsyncReader::CAsyncReader(
     LPUNKNOWN pUnk,
     CAsyncStream *pStream,
     HRESULT *phr,
-    const CLSID& clsid) // MPC-BE patch
+    const CLSID& clsid) // MPC-WJ patch
   : CBaseFilter(
                 pName,
                 pUnk,
                 &m_csFilter,
-                clsid, // MPC-BE patch
+                clsid, // MPC-WJ patch
                 NULL
                 ),
     m_OutputPin(
@@ -413,7 +413,7 @@ CAsyncReader::~CAsyncReader()
 {
 }
 
-// MPC-BE patch start
+// MPC-WJ patch start
 STDMETHODIMP CAsyncReader::NonDelegatingQueryInterface(REFIID riid, void** ppv)
 {
     CheckPointer(ppv, E_POINTER);
@@ -429,7 +429,7 @@ ULONG CAsyncReader::GetMiscFlags()
 {
     return AM_FILTER_MISC_FLAGS_IS_SOURCE;
 }
-// MPC-BE patch end
+// MPC-WJ patch end
 
 int CAsyncReader::GetPinCount()
 {

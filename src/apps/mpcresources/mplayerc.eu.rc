@@ -218,11 +218,11 @@ CAPTION "Honi buruz"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "Copyrighta © 2002-2026 Ikusi: Authors.txt",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "Bertsioa :",IDC_VERSION,30,34,90,8
-    LTEXT           "MPC-BE Biltzailea  :",IDC_STATIC,30,66,90,8
+    LTEXT           "MPC-WJ Biltzailea  :",IDC_STATIC,30,66,90,8
     LTEXT           "FFmpeg Biltzailea :",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil :",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,9 +230,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "Programa hau dohainekoa da eta GNU Baimen Publiko Orokorrarekin argitaratzen da.",IDC_STATIC,30,138,200,18
     LTEXT           "Euskarazko itzulpena: Xabier Aramendi",IDC_STATIC,30,161,200,18
@@ -2550,7 +2550,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2654,7 +2654,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "Margoneurketa Erlatiboa"
     IDS_CM_INTENT_SATURATION "Margoasetasuna"
     IDS_CM_INTENT_ABSOLUTECM "Margoneurketa Osoa"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Preview is currently disabled. You can enable it in MPC-BE's options."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Preview is currently disabled. You can enable it in MPC-WJ's options."
 END
 
 STRINGTABLE
@@ -2700,7 +2700,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "Berezko egoera beste estilo batzuetatik lortzen da oraindik zehaztugabe dagoenean."
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "Aukera hau ezgaitzeak azpidatziek keinuka egitea saihestuko du baina bideo aurkezleak zenbait bide frame jauzi egitea eragin dezake."
     IDC_CHECK_SPCANIMWITHBUFFER  "Ahalbidetzen du azpidatzi animazioa 0 baino handiagoa den azpirudi buffer bat erabiltzerakoan. Aukera hau ezgaitzeak CPU erabilera gutxiago izango du. Ezgaitu ere azpidatziak keinuka ikusten badituzu."
-    IDC_BUTTON_EXT_SET      "Botoi hau sakatu ondoren, hautatutako multzo heuskarri egoerak  MPC-BE-rentzat oraingo agiri elkarketa adieraziko du. Berriki gehitutako hedapen ba arrunt urdinabarrago ikusiko da, hortaz ez ahaztu hura berriro hautatzeaz elkarrizketa hau itxitakoan!"
+    IDC_BUTTON_EXT_SET      "Botoi hau sakatu ondoren, hautatutako multzo heuskarri egoerak  MPC-WJ-rentzat oraingo agiri elkarketa adieraziko du. Berriki gehitutako hedapen ba arrunt urdinabarrago ikusiko da, hortaz ez ahaztu hura berriro hautatzeaz elkarrizketa hau itxitakoan!"
 END
 
 STRINGTABLE
@@ -2893,8 +2893,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "Bideo &Jarioa"
     IDS_MENU_VIDEO_ANGLE    "Bideo &Angelua"
     IDS_RESET_SETTINGS      "Berrezarri ezarpenak"
-    IDS_RESET_SETTINGS_WARNING  "Zihur zaude MPC-BE leheneratzea nahi duzula berezko ezarpenetara?\nOhartu zure oraingo ezarpen GUZTIAK galduko direla!"
-    IDS_RESET_SETTINGS_MUTEX  "Mesedez itxi MPC-BE eskabide guztiak berezko ezarpenak leheneratu ahal izateko."
+    IDS_RESET_SETTINGS_WARNING  "Zihur zaude MPC-WJ leheneratzea nahi duzula berezko ezarpenetara?\nOhartu zure oraingo ezarpen GUZTIAK galduko direla!"
+    IDS_RESET_SETTINGS_MUTEX  "Mesedez itxi MPC-WJ eskabide guztiak berezko ezarpenak leheneratu ahal izateko."
     IDS_EXPORT_SETTINGS     "Esportatu ezarpenak"
     IDS_EXPORT_SETTINGS_WARNING  "Aldaketa batzuk ez daude oraindik gordeta.\nGordetzea nahi dituzu esportatu aurretik?"
     IDS_EXPORT_SETTINGS_SUCCESS  "Ezarpenak ongi esportatu dira."
@@ -3127,8 +3127,8 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "Berez finkatu"
     IDS_ZOOM_AUTOFITLARGE   "Berez finkatu (handiago bakarrik)"
-    IDS_ADD_TO_PLAYLIST     "Gehitu MPC-BE Irakur-zerrendara"
-    IDS_OPEN_WITH_MPC       "Irakurri MPC-BE-rekin"
+    IDS_ADD_TO_PLAYLIST     "Gehitu MPC-WJ Irakur-zerrendara"
+    IDS_OPEN_WITH_MPC       "Irakurri MPC-WJ-rekin"
     IDS_CANNOT_CHANGE_FORMAT  "Media Player Classic - BE ez du nahikoa pribilegio agiri heuskarri elkarketak aldatzeko. Mesedez klikatu ""Aldatu"" botoia administrari eskubideak izateko"
     IDS_APP_DESCRIPTION     "Windows sistema eragilerako multimedia irakurgailu itxuragarri indartsuenetako bat. Jatorrian Gabest bezala ezaguturiko Hungariar garatzaileak egina, bertsio honek ezaugarri gehigarriak ditu Direct 3D ikusleiho-osoko modua bezalakoak eta sostengu hobea Windows Vista/7-rako."
     IDS_MAINFRM_12          "bidea"
@@ -3172,7 +3172,7 @@ STRINGTABLE
 BEGIN
     IDS_ADDTOPLS_FROMDIR_SIMILAR "similar files from folder"
     IDS_ADDTOPLS_FROMDIR_ALL "all files from folder"
-    IDS_EXCLUSIVE_FS_WARNING  "Aukera hau malkopena saihesteko diseinatua dago. Horrela ere, saihestuko du ere MPC-BE hitzinguru menua eta edozein elkarrizketa kutxa erakustetik irakurketan zehar.\n\nDirect3D ikusleiho-osotik irtetzeko eta irakurketa gelditzeko, sakatu behar duzu: Ktrl + C.\n\nEgitan nahi duzu aukera honi eragitea?"
+    IDS_EXCLUSIVE_FS_WARNING  "Aukera hau malkopena saihesteko diseinatua dago. Horrela ere, saihestuko du ere MPC-WJ hitzinguru menua eta edozein elkarrizketa kutxa erakustetik irakurketan zehar.\n\nDirect3D ikusleiho-osotik irtetzeko eta irakurketa gelditzeko, sakatu behar duzu: Ktrl + C.\n\nEgitan nahi duzu aukera honi eragitea?"
     IDS_MAINFRM_139         "Azp. atzerapena: %ld sm"
     IDS_AG_TITLE2           "Izenburua: %02d/%02d"
     IDS_THUMB_ROWNUMBER     "Lerroak:"
@@ -3243,7 +3243,7 @@ BEGIN
     IDS_GAIN_OSD            "Gain: %+.1f dB"
     IDS_BALANCE_OSD         "Oreka: %s"
     IDS_FULLSCREENMONITOR_CURRENT "Oraingoa"
-    IDS_MPC_CRASH           "MPC-BE ustekabean amaitu du. Arazo hau zuzentzen laguntzeko, mesedez bidali agiri hau '%s' gure akats aztarnarira.\n\nNahi duzu minidump agiria duen agiritegia ireki eta akats aztarnaria ikustea orain?"
+    IDS_MPC_CRASH           "MPC-WJ ustekabean amaitu du. Arazo hau zuzentzen laguntzeko, mesedez bidali agiri hau '%s' gure akats aztarnarira.\n\nNahi duzu minidump agiria duen agiritegia ireki eta akats aztarnaria ikustea orain?"
     IDS_MPC_MINIDUMP_FAIL   "Hutsegitea '%s'-ra dump agiria sortzerakoan (akatsa %d)"
     IDS_MAINFRM_DIR_TITLE   "Hautatu Zuzenbidea"
     IDS_MAINFRM_DIR_CHECK   "Azpizuzenbideak barne"
@@ -3301,7 +3301,7 @@ BEGIN
     IDS_AG_REMOVING         "Kentzen: "
     IDS_MAINFRM_134         "KONTUZ: CMainFrame::ItxiMultimedia() deituta bi aldiz edo gehiago\n"
     IDS_MAINFRM_135         "AKATS LARRIA: !!! Irekiera haria hil behar du !!!"
-    IDS_MAINFRM_136         "MPC-BE Exclusive Fullscreen"
+    IDS_MAINFRM_136         "MPC-WJ Exclusive Fullscreen"
     IDS_MAINFRM_137         "Heuskarri ezezaguna"
     IDS_MAINFRM_138         "Azp. aldaketa: %ld sm"
     IDS_VOLUME_GAIN_INC     "Handitu bolumen irabazia"
@@ -3330,7 +3330,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Erabilpena: mpc-be.exe ""helburu-izena"" [aldagailuak]"
+    IDS_CMD_USAGE           "Erabilpena: mpc-wj.exe ""helburu-izena"" [aldagailuak]"
     IDS_CMD_PATHNAME        """pathname""\tGertatzeko agiri edo zuzenbide nagusia\n(ordezhizkiak ahal dira, ""-""-k sarrera estandarra adierazten du)"
     IDS_CMD_HELP            "/help /h /?\tErakutsi komando lerro aldaketa laguntza"
     IDS_CMD_DUB             "/dub ""dubname""\tGertatu audio agiri gehigarri bat"
@@ -3771,7 +3771,7 @@ BEGIN
     IDS_RESET_COLOR         "Berrezarri margo ezarpenak"
     IDS_UPDATE_ERROR_DATA   "The update server gives the wrong data.\n\nPlease try later."
     IDS_USING_NEWER_VERSION "Jadanik azken %s erabiltzen ari zara"
-    IDS_NEW_UPDATE_AVAILABLE  "%s berri bat eskuragarri dago.\n\nNahi duzu MPC-BE-ren webgunea ikusi eta hura jeistea?"
+    IDS_NEW_UPDATE_AVAILABLE  "%s berri bat eskuragarri dago.\n\nNahi duzu MPC-WJ-ren webgunea ikusi eta hura jeistea?"
     IDS_UPDATE_ERROR_CONNECT  "Zerbitzari eguneraketa ez da aurkitu.\n\nMesedez egiaztatu zure internet elkarketa edo saiatu berriro geroago."
     IDS_UPDATE_CLOSE        "It&xi"
     IDS_OSD_ZOOM            "Zooma: %.0lf%%"
@@ -3983,14 +3983,14 @@ BEGIN
     BEGIN
         BLOCK "042d04b0"
         BEGIN
-            VALUE "Comments", "Basque language resource for MPC-BE"
+            VALUE "Comments", "Basque language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Basque language resource for MPC-BE"
+            VALUE "FileDescription", "Basque language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.eu.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

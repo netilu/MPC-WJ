@@ -1,14 +1,14 @@
 /*
  * (C) 2012-2024 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -19,7 +19,7 @@
  */
 
 #include "stdafx.h"
-#include "MPCBEShellExt_i.h"
+#include "MPCWJShellExt_i.h"
 #include "dllmain.h"
 #include <xutility>
 
@@ -99,10 +99,10 @@ STDAPI DllRegisterServer(void)
 		}
 
 		hr = E_FAIL;
-		if (::StringFromGUID2(CLSID_MPCBEContextMenu, strWideCLSID, 50) > 0) {
+		if (::StringFromGUID2(CLSID_MPCWJContextMenu, strWideCLSID, 50) > 0) {
 			CRegKey key;
 			if (GetKeyValue(L"ShowDir")) {
-				key.SetValue(HKEY_CLASSES_ROOT, L"directory\\shellex\\ContextMenuHandlers\\MPCBEShellExt\\", strWideCLSID);
+				key.SetValue(HKEY_CLASSES_ROOT, L"directory\\shellex\\ContextMenuHandlers\\MPCWJShellExt\\", strWideCLSID);
 			}
 
 			const auto bShowFiles = GetKeyValue(L"ShowFiles");
@@ -118,7 +118,7 @@ STDAPI DllRegisterServer(void)
 						CStringW key_name = szSubKeyName;
 						if (!key_name.Find(KeyName)) {
 							if (bShowFiles) {
-								key.SetValue(HKEY_CLASSES_ROOT, key_name + L"\\shellex\\ContextMenuHandlers\\MPCBEShellExt\\", strWideCLSID);
+								key.SetValue(HKEY_CLASSES_ROOT, key_name + L"\\shellex\\ContextMenuHandlers\\MPCWJShellExt\\", strWideCLSID);
 							}
 
 							if (ERROR_SUCCESS == key.Create(HKEY_CLASSES_ROOT, key_name + L"\\shell\\open\\DropTarget")) {
@@ -146,7 +146,7 @@ STDAPI DllUnregisterServer(void)
 		CRegKey key;
 
 		if (key.Open(HKEY_CLASSES_ROOT, L"directory\\shellex\\ContextMenuHandlers\\") == ERROR_SUCCESS) {
-			key.DeleteSubKey(L"MPCBEShellExt");
+			key.DeleteSubKey(L"MPCWJShellExt");
 		}
 
 		CStringW KeyName = GetKeyName();

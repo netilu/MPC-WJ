@@ -1,14 +1,14 @@
 /*
  * (C) 2014-2025 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -124,14 +124,14 @@ void CAboutDlg::OnAuthors(NMHDR* pNMHDR, LRESULT* pResult)
 
 void CAboutDlg::OnHomepage(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	ShellExecuteW(m_hWnd, L"open", L"https://sourceforge.net/projects/mpcbe/", nullptr, nullptr, SW_SHOWDEFAULT);
+	ShellExecuteW(m_hWnd, L"open", L"https://sourceforge.net/projects/mpcwj/", nullptr, nullptr, SW_SHOWDEFAULT);
 
 	*pResult = 0;
 }
 
 void CAboutDlg::OnGitHub(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	ShellExecuteW(m_hWnd, L"open", L"https://github.com/Aleksoid1978/MPC-BE", nullptr, nullptr, SW_SHOWDEFAULT);
+	ShellExecuteW(m_hWnd, L"open", L"https://github.com/Aleksoid1978/MPC-WJ", nullptr, nullptr, SW_SHOWDEFAULT);
 
 	*pResult = 0;
 }

@@ -78,12 +78,12 @@ void CSizingControlBarG::NcCalcClient(LPRECT pRc, UINT nDockBarID)
         return;
 
     CRect rc(pRc); // the client rect as calculated by the base class
-    //MPC-BE custom code start
+    //MPC-WJ custom code start
     // Work in screen coordinates before converting back to
     // client coordinates to account for possible RTL layout
     GetParent()->ClientToScreen(rcBar);
     GetParent()->ClientToScreen(rc);
-    //MPC-BE custom code end
+    //MPC-WJ custom code end
 
     BOOL bHorz = (nDockBarID == AFX_IDW_DOCKBAR_TOP) ||
                  (nDockBarID == AFX_IDW_DOCKBAR_BOTTOM);
@@ -102,11 +102,11 @@ void CSizingControlBarG::NcCalcClient(LPRECT pRc, UINT nDockBarID)
 
     m_biHide.Move(ptOrgBtn - rcBar.TopLeft());
 
-    //MPC-BE custom code start
+    //MPC-WJ custom code start
     // Work in screen coordinates before converting back to
     // client coordinates to account for possible RTL layout
     GetParent()->ScreenToClient(&rc);
-    //MPC-BE custom code end
+    //MPC-WJ custom code end
 
     *pRc = rc;
 }
@@ -159,11 +159,11 @@ LRESULT CSizingControlBarG::OnNcHitTest(CPoint point)
     if (nRet != HTCLIENT)
         return nRet;
 
-    //MPC-BE custom code start
+    //MPC-WJ custom code start
     // Convert to client coordinates to account for possible RTL layout
     ScreenToClient(&rcBar);
     ScreenToClient(&point);
-    //MPC-BE custom code end
+    //MPC-WJ custom code end
 
     CRect rc = m_biHide.GetRect(CSize(ScaleX(m_cyGripper), ScaleY(m_cyGripper)));
     rc.OffsetRect(rcBar.TopLeft());
@@ -244,11 +244,11 @@ void CSCBButton::Paint(CDC* pDC, const CSizingControlBar* parent, const CSize& s
 
     CFont* oldfont = pDC->SelectObject(&font);
 
-    //MPC-BE custom code start
+    //MPC-WJ custom code start
     // TextOut is affected by the layout so we need to account for that
     DWORD dwLayout = pDC->GetLayout();
     pDC->TextOutW(ptOrg.x + (dwLayout == LAYOUT_LTR ? 2 : -1), ptOrg.y + 2, L"r"); // x-like
-    //MPC-BE custom code end
+    //MPC-WJ custom code end
 
     pDC->SelectObject(oldfont);
     pDC->SetBkMode(nPrevBkMode);

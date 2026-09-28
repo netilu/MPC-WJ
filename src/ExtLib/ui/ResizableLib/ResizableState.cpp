@@ -107,7 +107,7 @@ LPCTSTR CResizableState::GetStateStore() const
  */
 BOOL CResizableState::WriteState(LPCTSTR szId, LPCTSTR szValue, LPCTSTR szState)
 {
-	// MPC-BE custom code
+	// MPC-WJ custom code
 	return AfxGetApp()->WriteProfileString(szId, szValue, szState);
 }
 
@@ -126,7 +126,7 @@ BOOL CResizableState::WriteState(LPCTSTR szId, LPCTSTR szValue, LPCTSTR szState)
  */
 BOOL CResizableState::ReadState(LPCTSTR szId, LPCTSTR szValue, CString &rsState)
 {
-	// MPC-BE custom code
+	// MPC-WJ custom code
 	rsState = AfxGetApp()->GetProfileString(szId, szValue);
 	return !rsState.IsEmpty();
 }

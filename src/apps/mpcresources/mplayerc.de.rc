@@ -214,15 +214,15 @@ END
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 241, 202
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Über MPC-BE"
+CAPTION "Über MPC-WJ"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
-    CONTROL         "Copyright © 2002-2026 MPC-BE Team, siehe Authors.txt Datei",IDC_AUTHORS_LINK,
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    CONTROL         "Copyright © 2002-2026 MPC-WJ Team, siehe Authors.txt Datei",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "Version:",IDC_VERSION,30,34,90,8
-    LTEXT           "MPC-BE Compiler:",IDC_STATIC,30,66,90,8
+    LTEXT           "MPC-WJ Compiler:",IDC_STATIC,30,66,90,8
     LTEXT           "FFmpeg Compiler:",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil:",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,11 +230,11 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
-    LTEXT           "MPC-BE ist Freeware und steht unter\nder GNU General Public License.",IDC_STATIC,30,138,200,18
+    LTEXT           "MPC-WJ ist Freeware und steht unter\nder GNU General Public License.",IDC_STATIC,30,138,200,18
     LTEXT           "Deutsche Übersetzung von Markus Gaugg,\nLuan und Klaus Luppert",IDC_STATIC,30,161,200,18
     DEFPUSHBUTTON   "&OK",IDOK,185,183,50,14,WS_GROUP
 END
@@ -673,7 +673,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Warnung"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "MPC-BE konnte einige Pins im Filter-Graph nicht verbinden. Möglicherweise\nsind notwendige Codecs oder Filter nicht installiert.",IDC_STATIC1,5,5,286,18
+    LTEXT           "MPC-WJ konnte einige Pins im Filter-Graph nicht verbinden. Möglicherweise\nsind notwendige Codecs oder Filter nicht installiert.",IDC_STATIC1,5,5,286,18
     LTEXT           "Für diese(n) Pin(s) wurde(n) kein(e) Filter gefunden:",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -1786,7 +1786,7 @@ BEGIN
     MENUITEM "Fa&voriten",                  ID_SUBMENU_FAVORITES_MAIN
     POPUP "&Hilfe"
     BEGIN
-        MENUITEM "MPC-BE &Webseite",            ID_HELP_HOMEPAGE
+        MENUITEM "MPC-WJ &Webseite",            ID_HELP_HOMEPAGE
         MENUITEM "Auf &Update prüfen",          ID_HELP_CHECKFORUPDATE
         MENUITEM "&Kommandozeile",   ID_HELP_SHOWCOMMANDLINESWITCHES
         MENUITEM "&Symbolleisten",    ID_HELP_TOOLBARIMAGES
@@ -2046,7 +2046,7 @@ BEGIN
         MENUITEM "Fa&voriten",                  ID_SUBMENU_FAVORITES
         POPUP "&Hilfe"
         BEGIN
-            MENUITEM "MPC-BE &Webseite",                   ID_HELP_HOMEPAGE
+            MENUITEM "MPC-WJ &Webseite",                   ID_HELP_HOMEPAGE
             MENUITEM "Auf &Update prüfen",          ID_HELP_CHECKFORUPDATE
             MENUITEM "&Kommandozeile",   ID_HELP_SHOWCOMMANDLINESWITCHES
             MENUITEM SEPARATOR
@@ -2356,7 +2356,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2550,7 +2550,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2654,7 +2654,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "Relativ farbmetrisch"
     IDS_CM_INTENT_SATURATION "Sättigung"
     IDS_CM_INTENT_ABSOLUTECM "Absolut farbmetrisch"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Die Vorschau ist derzeit deaktiviert. Sie können sie in den MPC-BE Optionen aktivieren."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Die Vorschau ist derzeit deaktiviert. Sie können sie in den MPC-WJ Optionen aktivieren."
 END
 
 STRINGTABLE
@@ -2893,12 +2893,12 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "V&ideospur"
     IDS_MENU_VIDEO_ANGLE    "Videoblickwinkel"
     IDS_RESET_SETTINGS      "Einstellungen zurücksetzen"
-    IDS_RESET_SETTINGS_WARNING  "Möchten Sie die Standardeinstellungen von MPC-BE wiederherstellen?\nDabei gehen alle aktuellen Einstellungen verloren!"
-    IDS_RESET_SETTINGS_MUTEX  "Bitte schließen Sie alle laufenden Instanzen von MPC-BE, sodass die Standardeinstellungen fehlerfrei wiederhergestellt werden können."
+    IDS_RESET_SETTINGS_WARNING  "Möchten Sie die Standardeinstellungen von MPC-WJ wiederherstellen?\nDabei gehen alle aktuellen Einstellungen verloren!"
+    IDS_RESET_SETTINGS_MUTEX  "Bitte schließen Sie alle laufenden Instanzen von MPC-WJ, sodass die Standardeinstellungen fehlerfrei wiederhergestellt werden können."
     IDS_EXPORT_SETTINGS     "Einstellungen exportieren"
     IDS_EXPORT_SETTINGS_WARNING  "Einige Änderungen wurden noch nicht gespeichert.\nMöchten Sie diese Einstellungen vor dem Export speichern?"
     IDS_EXPORT_SETTINGS_SUCCESS  "Die Einstellungen wurden erfolgreich exportiert."
-    IDS_EXPORT_SETTINGS_FAILED  "Der Export ist fehlgeschlagen! Dies kann passieren, wenn Sie nicht über Administratorrechte verfügen. Starten Sie MPC-BE mit Administratorrechten und versuchen Sie es erneut."
+    IDS_EXPORT_SETTINGS_FAILED  "Der Export ist fehlgeschlagen! Dies kann passieren, wenn Sie nicht über Administratorrechte verfügen. Starten Sie MPC-WJ mit Administratorrechten und versuchen Sie es erneut."
     IDS_BDA_ERROR           "BDA Fehler"
 END
 
@@ -3127,9 +3127,9 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "Eingepasst"
     IDS_ZOOM_AUTOFITLARGE   "Nur verkleinert"
-    IDS_ADD_TO_PLAYLIST     "Zur MPC-BE-Wiedergabeliste hinzufügen"
-    IDS_OPEN_WITH_MPC       "Wiedergabe mit MPC-BE"
-    IDS_CANNOT_CHANGE_FORMAT  "MPC-BE benötigt Administratorrechte, um die Dateierweiterungen zuweisen zu können. Bestätigen Sie die Zuweisung der Administratorrechte mittels eines Klicks auf den 'Administrator' Button."
+    IDS_ADD_TO_PLAYLIST     "Zur MPC-WJ-Wiedergabeliste hinzufügen"
+    IDS_OPEN_WITH_MPC       "Wiedergabe mit MPC-WJ"
+    IDS_CANNOT_CHANGE_FORMAT  "MPC-WJ benötigt Administratorrechte, um die Dateierweiterungen zuweisen zu können. Bestätigen Sie die Zuweisung der Administratorrechte mittels eines Klicks auf den 'Administrator' Button."
     IDS_APP_DESCRIPTION     "Einer der leistungsstärksten und am besten konfigurierbaren Media Player für Windows Betriebssysteme. Ursprünglich von einem ungarischen Entwickler mit Namen Gabest erstellt, beinhaltet diese Version zahlreiche Erweiterungen und Neuerungen, wie z. B. Vollbild (Exclusive Mode) und Unterstützung für Vista/7/8/8.1/10."
     IDS_MAINFRM_12          "Kanal"
     IDS_MAINFRM_13          "Kanäle"
@@ -3179,7 +3179,7 @@ BEGIN
     IDS_THUMB_COLNUMBER     "Spalten:"
     IDS_THUMB_IMAGE_WIDTH   "Bildbreite"
     IDS_PPSDB_URLCORRECT    "URL erfolgreich verifiziert!"
-    IDS_PPSDB_PROTOCOLERR   "Protokollversion stimmt nicht überein, bitte MPC-BE updaten oder einen anderen Server angeben!"
+    IDS_PPSDB_PROTOCOLERR   "Protokollversion stimmt nicht überein, bitte MPC-WJ updaten oder einen anderen Server angeben!"
 END
 
 STRINGTABLE
@@ -3243,7 +3243,7 @@ BEGIN
     IDS_GAIN_OSD            "Gain: %+.1f dB"
     IDS_BALANCE_OSD         "Balance: %s"
     IDS_FULLSCREENMONITOR_CURRENT "Aktueller Bildschirm"
-    IDS_MPC_CRASH           "MPC-BE ist gerade abgestürzt, jedoch wurde dieses Build ohne Debug-Informationen kompiliert.\nWenn Sie diesen Fehler melden wollen, sollten Sie ein offizielles Build verwenden.\n\nWollen Sie die MPC-BE Downloadseite jetzt besuchen, um ein offizielles Build herunterzuladen?"
+    IDS_MPC_CRASH           "MPC-WJ ist gerade abgestürzt, jedoch wurde dieses Build ohne Debug-Informationen kompiliert.\nWenn Sie diesen Fehler melden wollen, sollten Sie ein offizielles Build verwenden.\n\nWollen Sie die MPC-WJ Downloadseite jetzt besuchen, um ein offizielles Build herunterzuladen?"
     IDS_MPC_MINIDUMP_FAIL   "Die Minidump-Datei '%s' konnte nicht angelegt werden (Fehler %d)"
     IDS_MAINFRM_DIR_TITLE   "Verzeichnis auswählen"
     IDS_MAINFRM_DIR_CHECK   "Unterverzeichnis einbeziehen"
@@ -3301,7 +3301,7 @@ BEGIN
     IDS_AG_REMOVING         "Entferne: "
     IDS_MAINFRM_134         "WARNUNG: CMainFrame::CloseMedia() wurde mehr als einmal aufgerufen\n"
     IDS_MAINFRM_135         "Kritischer Fehler: Opener-Thread wurde nicht beendet!"
-    IDS_MAINFRM_136         "MPC-BE Vollbild (Exclusive Mode)"
+    IDS_MAINFRM_136         "MPC-WJ Vollbild (Exclusive Mode)"
     IDS_MAINFRM_137         "Unbekanntes Dateiformat"
     IDS_MAINFRM_138         "Untertitelversatz: %ld"
     IDS_VOLUME_GAIN_INC     "Lautstärkeverstärkung erhöhen"
@@ -3330,7 +3330,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Aufruf: mpc-be.exe ""Pfadname"" [Parameter]"
+    IDS_CMD_USAGE           "Aufruf: mpc-wj.exe ""Pfadname"" [Parameter]"
     IDS_CMD_PATHNAME        """Pfadname""\tGibt Mediendatei oder Verzeichnis an\n(Wildcards sind möglich, Standardeingabe kann\nals ""-"" angegeben werden)."
     IDS_CMD_HELP            "/help /h /?\tZeigt diese Hilfe an."
     IDS_CMD_DUB             "/dub ""dubname""\tÖffnet zusätzliche Audiodatei."
@@ -3771,7 +3771,7 @@ BEGIN
     IDS_RESET_COLOR         "Farbeinstellungen zurücksetzen"
     IDS_UPDATE_ERROR_DATA   "Der Update-Server hat falsche Daten ausgegeben.\n\nBitte versuchen Sie es später erneut."
     IDS_USING_NEWER_VERSION "Sie verwenden bereits die aktuelle Version %s"
-    IDS_NEW_UPDATE_AVAILABLE  "Eine neue Version %s ist verfügbar.\n\nWollen Sie die Webseite von MPC-BE aufrufen, um die neue Version herunterzuladen?"
+    IDS_NEW_UPDATE_AVAILABLE  "Eine neue Version %s ist verfügbar.\n\nWollen Sie die Webseite von MPC-WJ aufrufen, um die neue Version herunterzuladen?"
     IDS_UPDATE_ERROR_CONNECT  "Es konnte keine Verbindung mit dem Update-Server hergestellt werden.\nÜberprüfen Sie Ihre Internetverbindung und versuchen Sie es später erneut."
     IDS_UPDATE_CLOSE        "&Schließen"
     IDS_OSD_ZOOM            "Zoom: %.0lf%%"
@@ -3805,7 +3805,7 @@ BEGIN
     IDS_GOTO_ERROR_PARSING_FPS "Fehler beim Parsen der eingegebenen Bildrate!"
     IDS_FRAME_STEP_ERROR_RENDERER  "Mit diesem Videorenderer können keine Einzelbilder vor- oder zurückgesprungen werden. Versuchen Sie einen anderen Videorenderer."
     IDS_SCREENSHOT_ERROR_SHOCKWAVE  "Die 'Bild speichern' und 'Vorschaubilder speichern' Funktionen funktionieren nicht mit Shockwave Dateien."
-    IDS_SCREENSHOT_ERROR_OVERLAY  "Die 'Bild speichern' und 'Vorschaubilder speichern' Funktionen arbeiten nicht mit dem Videorenderer 'Overlay Mixer' zusammen.\nÄndern Sie den Videorenderer in den Optionen von MPC-BE und öffnen Sie die Datei erneut."
+    IDS_SCREENSHOT_ERROR_OVERLAY  "Die 'Bild speichern' und 'Vorschaubilder speichern' Funktionen arbeiten nicht mit dem Videorenderer 'Overlay Mixer' zusammen.\nÄndern Sie den Videorenderer in den Optionen von MPC-WJ und öffnen Sie die Datei erneut."
     IDS_SUBDL_DLG_CONNECT_ERROR  "Es konnte keine Verbindung zur Online-Untertiteldatenbank hergestellt werden."
 END
 
@@ -3822,7 +3822,7 @@ BEGIN
     IDS_FILTERS_VIDEO       "Video-Decoder"
     IDS_FILTERS_AUDIO       "Audio-Decoder"
     IDS_GOTO_ERROR_INVALID_TIME  "Die eingegebene Zeit überschreitet die Dauer der Datei!"
-    IDS_SCREENSHOT_ERROR_MADVR  "Die 'Bild speichern' und 'Vorschaubilder speichern' Funktionen arbeiten nicht mit dem Videorenderer 'madVR' zusammen.\nÄndern Sie den Videorenderer in den Optionen von MPC-BE und öffnen Sie die Datei erneut."
+    IDS_SCREENSHOT_ERROR_MADVR  "Die 'Bild speichern' und 'Vorschaubilder speichern' Funktionen arbeiten nicht mit dem Videorenderer 'madVR' zusammen.\nÄndern Sie den Videorenderer in den Optionen von MPC-WJ und öffnen Sie die Datei erneut."
     IDS_SUBDL_DLG_FILENAME_COL "Datei"
     IDS_SUBDL_DLG_LANGUAGE_COL "Sprache"
     IDS_SUBDL_DLG_FORMAT_COL "Format"
@@ -3983,14 +3983,14 @@ BEGIN
     BEGIN
         BLOCK "040704b0"
         BEGIN
-            VALUE "Comments", "German language resource for MPC-BE"
+            VALUE "Comments", "German language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "German language resource for MPC-BE"
+            VALUE "FileDescription", "German language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.de.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

@@ -345,18 +345,18 @@ AP4_Track::GetSampleIndexForTimeStampMs(AP4_TimeStamp ts, AP4_Ordinal& index)
     return m_FragmentSampleTable.GetDuration() ? m_FragmentSampleTable.GetSampleIndexForTimeStamp(ts, index) : m_SampleTable->GetSampleIndexForTimeStamp(ts, index);
 }
 
-// MPC-BE custom code start
+// MPC-WJ custom code start
 /*----------------------------------------------------------------------
 |       AP4_Track::GetSampleIndexForRefTime
 +---------------------------------------------------------------------*/
 AP4_Result
 AP4_Track::GetSampleIndexForRefTime(REFERENCE_TIME rt, AP4_Ordinal& index)
 {
-    // MPC-BE custom code start
+    // MPC-WJ custom code start
     //AP4_TimeStamp ts = (AP4_TimeStamp(rt) * m_MediaTimeScale + 5000000) / 10000000;
     AP4_TimeStamp ts = (AP4_TimeStamp)((double(rt) * m_MediaTimeScale + 5000000) / 10000000);
     // need calculate in double, because the (AP4_TimeStamp(rt) * m_MediaTimeScale) can give overflow
-    // MPC-BE custom code end
+    // MPC-WJ custom code end
     //AP4_TimeStamp ts = (AP4_TimeStamp)(double(rt) * m_MediaTimeScale / 10000000 + 0.5);
 
     return m_FragmentSampleTable.GetDuration() ? m_FragmentSampleTable.GetSampleIndexForTimeStamp(ts, index) : m_SampleTable->GetSampleIndexForTimeStamp(ts, index);
@@ -389,7 +389,7 @@ AP4_Track::GetIndexForRefTime(REFERENCE_TIME rt, AP4_Ordinal& index, AP4_SI64& c
 
     return AP4_SUCCESS;
 }
-// MPC-BE custom code end
+// MPC-WJ custom code end
 
 /*----------------------------------------------------------------------
 |       AP4_Track::SetMovieTimeScale

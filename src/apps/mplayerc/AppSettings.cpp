@@ -2,14 +2,14 @@
  * (C) 2003-2006 Gabest
  * (C) 2006-2026 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -277,7 +277,7 @@ void CAppSettings::CreateCommands()
 	addcmd(ID_VIEW_PRESETS_CUSTOM,		IDS_AG_VIEW_CUSTOM,			'4');
 	addcmd(ID_VIEW_PRESETS_SAVE_CUSTOM,	IDS_AG_SAVE_CUSTOM_PRESET);
 	addcmd(ID_VIEW_FULLSCREEN,			IDS_AG_FULLSCREEN,			VK_RETURN, FCONTROL, 0, wmcmd::LDBLCLK, wmcmd::LDBLCLK);
-	addcmd(ID_VIEW_FULLSCREEN_2,		IDS_AG_FULLSCREEN_2,		VK_RETURN, FALT);
+	addcmd(ID_VIEW_FULLSCREEN_2,		IDS_AG_FULLSCREEN_2,		VK_RETURN);
 	addcmd(ID_VIEW_ZOOM_50,				IDS_AG_ZOOM_50,				'1', FALT);
 	addcmd(ID_VIEW_ZOOM_100,			IDS_AG_ZOOM_100,			'2', FALT);
 	addcmd(ID_VIEW_ZOOM_200,			IDS_AG_ZOOM_200,			'3', FALT);

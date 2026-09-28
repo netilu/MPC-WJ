@@ -219,11 +219,11 @@ CAPTION "关于"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "版权所有 © 2002-2026 请查看 Authors.txt",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "版本:",IDC_VERSION,30,34,90,8
-    LTEXT           "MPC-BE 编译器:",IDC_STATIC,30,66,90,8
+    LTEXT           "MPC-WJ 编译器:",IDC_STATIC,30,66,90,8
     LTEXT           "FFmpeg 编译器:",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil:",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -231,9 +231,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "此程序是遵守 GNU 通用公众授权协议发布的自由软件。",IDC_STATIC,30,138,200,18
     LTEXT           "简体中文翻译调整: insolo and xikuai",IDC_STATIC,30,161,200,18
@@ -273,7 +273,7 @@ BEGIN
     GROUPBOX        "设置文件保存位置",IDC_STATIC,5,135,115,55
     CONTROL         "操作系统注册表",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | BS_TOP | WS_GROUP,10,148,106,10
     CONTROL         "用户账户文件夹",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | BS_TOP,10,161,106,10
-    CONTROL         "MPC-BE 播放器文件夹",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON | BS_TOP,10,175,106,10
+    CONTROL         "MPC-WJ 播放器文件夹",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON | BS_TOP,10,175,106,10
     GROUPBOX        "历史",IDC_STATIC,124,5,167,128,WS_GROUP
     CONTROL         "保存最近打开文件的历史记录",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,129,17,156,9
@@ -674,7 +674,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "警告"
 FONT 8, "MS Shell Dlg", 400, 0, 0x0
 BEGIN
-    LTEXT           "MPC-BE 无法渲染筛选器图表中的某些 pin ，您或许未在系统中安装所需的解码器或分离器。",IDC_STATIC1,5,5,286,18
+    LTEXT           "MPC-WJ 无法渲染筛选器图表中的某些 pin ，您或许未在系统中安装所需的解码器或分离器。",IDC_STATIC1,5,5,286,18
     LTEXT           "以下接口 (pin) 无法查找到可用滤镜的信息:",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -2355,7 +2355,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2549,7 +2549,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2653,7 +2653,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "相对比色"
     IDS_CM_INTENT_SATURATION "饱和度"
     IDS_CM_INTENT_ABSOLUTECM "绝对比色"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "预览目前已被禁用。您可以在 MPC-BE 的选项中启用它。"
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "预览目前已被禁用。您可以在 MPC-WJ 的选项中启用它。"
 END
 
 STRINGTABLE
@@ -2663,7 +2663,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDC_EXCLUSIVE_FULLSCREEN_CHECK  "减少撕裂，但会阻碍工具栏显示，在这种模式下按 Alt+Enter、Ctrl+Enter 或 Ctrl + C 退出全屏。"
+    IDC_EXCLUSIVE_FULLSCREEN_CHECK  "减少撕裂，但会阻碍工具栏显示，在这种模式下按 Enter、Ctrl+Enter 或 Ctrl + C 退出全屏。"
 END
 
 STRINGTABLE
@@ -2699,7 +2699,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "如未定义，默认状态将会从其它风格获取"
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "禁用此选项可防止字幕闪烁，但它可能会导致视频渲染器跳过某些视频帧。"
     IDC_CHECK_SPCANIMWITHBUFFER  "当字幕图像缓冲数量大于 0 时，可以使用字幕动画效果。禁用此项可以降低 CPU 占用率。如果出现字幕闪烁，亦可禁用此项。"
-    IDC_BUTTON_EXT_SET      "在点击此按钮后，被选的格式组的状态将会对 MPC-BE 的实际文件关联做出更改。最新添加的扩展名通常会变灰，所以请不要忘记在关闭此对话框前再次选中此类型的文件。"
+    IDC_BUTTON_EXT_SET      "在点击此按钮后，被选的格式组的状态将会对 MPC-WJ 的实际文件关联做出更改。最新添加的扩展名通常会变灰，所以请不要忘记在关闭此对话框前再次选中此类型的文件。"
 END
 
 STRINGTABLE
@@ -2892,8 +2892,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "视频流(&T)"
     IDS_MENU_VIDEO_ANGLE    "视频角度(&L)"
     IDS_RESET_SETTINGS      "重置设置"
-    IDS_RESET_SETTINGS_WARNING  "您确定要恢复 MPC-BE 的默认设置吗？\n警告：您当前所有的设置将会丢失！"
-    IDS_RESET_SETTINGS_MUTEX  "请关闭所有正在运行的 MPC-BE 程序以便恢复默认设置。"
+    IDS_RESET_SETTINGS_WARNING  "您确定要恢复 MPC-WJ 的默认设置吗？\n警告：您当前所有的设置将会丢失！"
+    IDS_RESET_SETTINGS_MUTEX  "请关闭所有正在运行的 MPC-WJ 程序以便恢复默认设置。"
     IDS_EXPORT_SETTINGS     "导出设置"
     IDS_EXPORT_SETTINGS_WARNING  "一些改变还没有被保存。\n您想在导出前保存它们吗？"
     IDS_EXPORT_SETTINGS_SUCCESS  "设置导出成功。"
@@ -3127,9 +3127,9 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "自动调整"
     IDS_ZOOM_AUTOFITLARGE   "自动调整 (影片较大时)"
-    IDS_ADD_TO_PLAYLIST     "添加到 MPC-BE 播放列表"
-    IDS_OPEN_WITH_MPC       "使用 MPC-BE 播放"
-    IDS_CANNOT_CHANGE_FORMAT  "MPC-BE 没有足够的权限更改文件格式关联。请单击""修改""按钮获取管理员权限。"
+    IDS_ADD_TO_PLAYLIST     "添加到 MPC-WJ 播放列表"
+    IDS_OPEN_WITH_MPC       "使用 MPC-WJ 播放"
+    IDS_CANNOT_CHANGE_FORMAT  "MPC-WJ 没有足够的权限更改文件格式关联。请单击""修改""按钮获取管理员权限。"
     IDS_APP_DESCRIPTION     "一种非常强大、高可配置性的用于 Windows 操作系统的多媒体播放器。原始版本由匈牙利的开发者 Gabest 制作。本版本添加了类似全屏幕独占模式等附加功能以及对新一代 Windows 操作系统更佳的支持。"
     IDS_MAINFRM_12          "声道"
     IDS_MAINFRM_13          "声道"
@@ -3172,7 +3172,7 @@ STRINGTABLE
 BEGIN
     IDS_ADDTOPLS_FROMDIR_SIMILAR "文件夹中的相似文件"
     IDS_ADDTOPLS_FROMDIR_ALL "文件夹中的所有文件"
-    IDS_EXCLUSIVE_FS_WARNING  "此选项被设计用于减少撕裂。但是也会使 MPC-BE 在播放时不能显示上下文菜单和对话框。\n\n为了退出 Direct3D 全屏幕并停止播放，您必须同时按住 Ctrl 和 C 。\n\n您确实要打开这个选项？"
+    IDS_EXCLUSIVE_FS_WARNING  "此选项被设计用于减少撕裂。但是也会使 MPC-WJ 在播放时不能显示上下文菜单和对话框。\n\n为了退出 Direct3D 全屏幕并停止播放，您必须同时按住 Ctrl 和 C 。\n\n您确实要打开这个选项？"
     IDS_MAINFRM_139         "字幕延迟: %ld毫秒"
     IDS_AG_TITLE2           "标题: %02d/%02d"
     IDS_THUMB_ROWNUMBER     "行:"
@@ -3243,7 +3243,7 @@ BEGIN
     IDS_GAIN_OSD            "增益: %+.1f dB"
     IDS_BALANCE_OSD         "平衡: %s"
     IDS_FULLSCREENMONITOR_CURRENT "当前"
-    IDS_MPC_CRASH           "MPC-BE 已被异常终止。要帮助我们修复此问题, 请将此文件 ""%s"" 发送至我们的 bug 跟踪器上。\n\n您是否要打开含有迷您转储文件的文件夹并访问 bug 跟踪器？"
+    IDS_MPC_CRASH           "MPC-WJ 已被异常终止。要帮助我们修复此问题, 请将此文件 ""%s"" 发送至我们的 bug 跟踪器上。\n\n您是否要打开含有迷您转储文件的文件夹并访问 bug 跟踪器？"
     IDS_MPC_MINIDUMP_FAIL   "未能创建转储文件“%s” (错误号%d)"
     IDS_MAINFRM_DIR_TITLE   "选择目录"
     IDS_MAINFRM_DIR_CHECK   "包括子目录"
@@ -3301,7 +3301,7 @@ BEGIN
     IDS_AG_REMOVING         "正在删除:"
     IDS_MAINFRM_134         "警告: CMainFrame::CloseMedia() 被调用了两次或更多次\n"
     IDS_MAINFRM_135         "严重错误！！！ 必须关闭所有打开的线程！！！"
-    IDS_MAINFRM_136         "MPC-BE 全屏幕独占模式"
+    IDS_MAINFRM_136         "MPC-WJ 全屏幕独占模式"
     IDS_MAINFRM_137         "未知格式"
     IDS_MAINFRM_138         "字幕偏移: %ld毫秒"
     IDS_VOLUME_GAIN_INC     "增加音量增益"
@@ -3330,7 +3330,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "使用方法: mpc-be.exe ""路径"" [开关]"
+    IDS_CMD_USAGE           "使用方法: mpc-wj.exe ""路径"" [开关]"
     IDS_CMD_PATHNAME        """路径""\t要载入的主要文件或目录。(允许通配符)"
     IDS_CMD_HELP            "/help /h /?\t显示关于命令行开关的帮助"
     IDS_CMD_DUB             "/dub ""伴音名""\t载入额外的音频文件"
@@ -3771,7 +3771,7 @@ BEGIN
     IDS_RESET_COLOR         "重置颜色设置"
     IDS_UPDATE_ERROR_DATA   "更新服务器返回了错误数据。\n\n请稍后再试。"
     IDS_USING_NEWER_VERSION "您当前使用的版本，%s 已是最新的版本。"
-    IDS_NEW_UPDATE_AVAILABLE  "有可用的新版本 %s 。\n\n请访问 MPC-BE 主页下载。"
+    IDS_NEW_UPDATE_AVAILABLE  "有可用的新版本 %s 。\n\n请访问 MPC-WJ 主页下载。"
     IDS_UPDATE_ERROR_CONNECT  "没有找到升级服务器。\n\n请检查您的网络连接或稍后重试。"
     IDS_UPDATE_CLOSE        "关闭(&C)"
     IDS_OSD_ZOOM            "缩放: %.0lf%%"
@@ -3805,7 +3805,7 @@ BEGIN
     IDS_GOTO_ERROR_PARSING_FPS "解析输入的帧速率错误！"
     IDS_FRAME_STEP_ERROR_RENDERER  "无法帧步进，尝试不同的视频渲染器。"
     IDS_SCREENSHOT_ERROR_SHOCKWAVE  "对于 ShockWave 文件，'保存图像'和'保存缩略图'功能无法使用。"
-    IDS_SCREENSHOT_ERROR_OVERLAY  "'保存图片'和'保存缩略图'功能无法和覆盖混合视频渲染器一起使用。\n请在 MPC-BE 的输出选项中改变视频渲染器并重新打开文件。"
+    IDS_SCREENSHOT_ERROR_OVERLAY  "'保存图片'和'保存缩略图'功能无法和覆盖混合视频渲染器一起使用。\n请在 MPC-WJ 的输出选项中改变视频渲染器并重新打开文件。"
     IDS_SUBDL_DLG_CONNECT_ERROR  "无法连接到在线字幕数据库。"
 END
 
@@ -3822,7 +3822,7 @@ BEGIN
     IDS_FILTERS_VIDEO       "视频解码器"
     IDS_FILTERS_AUDIO       "音频解码器"
     IDS_GOTO_ERROR_INVALID_TIME  "输入的时间大于文件时间长度。"
-    IDS_SCREENSHOT_ERROR_MADVR  "'保存图片'和'保存缩略图'功能无法和 madVR 渲染器一起使用。\n请在 MPC-BE 的输出选项中改变视频渲染器并重新打开文件。"
+    IDS_SCREENSHOT_ERROR_MADVR  "'保存图片'和'保存缩略图'功能无法和 madVR 渲染器一起使用。\n请在 MPC-WJ 的输出选项中改变视频渲染器并重新打开文件。"
     IDS_SUBDL_DLG_FILENAME_COL "文件"
     IDS_SUBDL_DLG_LANGUAGE_COL "语言"
     IDS_SUBDL_DLG_FORMAT_COL "格式"
@@ -3983,14 +3983,14 @@ BEGIN
     BEGIN
         BLOCK "080404b0"
         BEGIN
-            VALUE "Comments", "Chinese simplified language resource for MPC-BE"
+            VALUE "Comments", "Chinese simplified language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Chinese simplified language resource for MPC-BE"
+            VALUE "FileDescription", "Chinese simplified language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.sc.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

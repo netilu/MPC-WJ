@@ -2,7 +2,7 @@ HKCR
 {
 	NoRemove CLSID
 	{
-		ForceRemove {A2CF4243-6525-4764-B3F5-2FCDE2F47989} = s 'MPCBEContextMenu Class'
+		ForceRemove {A2CF4243-6525-4764-B3F5-2FCDE2F47989} = s 'MPCWJContextMenu Class'
 		{
 			InprocServer32 = s '%MODULE%'
 			{

@@ -2,14 +2,14 @@
 #
 # (C) 2010-2025 see Authors.txt
 #
-# This file is part of MPC-BE.
+# This file is part of MPC-WJ.
 #
-# MPC-BE is free software; you can redistribute it and/or modify
+# MPC-WJ is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License, or
 # (at your option) any later version.
 #
-# MPC-BE is distributed in the hope that it will be useful,
+# MPC-WJ is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
@@ -85,7 +85,7 @@ Options:
 	example 1: you want to check if there are differences between mplayerc.rc and mplayerc.language.rc files.
 	Go to the mpcresources directory, then 	>perl rcfile.pl
 
-	example 2: you changed some gui of mpc-be, that means you also modified the mplayerc.rc file.
+	example 2: you changed some gui of mpc-wj, that means you also modified the mplayerc.rc file.
 	First: checkout the head revision of mplayerc.rc using the svn client, give it any other name, for example:
 	>svn cat -r head ../mplayerc/mplayerc.rc > mplayer.rc.old
 	Second: >perl rcfile.pl -b mplayerc.rc.old

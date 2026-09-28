@@ -73,7 +73,7 @@ class AP4_SttsAtom : public AP4_Atom
     // FIXME
     friend class AP4_AtomSampleTable;
 
-    // MPC-BE custom code start
+    // MPC-WJ custom code start
     AP4_Duration GetTotalDuration() { return m_TotalDuration; }
     AP4_UI32 GetTotalFrames() { return m_TotalFrames; }
 
@@ -85,10 +85,10 @@ class AP4_SttsAtom : public AP4_Atom
         AP4_UI64    dts;
     } m_LookupCache;
 
-    // MPC-BE custom code start
+    // MPC-WJ custom code start
     AP4_Duration m_TotalDuration;
     AP4_UI32 m_TotalFrames;
-    // MPC-BE custom code end
+    // MPC-WJ custom code end
 };
 
 #endif // _AP4_STTS_ATOM_H_

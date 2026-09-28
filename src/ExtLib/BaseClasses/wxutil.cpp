@@ -11,7 +11,7 @@
 #include "streams.h"
 #define STRSAFE_NO_DEPRECATE
 #include <strsafe.h>
-#include <process.h> //MPC-BE patch
+#include <process.h> //MPC-WJ patch
 
 
 // --- CAMEvent -----------------------
@@ -113,7 +113,7 @@ CAMThread::~CAMThread() {
 
 // when the thread starts, it calls this function. We unwrap the 'this'
 //pointer and call ThreadProc.
-unsigned int WINAPI //MPC-BE patch
+unsigned int WINAPI //MPC-WJ patch
 CAMThread::InitialThreadProc(__inout LPVOID pv)
 {
     HRESULT hrCoInit = CAMThread::CoInitializeHelper();
@@ -141,7 +141,7 @@ CAMThread::Create()
 	return FALSE;
     }
 
-	//MPC-BE patch
+	//MPC-WJ patch
 	m_hThread = (HANDLE)_beginthreadex( NULL,                         /* Security */
 										0,                            /* Stack Size */
 										CAMThread::InitialThreadProc, /* Thread process */
@@ -730,7 +730,7 @@ the Platform SDK for more information.
 ******************************************************************************/
 MMRESULT CompatibleTimeSetEvent( UINT uDelay, UINT uResolution, __in LPTIMECALLBACK lpTimeProc, DWORD_PTR dwUser, UINT fuEvent )
 {
-    //MPC-BE patch
+    //MPC-WJ patch
     fuEvent = fuEvent | TIME_KILL_SYNCHRONOUS;
 
     return timeSetEvent( uDelay, uResolution, lpTimeProc, dwUser, fuEvent );
@@ -738,6 +738,6 @@ MMRESULT CompatibleTimeSetEvent( UINT uDelay, UINT uResolution, __in LPTIMECALLB
 
 bool TimeKillSynchronousFlagAvailable( void )
 {
-    //MPC-BE patch
+    //MPC-WJ patch
     return true;
 }

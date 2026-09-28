@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Switcher", "Switcher", "{68
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transform", "Transform", "{F9F42BF2-3F13-4654-82C5-E27B8879EC4E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mpc-be", "src\apps\mplayerc\mpc-be.vcxproj", "{8CE7E5D0-C821-47AC-A247-28EC95B34670}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mpc-wj", "src\apps\mplayerc\mpc-wj.vcxproj", "{8CE7E5D0-C821-47AC-A247-28EC95B34670}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DSUtil", "src\DSUtil\DSUtil.vcxproj", "{FC70988B-1AE5-4381-866D-4F405E28AC42}"
 EndProject

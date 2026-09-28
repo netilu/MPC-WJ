@@ -218,11 +218,11 @@ CAPTION "Про програму"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "Copyright © 2002-2026, див. файл Authors.txt",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "Версія :",IDC_VERSION,30,34,90,8
-    LTEXT           "MPC-BE Компілятор :",IDC_STATIC,30,66,90,8
+    LTEXT           "MPC-WJ Компілятор :",IDC_STATIC,30,66,90,8
     LTEXT           "FFmpeg Компілятор :",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil :",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,9 +230,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "Ця програма безкоштовна та розповсюджується за ліцензією GNU General Public License.\n",IDC_STATIC,30,138,200,18
     LTEXT           "Локалізація: Ihor Bobalo (http://www.eleks.com)",IDC_STATIC,30,161,200,18
@@ -673,7 +673,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Увага"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "MPC-BE не може відтворити деякі потоки, можливо, у Вас не встановлений відповідний кодек або фільтр.",IDC_STATIC1,5,5,286,18
+    LTEXT           "MPC-WJ не може відтворити деякі потоки, можливо, у Вас не встановлений відповідний кодек або фільтр.",IDC_STATIC1,5,5,286,18
     LTEXT           "Для деяких потоків не знайдено відповідного фільтру:",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -2356,7 +2356,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2550,7 +2550,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2654,7 +2654,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "Відносна колориметрія"
     IDS_CM_INTENT_SATURATION "Насиченість"
     IDS_CM_INTENT_ABSOLUTECM "Абсолютна колориметрія"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Preview is currently disabled. You can enable it in MPC-BE's options."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Preview is currently disabled. You can enable it in MPC-WJ's options."
 END
 
 STRINGTABLE
@@ -2700,7 +2700,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "Стандартний стан успадковується іншими стилями, в яких він ще не визначений."
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "Вимкнення цієї опції запобіжить мигтінню субтитрів, але може спричнити пропуск кадрів рендерером відео."
     IDC_CHECK_SPCANIMWITHBUFFER  "Дозволяє анімацію субтитрів при використанні буфера субзображень більшого за 0. Вимкнення цієї опції дозволить дещо зменшити завантаження ЦП. Використовуйте якщо помітне мигтіння субтитрів."
-    IDC_BUTTON_EXT_SET      "Після натискання цієї кнопки, відмітки вибору групи форматів будуть встановлені відповідно до наявних асоціацій файлів для MPC-BE. Щойно додані роширення зазвичай будуть помічатися ""сірим"", тому не забувайте виділити їх знову перед закриттям вікна!"
+    IDC_BUTTON_EXT_SET      "Після натискання цієї кнопки, відмітки вибору групи форматів будуть встановлені відповідно до наявних асоціацій файлів для MPC-WJ. Щойно додані роширення зазвичай будуть помічатися ""сірим"", тому не забувайте виділити їх знову перед закриттям вікна!"
 END
 
 STRINGTABLE
@@ -2893,8 +2893,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "Потік в&ідео"
     IDS_MENU_VIDEO_ANGLE    "Кут від&ео"
     IDS_RESET_SETTINGS      "Скинути налаштування"
-    IDS_RESET_SETTINGS_WARNING  "Ви впевнені, що хочете відновити типові налаштування MPC-BE?\nМайте на увазі, що ВСІ ваші поточні налаштування будуть втрачені!"
-    IDS_RESET_SETTINGS_MUTEX  "Будь ласка, закрийте всі копії MPC-BE, щоб була можливість відновити типові налаштування."
+    IDS_RESET_SETTINGS_WARNING  "Ви впевнені, що хочете відновити типові налаштування MPC-WJ?\nМайте на увазі, що ВСІ ваші поточні налаштування будуть втрачені!"
+    IDS_RESET_SETTINGS_MUTEX  "Будь ласка, закрийте всі копії MPC-WJ, щоб була можливість відновити типові налаштування."
     IDS_EXPORT_SETTINGS     "Експорт налаштувань"
     IDS_EXPORT_SETTINGS_WARNING  "Деякі зміни не було збережено.\nВи хочете, щоб вони були збережені перед початком експорту?"
     IDS_EXPORT_SETTINGS_SUCCESS  "Налаштування було успішно експортовано."
@@ -3127,9 +3127,9 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "Вписати"
     IDS_ZOOM_AUTOFITLARGE   "Вписати (тільки великі)"
-    IDS_ADD_TO_PLAYLIST     "Додати до списка відтворення MPC-BE"
-    IDS_OPEN_WITH_MPC       "Відтворити в MPC-BE"
-    IDS_CANNOT_CHANGE_FORMAT  "У MPC-BE недостатньо прав для зміни асоціацій файлів. Натисніть на кнопку ""Modify"" для виконання операції з правами адміністратора."
+    IDS_ADD_TO_PLAYLIST     "Додати до списка відтворення MPC-WJ"
+    IDS_OPEN_WITH_MPC       "Відтворити в MPC-WJ"
+    IDS_CANNOT_CHANGE_FORMAT  "У MPC-WJ недостатньо прав для зміни асоціацій файлів. Натисніть на кнопку ""Modify"" для виконання операції з правами адміністратора."
     IDS_APP_DESCRIPTION     "Один з найпотужніших мультимедійних програвачів для Windows. Початково створений угорським розробником, відомим як Gabest. Ця версія має додаткові можливості, зокрема повноекранний Direct3D режим та покращену підтримку Windows Vista/7."
     IDS_MAINFRM_12          "канал"
     IDS_MAINFRM_13          "каналів"
@@ -3172,7 +3172,7 @@ STRINGTABLE
 BEGIN
     IDS_ADDTOPLS_FROMDIR_SIMILAR "подібні файли з теки"
     IDS_ADDTOPLS_FROMDIR_ALL "всі файли з теки"
-    IDS_EXCLUSIVE_FS_WARNING  "Ця опція призначена для усунення ""дрижання"", але у цьому режимі MPC-BE не може показувати контекстне меню та діалоги якщо відео завантажене, (детальніше тут: https://sourceforge.net/p/mpcbe/).\n\nПродовжити?"
+    IDS_EXCLUSIVE_FS_WARNING  "Ця опція призначена для усунення ""дрижання"", але у цьому режимі MPC-WJ не може показувати контекстне меню та діалоги якщо відео завантажене, (детальніше тут: https://sourceforge.net/p/mpcwj/).\n\nПродовжити?"
     IDS_MAINFRM_139         "Затримка субтитрів: %ld ms"
     IDS_AG_TITLE2           "Назва: %02d/%02d"
     IDS_THUMB_ROWNUMBER     "Рядків:"
@@ -3243,7 +3243,7 @@ BEGIN
     IDS_GAIN_OSD            "Підсилення: %+.1f дБ"
     IDS_BALANCE_OSD         "Баланс: %s"
     IDS_FULLSCREENMONITOR_CURRENT "Поточний"
-    IDS_MPC_CRASH           "Роботу MPC-BE несподівано перервано. Щоб допомогти нам виправити проблему, надішліть цей файл '%s' на наш трекер з розв'язання помилок.\n\nВи хочете відкрити теку, що містить файл мінідампу і відвідати трекер?"
+    IDS_MPC_CRASH           "Роботу MPC-WJ несподівано перервано. Щоб допомогти нам виправити проблему, надішліть цей файл '%s' на наш трекер з розв'язання помилок.\n\nВи хочете відкрити теку, що містить файл мінідампу і відвідати трекер?"
     IDS_MPC_MINIDUMP_FAIL   "Неможливо створити файл-дамп '%s' (код помилки %d)"
     IDS_MAINFRM_DIR_TITLE   "Оберіть теку"
     IDS_MAINFRM_DIR_CHECK   "Разом з підтеками"
@@ -3301,7 +3301,7 @@ BEGIN
     IDS_AG_REMOVING         "Видаляється: "
     IDS_MAINFRM_134         "УВАГА: CMainFrame::CloseMedia() викликано двічі або більше\n"
     IDS_MAINFRM_135         "КРИТИЧНА ПОМИЛКА: !!! Неохідно зняти батьківський процес !!!"
-    IDS_MAINFRM_136         "MPC-BE ексклюзивний повний екран"
+    IDS_MAINFRM_136         "MPC-WJ ексклюзивний повний екран"
     IDS_MAINFRM_137         "Невідомий формат"
     IDS_MAINFRM_138         "Позиція субтитрів: %ld ms"
     IDS_VOLUME_GAIN_INC     "Підсилення гучності - збільшення"
@@ -3330,7 +3330,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Використання: mpc-be.exe ""шлях"" [перемикачі]"
+    IDS_CMD_USAGE           "Використання: mpc-wj.exe ""шлях"" [перемикачі]"
     IDS_CMD_PATHNAME        """шлях""\tФайл або тека для завантаження (дозволені маски)"
     IDS_CMD_HELP            "/help /h /?\tПоказати цю довідку"
     IDS_CMD_DUB             "/dub ""dubname""\tЗавантажити додатковий дубляж"
@@ -3771,7 +3771,7 @@ BEGIN
     IDS_RESET_COLOR         "Скинути налаштування щодо управління кольором"
     IDS_UPDATE_ERROR_DATA   "Сервер оновлень видає невірні дані.\n\nБудь ласка, спробуйте пізніше."
     IDS_USING_NEWER_VERSION "Ви вже використовуєте останню версію v%s"
-    IDS_NEW_UPDATE_AVAILABLE  "Доступна нова версія v%s.\n\nВи хочете відвідати сайт MPC-BE щоб завантажити її?"
+    IDS_NEW_UPDATE_AVAILABLE  "Доступна нова версія v%s.\n\nВи хочете відвідати сайт MPC-WJ щоб завантажити її?"
     IDS_UPDATE_ERROR_CONNECT  "Сервер оновлень не знайдено.\n\nБудь ласка, перевірте ваше інтернет-з'єднання або спробуйте ще раз пізніше."
     IDS_UPDATE_CLOSE        "&Закрити"
     IDS_OSD_ZOOM            "Масштаб: %.0lf%%"
@@ -3805,7 +3805,7 @@ BEGIN
     IDS_GOTO_ERROR_PARSING_FPS "Помилка обробки введеної частоти кадрів!"
     IDS_FRAME_STEP_ERROR_RENDERER  "Покадровий перегляд неможливий, спробуйте інший рендерер відео."
     IDS_SCREENSHOT_ERROR_SHOCKWAVE  "'Зберегти зображення' і 'Зберегти мініатюри' не працюють для файлів Shockwave."
-    IDS_SCREENSHOT_ERROR_OVERLAY  "'Зберегти зображення' і 'Зберегти мініатюри' не працюють для рендерера відео Overlay Mixer.\nЗмініть рендерер відео у відповідному розділі налаштувань MPC-BE і повторно відкрийте файл."
+    IDS_SCREENSHOT_ERROR_OVERLAY  "'Зберегти зображення' і 'Зберегти мініатюри' не працюють для рендерера відео Overlay Mixer.\nЗмініть рендерер відео у відповідному розділі налаштувань MPC-WJ і повторно відкрийте файл."
     IDS_SUBDL_DLG_CONNECT_ERROR  "Неможливо з'єднатися з онлайн-базою субтитрів."
 END
 
@@ -3822,7 +3822,7 @@ BEGIN
     IDS_FILTERS_VIDEO       "Відеодекодери"
     IDS_FILTERS_AUDIO       "Аудіодекодери"
     IDS_GOTO_ERROR_INVALID_TIME  "Введений час є більшим за тривалість файлу."
-    IDS_SCREENSHOT_ERROR_MADVR  "Функціонал 'Зберегти зображення' і 'Зберегти мініатюри' не працює з рендерером відео madVR.\nЗмініть рендерер відео у відповідному розділі налаштувань MPC-BE і повторно відкрийте файл."
+    IDS_SCREENSHOT_ERROR_MADVR  "Функціонал 'Зберегти зображення' і 'Зберегти мініатюри' не працює з рендерером відео madVR.\nЗмініть рендерер відео у відповідному розділі налаштувань MPC-WJ і повторно відкрийте файл."
     IDS_SUBDL_DLG_FILENAME_COL "Файл"
     IDS_SUBDL_DLG_LANGUAGE_COL "Мова"
     IDS_SUBDL_DLG_FORMAT_COL "Формат"
@@ -3983,14 +3983,14 @@ BEGIN
     BEGIN
         BLOCK "042204b0"
         BEGIN
-            VALUE "Comments", "Ukrainian language resource for MPC-BE"
+            VALUE "Comments", "Ukrainian language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Ukrainian language resource for MPC-BE"
+            VALUE "FileDescription", "Ukrainian language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.ua.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

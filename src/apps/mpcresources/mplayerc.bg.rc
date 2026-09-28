@@ -218,11 +218,11 @@ CAPTION "За програмата"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "Copyright © 2002-2026, вижте файла Authors.txt",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "Версия:",IDC_VERSION,30,34,90,8
-    LTEXT           "Компилатор MPC-BE:",IDC_STATIC,30,66,90,8
+    LTEXT           "Компилатор MPC-WJ:",IDC_STATIC,30,66,90,8
     LTEXT           "Компилатор FFmpeg:",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec/Libavutil:",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,9 +230,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "Тази програма е безплатна и се разпространява под Общия публичен лиценз на GNU (General Public License).",IDC_STATIC,30,138,200,18
     LTEXT           "Локализацията е изпълнена от Живко Жеков и Калин Младенов",IDC_STATIC,30,161,200,18
@@ -673,7 +673,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Внимание"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "MPC-BE не може да възпроизвежда някои потоци, може да не е инсталиран правилен кодек или филтър.",IDC_STATIC1,5,5,286,18
+    LTEXT           "MPC-WJ не може да възпроизвежда някои потоци, може да не е инсталиран правилен кодек или филтър.",IDC_STATIC1,5,5,286,18
     LTEXT           "Няма намерен подходящ филтър за тези потоци с данни:",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -2356,7 +2356,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2550,7 +2550,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2654,7 +2654,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "Относително колориметричен"
     IDS_CM_INTENT_SATURATION "Наситеност"
     IDS_CM_INTENT_ABSOLUTECM "Абсолютно колориметричен"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Визуализацията в момента е деактивирана. Можете да я активирате в настройките на MPC-BE."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Визуализацията в момента е деактивирана. Можете да я активирате в настройките на MPC-WJ."
 END
 
 STRINGTABLE
@@ -2664,7 +2664,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDC_EXCLUSIVE_FULLSCREEN_CHECK  "Намалява трептенето, но не показва контролния панел. За излизане от пълноекранен режим натиснете Alt+Enter, Ctrl+Enter или Ctrl+C."
+    IDC_EXCLUSIVE_FULLSCREEN_CHECK  "Намалява трептенето, но не показва контролния панел. За излизане от пълноекранен режим натиснете Enter, Ctrl+Enter или Ctrl+C."
 END
 
 STRINGTABLE
@@ -2700,7 +2700,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "Стандартното състояние е наследено от други стилове, където все още не е дефинирано."
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "Изключването на тази опция ще попречи на субтитрите да мигат, но може да доведе до пропускане на видеокадри"
     IDC_CHECK_SPCANIMWITHBUFFER  "Позволява да анимирате субтитрите, ако броят на кешираните страници е по-голям от 0. Изключване на опцията освобождава малко процесорни ресурси. Изключете, ако има трептене на субтитрите"
-    IDC_BUTTON_EXT_SET      "След като щракнете върху този бутон, избраното състояние на групата формати ще отразява действителните файлови асоциации за MPC-BE. Добавените разширения обикновено задават състоянието на ""сиво"", така че не забравяйте да ги изберете отново, преди да затворите диалоговия прозорец!"
+    IDC_BUTTON_EXT_SET      "След като щракнете върху този бутон, избраното състояние на групата формати ще отразява действителните файлови асоциации за MPC-WJ. Добавените разширения обикновено задават състоянието на ""сиво"", така че не забравяйте да ги изберете отново, преди да затворите диалоговия прозорец!"
 END
 
 STRINGTABLE
@@ -2894,7 +2894,7 @@ BEGIN
     IDS_MENU_VIDEO_ANGLE    "Ъгъл на &видеото"
     IDS_RESET_SETTINGS      "Нулиране на настройките"
     IDS_RESET_SETTINGS_WARNING  "Сигурни ли сте, че искате да нулирате плейъра си?\nИмайте предвид, че всичките ви текущи настройки ще бъдат загубени!"
-    IDS_RESET_SETTINGS_MUTEX  "Моля, затворете другите копия на MPC-BE."
+    IDS_RESET_SETTINGS_MUTEX  "Моля, затворете другите копия на MPC-WJ."
     IDS_EXPORT_SETTINGS     "Експортиране на настройки"
     IDS_EXPORT_SETTINGS_WARNING  "Някои настройки не са запазени.\nИскате ли да ги запазите преди експортиране?"
     IDS_EXPORT_SETTINGS_SUCCESS  "Настройките са експортирани успешно."
@@ -3128,8 +3128,8 @@ BEGIN
     IDS_ZOOM_AUTOFIT        "Вместване"
     IDS_ZOOM_AUTOFITLARGE   "Побиране в голям"
     IDS_ADD_TO_PLAYLIST     "Добави към плейлиста на MPC-BC"
-    IDS_OPEN_WITH_MPC       "Възпроизвеждане в MPC-BE"
-    IDS_CANNOT_CHANGE_FORMAT  "MPC-BE няма достатъчно привилегии за промяна на файлови асоциации. Кликнете върху бутона ""Редактиране"", за да редактирате с администраторски права."
+    IDS_OPEN_WITH_MPC       "Възпроизвеждане в MPC-WJ"
+    IDS_CANNOT_CHANGE_FORMAT  "MPC-WJ няма достатъчно привилегии за промяна на файлови асоциации. Кликнете върху бутона ""Редактиране"", за да редактирате с администраторски права."
     IDS_APP_DESCRIPTION     "Един от най-мощните и настроиваеми мултимедийни плейъри за Windows. Първоначално е разработена от унгарски разработчик, известен като Gabest. Тази версия има допълнителни функции, като например изключителен режим на цял екран и подобрена поддръжка на Windows Vista/7."
     IDS_MAINFRM_12          "канал"
     IDS_MAINFRM_13          "канали"
@@ -3172,7 +3172,7 @@ STRINGTABLE
 BEGIN
     IDS_ADDTOPLS_FROMDIR_SIMILAR "Подобни файлове от папката"
     IDS_ADDTOPLS_FROMDIR_ALL "Всички файлове от папката"
-    IDS_EXCLUSIVE_FS_WARNING  "Тази опция се използва за премахване на трептенето, но активирането й предотвратява показването на контекстното меню и диалоговите прозорци.\n\nЗа излизане от извънредния цял екран, използвайте Alt+Enter, Ctrl+Enter или Ctrl+C.\n\nНаистина ли искате да активирате тази опция?"
+    IDS_EXCLUSIVE_FS_WARNING  "Тази опция се използва за премахване на трептенето, но активирането й предотвратява показването на контекстното меню и диалоговите прозорци.\n\nЗа излизане от извънредния цял екран, използвайте Enter, Ctrl+Enter или Ctrl+C.\n\nНаистина ли искате да активирате тази опция?"
     IDS_MAINFRM_139         "Закъснение на субтитри: %ld мс"
     IDS_AG_TITLE2           "Раздел: %02d/%02d"
     IDS_THUMB_ROWNUMBER     "Редове:"
@@ -3243,7 +3243,7 @@ BEGIN
     IDS_GAIN_OSD            "Усилване: %+.1f dB"
     IDS_BALANCE_OSD         "Баланс: %s"
     IDS_FULLSCREENMONITOR_CURRENT "Текущ"
-    IDS_MPC_CRASH           "MPC-BE спря. За да ни помогнете да разрешим този проблем, моля, изпратете файла '%s' на нашия бъг-тракер.\n\nИскате ли да отворите папката, съдържаща дъмп-файла и да отидете на бъг-тракера?"
+    IDS_MPC_CRASH           "MPC-WJ спря. За да ни помогнете да разрешим този проблем, моля, изпратете файла '%s' на нашия бъг-тракер.\n\nИскате ли да отворите папката, съдържаща дъмп-файла и да отидете на бъг-тракера?"
     IDS_MPC_MINIDUMP_FAIL   "Грешка при създаване на дъмп файл '%s'  (грешка %d)"
     IDS_MAINFRM_DIR_TITLE   "Изберете папка"
     IDS_MAINFRM_DIR_CHECK   "Вкл. подпапки"
@@ -3301,7 +3301,7 @@ BEGIN
     IDS_AG_REMOVING         "Премахва се: "
     IDS_MAINFRM_134         "ВНИМАНИЕ: CMainFrame::CloseMedia() извикан два или повече пъти\n"
     IDS_MAINFRM_135         "КРИТИЧНА ГРЕШКА: !!! Процесът на отваряне трябва да бъде премахнат!!!"
-    IDS_MAINFRM_136         "MPC-BE ексклузивно на цял екран"
+    IDS_MAINFRM_136         "MPC-WJ ексклузивно на цял екран"
     IDS_MAINFRM_137         "Непознат формат"
     IDS_MAINFRM_138         "Отместване на субтитри: %ld"
     IDS_VOLUME_GAIN_INC     "Увеличи усилването на звука"
@@ -3330,7 +3330,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Използване на: mpc-be.exe ""път"" [превключватели]"
+    IDS_CMD_USAGE           "Използване на: mpc-wj.exe ""път"" [превключватели]"
     IDS_CMD_PATHNAME        """путь""\tФайл или директория за изтегляне (разрешени са \nmask)"
     IDS_CMD_HELP            "/help /h /?\tПоказва тази помощ"
     IDS_CMD_DUB             "/dub ""dubname""\tЗареди допълнителен звуков файл"
@@ -3771,7 +3771,7 @@ BEGIN
     IDS_RESET_COLOR         "Нулиране настройките на цветовете"
     IDS_UPDATE_ERROR_DATA   "Сървърът за обновяване връща неправилни данни.\n\nМоля, опитайте отново по-късно."
     IDS_USING_NEWER_VERSION "Използвате последната версия на %s."
-    IDS_NEW_UPDATE_AVAILABLE  "По-нова версия %s found.\n\nИскате ли да посетите уебсайта на MPC-BE, за да го изтеглите?"
+    IDS_NEW_UPDATE_AVAILABLE  "По-нова версия %s found.\n\nИскате ли да посетите уебсайта на MPC-WJ, за да го изтеглите?"
     IDS_UPDATE_ERROR_CONNECT  "Сървърът за актуализация не е намерен.\n\nМоля, проверете интернет връзката си и опитайте отново."
     IDS_UPDATE_CLOSE        "&Затвори"
     IDS_OSD_ZOOM            "Мащаб: %.0lf%%"
@@ -3983,14 +3983,14 @@ BEGIN
     BEGIN
         BLOCK "040204b0"
         BEGIN
-            VALUE "Comments", "Bulgarian language resource for MPC-BE"
+            VALUE "Comments", "Bulgarian language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Bulgarian language resource for MPC-BE"
+            VALUE "FileDescription", "Bulgarian language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "MPC-BE"
+            VALUE "InternalName", "MPC-WJ"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.bg.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

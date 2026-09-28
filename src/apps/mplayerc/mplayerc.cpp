@@ -2,14 +2,14 @@
  * (C) 2003-2006 Gabest
  * (C) 2006-2026 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -245,7 +245,7 @@ bool CMPlayerCApp::GetAppSavePath(CString& path)
 	} else {
 		PWSTR pathRoamingAppData = nullptr;
 		HRESULT hr = SHGetKnownFolderPath(FOLDERID_RoamingAppData, 0, nullptr, &pathRoamingAppData);
-		path = CStringW(pathRoamingAppData) + L"\\MPC-BE\\";
+		path = CStringW(pathRoamingAppData) + L"\\MPC-WJ\\";
 		CoTaskMemFree(pathRoamingAppData);
 
 		if (FAILED(hr)) {
@@ -459,9 +459,9 @@ void CMPlayerCApp::ExportSettings()
 	CFileDialog fileSaveDialog(
 		FALSE, 0,
 #ifdef _WIN64
-		L"mpc-be64-settings." + ext,
+		L"mpc-wj64-settings." + ext,
 #else
-		L"mpc-be-settings." + ext,
+		L"mpc-wj-settings." + ext,
 #endif
 		OFN_EXPLORER | OFN_ENABLESIZING | OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT | OFN_PATHMUSTEXIST | OFN_NOCHANGEDIR,
 		 ext_list
@@ -486,7 +486,7 @@ void CMPlayerCApp::ExportSettings()
 			CStdioFile file(fStream);
 			file.WriteString(L"Windows Registry Editor Version 5.00\n\n");
 
-			success = !error && ExportRegistryKey(file, HKEY_CURRENT_USER, L"Software\\MPC-BE");
+			success = !error && ExportRegistryKey(file, HKEY_CURRENT_USER, L"Software\\MPC-WJ");
 
 			file.Close();
 		}
@@ -993,7 +993,7 @@ BOOL CMPlayerCApp::InitInstance()
 
 	if (m_Profile.GetSettingsLocation() != SETS_PROGRAMDIR) {
 		CRegKey key;
-		if (ERROR_SUCCESS == key.Create(HKEY_LOCAL_MACHINE, L"Software\\MPC-BE")) {
+		if (ERROR_SUCCESS == key.Create(HKEY_LOCAL_MACHINE, L"Software\\MPC-WJ")) {
 			CString path = GetProgramPath();
 			key.SetStringValue(L"ExePath", path);
 		}
@@ -1010,7 +1010,7 @@ BOOL CMPlayerCApp::InitInstance()
 
 			PWSTR pathProgramData = nullptr;
 			SHGetKnownFolderPath(FOLDERID_ProgramData, 0, nullptr, &pathProgramData);
-			CString appStorage = CStringW(pathProgramData) + L"\\MPC-BE\\";
+			CString appStorage = CStringW(pathProgramData) + L"\\MPC-WJ\\";
 			CoTaskMemFree(pathProgramData);
 
 			if (!bShaderDirExists) {
@@ -1532,8 +1532,8 @@ void CMPlayerCApp::SetLanguage(int nLanguage, bool bSave/* = true*/)
 				}
 			} else {
 				// This message should stay in English!
-				MessageBoxW(nullptr, L"Your language pack will not work with this version. Please download a compatible one from the MPC-BE homepage.",
-					L"MPC-BE", MB_OK);
+				MessageBoxW(nullptr, L"Your language pack will not work with this version. Please download a compatible one from the MPC-WJ homepage.",
+					L"MPC-WJ", MB_OK);
 			}
 		}
 	} else if (bSave && nLanguage == GetLanguageIndex(ID_LANGUAGE_ENGLISH)) {

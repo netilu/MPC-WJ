@@ -1,14 +1,14 @@
 /*
  * (C) 2018-2024 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -43,7 +43,7 @@ CStringW GetIniUserProfile()
 	PWSTR pathRoamingAppData = nullptr;
 	HRESULT hr = SHGetKnownFolderPath(FOLDERID_RoamingAppData, 0, nullptr, &pathRoamingAppData);
 	if (SUCCEEDED(hr)) {
-		path = CStringW(pathRoamingAppData) + L"\\MPC-BE\\" + fname;
+		path = CStringW(pathRoamingAppData) + L"\\MPC-WJ\\" + fname;
 	}
 	CoTaskMemFree(pathRoamingAppData);
 
@@ -76,7 +76,7 @@ LONG CProfile::OpenRegistryKey()
 
 	if (!m_hAppRegKey) {
 		DWORD dwDisposition = 0;
-		lResult = RegCreateKeyExW(HKEY_CURRENT_USER, L"Software\\MPC-BE", 0, nullptr, 0, KEY_READ, nullptr, &m_hAppRegKey, &dwDisposition);
+		lResult = RegCreateKeyExW(HKEY_CURRENT_USER, L"Software\\MPC-WJ", 0, nullptr, 0, KEY_READ, nullptr, &m_hAppRegKey, &dwDisposition);
 		DLogIf(lResult != ERROR_SUCCESS, L"OpenRegistryKey(): ERROR! The opening of the registry key failed.");
 	}
 
@@ -91,7 +91,7 @@ void CProfile::InitIni()
 		return;
 	}
 
-	// Don't reread mpc-be.ini if the cache needs to be flushed or it was accessed recently
+	// Don't reread mpc-wj.ini if the cache needs to be flushed or it was accessed recently
 	const ULONGLONG tick = GetTickCount64();
 	if (m_bIniFirstInit && (m_bIniNeedFlush || tick - m_IniLastAccessTick < 100u)) {
 		m_IniLastAccessTick = tick;
@@ -107,7 +107,7 @@ void CProfile::InitIni()
 
 	FILE* fp;
 	int fpStatus;
-	do { // Open mpc-be.ini in UNICODE mode, retry if it is already being used by another process
+	do { // Open mpc-wj.ini in UNICODE mode, retry if it is already being used by another process
 		fp = _wfsopen(m_IniPath, L"r, ccs=UNICODE", _SH_SECURE);
 		if (fp || (GetLastError() != ERROR_SHARING_VIOLATION)) {
 			break;
@@ -119,10 +119,10 @@ void CProfile::InitIni()
 		return;
 	}
 	if (_ftell_nolock(fp) == 0L) {
-		// No BOM was consumed, assume mpc-be.ini is ANSI encoded
+		// No BOM was consumed, assume mpc-wj.ini is ANSI encoded
 		fpStatus = fclose(fp);
 		ASSERT(fpStatus == 0);
-		do { // Reopen mpc-be.ini in ANSI mode, retry if it is already being used by another process
+		do { // Reopen mpc-wj.ini in ANSI mode, retry if it is already being used by another process
 			fp = _wfsopen(m_IniPath, L"r", _SH_SECURE);
 			if (fp || (GetLastError() != ERROR_SHARING_VIOLATION)) {
 				break;
@@ -142,7 +142,7 @@ void CProfile::InitIni()
 
 	CStringW line, section, var, val;
 	while (file.ReadString(line)) {
-		// Parse mpc-be.ini file, this parser:
+		// Parse mpc-wj.ini file, this parser:
 		//  - doesn't trim whitespaces
 		//  - doesn't remove quotation marks
 		//  - omits keys with empty names
@@ -1038,7 +1038,7 @@ void CProfile::Flush(bool bForce)
 
 	FILE* fp;
 	int fpStatus;
-	do { // Open mpc-be.ini, retry if it is already being used by another process
+	do { // Open mpc-wj.ini, retry if it is already being used by another process
 		fp = _wfsopen(m_IniPath, L"w, ccs=UTF-8", _SH_SECURE);
 		if (fp || (GetLastError() != ERROR_SHARING_VIOLATION)) {
 			break;
@@ -1052,7 +1052,7 @@ void CProfile::Flush(bool bForce)
 	CStdioFile file(fp);
 	CStringW line;
 	try {
-		file.WriteString(L"; MPC-BE\n");
+		file.WriteString(L"; MPC-WJ\n");
 		for (auto it1 = m_ProfileMap.begin(); it1 != m_ProfileMap.end(); ++it1) {
 			line.Format(L"[%s]\n", it1->first);
 			file.WriteString(line);

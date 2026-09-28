@@ -39,10 +39,10 @@
 +---------------------------------------------------------------------*/
 AP4_SttsAtom::AP4_SttsAtom() :
     AP4_Atom(AP4_ATOM_TYPE_STTS, AP4_FULL_ATOM_HEADER_SIZE+4, true),
-    // MPC-BE custom code start
+    // MPC-WJ custom code start
     m_TotalDuration(0),
     m_TotalFrames(0)
-    // MPC-BE custom code end
+    // MPC-WJ custom code end
 {
     m_LookupCache.entry_index = 0;
     m_LookupCache.sample      = 0;
@@ -54,10 +54,10 @@ AP4_SttsAtom::AP4_SttsAtom() :
 +---------------------------------------------------------------------*/
 AP4_SttsAtom::AP4_SttsAtom(AP4_Size size, AP4_ByteStream& stream) :
     AP4_Atom(AP4_ATOM_TYPE_STTS, size, true, stream),
-    // MPC-BE custom code start
+    // MPC-WJ custom code start
     m_TotalDuration(0),
     m_TotalFrames(0)
-    // MPC-BE custom code end
+    // MPC-WJ custom code end
 {
     m_LookupCache.entry_index = 0;
     m_LookupCache.sample      = 0;
@@ -70,7 +70,7 @@ AP4_SttsAtom::AP4_SttsAtom(AP4_Size size, AP4_ByteStream& stream) :
         AP4_UI32 sample_duration;
         if (stream.ReadUI32(sample_count)    == AP4_SUCCESS &&
             stream.ReadUI32(sample_duration) == AP4_SUCCESS) {
-            // MPC-BE custom code start
+            // MPC-WJ custom code start
             if((AP4_SI32)sample_duration < 0) {
                 sample_duration = 1;
             }
@@ -78,7 +78,7 @@ AP4_SttsAtom::AP4_SttsAtom(AP4_Size size, AP4_ByteStream& stream) :
                 m_TotalDuration += (AP4_Duration)sample_count * sample_duration;
                 m_TotalFrames += sample_count;
             }
-            // MPC-BE custom code end
+            // MPC-WJ custom code end
             m_Entries.Append(AP4_SttsTableEntry(sample_count,
                                                 sample_duration));
         }

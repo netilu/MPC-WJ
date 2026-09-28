@@ -214,15 +214,15 @@ END
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 241, 202
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "O programe MPC-BE"
+CAPTION "O programe MPC-WJ"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "Autorské práva © 2002-2026 viď súbor: Authors.txt",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "Verzia:",IDC_VERSION,30,34,90,8
-    LTEXT           "Kompilátor MPC-BE:",IDC_STATIC,30,66,90,8
+    LTEXT           "Kompilátor MPC-WJ:",IDC_STATIC,30,66,90,8
     LTEXT           "Kompilátor FFmpeg:",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec/Libavutil:",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,9 +230,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "Tento program je šírený ako freeware a bol vydaný pod licenciou GNU General Public.",IDC_STATIC,30,138,200,18
     LTEXT           "Preložil: PEPEK,PEŠISOFT SK",IDC_STATIC,30,161,200,18
@@ -673,7 +673,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Upozornenie"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "MPC-BE nedokázal vykresliť niektoré piny, pretože vo Vašom systéme sa pravdepodobne nenachádzajú potrebné kodeky či filtre.",IDC_STATIC1,5,5,286,18
+    LTEXT           "MPC-WJ nedokázal vykresliť niektoré piny, pretože vo Vašom systéme sa pravdepodobne nenachádzajú potrebné kodeky či filtre.",IDC_STATIC1,5,5,286,18
     LTEXT           "Nepodarilo sa nájsť vhodný filter k týmto pinom:",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -2356,7 +2356,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2550,7 +2550,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2654,7 +2654,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "Relatívne kolorimetrické"
     IDS_CM_INTENT_SATURATION "Sýte"
     IDS_CM_INTENT_ABSOLUTECM "Absolútne kolorimetrické"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Náhľad je momentálne zakázaný. Môžete to povoliť v možnostiach MPC-BE."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Náhľad je momentálne zakázaný. Môžete to povoliť v možnostiach MPC-WJ."
 END
 
 STRINGTABLE
@@ -2700,7 +2700,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "Predvolené hodnoty sa nastavia aj v iných štýloch, ak užívateľ nastavenia nezmení"
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "Vypnutie tejto možnosti zabráni blikaniu titulkov, ale môže spôsobiť, že vykresľovač videa preskočí niektoré snímky videa."
     IDC_CHECK_SPCANIMWITHBUFFER  "Ak je použitá vyrovnávacia pamäť pre podobrázky väčšia ako 0, môžu sa titulky animovať. Zablokovaním tejto voľby znížite vyťaženie procesora. Voľbu zablokujte aj v prípade, že titulky blikajú."
-    IDC_BUTTON_EXT_SET      "Po kliknutí na toto tlačidlo, sa zmenia asociácie vybraných koncoviek súborov a súbory sa budú otvárať v programe MPC-BE. Po pridaní nejakého ďalšieho rozšírenia programu sa však asociácie môžu opäť zmeniť. Preto si ich pred zatvorením tohto dialógového okna nezabudnite skontrolovať, prípadne nastaviť znova!"
+    IDC_BUTTON_EXT_SET      "Po kliknutí na toto tlačidlo, sa zmenia asociácie vybraných koncoviek súborov a súbory sa budú otvárať v programe MPC-WJ. Po pridaní nejakého ďalšieho rozšírenia programu sa však asociácie môžu opäť zmeniť. Preto si ich pred zatvorením tohto dialógového okna nezabudnite skontrolovať, prípadne nastaviť znova!"
 END
 
 STRINGTABLE
@@ -2893,8 +2893,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "S&tream s videom"
     IDS_MENU_VIDEO_ANGLE    "Uh&ol videa"
     IDS_RESET_SETTINGS      "Obnoviť pôvodné nastavenia"
-    IDS_RESET_SETTINGS_WARNING  "Naozaj chcete obnoviť predvolené nastavenia programu MPC-BE?\nPozor, VŠETKY aktuálne nastavenia budú tak vymazané!"
-    IDS_RESET_SETTINGS_MUTEX  "Zatvorte, prosím, všetky inštancie programu MPC-BE, aby bolo možné obnoviť predvolené nastavenia."
+    IDS_RESET_SETTINGS_WARNING  "Naozaj chcete obnoviť predvolené nastavenia programu MPC-WJ?\nPozor, VŠETKY aktuálne nastavenia budú tak vymazané!"
+    IDS_RESET_SETTINGS_MUTEX  "Zatvorte, prosím, všetky inštancie programu MPC-WJ, aby bolo možné obnoviť predvolené nastavenia."
     IDS_EXPORT_SETTINGS     "Exportovať nastavenia"
     IDS_EXPORT_SETTINGS_WARNING  "Niektoré zmeny ešte neboli uložené.\nChcete ich uložiť pred uskutočnením exportu?"
     IDS_EXPORT_SETTINGS_SUCCESS  "Nastavenia boli úspešne exportované."
@@ -3127,9 +3127,9 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "Automaticky prispôsobiť"
     IDS_ZOOM_AUTOFITLARGE   "Automaticky prispôsobiť (iba väčšie)"
-    IDS_ADD_TO_PLAYLIST     "Pridať do playlistu programu MPC-BE"
-    IDS_OPEN_WITH_MPC       "Prehrať programom MPC-BE"
-    IDS_CANNOT_CHANGE_FORMAT  "Program MPC-BE nemá dostatočné oprávnenia na zmenu asociácií k formátom. Kliknite prosím na tlačidlo ""Modifikovať"" a preberte práva administrátora PC."
+    IDS_ADD_TO_PLAYLIST     "Pridať do playlistu programu MPC-WJ"
+    IDS_OPEN_WITH_MPC       "Prehrať programom MPC-WJ"
+    IDS_CANNOT_CHANGE_FORMAT  "Program MPC-WJ nemá dostatočné oprávnenia na zmenu asociácií k formátom. Kliknite prosím na tlačidlo ""Modifikovať"" a preberte práva administrátora PC."
     IDS_APP_DESCRIPTION     "Jeden z najvýkonnejších, konfigurovateľných multimediálnych prehrávačov pre OS Windows. Pôvodne vyvinutý maďarským vývojárom známym pod prezývkou Gabest. Táto verzia má pridané aj niektoré nové funkcie, ako napríklad celoobrazovkový režim Direct 3D a lepšiu podporu OS Windows Vista/7."
     IDS_MAINFRM_12          "kanál"
     IDS_MAINFRM_13          "kanálov"
@@ -3172,7 +3172,7 @@ STRINGTABLE
 BEGIN
     IDS_ADDTOPLS_FROMDIR_SIMILAR "podobné súbory z priečinka"
     IDS_ADDTOPLS_FROMDIR_ALL "všetky súbory z priečinka"
-    IDS_EXCLUSIVE_FS_WARNING  "Táto funkcia je určená na zredukovanie trhania obrazu. Takisto však môže programu MPC-BE zabrániť aj v tom, aby zobrazoval kontextovú ponuku a dialógové okná počas prehrávania.\n\nNa ukončenie celoobrazovkového režimu Direct3D a zastavenie prehrávania musíte stlačiť kombináciu: Ctrl + C.\n\nNaozaj chcete aktivovať túto funkciu?"
+    IDS_EXCLUSIVE_FS_WARNING  "Táto funkcia je určená na zredukovanie trhania obrazu. Takisto však môže programu MPC-WJ zabrániť aj v tom, aby zobrazoval kontextovú ponuku a dialógové okná počas prehrávania.\n\nNa ukončenie celoobrazovkového režimu Direct3D a zastavenie prehrávania musíte stlačiť kombináciu: Ctrl + C.\n\nNaozaj chcete aktivovať túto funkciu?"
     IDS_MAINFRM_139         "Oneskorenie titulkov: %ld ms"
     IDS_AG_TITLE2           "Titul: %02d/%02d"
     IDS_THUMB_ROWNUMBER     "Riadky:"
@@ -3243,7 +3243,7 @@ BEGIN
     IDS_GAIN_OSD            "Zvýšiť: %+.1f dB"
     IDS_BALANCE_OSD         "Vyváženie: %s"
     IDS_FULLSCREENMONITOR_CURRENT "Aktuálne"
-    IDS_MPC_CRASH           "MPC-BE bol neočakávane ukončený. Aby ste nám pomohli vyriešiť tento problém, pošlite prosím tento súbor '%s' do nášho nástroja na sledovanie chýb.\n\nChcete teraz otvoriť priečinok obsahujúci súbor minidump a navštíviť nástroj na sledovanie chýb?"
+    IDS_MPC_CRASH           "MPC-WJ bol neočakávane ukončený. Aby ste nám pomohli vyriešiť tento problém, pošlite prosím tento súbor '%s' do nášho nástroja na sledovanie chýb.\n\nChcete teraz otvoriť priečinok obsahujúci súbor minidump a navštíviť nástroj na sledovanie chýb?"
     IDS_MPC_MINIDUMP_FAIL   "Nepodarilo sa vytvoriť výpis pamäti v súbore '%s' (chyba %d)"
     IDS_MAINFRM_DIR_TITLE   "Vybrať priečinok"
     IDS_MAINFRM_DIR_CHECK   "Vrátane podpriečinkov"
@@ -3301,7 +3301,7 @@ BEGIN
     IDS_AG_REMOVING         "Odstraňuje sa: "
     IDS_MAINFRM_134         "UPOZORNENIE: CMainFrame::CloseMedia() dvoj- alebo viacnásobné volanie\n"
     IDS_MAINFRM_135         "KRITICKÁ CHYBA: !!! Musíte zatvoriť otvorenú vetvu !!!"
-    IDS_MAINFRM_136         "Exkluzívna celá obrazovka MPC-BE"
+    IDS_MAINFRM_136         "Exkluzívna celá obrazovka MPC-WJ"
     IDS_MAINFRM_137         "Neznámy formát"
     IDS_MAINFRM_138         "Oneskorenie titulkov: %ld ms"
     IDS_VOLUME_GAIN_INC     "Zvýšiť hlasitosť"
@@ -3330,7 +3330,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Použitie: mpc-be.exe ""cesta"" [parametre príkazového riadka]"
+    IDS_CMD_USAGE           "Použitie: mpc-wj.exe ""cesta"" [parametre príkazového riadka]"
     IDS_CMD_PATHNAME        """cesta""\t- Hlavný súbor alebo priečinok, ktorého obsah sa načíta\n(zástupné znaky sú povolené)"
     IDS_CMD_HELP            "/help /h /?\tZobraziť nápovedu k prepínačom na príkazovom riadku"
     IDS_CMD_DUB             "/dub ""zvuková stopa""\t- Načítať prídavný zvukový súbor"
@@ -3771,7 +3771,7 @@ BEGIN
     IDS_RESET_COLOR         "Obnoviť nastavenia farby"
     IDS_UPDATE_ERROR_DATA   "Aktualizačný server poskytuje nesprávne údaje.\n\nSkúste to neskôr."
     IDS_USING_NEWER_VERSION "Už používate najnovšiu verziu %s."
-    IDS_NEW_UPDATE_AVAILABLE  "K dispozícii je nový %s.\n\nChcete navštíviť webovú stránku MPC-BE a stiahnuť si ho?"
+    IDS_NEW_UPDATE_AVAILABLE  "K dispozícii je nový %s.\n\nChcete navštíviť webovú stránku MPC-WJ a stiahnuť si ho?"
     IDS_UPDATE_ERROR_CONNECT  "Aktualizačný server sa nenašiel.\n\nSkontrolujte svoje internetové pripojenie alebo to skúste neskôr."
     IDS_UPDATE_CLOSE        "&Zavrieť"
     IDS_OSD_ZOOM            "Zväčšiť: %.0lf%%"
@@ -3983,14 +3983,14 @@ BEGIN
     BEGIN
         BLOCK "041b04b0"
         BEGIN
-            VALUE "Comments", "Slovakian language resource for MPC-BE"
+            VALUE "Comments", "Slovakian language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Slovakian language resource for MPC-BE"
+            VALUE "FileDescription", "Slovakian language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.sk.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

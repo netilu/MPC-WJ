@@ -1,14 +1,14 @@
 /*
  * (C) 2006-2023 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -21,21 +21,21 @@
 
  /*
  This file defines commands used for "MPC" API. To send commands
- to MPC-BE and receive playback notifications, first launch MPC-BE with the /slave command line
+ to MPC-WJ and receive playback notifications, first launch MPC-WJ with the /slave command line
  argument followed by a HWnd handle used to receive notification:
 
- ..\_bin\mpc-be /slave 125421
+ ..\_bin\mpc-wj /slave 125421
 
- After startup, MPC-BE sends a WM_COPYDATA message to host with COPYDATASTRUCT struct filled with:
+ After startup, MPC-WJ sends a WM_COPYDATA message to host with COPYDATASTRUCT struct filled with:
  - dwData :  CMD_CONNECT
- - lpData :  Unicode string containing MPC-BE's main window handle
+ - lpData :  Unicode string containing MPC-WJ's main window handle
 
- To control MPC-BE, send WM_COPYDATA messages to Hwnd provided on connection. All messages should be
+ To control MPC-WJ, send WM_COPYDATA messages to Hwnd provided on connection. All messages should be
  formatted as null-terminated Unicode strings. For commands or notifications with multiple parameters,
  values are separated by |.
  If a string contains a |, it will be escaped with a \ so a \| is not a separator.
 
- Ex: When a file is opened, MPC-BE sends to host the "now playing" notification:
+ Ex: When a file is opened, MPC-WJ sends to host the "now playing" notification:
  - dwData :  CMD_NOWPLAYING
  - lpData :  title|author|description|filename|duration
 
@@ -141,10 +141,10 @@ enum MPCAPI_COMMAND : unsigned int {
 	CMD_NOTIFYENDOFSTREAM   = 0x50000009,
 
 	// Send version str
-	// Parameter 1: MPC-BE's version
+	// Parameter 1: MPC-WJ's version
 	CMD_VERSION             = 0x5000000A,
 
-	// Send information about MPC-BE closing
+	// Send information about MPC-WJ closing
 	CMD_DISCONNECT          = 0x5000000B,
 
 	// ==== Commands from host to MPC

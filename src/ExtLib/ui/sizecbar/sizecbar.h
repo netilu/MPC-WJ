@@ -101,7 +101,7 @@ public:
     void SetSCBStyle(DWORD dwSCBStyle)
         {m_dwSCBStyle = (dwSCBStyle & ~SCBS_EDGEALL);}
 
-//MPC-BE custom code start
+//MPC-WJ custom code start
     void SetHeight(const int nHeight)
     {
         m_szFloat.cy = m_szHorz.cy = m_szVert.cy = nHeight;
@@ -111,7 +111,7 @@ public:
     virtual COLORREF ColorThemeRGB(const int iR, const int iG, const int iB) const { return 0; }
     virtual int ScaleX(const int x) const { return x; }
     virtual int ScaleY(const int y) const { return y; }
-//MPC-BE custom code end
+//MPC-WJ custom code end
 
 // Overridables
     virtual void OnUpdateCmdUI(CFrameWnd* pTarget, BOOL bDisableIfNoHndler);
@@ -167,13 +167,13 @@ protected:
     UINT    m_nDockBarID;
     int     m_cxEdge;
 
-//MPC-BE custom code start
+//MPC-WJ custom code start
     BOOL    m_bFixedFloat;
     CSize   m_szFixedFloat;
 
     HBRUSH   m_hBrush, m_hBrush_orig, m_hBrushFrame;
     COLORREF m_dwBrushColor;
-//MPC-BE custom code end
+//MPC-WJ custom code end
 
 public:
     bool m_bUseDarkTheme;

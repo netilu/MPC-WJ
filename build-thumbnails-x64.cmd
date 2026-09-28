@@ -9,5 +9,5 @@ if errorlevel 1 (
 )
 call test-thumbnails.cmd
 if errorlevel 1 exit /b 1
-echo Built: %CD%\_bin\mpc-be_x64\mpc-be64.exe
+echo Built: %CD%\_bin\mpc-wj_x64\mpc-wj64.exe
 echo Log: %CD%\thumbnail-build.log

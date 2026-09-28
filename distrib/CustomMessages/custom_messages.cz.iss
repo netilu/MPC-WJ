@@ -1,14 +1,14 @@
 ﻿;
 ; (C) 2024 see Authors.txt
 ;
-; This file is part of MPC-BE.
+; This file is part of MPC-WJ.
 ;
-; MPC-BE is free software; you can redistribute it and/or modify
+; MPC-WJ is free software; you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
 ; the Free Software Foundation; either version 3 of the License, or
 ; (at your option) any later version.
 ;
-; MPC-BE is distributed in the hope that it will be useful,
+; MPC-WJ is distributed in the hope that it will be useful,
 ; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ; GNU General Public License for more details.
@@ -37,12 +37,12 @@ cz.langid=00001029
 cz.langcode=cz
 cz.comp_mpciconlib=Ikony typů souborů
 cz.comp_mpcresources=Jazykové soubory
-cz.comp_mpcbeshellext=Install the shell extension
+cz.comp_mpcwjshellext=Install the shell extension
 cz.comp_intel_msdk=H.264 MVC 3D Decoder
-cz.msg_DeleteSettings=Chcete smazat také nastavení MPC-BE?%n%nPokud plánujete MPC-BE znovu nainstalovat, mazat je nemusíte.
+cz.msg_DeleteSettings=Chcete smazat také nastavení MPC-WJ?%n%nPokud plánujete MPC-WJ znovu nainstalovat, mazat je nemusíte.
 cz.msg_NoD3DX9DLL_found=Nainstalovaná verze DirectX není dostatečně aktuální!%n%nStáhněte a nainstalujte nejnovější aktualizaci DirectX June 2010.%n%nPozor, aktualizace je pro všechny verze DirectX, nejen pro DirectX 9!
-cz.msg_SetupIsRunningWarning=Instalátor MPC-BE je již spuštěn!
-cz.msg_simd_sse2=Toto sestavení MPC-BE vyžaduje procesor s podporou rozšíření SSE2.%n%nVáš procesor tato rozšíření nepodporuje.
+cz.msg_SetupIsRunningWarning=Instalátor MPC-WJ je již spuštěn!
+cz.msg_simd_sse2=Toto sestavení MPC-WJ vyžaduje procesor s podporou rozšíření SSE2.%n%nVáš procesor tato rozšíření nepodporuje.
 cz.tsk_AllUsers=Pro všechny uživatele
 cz.tsk_CurrentUser=Jen pro právě přihlášeného uživatele
 cz.tsk_Other=Ostatní úlohy:

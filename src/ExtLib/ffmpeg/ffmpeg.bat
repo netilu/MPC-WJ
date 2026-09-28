@@ -1,14 +1,14 @@
 @ECHO OFF
 REM (C) 2009-2024 see Authors.txt
 REM
-REM This file is part of MPC-BE.
+REM This file is part of MPC-WJ.
 REM
-REM MPC-BE is free software; you can redistribute it and/or modify
+REM MPC-WJ is free software; you can redistribute it and/or modify
 REM it under the terms of the GNU General Public License as published by
 REM the Free Software Foundation; either version 3 of the License, or
 REM (at your option) any later version.
 REM
-REM MPC-BE is distributed in the hope that it will be useful,
+REM MPC-WJ is distributed in the hope that it will be useful,
 REM but WITHOUT ANY WARRANTY; without even the implied warranty of
 REM MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 REM GNU General Public License for more details.
@@ -26,12 +26,12 @@ IF /I "%~1"=="/?"     GOTO SHOWHELP
 
 IF EXIST "%~dp0..\..\..\environments.bat" CALL "%~dp0..\..\..\environments.bat"
 
-IF DEFINED MPCBE_MINGW IF DEFINED MPCBE_MSYS GOTO VarOk
-ECHO ERROR: Please define MPCBE_MINGW and MPCBE_MSYS environment variable(s)
+IF DEFINED MPCWJ_MINGW IF DEFINED MPCWJ_MSYS GOTO VarOk
+ECHO ERROR: Please define MPCWJ_MINGW and MPCWJ_MSYS environment variable(s)
 EXIT /B 1
 
 :VarOk
-SET PATH=%MPCBE_MSYS%\bin;%MPCBE_MINGW%\bin;%PATH%
+SET PATH=%MPCWJ_MSYS%\bin;%MPCWJ_MINGW%\bin;%PATH%
 
 SET "BUILDTYPE=build"
 

@@ -218,11 +218,11 @@ CAPTION "O programu"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "Copyright © 2002-2026, vidi Authors.txt",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "Verzija :",IDC_VERSION,30,34,90,8
-    LTEXT           "MPC-BE Prevoditelj :",IDC_STATIC,30,66,90,8
+    LTEXT           "MPC-WJ Prevoditelj :",IDC_STATIC,30,66,90,8
     LTEXT           "FFmpeg Prevoditelj :",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil :",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,9 +230,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "Ovaj program je freeware objavljen pod\nGNU General Public License.",IDC_STATIC,30,138,200,18
     LTEXT           "Hrvatski prijevod: D@nte Ripper",IDC_STATIC,30,161,200,18
@@ -673,7 +673,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Upozorenje"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "MPC-BE nije renderirao neke pinove grafa, moguće da na sustavu nisu instalirani potrebni kodeci ili filtri.",IDC_STATIC1,5,5,286,18
+    LTEXT           "MPC-WJ nije renderirao neke pinove grafa, moguće da na sustavu nisu instalirani potrebni kodeci ili filtri.",IDC_STATIC1,5,5,286,18
     LTEXT           "Navedeni pin(ovi) nisu uspješno pronašli vezane filtere:",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -2354,7 +2354,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2548,7 +2548,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2652,7 +2652,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "Relative Colorimetric"
     IDS_CM_INTENT_SATURATION "Saturation"
     IDS_CM_INTENT_ABSOLUTECM "Absolute Colorimetric"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Preview is currently disabled. You can enable it in MPC-BE's options."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Preview is currently disabled. You can enable it in MPC-WJ's options."
 END
 
 STRINGTABLE
@@ -2662,7 +2662,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDC_EXCLUSIVE_FULLSCREEN_CHECK  "Reduces tearing but prevents the toolbar from being shown. To exit fullscreen in this mode press Alt+Enter, Ctrl+Enter or Ctrl+C."
+    IDC_EXCLUSIVE_FULLSCREEN_CHECK  "Reduces tearing but prevents the toolbar from being shown. To exit fullscreen in this mode press Enter, Ctrl+Enter or Ctrl+C."
 END
 
 STRINGTABLE
@@ -2698,7 +2698,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "Default state gets inherited to other styles where it is still undefined"
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "Disabling this option will prevent the subtitles from blinking but it may cause the video renderer to skip some video frames."
     IDC_CHECK_SPCANIMWITHBUFFER  "Allows subtitle animation when using a subpicture buffer larger than 0. Disabling this option will lower CPU usage. Also disable if you experience flashing subtitles."
-    IDC_BUTTON_EXT_SET      "Nakon klika na ovaj gumb, provjereno stanje formatne grupe predstavljat će aktualne datotečne asocijacije za MPC-BE. Novododana kratica će ga zasivit, stoga ne zaboravite ponoviti postupak prije zatvaranja ovog prozora!"
+    IDC_BUTTON_EXT_SET      "Nakon klika na ovaj gumb, provjereno stanje formatne grupe predstavljat će aktualne datotečne asocijacije za MPC-WJ. Novododana kratica će ga zasivit, stoga ne zaboravite ponoviti postupak prije zatvaranja ovog prozora!"
 END
 
 STRINGTABLE
@@ -2891,8 +2891,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "Video S&tream"
     IDS_MENU_VIDEO_ANGLE    "Video Ku&t"
     IDS_RESET_SETTINGS      "Reset postavki"
-    IDS_RESET_SETTINGS_WARNING  "Are you sure you want to restore MPC-BE to its default settings?\nBe warned that ALL your current settings will be lost!"
-    IDS_RESET_SETTINGS_MUTEX  "Please close all instances of MPC-BE so that the default settings can be restored."
+    IDS_RESET_SETTINGS_WARNING  "Are you sure you want to restore MPC-WJ to its default settings?\nBe warned that ALL your current settings will be lost!"
+    IDS_RESET_SETTINGS_MUTEX  "Please close all instances of MPC-WJ so that the default settings can be restored."
     IDS_EXPORT_SETTINGS     "Izvoz postavki"
     IDS_EXPORT_SETTINGS_WARNING  "Some changes have not been saved yet.\nDo you want to save them before exporting?"
     IDS_EXPORT_SETTINGS_SUCCESS  "The settings have been successfully exported."
@@ -3125,9 +3125,9 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "Automatska prilagodba"
     IDS_ZOOM_AUTOFITLARGE   "Automatska prilagodba (samo veće)"
-    IDS_ADD_TO_PLAYLIST     "Dodaj u MPC-BE Playlistu"
-    IDS_OPEN_WITH_MPC       "Reproduciraj s MPC-BE"
-    IDS_CANNOT_CHANGE_FORMAT  "MPC-BE has not enough privileges to change files formats associations. Please click on ""Modify"" button to get administrator rights."
+    IDS_ADD_TO_PLAYLIST     "Dodaj u MPC-WJ Playlistu"
+    IDS_OPEN_WITH_MPC       "Reproduciraj s MPC-WJ"
+    IDS_CANNOT_CHANGE_FORMAT  "MPC-WJ has not enough privileges to change files formats associations. Please click on ""Modify"" button to get administrator rights."
     IDS_APP_DESCRIPTION     "Jedan od najmoćnijih, podesivih multimedijskih aplikacija za Windows operativni sustav. Originalno izrađen od Mađarskog programera pod imenom Gabest, ova verzija sadrži dodatne mogućnosti poput moda s ekskluzivnim zaslonom uz bolju podršku za Windows 10/11."
     IDS_MAINFRM_12          "kanal"
     IDS_MAINFRM_13          "kanali"
@@ -3170,7 +3170,7 @@ STRINGTABLE
 BEGIN
     IDS_ADDTOPLS_FROMDIR_SIMILAR "slične datoteke iz mape"
     IDS_ADDTOPLS_FROMDIR_ALL "sve datoteke iz mape"
-    IDS_EXCLUSIVE_FS_WARNING  "This option is designed to avoid tearing. However, it will also prevent MPC-BE from displaying the context menu and any dialog box during playback.\n\nTo exit the exclusive full screen, use the keys: Alt+Enter, Ctrl+Enter or Ctrl+C.\n\nDo you really want to activate this option?"
+    IDS_EXCLUSIVE_FS_WARNING  "This option is designed to avoid tearing. However, it will also prevent MPC-WJ from displaying the context menu and any dialog box during playback.\n\nTo exit the exclusive full screen, use the keys: Enter, Ctrl+Enter or Ctrl+C.\n\nDo you really want to activate this option?"
     IDS_MAINFRM_139         "Sub delay: %ld ms"
     IDS_AG_TITLE2           "Naslov: %02d/%02d"
     IDS_THUMB_ROWNUMBER     "Retci:"
@@ -3241,7 +3241,7 @@ BEGIN
     IDS_GAIN_OSD            "Dobitak: %+.1f dB"
     IDS_BALANCE_OSD         "Balans: %s"
     IDS_FULLSCREENMONITOR_CURRENT "Trenutno"
-    IDS_MPC_CRASH           "MPC-BE prekinut neočekivano. Kako bi nam pomogli kod rješavanje problem, molimo pošaljite datoteku '%s' na naš bug tracker.\n\nŽelite li otvoriti direktorij koji sadrži minidump datoteku i posjetit bug tracker odmah?"
+    IDS_MPC_CRASH           "MPC-WJ prekinut neočekivano. Kako bi nam pomogli kod rješavanje problem, molimo pošaljite datoteku '%s' na naš bug tracker.\n\nŽelite li otvoriti direktorij koji sadrži minidump datoteku i posjetit bug tracker odmah?"
     IDS_MPC_MINIDUMP_FAIL   "Neuspjeh kod kreiranja dump datoteke na '%s' (greška %d)"
     IDS_MAINFRM_DIR_TITLE   "Izaberi Direktorij"
     IDS_MAINFRM_DIR_CHECK   "Uključi poddirektorije"
@@ -3299,7 +3299,7 @@ BEGIN
     IDS_AG_REMOVING         "Uklanjanje: "
     IDS_MAINFRM_134         "Upozorenje: CMainFrame::CloseMedia() pozvano dvaput ili više\n"
     IDS_MAINFRM_135         "KRITIČNA POGREŠKA: !!! Primoran poništit uvodnu dretvu !!!"
-    IDS_MAINFRM_136         "MPC-BE Isključivo PuniZaslon"
+    IDS_MAINFRM_136         "MPC-WJ Isključivo PuniZaslon"
     IDS_MAINFRM_137         "Nepoznati format"
     IDS_MAINFRM_138         "Sub shift: %ld ms"
     IDS_VOLUME_GAIN_INC     "Dobit glasnoće povećanje"
@@ -3328,7 +3328,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Korištenje: mpc-be.exe ""imeputanje"" [argumenti]"
+    IDS_CMD_USAGE           "Korištenje: mpc-wj.exe ""imeputanje"" [argumenti]"
     IDS_CMD_PATHNAME        """imeputanje""\tIme glavne mape ili datoteke za učitavanje (wildcardovi\nomogućeni)"
     IDS_CMD_HELP            "/help /h /?\tPrikaži pomoć pri korištenju argumenata naredbenog retka"
     IDS_CMD_DUB             "/dub ""dubname""\tUčitaj dodatnu datoteku zvuka"
@@ -3769,7 +3769,7 @@ BEGIN
     IDS_RESET_COLOR         "Reset postavki boja"
     IDS_UPDATE_ERROR_DATA   "The update server gives the wrong data.\n\nPlease try later."
     IDS_USING_NEWER_VERSION "Već koristite zadnju verziju %s."
-    IDS_NEW_UPDATE_AVAILABLE  "A new version %s is available.\n\nDo you want to visit MPC-BE's website to download it?"
+    IDS_NEW_UPDATE_AVAILABLE  "A new version %s is available.\n\nDo you want to visit MPC-WJ's website to download it?"
     IDS_UPDATE_ERROR_CONNECT  "Poslužitelj za nadogradnje nije pronađen.\n\nMolimo provjerite vezu na Internet ili pokušajte ponovno."
     IDS_UPDATE_CLOSE        "&Zatvori"
     IDS_OSD_ZOOM            "Uvećavanje: %.0lf%%"
@@ -3994,14 +3994,14 @@ BEGIN
     BEGIN
         BLOCK "041a04b0"
         BEGIN
-            VALUE "Comments", "Croatian language resource for MPC-BE"
+            VALUE "Comments", "Croatian language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Croatian language resource for MPC-BE"
+            VALUE "FileDescription", "Croatian language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.hr.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

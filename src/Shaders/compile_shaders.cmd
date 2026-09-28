@@ -1,14 +1,14 @@
 @ECHO OFF
 REM (C) 2017-2022 see Authors.txt
 REM
-REM This file is part of MPC-BE.
+REM This file is part of MPC-WJ.
 REM
-REM MPC-BE is free software; you can redistribute it and/or modify
+REM MPC-WJ is free software; you can redistribute it and/or modify
 REM it under the terms of the GNU General Public License as published by
 REM the Free Software Foundation; either version 3 of the License, or
 REM (at your option) any later version.
 REM
-REM MPC-BE is distributed in the hope that it will be useful,
+REM MPC-WJ is distributed in the hope that it will be useful,
 REM but WITHOUT ANY WARRANTY; without even the implied warranty of
 REM MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 REM GNU General Public License for more details.

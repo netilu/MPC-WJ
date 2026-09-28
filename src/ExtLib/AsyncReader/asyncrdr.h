@@ -200,17 +200,17 @@ public:
         LPUNKNOWN pUnk,
         CAsyncStream *pStream,
         HRESULT *phr,
-        const CLSID& clsid); // MPC-BE patch
+        const CLSID& clsid); // MPC-WJ patch
 
     ~CAsyncReader();
 
-// MPC-BE patch start
+// MPC-WJ patch start
     DECLARE_IUNKNOWN;
     STDMETHODIMP NonDelegatingQueryInterface(REFIID riid, void** ppv);
 
     // IAMFilterMiscFlags
     STDMETHODIMP_(ULONG) GetMiscFlags();
-// MPC-BE patch end
+// MPC-WJ patch end
 
     // --- CBaseFilter methods ---
     int GetPinCount();

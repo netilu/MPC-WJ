@@ -1046,7 +1046,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuildStep Include="res\mpc-be.exe.manifest">
+    <CustomBuildStep Include="res\mpc-wj.exe.manifest">
       <Filter>Resource Files</Filter>
     </CustomBuildStep>
     <CustomBuildStep Include="res\mplayerc.rc2">

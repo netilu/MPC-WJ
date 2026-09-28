@@ -218,11 +218,11 @@ CAPTION "O programu"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "Copyright © 2002-2026, viz soubor Authors.txt",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "Version :",IDC_VERSION,30,34,90,8
-    LTEXT           "MPC-BE zkompilován :",IDC_STATIC,30,66,90,8
+    LTEXT           "MPC-WJ zkompilován :",IDC_STATIC,30,66,90,8
     LTEXT           "FFmpeg zkompilován :",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil :",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,9 +230,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "Tento program je freeware vydaný pod\nGNU General Public License.",IDC_STATIC,30,138,200,18
     LTEXT           "Překlad: khagaroth",IDC_STATIC,30,161,200,18
@@ -673,7 +673,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Varování"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "MPC-BE nemohl propojit některé vývody v grafu filtrů, pravděpodobně nemáte nainstalovány všechny potřebné kodeky nebo filtry.",IDC_STATIC1,5,5,286,18
+    LTEXT           "MPC-WJ nemohl propojit některé vývody v grafu filtrů, pravděpodobně nemáte nainstalovány všechny potřebné kodeky nebo filtry.",IDC_STATIC1,5,5,286,18
     LTEXT           "Pro následující vývody se nepodařilo nalézt připojitelný filtr:",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -2356,7 +2356,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2550,7 +2550,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2654,7 +2654,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "Relative Colorimetric"
     IDS_CM_INTENT_SATURATION "Saturation"
     IDS_CM_INTENT_ABSOLUTECM "Absolute Colorimetric"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Preview is currently disabled. You can enable it in MPC-BE's options."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Preview is currently disabled. You can enable it in MPC-WJ's options."
 END
 
 STRINGTABLE
@@ -2700,7 +2700,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "Výchozí stav bude převzat ostatními styly ve kterých ještě nebyla tato volba nastavena."
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "Disabling this option will prevent the subtitles from blinking but it may cause the video renderer to skip some video frames."
     IDC_CHECK_SPCANIMWITHBUFFER  "Povolí animaci titulků při použití titulkové vyrovnávací paměti větší než 0. Zakázání této volby sníží zatížení procesoru. Také ji zakažte pokud dochází k blikání titulků."
-    IDC_BUTTON_EXT_SET      "Stav zaškrtávacího políčka u skupin formátů určuje aktuální asociace MPC-BE. Nově přidaná přípona většinou zruší zaškrtnutí dané skupiny, proto ji před zavřením tohoto dialogu nezapomeňte znovu zaškrtnout!"
+    IDC_BUTTON_EXT_SET      "Stav zaškrtávacího políčka u skupin formátů určuje aktuální asociace MPC-WJ. Nově přidaná přípona většinou zruší zaškrtnutí dané skupiny, proto ji před zavřením tohoto dialogu nezapomeňte znovu zaškrtnout!"
 END
 
 STRINGTABLE
@@ -2893,8 +2893,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "Video s&topa"
     IDS_MENU_VIDEO_ANGLE    "Úhel poh&ledu"
     IDS_RESET_SETTINGS      "Obnovit výchozí"
-    IDS_RESET_SETTINGS_WARNING  "Opravdu chcete obnovit výchozí nastavení MPC-BE?\nVŠECHNA aktuální nastavení budou ztracena!"
-    IDS_RESET_SETTINGS_MUTEX  "Aby bylo možné obnovit výchozí nastavení, ukončete všechny otevřené instance MPC-BE."
+    IDS_RESET_SETTINGS_WARNING  "Opravdu chcete obnovit výchozí nastavení MPC-WJ?\nVŠECHNA aktuální nastavení budou ztracena!"
+    IDS_RESET_SETTINGS_MUTEX  "Aby bylo možné obnovit výchozí nastavení, ukončete všechny otevřené instance MPC-WJ."
     IDS_EXPORT_SETTINGS     "Exportovat nastavení"
     IDS_EXPORT_SETTINGS_WARNING  "Některé změny nastavení nebyly dosud uloženy.\nChcete je před exportováním uložit?"
     IDS_EXPORT_SETTINGS_SUCCESS  "Nastavení bylo úspěšně exportováno."
@@ -3127,9 +3127,9 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "Auto fit"
     IDS_ZOOM_AUTOFITLARGE   "Auto fit (larger only)"
-    IDS_ADD_TO_PLAYLIST     "Přidat do playlistu MPC-BE"
-    IDS_OPEN_WITH_MPC       "Přehrát pomocí MPC-BE"
-    IDS_CANNOT_CHANGE_FORMAT  "MPC-BE nemá dostatečná oprávnění pro změnu asociací souborů. Pro získání administrátorských oprávnění klikněte na tlačítko ""Upravit""."
+    IDS_ADD_TO_PLAYLIST     "Přidat do playlistu MPC-WJ"
+    IDS_OPEN_WITH_MPC       "Přehrát pomocí MPC-WJ"
+    IDS_CANNOT_CHANGE_FORMAT  "MPC-WJ nemá dostatečná oprávnění pro změnu asociací souborů. Pro získání administrátorských oprávnění klikněte na tlačítko ""Upravit""."
     IDS_APP_DESCRIPTION     "Jeden z nejlepších a nejlépe konfigurovatelných video přehrávačů pro Windows. Původně vytvořen maďarským programátorem známým jako Gabest, tato verze přidává některé další funkce jako např Direct 3D fullscreen režim a lepší podporu pro Windows Vista/7."
     IDS_MAINFRM_12          "kanál"
     IDS_MAINFRM_13          "kanály"
@@ -3172,7 +3172,7 @@ STRINGTABLE
 BEGIN
     IDS_ADDTOPLS_FROMDIR_SIMILAR "similar files from folder"
     IDS_ADDTOPLS_FROMDIR_ALL "all files from folder"
-    IDS_EXCLUSIVE_FS_WARNING  "Tato volba slouží k odstranění trhání. Znemožní ale MPC-BE zobrazit během přehrávání kontextové nabídky a dialogy.\n\nPro opuštění Direct3D fullscreen režimu a zastavení přehrávání musíte stisknout: Ctrl + C\n\nChcete tuto volbu opravdu aktivovat?"
+    IDS_EXCLUSIVE_FS_WARNING  "Tato volba slouží k odstranění trhání. Znemožní ale MPC-WJ zobrazit během přehrávání kontextové nabídky a dialogy.\n\nPro opuštění Direct3D fullscreen režimu a zastavení přehrávání musíte stisknout: Ctrl + C\n\nChcete tuto volbu opravdu aktivovat?"
     IDS_MAINFRM_139         "Zpoždění titulků: %ld ms"
     IDS_AG_TITLE2           "Titul: %02d/%02d"
     IDS_THUMB_ROWNUMBER     "Řádky:"
@@ -3243,7 +3243,7 @@ BEGIN
     IDS_GAIN_OSD            "Gain: %+.1f dB"
     IDS_BALANCE_OSD         "Vyvážení: %s"
     IDS_FULLSCREENMONITOR_CURRENT "Aktuální"
-    IDS_MPC_CRASH           "MPC-BE terminated unexpectedly. To help us fix this problem, please send this file '%s' to our bug tracker.\n\nDo you want to open the folder containing the minidump file and visit the bug tracker now?"
+    IDS_MPC_CRASH           "MPC-WJ terminated unexpectedly. To help us fix this problem, please send this file '%s' to our bug tracker.\n\nDo you want to open the folder containing the minidump file and visit the bug tracker now?"
     IDS_MPC_MINIDUMP_FAIL   "Nepodařilo se vytvořit soubor výpisu paměti '%s' (chyba %d)"
     IDS_MAINFRM_DIR_TITLE   "Vyberte adresář"
     IDS_MAINFRM_DIR_CHECK   "Včetně podadresářů"
@@ -3301,7 +3301,7 @@ BEGIN
     IDS_AG_REMOVING         "Odstraňuji: "
     IDS_MAINFRM_134         "VAROVÁNÍ: CMainFrame::CloseMedia() zavoláno dvakrát nebo vícekrát\n"
     IDS_MAINFRM_135         "KRITICKÁ CHYBA: !!! Must kill opener thread !!!"
-    IDS_MAINFRM_136         "MPC-BE Exclusive Fullscreen"
+    IDS_MAINFRM_136         "MPC-WJ Exclusive Fullscreen"
     IDS_MAINFRM_137         "Neznámý formát"
     IDS_MAINFRM_138         "Posun titulků: %ld"
     IDS_VOLUME_GAIN_INC     "Volume gain increase"
@@ -3330,7 +3330,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Použití: mpc-be.exe ""cesta"" [parametry]"
+    IDS_CMD_USAGE           "Použití: mpc-wj.exe ""cesta"" [parametry]"
     IDS_CMD_PATHNAME        """cesta""\tSoubor nebo adresář, který má být otevřen\n(povoleny masky)"
     IDS_CMD_HELP            "/help /h /?\tZobrazí tento dialog"
     IDS_CMD_DUB             "/dub ""soubor""\tNačte soubor se zvukovou stopou"
@@ -3342,7 +3342,7 @@ BEGIN
     IDS_CMD_D3DFS           "/d3dfs\tSpustí vykreslování v D3D fullscreen režimu"
     IDS_CMD_SUB             "/sub ""soubor""\tNačte soubor s titulky"
     IDS_CMD_FILTER          "/filter ""soubor""\tNačte DirectShow filtr (*.ax nebo *.dll, povoleny\nmasky)"
-    IDS_CMD_DVD             "/dvd\tSpustí MPC-BE v DVD režimu, volitelný parametr\n""cesta"" určuje DVD adresář"
+    IDS_CMD_DVD             "/dvd\tSpustí MPC-WJ v DVD režimu, volitelný parametr\n""cesta"" určuje DVD adresář"
     IDS_CMD_DVDPOS1         "/dvdpos T#K\tSpustí přehrávání titulu T, kapitoly K"
     IDS_CMD_DVDPOS2         "/dvdpos T#hh:mm\tSpustí přehrávání titulu T, pozice hh:mm:ss"
     IDS_CMD_CD              "/cd\tNačte všechny stopy AudioCD/(S)VCD, volitelný\nparametr ""cesta"" udává písmeno CD mechaniky"
@@ -3352,18 +3352,18 @@ BEGIN
     IDS_CMD_SHUTDOWN        "/shutdown\tPo ukončení přehrávání vypne počítač"
     IDS_CMD_FULLSCREEN      "/fullscreen\tSpustí přehrávač v režimu na celou obrazovku"
     IDS_CMD_MINIMIZED       "/minimized\tSpustí přehrávač minimalizovaný"
-    IDS_CMD_NEW             "/new\tOtevře novou instanci MPC-BE"
+    IDS_CMD_NEW             "/new\tOtevře novou instanci MPC-WJ"
     IDS_CMD_ADD             "/add\tPřidá ""cestu"" do playlistu, může být kombinován\ns /open a /play"
 END
 
 STRINGTABLE
 BEGIN
     IDS_CMD_RANDOMIZE       "/randomize\tRandomize the playlist"
-    IDS_CMD_REGVID          "/regvid\tAsociuje MPC-BE s video formáty"
-    IDS_CMD_REGAUD          "/regaud\tAsociuje MPC-BE s audio formáty"
-    IDS_CMD_REGPL           "/regpl\tAsociuje MPC-BE se seznamy stop"
-    IDS_CMD_REGALL          "/regall\tAsociuje MPC-BE se všemi podporovanými formáty"
-    IDS_CMD_UNREGALL        "/unregall\tZruší asociaci MPC-BE se všemi formáty\n(včetně playlistů)"
+    IDS_CMD_REGVID          "/regvid\tAsociuje MPC-WJ s video formáty"
+    IDS_CMD_REGAUD          "/regaud\tAsociuje MPC-WJ s audio formáty"
+    IDS_CMD_REGPL           "/regpl\tAsociuje MPC-WJ se seznamy stop"
+    IDS_CMD_REGALL          "/regall\tAsociuje MPC-WJ se všemi podporovanými formáty"
+    IDS_CMD_UNREGALL        "/unregall\tZruší asociaci MPC-WJ se všemi formáty\n(včetně playlistů)"
     IDS_CMD_START           "/start ms\tSpustí přehrávání od zadané pozice\n(ms = milisekundy)"
     IDS_CMD_STARTPOS        "/startpos hh:mm:ss\tSpustí přehrávání od pozice hh:mm:ss"
     IDS_CMD_FIXEDSIZE       "/fixedsize w,h\tSpustí přehrávač se zadanou velikostí okna"
@@ -3771,7 +3771,7 @@ BEGIN
     IDS_RESET_COLOR         "Obnovit výchozí"
     IDS_UPDATE_ERROR_DATA   "The update server gives the wrong data.\n\nPlease try later."
     IDS_USING_NEWER_VERSION "You are already using the latest version %s."
-    IDS_NEW_UPDATE_AVAILABLE  "A new %s is available.\n\nDo you want to visit MPC-BE's website to download it?"
+    IDS_NEW_UPDATE_AVAILABLE  "A new %s is available.\n\nDo you want to visit MPC-WJ's website to download it?"
     IDS_UPDATE_ERROR_CONNECT  "Aktualizační server nebyl nalezen.\n\nZkontrolujte připojení k Internetu a akci zopakujte později."
     IDS_UPDATE_CLOSE        "&Zavřít"
     IDS_OSD_ZOOM            "Velikost: %.0lf%%"
@@ -3983,14 +3983,14 @@ BEGIN
     BEGIN
         BLOCK "040504b0"
         BEGIN
-            VALUE "Comments", "Czech language resource for MPC-BE"
+            VALUE "Comments", "Czech language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Czech language resource for MPC-BE"
+            VALUE "FileDescription", "Czech language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.cz.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

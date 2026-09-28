@@ -1,14 +1,14 @@
 /*
  * (C) 2006-2026 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -67,7 +67,7 @@ extern "C" {
 #include "Version.h"
 
 // option names
-#define OPT_REGKEY_VideoDec  L"Software\\MPC-BE Filters\\MPC Video Decoder"
+#define OPT_REGKEY_VideoDec  L"Software\\MPC-WJ Filters\\MPC Video Decoder"
 #define OPT_SECTION_VideoDec L"Filters\\MPC Video Decoder"
 #define OPT_ThreadNumber     L"ThreadNumber"
 #define OPT_DiscardMode      L"DiscardMode"
@@ -98,7 +98,7 @@ static_assert(std::size(hwdec_opt_names) == HWCodec_count, "bad hwdec_opt_names!
 #pragma region any_constants
 
 #ifdef REGISTER_FILTER
-#define OPT_REGKEY_VCodecs   L"Software\\MPC-BE Filters\\MPC Video Decoder\\Codecs"
+#define OPT_REGKEY_VCodecs   L"Software\\MPC-WJ Filters\\MPC Video Decoder\\Codecs"
 
 static const struct vcodec_t {
 	const LPCWSTR          opt_name;

@@ -218,11 +218,11 @@ CAPTION "O programie"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "Copyright © 2002-2026 szczegóły w pliku Authors.txt",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "Wersja :",IDC_VERSION,30,34,90,8
-    LTEXT           "Kompilator MPC-BE :",IDC_STATIC,30,66,90,8
+    LTEXT           "Kompilator MPC-WJ :",IDC_STATIC,30,66,90,8
     LTEXT           "Kompilator FFmpeg :",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil :",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,9 +230,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "Ten program został opublikowany na zasadach Powszechnej Licencji Publicznej GNU.",IDC_STATIC,30,138,200,18
     LTEXT           "Tłumaczenie: Piotr Sokół, Kasper93, Haix, maxoku",IDC_STATIC,30,161,200,18
@@ -2356,7 +2356,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2550,7 +2550,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2654,7 +2654,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "Wględnie kolorymetryczny"
     IDS_CM_INTENT_SATURATION "Nasyceniowy"
     IDS_CM_INTENT_ABSOLUTECM "Bezwzględnie kolorymetryczny"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Preview is currently disabled. You can enable it in MPC-BE's options."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Preview is currently disabled. You can enable it in MPC-WJ's options."
 END
 
 STRINGTABLE
@@ -2893,8 +2893,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "Strumień wi&deo"
     IDS_MENU_VIDEO_ANGLE    "Kąt& wideo"
     IDS_RESET_SETTINGS      "Resetuj ustawienia"
-    IDS_RESET_SETTINGS_WARNING  "Czy na pewno chcesz przywrócić domyślne ustawienia MPC-BE?\nPamiętaj, że WSZYSTKIE ustawienia zostaną utracone!"
-    IDS_RESET_SETTINGS_MUTEX  "Zamknij wszystkie wystąpienia MPC-BE, aby przywrócić ustawienia domyślne."
+    IDS_RESET_SETTINGS_WARNING  "Czy na pewno chcesz przywrócić domyślne ustawienia MPC-WJ?\nPamiętaj, że WSZYSTKIE ustawienia zostaną utracone!"
+    IDS_RESET_SETTINGS_MUTEX  "Zamknij wszystkie wystąpienia MPC-WJ, aby przywrócić ustawienia domyślne."
     IDS_EXPORT_SETTINGS     "Eksportuj ustawienia"
     IDS_EXPORT_SETTINGS_WARNING  "Niektóre ustawienia nie zostały jeszcze zapisane.\nChcesz zapisać te ustawienia przed eksportowaniem?"
     IDS_EXPORT_SETTINGS_SUCCESS  "Ustawienia zostały pomyślnie wyeksportowane."
@@ -3127,8 +3127,8 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "Automatyczne dopasowanie"
     IDS_ZOOM_AUTOFITLARGE   "Auto fit (larger only)"
-    IDS_ADD_TO_PLAYLIST     "Dodaj do listy odtwarzania MPC-BE"
-    IDS_OPEN_WITH_MPC       "Odtwórz w MPC-BE"
+    IDS_ADD_TO_PLAYLIST     "Dodaj do listy odtwarzania MPC-WJ"
+    IDS_OPEN_WITH_MPC       "Odtwórz w MPC-WJ"
     IDS_CANNOT_CHANGE_FORMAT  "Program nie posiada wystarczających uprawnień, aby zmienić skojarzenia plików. Proszę kliknąć przycisk „Zmodyfikuj”, aby uzyskać uprawnienia administratora."
     IDS_APP_DESCRIPTION     "W pełni konfigurowalny odtwarzacz multimedialny stworzony dla systemu Windows. Opracowany przez bułgarskiego programistę znanego jako Gabest. Ta wersja posiada dodatkowe cechy takie jak pełnoekranowe wyświetlanie Direct3D czy lepsza współpraca z systemem Windows Vista/7."
     IDS_MAINFRM_12          "kanał"
@@ -3243,7 +3243,7 @@ BEGIN
     IDS_GAIN_OSD            "Wzmocnienie: %+.1f dB"
     IDS_BALANCE_OSD         "Balans: %s"
     IDS_FULLSCREENMONITOR_CURRENT "Bieżący"
-    IDS_MPC_CRASH           "MPC-BE terminated unexpectedly. To help us fix this problem, please send this file '%s' to our bug tracker.\n\nDo you want to open the folder containing the minidump file and visit the bug tracker now?"
+    IDS_MPC_CRASH           "MPC-WJ terminated unexpectedly. To help us fix this problem, please send this file '%s' to our bug tracker.\n\nDo you want to open the folder containing the minidump file and visit the bug tracker now?"
     IDS_MPC_MINIDUMP_FAIL   "Nie udało się zapisać informacji o debugowaniu do pliku „%s” (błąd %d)"
     IDS_MAINFRM_DIR_TITLE   "Proszę wskazać folder:"
     IDS_MAINFRM_DIR_CHECK   "Uwzględniaj podfoldery"
@@ -3301,7 +3301,7 @@ BEGIN
     IDS_AG_REMOVING         "Usuwanie: "
     IDS_MAINFRM_134         "Ostrzeżenie: wywołano wielokrotnie CMainFrame::CloseMedia()\n"
     IDS_MAINFRM_135         "Błąd krytyczny: wystąpiła konieczność zamknięcia wątku otwierającego!"
-    IDS_MAINFRM_136         "MPC-BE Exclusive Fullscreen"
+    IDS_MAINFRM_136         "MPC-WJ Exclusive Fullscreen"
     IDS_MAINFRM_137         "Nieznany format"
     IDS_MAINFRM_138         "Opóźnienie napisów: %ld"
     IDS_VOLUME_GAIN_INC     "Podwyższenie wzmocnienia głośności"
@@ -3330,7 +3330,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Użycie: mpc-be.exe „ścieżka” [parametry]"
+    IDS_CMD_USAGE           "Użycie: mpc-wj.exe „ścieżka” [parametry]"
     IDS_CMD_PATHNAME        "„ścieżka”\tOkreśla plik lub folder do otwarcia (symbole\nwieloznaczne dozwolone)"
     IDS_CMD_HELP            "/help /h /?\tWyświetla listę parametrów wiersza poleceń"
     IDS_CMD_DUB             "/dub „plik”\tOtwiera dodatkową ścieżkę dźwiękową"
@@ -3771,7 +3771,7 @@ BEGIN
     IDS_RESET_COLOR         "Resetuj ustawienia kolorów"
     IDS_UPDATE_ERROR_DATA   "The update server gives the wrong data.\n\nPlease try later."
     IDS_USING_NEWER_VERSION "Używasz aktualnej wersji %s."
-    IDS_NEW_UPDATE_AVAILABLE  "Dostepna %s jest nowa aktualizacja.\n\nCzy chcesz przejść na stronę MPC-BE, aby ją pobrać?"
+    IDS_NEW_UPDATE_AVAILABLE  "Dostepna %s jest nowa aktualizacja.\n\nCzy chcesz przejść na stronę MPC-WJ, aby ją pobrać?"
     IDS_UPDATE_ERROR_CONNECT  "Serwer aktualizacji jest niedostępny.\n\nSprawdź swoje połączenie internetowe lub spróbuj ponownie później."
     IDS_UPDATE_CLOSE        "&Zamknij"
     IDS_OSD_ZOOM            "Rozmiar okna: %.0lf%%"
@@ -3983,14 +3983,14 @@ BEGIN
     BEGIN
         BLOCK "041504b0"
         BEGIN
-            VALUE "Comments", "Polish language resource for MPC-BE"
+            VALUE "Comments", "Polish language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Polish language resource for MPC-BE"
+            VALUE "FileDescription", "Polish language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.pl.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

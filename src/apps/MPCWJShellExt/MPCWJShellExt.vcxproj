@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BF167235-4EEA-43E5-91E6-7B143B26C56B}</ProjectGuid>
-    <RootNamespace>MPCBEShellExt</RootNamespace>
+    <RootNamespace>MPCWJShellExt</RootNamespace>
     <Keyword>Win32Proj</Keyword>
-    <ProjectName>MPCBEShellExt</ProjectName>
+    <ProjectName>MPCWJShellExt</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(SolutionDir)src\platform.props" />
@@ -41,10 +41,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)_bin\mpc-be_x86_$(Configuration)\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)_bin\mpc-be_x64_$(Configuration)\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)_bin\mpc-be_x86\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)_bin\mpc-be_x64\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)_bin\mpc-wj_x86_$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)_bin\mpc-wj_x64_$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)_bin\mpc-wj_x86\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)_bin\mpc-wj_x64\</OutDir>
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <GenerateManifest>true</GenerateManifest>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectName)</TargetName>
@@ -63,12 +63,12 @@
       <MkTypLibCompatible>false</MkTypLibCompatible>
       <TargetEnvironment>Win32</TargetEnvironment>
       <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(IntDir)MPCBEShellExt.tlb</TypeLibraryName>
-      <HeaderFileName>MPCBEShellExt_i.h</HeaderFileName>
+      <TypeLibraryName>$(IntDir)MPCWJShellExt.tlb</TypeLibraryName>
+      <HeaderFileName>MPCWJShellExt_i.h</HeaderFileName>
       <DllDataFileName>
       </DllDataFileName>
-      <InterfaceIdentifierFileName>MPCBEShellExt_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>MPCBEShellExt_p.c</ProxyFileName>
+      <InterfaceIdentifierFileName>MPCWJShellExt_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>MPCWJShellExt_p.c</ProxyFileName>
       <ValidateAllParameters>true</ValidateAllParameters>
     </Midl>
     <ClCompile>
@@ -85,7 +85,7 @@
     </ResourceCompile>
     <Link>
       <RegisterOutput>false</RegisterOutput>
-      <ModuleDefinitionFile>.\MPCBEShellExt.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\MPCWJShellExt.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
@@ -97,10 +97,10 @@
       <MkTypLibCompatible>false</MkTypLibCompatible>
       <TargetEnvironment>X64</TargetEnvironment>
       <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(IntDir)MPCBEShellExt.tlb</TypeLibraryName>
-      <HeaderFileName>MPCBEShellExt_i.h</HeaderFileName>
-      <InterfaceIdentifierFileName>MPCBEShellExt_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>MPCBEShellExt_p.c</ProxyFileName>
+      <TypeLibraryName>$(IntDir)MPCWJShellExt.tlb</TypeLibraryName>
+      <HeaderFileName>MPCWJShellExt_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName>MPCWJShellExt_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>MPCWJShellExt_p.c</ProxyFileName>
     </Midl>
     <ClCompile>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -114,7 +114,7 @@
     </ResourceCompile>
     <Link>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <ModuleDefinitionFile>.\MPCBEShellExt.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\MPCWJShellExt.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX64</TargetMachine>
@@ -126,10 +126,10 @@
       <MkTypLibCompatible>false</MkTypLibCompatible>
       <TargetEnvironment>Win32</TargetEnvironment>
       <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(IntDir)MPCBEShellExt.tlb</TypeLibraryName>
-      <HeaderFileName>MPCBEShellExt_i.h</HeaderFileName>
-      <InterfaceIdentifierFileName>MPCBEShellExt_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>MPCBEShellExt_p.c</ProxyFileName>
+      <TypeLibraryName>$(IntDir)MPCWJShellExt.tlb</TypeLibraryName>
+      <HeaderFileName>MPCWJShellExt_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName>MPCWJShellExt_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>MPCWJShellExt_p.c</ProxyFileName>
       <ValidateAllParameters>true</ValidateAllParameters>
     </Midl>
     <ClCompile>
@@ -143,7 +143,7 @@
     <Link>
       <RegisterOutput>false</RegisterOutput>
       <ManifestFile>$(IntDir)$(TargetFileName).intermediate.manifest</ManifestFile>
-      <ModuleDefinitionFile>.\MPCBEShellExt.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\MPCWJShellExt.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -156,10 +156,10 @@
       <MkTypLibCompatible>false</MkTypLibCompatible>
       <TargetEnvironment>X64</TargetEnvironment>
       <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(IntDir)MPCBEShellExt.tlb</TypeLibraryName>
-      <HeaderFileName>MPCBEShellExt_i.h</HeaderFileName>
-      <InterfaceIdentifierFileName>MPCBEShellExt_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>MPCBEShellExt_p.c</ProxyFileName>
+      <TypeLibraryName>$(IntDir)MPCWJShellExt.tlb</TypeLibraryName>
+      <HeaderFileName>MPCWJShellExt_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName>MPCWJShellExt_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>MPCWJShellExt_p.c</ProxyFileName>
     </Midl>
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -171,7 +171,7 @@
     </ResourceCompile>
     <Link>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <ModuleDefinitionFile>.\MPCBEShellExt.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\MPCWJShellExt.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -183,42 +183,42 @@
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged>false</CompileAsManaged>
     </ClCompile>
-    <ClCompile Include="MPCBEContextMenu.cpp" />
-    <ClCompile Include="MPCBEShellExt.cpp" />
+    <ClCompile Include="MPCWJContextMenu.cpp" />
+    <ClCompile Include="MPCWJShellExt.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="MPCBEShellExt_i.c">
+    <ClCompile Include="MPCWJShellExt_i.c">
       <CompileAsManaged>false</CompileAsManaged>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="MPCBEShellExt.def" />
+    <None Include="MPCWJShellExt.def" />
     <None Include="res\film_add.bmp" />
     <None Include="res\film_go.bmp" />
-    <None Include="MPCBEContextMenu.rgs" />
-    <None Include="MPCBEShellExt.rgs" />
+    <None Include="MPCWJContextMenu.rgs" />
+    <None Include="MPCWJShellExt.rgs" />
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="MPCBEShellExt.idl" />
+    <Midl Include="MPCWJShellExt.idl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dllmain.h" />
-    <ClInclude Include="MPCBEContextMenu.h" />
+    <ClInclude Include="MPCWJContextMenu.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="MPCBEShellExt_i.h" />
+    <ClInclude Include="MPCWJShellExt_i.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="MPCBEShellExt.rc" />
+    <ResourceCompile Include="MPCWJShellExt.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties RESOURCE_FILE="MPCBEShellExt.rc" />
+      <UserProperties RESOURCE_FILE="MPCWJShellExt.rc" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

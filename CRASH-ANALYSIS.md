@@ -6,17 +6,17 @@ Windows 应用程序事件 1000/1001 和两个本机转储一致：
 
 | 崩溃时间 | 转储 | 程序版本 | 异常 | 故障模块和偏移 |
 | --- | --- | --- | --- | --- |
-| 22:21:54 | mpc-be64.exe.15068.dmp | 1.9.1.0 | 0xc0000005 | igd9trinity64.dll + 0xafe7b1 |
-| 22:23:18 | mpc-be64.exe.20332.dmp | 1.9.1.0 | 0xc0000005 | igd9trinity64.dll + 0xafd955 |
+| 22:21:54 | mpc-wj64.exe.15068.dmp | 1.9.1.0 | 0xc0000005 | igd9trinity64.dll + 0xafe7b1 |
+| 22:23:18 | mpc-wj64.exe.20332.dmp | 1.9.1.0 | 0xc0000005 | igd9trinity64.dll + 0xafd955 |
 
-两次驱动文件版本均为 **32.0.101.8424**。应用路径为用户安装目录中的 `mpc-be64.exe`，不是新版本号的 1.9.2.1；1.9.2.1 的构建也没有包含针对本问题的修复。
+两次驱动文件版本均为 **32.0.101.8424**。应用路径为用户安装目录中的 `mpc-wj64.exe`，不是新版本号的 1.9.2.1；1.9.2.1 的构建也没有包含针对本问题的修复。
 
 采用 Windows SDK DbgHelp 和本机匹配时间戳/映像大小的 PE 异常表离线展开，两次崩溃工作线程共享如下调用路径（从调用方到故障点）：
 
 ```text
-mpc-be64.exe + 0x12b33ad
-mpc-be64.exe + 0x12b3496
-mpc-be64.exe + 0x12b1adf
+mpc-wj64.exe + 0x12b33ad
+mpc-wj64.exe + 0x12b3496
+mpc-wj64.exe + 0x12b1adf
 evr.dll + 0x488e / 0x4cd5 / 0x71d6
 dxva2.dll + 0x1a9e
 d3d9.dll + 0x3eec0 / 0x3f64a
@@ -45,7 +45,7 @@ igd9trinity64.dll → 访问冲突
 ## 本地重复分析
 
 ```bat
-tests\inspect-crash-dump.cmd "C:\Users\cwj\AppData\Local\CrashDumps\mpc-be64.exe.20332.dmp"
+tests\inspect-crash-dump.cmd "C:\Users\cwj\AppData\Local\CrashDumps\mpc-wj64.exe.20332.dmp"
 ```
 
 工具使用本机 VS 2022 Enterprise 编译到已忽略的 `tests/player` 目录，只读取指定转储和匹配的本机模块，不附加进程、不请求符号服务器。适用于本次完整且可信的本机转储，不作为任意不可信转储文件的通用解析器。

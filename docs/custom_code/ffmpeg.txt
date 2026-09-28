@@ -1,4 +1,4 @@
-﻿The following files have MPC-BE specific custom code (compared to ffmpeg):
+﻿The following files have MPC-WJ specific custom code (compared to ffmpeg):
 
 * compat/w32dlfcn.h
 
@@ -37,7 +37,7 @@
 * libavutil/hwcontext_dxva2.c
 
 ======
-The following files are available only in MPC-BE (compared with ffmpeg):
+The following files are available only in MPC-WJ (compared with ffmpeg):
 
 * config.asm
 * config.c

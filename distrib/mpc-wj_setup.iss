@@ -1,14 +1,14 @@
 ﻿;
 ; (C) 2009-2025 see Authors.txt
 ;
-; This file is part of MPC-BE.
+; This file is part of MPC-WJ.
 ;
-; MPC-BE is free software; you can redistribute it and/or modify
+; MPC-WJ is free software; you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
 ; the Free Software Foundation; either version 3 of the License, or
 ; (at your option) any later version.
 ;
-; MPC-BE is distributed in the hope that it will be useful,
+; MPC-WJ is distributed in the hope that it will be useful,
 ; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ; GNU General Public License for more details.
@@ -37,7 +37,7 @@
 #define ISPP_INVOKED
 #include "..\include\Version.h"
 
-#define app_name         "MPC-BE"
+#define app_name         "MPC-WJ"
 #define copyright_year   str(MPC_YEAR_COMMENTS)
 #define app_url          str(MPC_VERSION_COMMENTS)
 #if MPC_VERSION_STATUS == 1 && MPC_VERSION_REV == 0
@@ -48,25 +48,25 @@
 
 #define bin_dir        = "..\_bin"
 
-#define bindir_x64 = bin_dir + "\mpc-be_x64"
-#define bindir_x86 = bin_dir + "\mpc-be_x86"
+#define bindir_x64 = bin_dir + "\mpc-wj_x64"
+#define bindir_x86 = bin_dir + "\mpc-wj_x86"
 
 #ifdef Win32Build
-  #define bindir       = bin_dir + "\mpc-be_x86"
-  #define mpcbe_exe    = "mpc-be.exe"
-  #define mpcbe_ini    = "mpc-be.ini"
+  #define bindir       = bin_dir + "\mpc-wj_x86"
+  #define mpcwj_exe    = "mpc-wj.exe"
+  #define mpcwj_ini    = "mpc-wj.ini"
   #define dxdir        = "MPC_components\DirectX\x86"
   #define BeveledLabel = app_name + " " + app_version
   #define Description  = app_name + " " + app_version
-  #define VisualElementsManifest = "VisualElements\mpc-be.VisualElementsManifest.xml"
+  #define VisualElementsManifest = "VisualElements\mpc-wj.VisualElementsManifest.xml"
 #else
-  #define bindir       = bin_dir + "\mpc-be_x64"
-  #define mpcbe_exe    = "mpc-be64.exe"
-  #define mpcbe_ini    = "mpc-be64.ini"
+  #define bindir       = bin_dir + "\mpc-wj_x64"
+  #define mpcwj_exe    = "mpc-wj64.exe"
+  #define mpcwj_ini    = "mpc-wj64.ini"
   #define dxdir        = "MPC_components\DirectX\x64"
   #define BeveledLabel = app_name + " x64 " + app_version
   #define Description  = app_name + " x64 " + app_version
-  #define VisualElementsManifest = "VisualElements\mpc-be64.VisualElementsManifest.xml"
+  #define VisualElementsManifest = "VisualElements\mpc-wj64.VisualElementsManifest.xml"
 #endif
 #define mpcvr_desc     = "MPC Video Renderer 0.10.7"
 #define mpcscriptsrc_desc = "MPC Script Source 0.2.17"
@@ -107,7 +107,7 @@ VersionInfoProductVersion={#app_version}
 VersionInfoProductTextVersion={#app_version}
 VersionInfoTextVersion={#app_version}
 VersionInfoVersion={#app_version}
-UninstallDisplayIcon={app}\{#mpcbe_exe}
+UninstallDisplayIcon={app}\{#mpcwj_exe}
 DefaultDirName={code:GetInstallFolder}
 LicenseFile=..\LICENSE.txt
 OutputDir=.
@@ -212,7 +212,7 @@ Name: "mpciconlib";    Description: "{cm:comp_mpciconlib}";     Types: default c
 #ifdef localize
 Name: "mpcresources";  Description: "{cm:comp_mpcresources}";   Types: default custom; Flags: disablenouninstallwarning
 #endif
-Name: "mpcbeshellext"; Description: "{cm:comp_mpcbeshellext}";  Types: custom;         Flags: disablenouninstallwarning;
+Name: "mpcwjshellext"; Description: "{cm:comp_mpcwjshellext}";  Types: custom;         Flags: disablenouninstallwarning;
 Name: "intel_msdk";    Description: "{cm:comp_intel_msdk}";     Types: custom;         Flags: disablenouninstallwarning;
 Name: "mpcvr";         Description: "{#mpcvr_desc}";            Types: default custom; Flags: disablenouninstallwarning;
 Name: "mpcscriptsrc";  Description: "{#mpcscriptsrc_desc}";     Types: custom;         Flags: disablenouninstallwarning;
@@ -229,12 +229,12 @@ Name: longpathsenable;          Description: {cm:tsk_LongPathsEnable};   GroupDe
 Name: reset_settings;           Description: {cm:tsk_ResetSettings};     GroupDescription: {cm:tsk_Other};       Flags: checkedonce unchecked; Check: SettingsExist()
 
 [Files]
-Source: "{#bindir}\{#mpcbe_exe}";            DestDir: "{app}"; Flags: ignoreversion;                                   Components: main
+Source: "{#bindir}\{#mpcwj_exe}";            DestDir: "{app}"; Flags: ignoreversion;                                   Components: main
 Source: "{#bindir}\mpciconlib.dll";          DestDir: "{app}"; Flags: ignoreversion;                                   Components: mpciconlib
 Source: "{#dxdir}\d3dcompiler_47.dll";       DestDir: "{app}"; Flags: ignoreversion;                                   Components: main;          Check: not D3DCompiler_47_DLLExists();
 Source: "{#dxdir}\d3dx9_43.dll";             DestDir: "{app}"; Flags: ignoreversion;                                   Components: main;          Check: not D3DX9_43_DLLExists();
-Source: "{#bindir_x64}\MPCBEShellExt64.dll"; DestDir: "{app}"; Flags: ignoreversion restartreplace uninsrestartdelete regserver noregerror; Components: mpcbeshellext; Check: IsWin64
-Source: "{#bindir_x86}\MPCBEShellExt.dll";   DestDir: "{app}"; Flags: ignoreversion restartreplace uninsrestartdelete regserver noregerror; Components: mpcbeshellext;
+Source: "{#bindir_x64}\MPCWJShellExt64.dll"; DestDir: "{app}"; Flags: ignoreversion restartreplace uninsrestartdelete regserver noregerror; Components: mpcwjshellext; Check: IsWin64
+Source: "{#bindir_x86}\MPCWJShellExt.dll";   DestDir: "{app}"; Flags: ignoreversion restartreplace uninsrestartdelete regserver noregerror; Components: mpcwjshellext;
 #ifdef localize
 Source: "{#bindir}\Lang\mpcresources.??.dll";             DestDir: "{app}\Lang"; Flags: ignoreversion; Components: mpcresources
 #endif
@@ -265,14 +265,14 @@ Source: "MPC_components\MpcImageSource\MpcImageSource64.ax"; DestDir: "{app}\Fil
 
 [Icons]
 #ifdef Win32Build
-Name: {group}\{#app_name};                           Filename: {app}\{#mpcbe_exe};      Comment: {#app_name} {#app_version};            WorkingDir: {app}; IconFilename: {app}\{#mpcbe_exe}; IconIndex: 0
-Name: {commondesktop}\{#app_name};                   Filename: {app}\{#mpcbe_exe};      Comment: {#app_name} {#app_version};            WorkingDir: {app}; IconFilename: {app}\{#mpcbe_exe}; IconIndex: 0; Tasks: desktopicon\common
-Name: {userdesktop}\{#app_name};                     Filename: {app}\{#mpcbe_exe};      Comment: {#app_name} {#app_version};            WorkingDir: {app}; IconFilename: {app}\{#mpcbe_exe}; IconIndex: 0; Tasks: desktopicon\user
+Name: {group}\{#app_name};                           Filename: {app}\{#mpcwj_exe};      Comment: {#app_name} {#app_version};            WorkingDir: {app}; IconFilename: {app}\{#mpcwj_exe}; IconIndex: 0
+Name: {commondesktop}\{#app_name};                   Filename: {app}\{#mpcwj_exe};      Comment: {#app_name} {#app_version};            WorkingDir: {app}; IconFilename: {app}\{#mpcwj_exe}; IconIndex: 0; Tasks: desktopicon\common
+Name: {userdesktop}\{#app_name};                     Filename: {app}\{#mpcwj_exe};      Comment: {#app_name} {#app_version};            WorkingDir: {app}; IconFilename: {app}\{#mpcwj_exe}; IconIndex: 0; Tasks: desktopicon\user
 Name: {group}\{cm:UninstallProgram,{#app_name}};     Filename: {uninstallexe};          Comment: {cm:UninstallProgram,{#app_name}};     WorkingDir: {app}
 #else
-Name: {group}\{#app_name} x64;                       Filename: {app}\{#mpcbe_exe};      Comment: {#app_name} {#app_version} x64;        WorkingDir: {app}; IconFilename: {app}\{#mpcbe_exe}; IconIndex: 0
-Name: {commondesktop}\{#app_name} x64;               Filename: {app}\{#mpcbe_exe};      Comment: {#app_name} {#app_version} x64;        WorkingDir: {app}; IconFilename: {app}\{#mpcbe_exe}; IconIndex: 0; Tasks: desktopicon\common
-Name: {userdesktop}\{#app_name} x64;                 Filename: {app}\{#mpcbe_exe};      Comment: {#app_name} {#app_version} x64;        WorkingDir: {app}; IconFilename: {app}\{#mpcbe_exe}; IconIndex: 0; Tasks: desktopicon\user
+Name: {group}\{#app_name} x64;                       Filename: {app}\{#mpcwj_exe};      Comment: {#app_name} {#app_version} x64;        WorkingDir: {app}; IconFilename: {app}\{#mpcwj_exe}; IconIndex: 0
+Name: {commondesktop}\{#app_name} x64;               Filename: {app}\{#mpcwj_exe};      Comment: {#app_name} {#app_version} x64;        WorkingDir: {app}; IconFilename: {app}\{#mpcwj_exe}; IconIndex: 0; Tasks: desktopicon\common
+Name: {userdesktop}\{#app_name} x64;                 Filename: {app}\{#mpcwj_exe};      Comment: {#app_name} {#app_version} x64;        WorkingDir: {app}; IconFilename: {app}\{#mpcwj_exe}; IconIndex: 0; Tasks: desktopicon\user
 Name: {group}\{cm:UninstallProgram,{#app_name} x64}; Filename: {uninstallexe};          Comment: {cm:UninstallProgram,{#app_name} x64}; WorkingDir: {app}
 #endif
 Name: {group}\Changelog;                             Filename: {app}\Changelog.txt;     Comment: {cm:ViewChangelog};                    WorkingDir: {app}
@@ -280,7 +280,7 @@ Name: {group}\ChangelogRus;                          Filename: {app}\Changelog.R
 Name: {group}\{cm:ProgramOnTheWeb,{#app_name}};      Filename: {#app_url}
 
 [Run]
-Filename: "{app}\{#mpcbe_exe}";      WorkingDir: "{app}"; Flags: nowait postinstall skipifsilent unchecked;           Description: "{cm:LaunchProgram,{#app_name}}"
+Filename: "{app}\{#mpcwj_exe}";      WorkingDir: "{app}"; Flags: nowait postinstall skipifsilent unchecked;           Description: "{cm:LaunchProgram,{#app_name}}"
 Filename: "{app}\Changelog.txt";     WorkingDir: "{app}"; Flags: nowait postinstall skipifsilent unchecked shellexec; Description: "{cm:ViewChangelog}"; Check: IsInactiveLang('ru')
 Filename: "{app}\Changelog.Rus.txt"; WorkingDir: "{app}"; Flags: nowait postinstall skipifsilent unchecked shellexec; Description: "{cm:ViewChangelog}"; Languages: ru
 
@@ -301,21 +301,21 @@ Type: files; Name: "{app}\mpcresources.??.dll"
 [UninstallDelete]
 
 ;[UninstallRun]
-;Filename: "{app}\{#mpcbe_exe}"; Parameters: "/unregall"; WorkingDir: "{app}"; Flags: runhidden
+;Filename: "{app}\{#mpcwj_exe}"; Parameters: "/unregall"; WorkingDir: "{app}"; Flags: runhidden
 
 ;[Registry]
-;Root: "HKCU"; Subkey: "Software\{#app_name}\ShellExt"; ValueType: string; ValueName: "MpcPath"; ValueData: "{app}\{#mpcbe_exe}"; Flags: uninsdeletekey; Components: mpcbeshellext
+;Root: "HKCU"; Subkey: "Software\{#app_name}\ShellExt"; ValueType: string; ValueName: "MpcPath"; ValueData: "{app}\{#mpcwj_exe}"; Flags: uninsdeletekey; Components: mpcwjshellext
 
 [Registry]
-Root: HKLM; Subkey: "SOFTWARE\Clients\Media\MPC-BE"; Flags: dontcreatekey uninsdeletekey
-Root: HKLM; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\{#mpcbe_exe}"; ValueType: string; ValueName: ""; ValueData: "{app}\{#mpcbe_exe}"; Flags: deletekey uninsdeletekey
+Root: HKLM; Subkey: "SOFTWARE\Clients\Media\MPC-WJ"; Flags: dontcreatekey uninsdeletekey
+Root: HKLM; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\{#mpcwj_exe}"; ValueType: string; ValueName: ""; ValueData: "{app}\{#mpcwj_exe}"; Flags: deletekey uninsdeletekey
 
 [Code]
 function IsProcessorFeaturePresent(Feature: Integer): Boolean;
 external 'IsProcessorFeaturePresent@kernel32.dll stdcall';
 
 const
-  installer_mutex = 'mpcbe_setup_mutex';
+  installer_mutex = 'mpcwj_setup_mutex';
   LOAD_LIBRARY_AS_DATAFILE = $2;
 
   SHCONTCH_NOPROGRESSBOX = 4;
@@ -470,7 +470,7 @@ end;
 
 function IniUsed(): Boolean;
 begin
-  Result := FileExists(ExpandConstant('{app}\{#mpcbe_ini}'));
+  Result := FileExists(ExpandConstant('{app}\{#mpcwj_ini}'));
 end;
 
 function LongPathIsEnabled(): Boolean;
@@ -490,7 +490,7 @@ end;
 function SettingsExist(): Boolean;
 begin
   if RegKeyExists(HKEY_CURRENT_USER, 'Software\{#app_name}') or
-  FileExists(ExpandConstant('{app}\{#mpcbe_ini}')) then
+  FileExists(ExpandConstant('{app}\{#mpcwj_ini}')) then
     Result := True
   else
     Result := False;
@@ -514,9 +514,9 @@ Var
 begin
   Log('Start CleanUpSettingsAndFiles');
   // Unregister all extensions, include custom
-  Exec(ExpandConstant('{app}\{#mpcbe_exe}'), ' /unregall', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, resCode);
+  Exec(ExpandConstant('{app}\{#mpcwj_exe}'), ' /unregall', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, resCode);
 
-  DeleteFile(ExpandConstant('{app}\{#mpcbe_ini}'));
+  DeleteFile(ExpandConstant('{app}\{#mpcwj_ini}'));
   DeleteFile(ExpandConstant('{app}\default.mpcpl'));
   DeleteFile(ExpandConstant('{userappdata}\{#app_name}\default.mpcpl'));
   RemoveDir(ExpandConstant('{userappdata}\{#app_name}'));
@@ -548,7 +548,7 @@ begin
   if CurStep = ssPostInstall then
   begin
     if WizardIsTaskSelected('pintotaskbar') then
-      PinToTaskbar(ExpandConstant('{app}\{#mpcbe_exe}'), True);
+      PinToTaskbar(ExpandConstant('{app}\{#mpcwj_exe}'), True);
 
     if WizardIsTaskSelected('longpathsenable') then
       RegWriteDWordValue(HKLM, 'SYSTEM\CurrentControlSet\Control\FileSystem', 'LongPathsEnabled', 1);
@@ -557,10 +557,10 @@ begin
       CleanUpSettingsAndFiles();
 
     sLanguage := ExpandConstant('{cm:langcode}');
-    RegWriteStringValue(HKLM, 'SOFTWARE\{#app_name}', 'ExePath', ExpandConstant('{app}\{#mpcbe_exe}'));
+    RegWriteStringValue(HKLM, 'SOFTWARE\{#app_name}', 'ExePath', ExpandConstant('{app}\{#mpcwj_exe}'));
 
-    if WizardIsComponentSelected('mpcresources') and FileExists(ExpandConstant('{app}\{#mpcbe_ini}')) then
-      SetIniString('Settings', 'Language', sLanguage, ExpandConstant('{app}\{#mpcbe_ini}'))
+    if WizardIsComponentSelected('mpcresources') and FileExists(ExpandConstant('{app}\{#mpcwj_ini}')) then
+      SetIniString('Settings', 'Language', sLanguage, ExpandConstant('{app}\{#mpcwj_ini}'))
     else
       RegWriteStringValue(HKCU, 'Software\{#app_name}\Settings', 'Language', sLanguage);
 
@@ -572,7 +572,7 @@ begin
         sRegParams := sRegParams + ' /regaud';
       if GetCustomTask(2) then
         sRegParams := sRegParams + ' /regpl';
-      Exec(ExpandConstant('{app}\{#mpcbe_exe}'), sRegParams, ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, resCode);
+      Exec(ExpandConstant('{app}\{#mpcwj_exe}'), sRegParams, ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, resCode);
     end;
   end;
 end;
@@ -580,7 +580,7 @@ end;
 procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
 begin
   if (CurUninstallStep = usUninstall) then
-    PinToTaskbar(ExpandConstant('{app}\{#mpcbe_exe}'), False);
+    PinToTaskbar(ExpandConstant('{app}\{#mpcwj_exe}'), False);
 
   // When uninstalling, ask the user to delete settings
   if ((CurUninstallStep = usUninstall) and SettingsExist()) then

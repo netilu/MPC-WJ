@@ -2,14 +2,14 @@
  * (C) 2003-2006 Gabest
  * (C) 2006-2026 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -29,8 +29,8 @@
 #include "WindowsUserChoice.h"
 
 static constexpr auto previousRegistration = L"PreviousRegistration";
-static constexpr auto registeredAppName    = L"MPC-BE";
-static constexpr auto registeredKey        = L"Software\\Clients\\Media\\MPC-BE\\Capabilities";
+static constexpr auto registeredAppName    = L"MPC-WJ";
+static constexpr auto registeredKey        = L"Software\\Clients\\Media\\MPC-WJ\\Capabilities";
 
 // CPPageFormats dialog
 
@@ -39,9 +39,9 @@ CComPtr<IApplicationAssociationRegistration> CPPageFormats::m_pAAR;
 // TODO: change this along with the root key for settings and the mutex name to
 //       avoid possible risks of conflict with the old MPC (non BE version).
 #ifdef _WIN64
-	#define PROGID L"mpc-be64"
+	#define PROGID L"mpc-wj64"
 #else
-	#define PROGID L"mpc-be"
+	#define PROGID L"mpc-wj"
 #endif // _WIN64
 
 IMPLEMENT_DYNAMIC(CPPageFormats, CPPageBase)
@@ -189,7 +189,7 @@ bool CPPageFormats::RegisterApp()
 	CRegKey key;
 
 	if (ERROR_SUCCESS == key.Open(HKEY_LOCAL_MACHINE, L"SOFTWARE\\RegisteredApplications")) {
-		key.SetStringValue(L"MPC-BE", registeredKey);
+		key.SetStringValue(L"MPC-WJ", registeredKey);
 
 		if (ERROR_SUCCESS != key.Create(HKEY_LOCAL_MACHINE, registeredKey)) {
 			return false;
@@ -538,25 +538,25 @@ void CPPageFormats::AddAutoPlayToRegistry(autoplay_t ap, bool fRegister)
 	CRegKey key;
 
 	if (fRegister) {
-		if (ERROR_SUCCESS != key.Create(HKEY_CLASSES_ROOT, L"MPCBE.Autorun")) {
+		if (ERROR_SUCCESS != key.Create(HKEY_CLASSES_ROOT, L"MPCWJ.Autorun")) {
 			return;
 		}
 		key.Close();
 
 		if (ERROR_SUCCESS != key.Create(HKEY_CLASSES_ROOT,
-										CString(CStringA("MPCBE.Autorun\\Shell\\Play") + handlers[i].verb + "\\Command"))) {
+										CString(CStringA("MPCWJ.Autorun\\Shell\\Play") + handlers[i].verb + "\\Command"))) {
 			return;
 		}
 		key.SetStringValue(nullptr, L"\"" + exe + L"\"" + handlers[i].cmd);
 		key.Close();
 
 		if (ERROR_SUCCESS != key.Create(HKEY_LOCAL_MACHINE,
-										CString(CStringA("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers\\Handlers\\MPCBEPlay") + handlers[i].verb + "OnArrival"))) {
+										CString(CStringA("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers\\Handlers\\MPCWJPlay") + handlers[i].verb + "OnArrival"))) {
 			return;
 		}
 		key.SetStringValue(L"Action", ResStr(handlers[i].action));
-		key.SetStringValue(L"Provider", L"MPC-BE");
-		key.SetStringValue(L"InvokeProgID", L"MPCBE.Autorun");
+		key.SetStringValue(L"Provider", L"MPC-WJ");
+		key.SetStringValue(L"InvokeProgID", L"MPCWJ.Autorun");
 		key.SetStringValue(L"InvokeVerb", CString(CStringA("Play") + handlers[i].verb));
 		key.SetStringValue(L"DefaultIcon", exe + L",0");
 		key.Close();
@@ -565,13 +565,13 @@ void CPPageFormats::AddAutoPlayToRegistry(autoplay_t ap, bool fRegister)
 										CString(CStringA("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers\\EventHandlers\\Play") + handlers[i].verb + "OnArrival"))) {
 			return;
 		}
-		key.SetStringValue(CString(CStringA("MPCBEPlay") + handlers[i].verb + "OnArrival"), L"");
+		key.SetStringValue(CString(CStringA("MPCWJPlay") + handlers[i].verb + "OnArrival"), L"");
 	} else {
 		if (ERROR_SUCCESS != key.Create(HKEY_LOCAL_MACHINE,
 										CString(CStringA("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers\\EventHandlers\\Play") + handlers[i].verb + "OnArrival"))) {
 			return;
 		}
-		key.DeleteValue(CString(CStringA("MPCBEPlay") + handlers[i].verb + "OnArrival"));
+		key.DeleteValue(CString(CStringA("MPCWJPlay") + handlers[i].verb + "OnArrival"));
 	}
 }
 
@@ -596,14 +596,14 @@ bool CPPageFormats::IsAutoPlayRegistered(autoplay_t ap)
 	CString exe = GetProgramPath();
 
 	if (ERROR_SUCCESS != key.QueryStringValue(
-				CString(L"MPCBEPlay") + handlers[i].verb + L"OnArrival",
+				CString(L"MPCWJPlay") + handlers[i].verb + L"OnArrival",
 				buff, &len)) {
 		return false;
 	}
 	key.Close();
 
 	if (ERROR_SUCCESS != key.Open(HKEY_CLASSES_ROOT,
-								  CString(CStringA("MPCBE.Autorun\\Shell\\Play") + handlers[i].verb + "\\Command"),
+								  CString(CStringA("MPCWJ.Autorun\\Shell\\Play") + handlers[i].verb + "\\Command"),
 								  KEY_READ)) {
 		return false;
 	}

@@ -183,14 +183,14 @@ BEGIN
 	BEGIN
 		BLOCK "040904b0"
 		BEGIN
-			VALUE "Comments", "MPC-BE Icon Library"
+			VALUE "Comments", "MPC-WJ Icon Library"
 			VALUE "CompanyName", MPC_COMP_NAME_STR
-			VALUE "FileDescription", "MPC-BE Icon Library"
+			VALUE "FileDescription", "MPC-WJ Icon Library"
 			VALUE "FileVersion", MPC_VERSION_FULL_STR
 			VALUE "InternalName", "mpciconlib"
 			VALUE "LegalCopyright", MPC_COPYRIGHT_STR
 			VALUE "OriginalFilename", "mpciconlib.dll"
-			VALUE "ProductName", "MPC-BE Icon Library"
+			VALUE "ProductName", "MPC-WJ Icon Library"
 			VALUE "ProductVersion", MPC_VERSION_STR
 		END
 	END

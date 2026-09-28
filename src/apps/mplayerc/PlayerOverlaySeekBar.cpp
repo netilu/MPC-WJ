@@ -95,7 +95,7 @@ void CPlayerOverlaySeekBar::ApplyPresentation()
 		Invalidate(FALSE);
 	}
 	const BYTE alpha = OverlaySeekBarState::AlphaFromTransparency(m_transparency);
-	const BYTE targetAlpha = passive ? std::min<BYTE>(alpha, 128) : alpha;
+	const BYTE targetAlpha = alpha;
 	if (presentationChanged || m_displayAlpha != targetAlpha) {
 		m_displayAlpha = targetAlpha;
 		SetLayeredWindowAttributes(passive ? RGB(1, 2, 3) : 0, targetAlpha,
@@ -288,7 +288,7 @@ void CPlayerOverlaySeekBar::OnPaint()
 		const int progressX = rect.left + (m_state.duration > 0
 			? (int)(rect.Width() * (double)m_state.position / m_state.duration) : 0);
 		paint.FillSolidRect(rect, RGB(1, 2, 3));
-		paint.FillSolidRect(CRect(rect.left, rect.top, progressX, rect.bottom), RGB(41, 86, 110));
+		paint.FillSolidRect(CRect(rect.left, rect.top, progressX, rect.bottom), RGB(90, 190, 245));
 		return;
 	}
 	CDC dc;

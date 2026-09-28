@@ -24,8 +24,8 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 // REGISTRY
 //
 
-IDR_MPCBECONTEXTMENU    REGISTRY                "MPCBEContextMenu.rgs"
-IDR_MPCBESHELLEXT       REGISTRY                "MPCBEContextMenu.rgs"
+IDR_MPCWJCONTEXTMENU    REGISTRY                "MPCWJContextMenu.rgs"
+IDR_MPCWJSHELLEXT       REGISTRY                "MPCWJContextMenu.rgs"
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -46,7 +46,7 @@ END
 
 3 TEXTINCLUDE 
 BEGIN
-    "1 TYPELIB ""MPCBEShellExt.tlb""\r\n"
+    "1 TYPELIB ""MPCWJShellExt.tlb""\r\n"
     "\0"
 END
 
@@ -75,14 +75,14 @@ BEGIN
     BEGIN
         BLOCK "040904b0"
         BEGIN
-            VALUE "Comments", "MPC-BE Shell Extension"
+            VALUE "Comments", "MPC-WJ Shell Extension"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "MPC-BE Shell Extension"
+            VALUE "FileDescription", "MPC-WJ Shell Extension"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "MPCBEShellExt"
+            VALUE "InternalName", "MPCWJShellExt"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
-            VALUE "OriginalFilename", "MPCBEShellExt.dll"
-            VALUE "ProductName", "MPC-BE Shell Extension"
+            VALUE "OriginalFilename", "MPCWJShellExt.dll"
+            VALUE "ProductName", "MPC-WJ Shell Extension"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END
@@ -98,8 +98,8 @@ END
 // Bitmap
 //
 
-IDB_MPCBEBMP_PLAY BITMAP "res\\film_go.bmp"
-IDB_MPCBEBMP_ADD  BITMAP "res\\film_add.bmp"
+IDB_MPCWJBMP_PLAY BITMAP "res\\film_go.bmp"
+IDB_MPCWJBMP_ADD  BITMAP "res\\film_add.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -108,7 +108,7 @@ IDB_MPCBEBMP_ADD  BITMAP "res\\film_add.bmp"
 
 STRINGTABLE 
 BEGIN
-    IDS_PROJNAME            "MPCBEShellExt"
+    IDS_PROJNAME            "MPCWJShellExt"
 END
 
 #endif    // English (United States) resources
@@ -120,7 +120,7 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-1 TYPELIB "MPCBEShellExt.tlb"
+1 TYPELIB "MPCWJShellExt.tlb"
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED

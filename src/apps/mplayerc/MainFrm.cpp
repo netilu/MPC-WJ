@@ -2,14 +2,14 @@
  * (C) 2003-2006 Gabest
  * (C) 2006-2026 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -138,7 +138,7 @@ public:
 };
 
 
-static LPCWSTR s_strPlayerTitle = "MPC-BE "
+static LPCWSTR s_strPlayerTitle = "MPC-WJ "
 #ifdef _WIN64
 	L"x64 "
 #endif
@@ -1271,7 +1271,7 @@ void CMainFrame::ShowTrayIcon(bool fShow)
 			tnid.hIcon = (HICON)LoadImageW(AfxGetInstanceHandle(), MAKEINTRESOURCEW(IDR_MAINFRAME), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 			tnid.uFlags = NIF_MESSAGE | NIF_ICON | NIF_TIP;
 			tnid.uCallbackMessage = WM_NOTIFYICON;
-			StringCchCopyW(tnid.szTip, std::size(tnid.szTip), L"MPC-BE");
+			StringCchCopyW(tnid.szTip, std::size(tnid.szTip), L"MPC-WJ");
 			Shell_NotifyIconW(NIM_ADD, &tnid);
 
 			m_bTrayIcon = true;
@@ -1767,7 +1767,8 @@ void CMainFrame::UpdateOverlaySeekBar()
 		return;
 	}
 	const auto& s = AfxGetAppSettings();
-	const bool passiveAllowed = s.bShowPassiveSeekLine && s.iCaptionMenuMode == MODE_BORDERLESS && s.nCS == CS_NONE;
+	const bool passiveAllowed = !m_bFullScreen && s.bShowPassiveSeekLine
+		&& s.iCaptionMenuMode == MODE_BORDERLESS && s.nCS == CS_NONE;
 	m_wndOverlaySeekBar.UpdateLayout(view, ScaleX(96), ScaleY(96), s.nOverlaySeekBarTransparency, passiveAllowed);
 	m_wndOverlaySeekBar.UpdateProgress(m_wndSeekBar.GetPos(), m_wndSeekBar.GetRange());
 	CPoint cursor;
@@ -10678,7 +10679,7 @@ void CMainFrame::PlayFavoriteFile(SessionInfo fav) // use a copy of SessionInfo
 
 	// NOTE: This is just for the favorites but we could add a global settings that does this always when on.
 	//       Could be useful when using removable devices. All you have to do then is plug in your 500 gb drive,
-	//       full with movies and/or music, start MPC-BE (from the 500 gb drive) with a preloaded playlist and press play.
+	//       full with movies and/or music, start MPC-WJ (from the 500 gb drive) with a preloaded playlist and press play.
 	if (StartsWith(fav.Path, L"?:\\")) {
 		CString exepath(GetProgramPath());
 
@@ -10784,7 +10785,7 @@ void CMainFrame::OnHelpDocumentation()
 
 void CMainFrame::OnHelpToolbarImages()
 {
-	ShellExecuteW(m_hWnd, L"open", L"https://sourceforge.net/projects/mpcbe/files/Toolbars/", nullptr, nullptr, SW_SHOWDEFAULT);
+	ShellExecuteW(m_hWnd, L"open", L"https://sourceforge.net/projects/mpcwj/files/Toolbars/", nullptr, nullptr, SW_SHOWDEFAULT);
 }
 
 /*
@@ -11393,6 +11394,7 @@ void CMainFrame::ToggleFullscreen(bool fToNearest, bool fSwitchScreenResWhenHasT
 
 	UpdateThumbarButton();
 	UpdateThumbnailClip();
+	UpdateOverlaySeekBar();
 }
 
 void CMainFrame::ToggleD3DFullscreen(bool fSwitchScreenResWhenHasTo)
@@ -18518,7 +18520,7 @@ afx_msg void CMainFrame::OnLanguage(UINT nID)
 
 	if (nID == CMPlayerCApp::GetLanguageIndex(ID_LANGUAGE_HEBREW)) { // Show a warning when switching to Hebrew (must not be translated)
 		MessageBoxW(L"The Hebrew translation will be correctly displayed (with a right-to-left layout) after restarting the application.\n",
-					L"MPC-BE", MB_ICONINFORMATION | MB_OK);
+					L"MPC-WJ", MB_ICONINFORMATION | MB_OK);
 	}
 
 	CMPlayerCApp::SetLanguage(nID);

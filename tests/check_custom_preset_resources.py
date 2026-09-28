@@ -1,6 +1,6 @@
 """Validate the built preset menus/strings without executing the EXE or DLLs.
 
-Usage: python tests/check_custom_preset_resources.py _bin/mpc-be_x64
+Usage: python tests/check_custom_preset_resources.py _bin/mpc-wj_x64
 """
 
 import ctypes as c
@@ -78,7 +78,7 @@ def check_module(path):
 
 if __name__ == "__main__":
     build = Path(sys.argv[1])
-    modules = [build / "mpc-be64.exe", *sorted((build / "Lang").glob("mpcresources.*.dll"))]
+    modules = [build / "mpc-wj64.exe", *sorted((build / "Lang").glob("mpcresources.*.dll"))]
     assert len(modules) > 1, "Build the language resources before running this check."
     for module in modules:
         check_module(module)

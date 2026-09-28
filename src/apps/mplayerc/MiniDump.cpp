@@ -1,14 +1,14 @@
 /*
  * (C) 2006-2023 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -233,9 +233,9 @@ LONG WINAPI CMiniDump::UnhandledExceptionFilter( _EXCEPTION_POINTERS *lpTopLevel
 	}
 
 	if (szResult[0]) {
-		switch (MessageBoxW(AfxGetApp()->GetMainWnd()->m_hWnd, szResult, L"MPC-BE Mini Dump", retval ? MB_YESNO : MB_OK)) {
+		switch (MessageBoxW(AfxGetApp()->GetMainWnd()->m_hWnd, szResult, L"MPC-WJ Mini Dump", retval ? MB_YESNO : MB_OK)) {
 			case IDYES:
-				ShellExecuteW(nullptr, L"open", L"http://sourceforge.net/p/mpcbe/tickets/", nullptr, nullptr, SW_SHOWDEFAULT); // hmm
+				ShellExecuteW(nullptr, L"open", L"http://sourceforge.net/p/mpcwj/tickets/", nullptr, nullptr, SW_SHOWDEFAULT); // hmm
 				ExploreToFile(strDumpPath);
 				break;
 			case IDNO:

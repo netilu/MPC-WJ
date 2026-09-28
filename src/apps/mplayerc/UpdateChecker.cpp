@@ -1,14 +1,14 @@
 /*
  * (C) 2013-2026 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -52,7 +52,7 @@ Update_Status UpdateChecker::CheckNewVersion()
 
 	Update_Status updatestatus = UPDATER_ERROR_CONNECT;
 	CHTTPAsync HTTPAsync;
-	if (SUCCEEDED(HTTPAsync.Connect(L"https://api.github.com/repos/Aleksoid1978/MPC-BE/releases/latest", http::connectTimeout))) {
+	if (SUCCEEDED(HTTPAsync.Connect(L"https://api.github.com/repos/Aleksoid1978/MPC-WJ/releases/latest", http::connectTimeout))) {
 		constexpr auto sizeRead = 16 * KILOBYTE;
 		CStringA data;
 		DWORD dwSizeRead = 0;

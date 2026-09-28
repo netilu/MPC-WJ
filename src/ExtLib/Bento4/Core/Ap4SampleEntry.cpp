@@ -330,9 +330,9 @@ AP4_AudioSampleEntry::AP4_AudioSampleEntry(AP4_Atom::Type    format,
     m_QtV2FormatSpecificFlags(0),
     m_QtV2BytesPerAudioPacket(0),
     m_QtV2LPCMFramesPerAudioPacket(0),
-// MPC-BE custom code start
+// MPC-WJ custom code start
     m_Endian(ENDIAN_NOTSET)
-// MPC-BE custom code end
+// MPC-WJ custom code end
 {
     m_Size += 20;
 }
@@ -488,11 +488,11 @@ AP4_AudioSampleEntry::ReadFields(AP4_ByteStream& stream)
     stream.ReadUI16(m_QtPacketSize);
     stream.ReadUI32(m_SampleRate);
 
-    // MPC-BE custom code start
+    // MPC-WJ custom code start
     if (!(m_SampleRate >> 16)) {
         m_SampleRate <<= 16;
     }
-    // MPC-BE custom code end
+    // MPC-WJ custom code end
 
     // if this is a QT V1 entry, read the extension
     if (m_QtVersion == 1) {
@@ -1103,7 +1103,7 @@ AP4_VisualSampleEntry::ReadFields(AP4_ByteStream& stream)
         }
         m_hasPalette = true;
     }
-	// MPC-BE custom code start
+	// MPC-WJ custom code start
 	else if (m_Depth == 24) {
 		// fix for high bitdepth RAW video
 		switch (m_Type) {
@@ -1115,7 +1115,7 @@ AP4_VisualSampleEntry::ReadFields(AP4_ByteStream& stream)
 			break;
 		}
 	}
-	// MPC-BE custom code end
+	// MPC-WJ custom code end
 
     return AP4_SUCCESS;
 }

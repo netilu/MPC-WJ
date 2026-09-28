@@ -1,14 +1,14 @@
 @ECHO OFF
 REM (C) 2009-2026 see Authors.txt
 REM
-REM This file is part of MPC-BE.
+REM This file is part of MPC-WJ.
 REM
-REM MPC-BE is free software; you can redistribute it and/or modify
+REM MPC-WJ is free software; you can redistribute it and/or modify
 REM it under the terms of the GNU General Public License as published by
 REM the Free Software Foundation; either version 3 of the License, or
 REM (at your option) any later version.
 REM
-REM MPC-BE is distributed in the hope that it will be useful,
+REM MPC-WJ is distributed in the hope that it will be useful,
 REM but WITHOUT ANY WARRANTY; without even the implied warranty of
 REM MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 REM GNU General Public License for more details.
@@ -54,8 +54,8 @@ FOR %%A IN (%ARG%) DO (
   IF /I "%%A" == "All"        SET "CONFIG=All"          & SET /A ARGC+=1
   IF /I "%%A" == "Main"       SET "CONFIG=Main"         & SET /A ARGC+=1  & SET /A ARGM+=1
   IF /I "%%A" == "Filters"    SET "CONFIG=Filters"      & SET /A ARGC+=1  & SET /A ARGF+=1
-  IF /I "%%A" == "MPCBE"      SET "CONFIG=MPCBE"        & SET /A ARGC+=1
-  IF /I "%%A" == "MPC-BE"     SET "CONFIG=MPCBE"        & SET /A ARGC+=1
+  IF /I "%%A" == "MPCWJ"      SET "CONFIG=MPCWJ"        & SET /A ARGC+=1
+  IF /I "%%A" == "MPC-WJ"     SET "CONFIG=MPCWJ"        & SET /A ARGC+=1
   IF /I "%%A" == "Resource"   SET "CONFIG=Resources"    & SET /A ARGC+=1  & SET /A ARGD+=1
   IF /I "%%A" == "Resources"  SET "CONFIG=Resources"    & SET /A ARGC+=1  & SET /A ARGD+=1
   IF /I "%%A" == "Debug"      SET "BUILDCFG=Debug"      & SET /A ARGBC+=1 & SET /A ARGD+=1
@@ -77,8 +77,8 @@ CALL "update_revision.cmd"
 
 IF EXIST "environments.bat" CALL "environments.bat"
 
-IF NOT DEFINED MPCBE_MINGW GOTO MissingVar
-IF NOT DEFINED MPCBE_MSYS  GOTO MissingVar
+IF NOT DEFINED MPCWJ_MINGW GOTO MissingVar
+IF NOT DEFINED MPCWJ_MSYS  GOTO MissingVar
 
 FOR %%X IN (%*) DO (
   IF /I "%%X" NEQ "NoWait" SET /A INPUT+=1
@@ -89,7 +89,7 @@ IF %VALID% NEQ %INPUT% GOTO UnsupportedSwitch
 
 IF %ARGB%    GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGB% == 0    (SET "BUILDTYPE=Build")
 IF %ARGPL%   GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGPL% == 0   (SET "BUILDPLATFORM=Both")
-IF %ARGC%    GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGC% == 0    (SET "CONFIG=MPCBE")
+IF %ARGC%    GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGC% == 0    (SET "CONFIG=MPCWJ")
 IF %ARGBC%   GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGBC% == 0   (SET "BUILDCFG=Release")
 IF %ARGPA%   GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGPA% == 0   (SET "PACKAGES=False")
 IF %ARGIN%   GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGIN% == 0   (SET "INSTALLER=False")
@@ -159,7 +159,7 @@ IF /I "%CONFIG%" == "Filters" (
 
 IF /I "%CONFIG%" == "Resources" CALL :SubResources Win32 && GOTO x64
 
-CALL :SubMPCBE Win32
+CALL :SubMPCWJ Win32
 IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
 
 IF /I "%CONFIG%" == "Main" GOTO x64
@@ -169,7 +169,7 @@ IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
 
 IF /I "%INSTALLER%" == "True" CALL :SubCreateInstaller Win32
 IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
-IF /I "%ZIP%" == "True"       CALL :SubCreatePackages MPC-BE Win32
+IF /I "%ZIP%" == "True"       CALL :SubCreatePackages MPC-WJ Win32
 IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
 
 IF /I "%CONFIG%" == "All" (
@@ -194,7 +194,7 @@ IF /I "%CONFIG%" == "Filters" (
 
 IF /I "%CONFIG%" == "Resources" CALL :SubResources x64 && GOTO END
 
-CALL :SubMPCBE x64
+CALL :SubMPCWJ x64
 IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
 
 IF /I "%CONFIG%" == "Main" GOTO End
@@ -204,7 +204,7 @@ IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
 
 IF /I "%INSTALLER%" == "True" CALL :SubCreateInstaller x64
 IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
-IF /I "%ZIP%" == "True"       CALL :SubCreatePackages MPC-BE x64
+IF /I "%ZIP%" == "True"       CALL :SubCreatePackages MPC-WJ x64
 IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
 
 IF /I "%CONFIG%" == "All" (
@@ -214,7 +214,7 @@ IF /I "%CONFIG%" == "All" (
 )
 
 :End
-TITLE Compiling MPC-BE [FINISHED]
+TITLE Compiling MPC-WJ [FINISHED]
 SET END_TIME=%TIME%
 CALL :SubGetDuration
 CALL :SubMsg "INFO" "Compilation started on %START_DATE%-%START_TIME% and completed on %DATE%-%END_TIME% [%DURATION%]"
@@ -222,16 +222,16 @@ ENDLOCAL
 EXIT /B
 
 :SubFilters
-TITLE Compiling MPC-BE Filters - %BUILDCFG% Filter^|%1...
-MSBuild.exe mpc-be.sln %MSBUILD_SWITCHES%^
+TITLE Compiling MPC-WJ Filters - %BUILDCFG% Filter^|%1...
+MSBuild.exe mpc-wj.sln %MSBUILD_SWITCHES%^
  /target:%BUILDTYPE% /property:Configuration="%BUILDCFG% Filter";Platform=%1^
  /flp1:LogFile=%LOG_DIR%\filters_errors_%BUILDCFG%_%1.log;errorsonly;Verbosity=diagnostic^
  /flp2:LogFile=%LOG_DIR%\filters_warnings_%BUILDCFG%_%1.log;warningsonly;Verbosity=diagnostic
 IF %ERRORLEVEL% NEQ 0 (
-  CALL :SubMsg "ERROR" "mpc-be.sln %BUILDCFG% Filter %1 - Compilation failed!"
+  CALL :SubMsg "ERROR" "mpc-wj.sln %BUILDCFG% Filter %1 - Compilation failed!"
   EXIT /B %ERRORLEVEL%
 ) ELSE (
-  CALL :SubMsg "INFO" "mpc-be.sln %BUILDCFG% Filter %1 compiled successfully"
+  CALL :SubMsg "INFO" "mpc-wj.sln %BUILDCFG% Filter %1 compiled successfully"
 )
 
 IF /I "%1" == "Win32" (
@@ -246,17 +246,17 @@ IF /I "%SIGN%" == "True" (
 
 EXIT /B
 
-:SubMPCBE
-TITLE Compiling MPC-BE - %BUILDCFG%^|%1...
-MSBuild.exe mpc-be.sln %MSBUILD_SWITCHES%^
+:SubMPCWJ
+TITLE Compiling MPC-WJ - %BUILDCFG%^|%1...
+MSBuild.exe mpc-wj.sln %MSBUILD_SWITCHES%^
  /target:%BUILDTYPE% /property:Configuration=%BUILDCFG%;Platform=%1^
- /flp1:LogFile=%LOG_DIR%\mpc-be_errors_%BUILDCFG%_%1.log;errorsonly;Verbosity=diagnostic^
- /flp2:LogFile=%LOG_DIR%\mpc-be_warnings_%BUILDCFG%_%1.log;warningsonly;Verbosity=diagnostic
+ /flp1:LogFile=%LOG_DIR%\mpc-wj_errors_%BUILDCFG%_%1.log;errorsonly;Verbosity=diagnostic^
+ /flp2:LogFile=%LOG_DIR%\mpc-wj_warnings_%BUILDCFG%_%1.log;warningsonly;Verbosity=diagnostic
 IF %ERRORLEVEL% NEQ 0 (
-  CALL :SubMsg "ERROR" "mpc-be.sln %BUILDCFG% %1 - Compilation failed!"
+  CALL :SubMsg "ERROR" "mpc-wj.sln %BUILDCFG% %1 - Compilation failed!"
   EXIT /B %ERRORLEVEL%
 ) ELSE (
-  CALL :SubMsg "INFO" "mpc-be.sln %BUILDCFG% %1 compiled successfully"
+  CALL :SubMsg "INFO" "mpc-wj.sln %BUILDCFG% %1 compiled successfully"
 )
 
 TITLE Compiling mpciconlib - %BUILDCFG%^|%1...
@@ -272,43 +272,43 @@ IF %ERRORLEVEL% NEQ 0 (
 )
 
 IF /I "%1" == "Win32" (
-  SET "DIR=%BIN%\mpc-be_x86"
+  SET "DIR=%BIN%\mpc-wj_x86"
 ) ELSE (
-  SET "DIR=%BIN%\mpc-be_x64"
+  SET "DIR=%BIN%\mpc-wj_x64"
 )
 
 IF /I "%SIGN%" == "True" (
-  CALL :SubSign %DIR% mpc-be*.exe
+  CALL :SubSign %DIR% mpc-wj*.exe
   CALL :SubSign %DIR% mpciconlib*.dll
 )
 
-TITLE Compiling MPCBEShellExt - %BUILDCFG%...
-MSBuild.exe MPCBEShellExt.sln %MSBUILD_SWITCHES%^
+TITLE Compiling MPCWJShellExt - %BUILDCFG%...
+MSBuild.exe MPCWJShellExt.sln %MSBUILD_SWITCHES%^
  /target:%BUILDTYPE% /property:Configuration=%BUILDCFG%;Platform=Win32
 IF %ERRORLEVEL% NEQ 0 (
-  CALL :SubMsg "ERROR" "MPCBEShellExt.sln %BUILDCFG% Win32 - Compilation failed!"
+  CALL :SubMsg "ERROR" "MPCWJShellExt.sln %BUILDCFG% Win32 - Compilation failed!"
   EXIT /B %ERRORLEVEL%
 ) ELSE (
-  CALL :SubMsg "INFO" "MPCBEShellExt.sln %BUILDCFG% Win32 compiled successfully"
+  CALL :SubMsg "INFO" "MPCWJShellExt.sln %BUILDCFG% Win32 compiled successfully"
 )
 
-SET "DIR=%BIN%\mpc-be_x86"
+SET "DIR=%BIN%\mpc-wj_x86"
 IF /I "%SIGN%" == "True" (
-  CALL :SubSign %DIR% MPCBEShellExt.dll
+  CALL :SubSign %DIR% MPCWJShellExt.dll
 )
 
-MSBuild.exe MPCBEShellExt.sln %MSBUILD_SWITCHES%^
+MSBuild.exe MPCWJShellExt.sln %MSBUILD_SWITCHES%^
  /target:%BUILDTYPE% /property:Configuration=%BUILDCFG%;Platform=x64
 IF %ERRORLEVEL% NEQ 0 (
-  CALL :SubMsg "ERROR" "MPCBEShellExt.sln %BUILDCFG% x64 - Compilation failed!"
+  CALL :SubMsg "ERROR" "MPCWJShellExt.sln %BUILDCFG% x64 - Compilation failed!"
   EXIT /B %ERRORLEVEL%
 ) ELSE (
-  CALL :SubMsg "INFO" "MPCBEShellExt.sln %BUILDCFG% x64 compiled successfully"
+  CALL :SubMsg "INFO" "MPCWJShellExt.sln %BUILDCFG% x64 compiled successfully"
 )
 
-SET "DIR=%BIN%\mpc-be_x64"
+SET "DIR=%BIN%\mpc-wj_x64"
 IF /I "%SIGN%" == "True" (
-  CALL :SubSign %DIR% MPCBEShellExt64.dll
+  CALL :SubSign %DIR% MPCWJShellExt64.dll
 )
 
 EXIT /B
@@ -334,9 +334,9 @@ FOR %%A IN ("Arabic" "Armenian" "Basque" "Belarusian" "Bulgarian" "Catalan" "Chi
 )
 
 IF /I "%1" == "Win32" (
-  SET "DIR=%BIN%\mpc-be_x86\Lang"
+  SET "DIR=%BIN%\mpc-wj_x86\Lang"
 ) ELSE (
-  SET "DIR=%BIN%\mpc-be_x64\Lang"
+  SET "DIR=%BIN%\mpc-wj_x64\Lang"
 )
 
 IF /I "%SIGN%" == "True" (
@@ -381,7 +381,7 @@ IF NOT DEFINED InnoSetupPath (
 
 TITLE Compiling %1 installer...
 
-"%InnoSetupPath%\iscc.exe" /Q /O"%BIN%" "distrib\mpc-be_setup.iss" %ISDefs% %ISDefsSign%
+"%InnoSetupPath%\iscc.exe" /Q /O"%BIN%" "distrib\mpc-wj_setup.iss" %ISDefs% %ISDefsSign%
 IF %ERRORLEVEL% NEQ 0 (
   CALL :SubMsg "ERROR" "Compilation failed!"
   EXIT /B %ERRORLEVEL%
@@ -407,7 +407,7 @@ IF NOT DEFINED SEVENZIP (
   EXIT /B
 )
 
-IF /I "%~1" == "Filters" (SET "NAME=standalone_filters-mpc-be") ELSE (SET "NAME=MPC-BE")
+IF /I "%~1" == "Filters" (SET "NAME=standalone_filters-mpc-wj") ELSE (SET "NAME=MPC-WJ")
 IF /I "%~2" == "Win32" (
   SET ARCH=x86
 ) ELSE (
@@ -418,33 +418,33 @@ PUSHD "%BIN%"
 
 SET PackagesOut=Packages
 
-IF NOT EXIST "%PackagesOut%\%MPCBE_VER%" MD "%PackagesOut%\%MPCBE_VER%"
+IF NOT EXIST "%PackagesOut%\%MPCWJ_VER%" MD "%PackagesOut%\%MPCWJ_VER%"
 
-SET "PCKG_NAME=%NAME%.%MPCBE_VER%.%ARCH%"
-SET "ZIP_NAME=%NAME%.%MPCBE_VER%%SUFFIX_GIT%.%ARCH%"
+SET "PCKG_NAME=%NAME%.%MPCWJ_VER%.%ARCH%"
+SET "ZIP_NAME=%NAME%.%MPCWJ_VER%%SUFFIX_GIT%.%ARCH%"
 
-IF EXIST "%PackagesOut%\%MPCBE_VER%\%ZIP_NAME%.7z"     DEL "%PackagesOut%\%MPCBE_VER%\%ZIP_NAME%.7z"
+IF EXIST "%PackagesOut%\%MPCWJ_VER%\%ZIP_NAME%.7z"     DEL "%PackagesOut%\%MPCWJ_VER%\%ZIP_NAME%.7z"
 IF EXIST "%PCKG_NAME%"        RD /Q /S "%PCKG_NAME%"
 
 TITLE Copying %PCKG_NAME%...
 IF NOT EXIST "%PCKG_NAME%" MD "%PCKG_NAME%"
 
-IF /I "%NAME%" == "MPC-BE" (
+IF /I "%NAME%" == "MPC-WJ" (
   IF NOT EXIST "%PCKG_NAME%\Lang" MD "%PCKG_NAME%\Lang"
   IF NOT EXIST "%PCKG_NAME%\Shaders" MD "%PCKG_NAME%\Shaders"
   IF NOT EXIST "%PCKG_NAME%\Shaders11" MD "%PCKG_NAME%\Shaders11"
   IF /I "%ARCH%" == "x64" (
-    COPY /Y /V "%~1_%ARCH%\mpc-be64.exe"                   "%PCKG_NAME%\mpc-be64.exe" >NUL
-    COPY /Y /V "%~1_%ARCH%\MPCBEShellExt64.dll"            "%PCKG_NAME%\MPCBEShellExt64.dll" >NUL
+    COPY /Y /V "%~1_%ARCH%\mpc-wj64.exe"                   "%PCKG_NAME%\mpc-wj64.exe" >NUL
+    COPY /Y /V "%~1_%ARCH%\MPCWJShellExt64.dll"            "%PCKG_NAME%\MPCWJShellExt64.dll" >NUL
     COPY /Y /V "..\distrib\MPC_components\DirectX\x64\d3dcompiler_47.dll" "%PCKG_NAME%\d3dcompiler_47.dll" >NUL
     COPY /Y /V "..\distrib\MPC_components\DirectX\x64\d3dx9_43.dll"       "%PCKG_NAME%\d3dx9_43.dll" >NUL
-    COPY /Y /V "..\distrib\VisualElements\mpc-be64.VisualElementsManifest.xml" "%PCKG_NAME%" >NUL
+    COPY /Y /V "..\distrib\VisualElements\mpc-wj64.VisualElementsManifest.xml" "%PCKG_NAME%" >NUL
   ) ELSE (
-    COPY /Y /V "%~1_%ARCH%\mpc-be.exe"                     "%PCKG_NAME%\mpc-be.exe" >NUL
-    COPY /Y /V "%~1_%ARCH%\MPCBEShellExt.dll"              "%PCKG_NAME%\MPCBEShellExt.dll" >NUL
+    COPY /Y /V "%~1_%ARCH%\mpc-wj.exe"                     "%PCKG_NAME%\mpc-wj.exe" >NUL
+    COPY /Y /V "%~1_%ARCH%\MPCWJShellExt.dll"              "%PCKG_NAME%\MPCWJShellExt.dll" >NUL
     COPY /Y /V "..\distrib\MPC_components\DirectX\x86\d3dcompiler_47.dll" "%PCKG_NAME%\d3dcompiler_47.dll" >NUL
     COPY /Y /V "..\distrib\MPC_components\DirectX\x86\d3dx9_43.dll"       "%PCKG_NAME%\d3dx9_43.dll" >NUL
-    COPY /Y /V "..\distrib\VisualElements\mpc-be.VisualElementsManifest.xml" "%PCKG_NAME%" >NUL
+    COPY /Y /V "..\distrib\VisualElements\mpc-wj.VisualElementsManifest.xml" "%PCKG_NAME%" >NUL
   )
   COPY /Y /V "%~1_%ARCH%\mpciconlib.dll"           "%PCKG_NAME%\mpciconlib.dll" >NUL
   COPY /Y /V "%~1_%ARCH%\Lang\mpcresources.??.dll" "%PCKG_NAME%\Lang\mpcresources.??.dll" >NUL
@@ -462,17 +462,17 @@ COPY /Y /V "..\docs\Changelog.txt"           "%PCKG_NAME%" >NUL
 COPY /Y /V "..\docs\Changelog.Rus.txt"       "%PCKG_NAME%" >NUL
 COPY /Y /V "..\docs\Readme.md"               "%PCKG_NAME%" >NUL
 
-IF /I "%NAME%" == "MPC-BE" (
+IF /I "%NAME%" == "MPC-WJ" (
   IF /I "%INSTALLER%" == "True" (
     TITLE Creating archive %ZIP_NAME%-installer.zip...
-    START "7z" /B /WAIT "%SEVENZIP%" a -tzip "%PackagesOut%\%MPCBE_VER%\%ZIP_NAME%-installer.zip" "%PCKG_NAME%.exe" -mx9
+    START "7z" /B /WAIT "%SEVENZIP%" a -tzip "%PackagesOut%\%MPCWJ_VER%\%ZIP_NAME%-installer.zip" "%PCKG_NAME%.exe" -mx9
     IF %ERRORLEVEL% NEQ 0 CALL :SubMsg "ERROR" "Unable to create %ZIP_NAME%-installer.zip!"
     CALL :SubMsg "INFO" "%ZIP_NAME%-installer.zip successfully created"
   )
 )
 
 TITLE Creating archive %ZIP_NAME%.7z...
-START "7z" /B /WAIT "%SEVENZIP%" a -t7z "%PackagesOut%\%MPCBE_VER%\%ZIP_NAME%.7z" "%PCKG_NAME%"^
+START "7z" /B /WAIT "%SEVENZIP%" a -t7z "%PackagesOut%\%MPCWJ_VER%\%ZIP_NAME%.7z" "%PCKG_NAME%"^
  -m0=lzma -mx9 -mmt -ms=on
 IF %ERRORLEVEL% NEQ 0 (
   CALL :SubMsg "ERROR" "Unable to create %ZIP_NAME%.7z!"
@@ -482,13 +482,13 @@ CALL :SubMsg "INFO" "%ZIP_NAME%.7z successfully created"
 
 IF EXIST "%PCKG_NAME%" RD /Q /S "%PCKG_NAME%"
 
-IF /I "%NAME%" == "MPC-BE" IF /I "%PDB%" == "True" (
+IF /I "%NAME%" == "MPC-WJ" IF /I "%PDB%" == "True" (
   TITLE Creating archive %ZIP_NAME%-pdb.7z...
   IF /I "%ARCH%" == "x64" (
-    START "7z" /B /WAIT "%SEVENZIP%" a -t7z "%PackagesOut%\%MPCBE_VER%\%ZIP_NAME%-pdb.7z" "%~1_%ARCH%\mpc-be64.pdb"^
+    START "7z" /B /WAIT "%SEVENZIP%" a -t7z "%PackagesOut%\%MPCWJ_VER%\%ZIP_NAME%-pdb.7z" "%~1_%ARCH%\mpc-wj64.pdb"^
  -m0=lzma -mx9 -mmt -ms=on
   ) ELSE (
-    START "7z" /B /WAIT "%SEVENZIP%" a -t7z "%PackagesOut%\%MPCBE_VER%\%ZIP_NAME%-pdb.7z" "%~1_%ARCH%\mpc-be.pdb"^
+    START "7z" /B /WAIT "%SEVENZIP%" a -t7z "%PackagesOut%\%MPCWJ_VER%\%ZIP_NAME%-pdb.7z" "%~1_%ARCH%\mpc-wj.pdb"^
  -m0=lzma -mx9 -mmt -ms=on
   )
 )
@@ -519,12 +519,12 @@ FOR /F "tokens=3,4 delims= " %%A IN (
 FOR /F "tokens=3,4 delims= " %%A IN (
   'FINDSTR /I /L /C:"define REV_HASH" "revision.h"') DO (SET "REVHASH=%%A")
 
-SET MPCBE_VER=%VerMajor%.%VerMinor%.%VerPatch%.%REVNUM%
+SET MPCWJ_VER=%VerMajor%.%VerMinor%.%VerPatch%.%REVNUM%
 SET "SUFFIX_GIT=_git%REVDATE%-%REVHASH%"
 
 IF /I "%VERRELEASE%" == "1" (
   IF /I "%REVNUM%" == "0" (
-    SET MPCBE_VER=%VerMajor%.%VerMinor%.%VerPatch%
+    SET MPCWJ_VER=%VerMajor%.%VerMinor%.%VerPatch%
   )
   SET "SUFFIX_GIT="
 )
@@ -578,10 +578,10 @@ EXIT /B
 TITLE %~nx0 Help
 ECHO.
 ECHO Usage:
-ECHO %~nx0 [Clean^|Build^|Rebuild] [x86^|x64^|Both] [Main^|Resources^|MPCBE^|Filters^|All] [Debug^|Release] [Packages^|Installer^|Zip] [Sign]
+ECHO %~nx0 [Clean^|Build^|Rebuild] [x86^|x64^|Both] [Main^|Resources^|MPCWJ^|Filters^|All] [Debug^|Release] [Packages^|Installer^|Zip] [Sign]
 ECHO.
 ECHO Notes: You can also prefix the commands with "-", "--" or "/".
-ECHO        Debug only applies to mpc-be.sln.
+ECHO        Debug only applies to mpc-wj.sln.
 ECHO        The arguments are not case sensitive and can be ommitted.
 ECHO. & ECHO.
 ECHO Executing %~nx0 without any arguments will use the default ones:
@@ -602,7 +602,7 @@ EXIT /B
 
 :MissingVar
 COLOR 0C
-TITLE Compiling MPC-BE [ERROR]
+TITLE Compiling MPC-WJ [ERROR]
 ECHO Not all build dependencies were found.
 ECHO.
 ECHO See "docs\Compilation.txt" for more information.

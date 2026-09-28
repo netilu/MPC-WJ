@@ -1472,7 +1472,7 @@ Added the ability to store the settings file in the user profile.
 Added the ability to call the recent files menu, history windows and shader selection windows by pressing a key.
 Miscellaneous fixes.
 
-MPCBEShellExt (explorer extension)
+MPCWJShellExt (explorer extension)
 Fixed operation of "Open files using" command.
 
 Updated German translation (by Klaus1189).
@@ -1569,7 +1569,7 @@ Added visual separation of external and internal subtitles in the subtitle menu 
 Fixed crash when outputting a scrollbar in exclusive mode with unknown duration.
 Other minor fixes and internal optimizations.
 
-MPCBEShellExt (explorer extension)
+MPCWJShellExt (explorer extension)
 Improved operation for users with limited rights.
 
 Updated Chinese (Simplified) translation (by wushantao).
@@ -1976,7 +1976,7 @@ Added support for pasting files and folders from the clipboard that were copied 
 The limit for MPCPL playlists has been increased to 10 MB.
 Changed the way of setting the priority of tracks. Added support for quotes, "+" for multiple matches, and negation for Default and Forced.
 
-MPCBEShellExt (explorer extension)
+MPCWJShellExt (explorer extension)
 Added support for IDropTarget interface.
 
 Updated German translation (by Klaus1189).
@@ -2446,7 +2446,7 @@ Installer
 Added handling of the case of unavailability of libmfxsw32/64.dll.zip in the temporary folder.
 Now the uninstaller can be signed with a digital signature.
 
-MPCBEShellExt
+MPCWJShellExt
 Reduced size, no longer use MFC.
 
 Player
@@ -2862,7 +2862,7 @@ It changed the method of storage of the latest files and DVD data.
 Changed command IDs "Subtitle Delay -", "Subtitle Delay +", "After Playback: Do Nothing", "After Playback: Play next in the folder" for compatibility with third-party utilities.
 In the settings panel "External filters" stands more and more media types.
 
-MPCBEShellExt
+MPCWJShellExt
 Fixed a bug when the system does not open attached links in Explorer.
 
 Updated Ukrainian translation (by arestarh1986).
@@ -3807,7 +3807,7 @@ Fixes (!):
 	! fixed opening subtitles in ANSI encoding;
 	! fixed switching VobSub subtitles in the case one file has several subtitles;
 	! corrected errors in the 'Rewind in the end' option behavior;
-	! corrected errors which hanged mpc-be.exe process upon closing player/file;
+	! corrected errors which hanged mpc-wj.exe process upon closing player/file;
 	! corrected errors which led to incorrect choice of audio tracks;
 	! fixed frame aspect ratio when saving thumbnails;
 	! the 'Open DVD/Blu-ray' menu did not work in fullscreen D3D mode;
@@ -4022,7 +4022,7 @@ Added (+):
 	+ MEDIASUBTYPE_Divx ('Divx') support;
 	+ Support for reading EDID info from monitor/TV;
 	+ Support for files with an ID3 Tag in the beginning in MusePackSplitter;
-	+ Automatic ShellExt registration from MPC-BE;
+	+ Automatic ShellExt registration from MPC-WJ;
 	 ... and many more.
 
 Changes (*):
@@ -4086,9 +4086,9 @@ Changes (*):
 	* Improved madVR handling in multi-monitor configurations;
 	* OGGSplitter: improved Opus playback, packet duration is now calculated correctly;
 	* EVR Custom: VSync is not used on pause;
-	* MPC-BE playlist: added possibility to save/load element's duration;
-	* MPC-BE playlist: validity check, files over 1 MB in size are not loaded;
-	* MPC-BE playlist: current element is highlighted according to the color settings of the player's current theme;
+	* MPC-WJ playlist: added possibility to save/load element's duration;
+	* MPC-WJ playlist: validity check, files over 1 MB in size are not loaded;
+	* MPC-WJ playlist: current element is highlighted according to the color settings of the player's current theme;
 	* MPEGSplitter: improved handling of packets with bogus pts in MPEG-TS;
 	* Improved switching to MAXIMIZED window mode for captionless styles;
 	* Seek preview window is drawn UNDER the seekbar according to multi-monitor configuration;
@@ -4116,7 +4116,7 @@ Changes (*):
 	* DXVA1 indication now works for any renderer;
 	* OSD: "Segoe UI" font is now used by default instead of "Calibri" for Windows Vistа and newer systems;
 	* The FIRST added element becomes active and highlighted upon adding files to the playlist;
-	* MPC-BE playlist: improved Drag'n'Drop DVD/BD support;
+	* MPC-WJ playlist: improved Drag'n'Drop DVD/BD support;
 	* Support for ShellExt registration when launching from the command line with parameters for [un]registering file associations. Now ShellExt are registered on program [un]install;
 	* VTSReader + MpegSplitter now reads Aspect Ratio data from the file itself upon opening an .IFO file and makes further use of those data in MpegSplitter;
 	* AviSplitter: improved playback of badly interlaced AVI-files, reduced memory consumption;

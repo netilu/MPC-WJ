@@ -184,7 +184,7 @@ public:
 
     // thread initially runs this. param is actually 'this'. function
     // just gets this and calls ThreadProc
-    static unsigned int WINAPI InitialThreadProc(__inout LPVOID pv); // MPC-BE patch
+    static unsigned int WINAPI InitialThreadProc(__inout LPVOID pv); // MPC-WJ patch
 
     // start thread running  - error if already running
     BOOL Create();

@@ -1,14 +1,14 @@
 /*
  * (C) 2016-2026 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -248,7 +248,7 @@ bool LoadType(const CString& fn, CString& type)
 			ext = L"." + fn.Mid(fn.ReverseFind('.')+1);
 		}
 
-		// Try MPC-BE's internal formats list
+		// Try MPC-WJ's internal formats list
 		CMediaFormatCategory* mfc = AfxGetAppSettings().m_Formats.FindMediaByExt(ext);
 
 		if (mfc != nullptr) {

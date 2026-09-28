@@ -2,14 +2,14 @@
  * (C) 2003-2006 Gabest
  * (C) 2006-2026 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -2678,7 +2678,7 @@ CFGManagerCustom::CFGManagerCustom(LPCWSTR pName, LPUNKNOWN pUnk, HWND hWnd, boo
 	pFGF = DNew CFGFilterInternal<CMpeg2DecFilter>(
 				(video[VDEC_DVD] || IsPreview) ? DvdVideoDecoderName : LowMerit(DvdVideoDecoderName),
 				(video[VDEC_DVD] || IsPreview) ? MERIT64_ABOVE_DSHOW : MERIT64_DO_USE);
-	// MPC-BE uses this filter for DVD-Video only
+	// MPC-WJ uses this filter for DVD-Video only
 	pFGF->AddType(MEDIATYPE_DVD_ENCRYPTED_PACK, MEDIASUBTYPE_MPEG2_VIDEO); // used by for MPEG-2 and MPEG-1
 	//pFGF->AddType(MEDIATYPE_MPEG2_PES, MEDIASUBTYPE_MPEG2_VIDEO);
 	m_transform.emplace_back(pFGF);
@@ -2700,7 +2700,7 @@ CFGManagerCustom::CFGManagerCustom(LPCWSTR pName, LPUNKNOWN pUnk, HWND hWnd, boo
 	// 11-12th media type when enumerating them on its output.
 	m_transform.emplace_back(DNew CFGFilterRegistry(GUIDFromCString(L"{00A95963-3BE5-48C0-AD9F-3356D67EA09D}"), MERIT64_DO_NOT_USE));
 
-	// DiracSplitter.ax is crashing MPC-BE when opening invalid files...
+	// DiracSplitter.ax is crashing MPC-WJ when opening invalid files...
 	m_transform.emplace_back(DNew CFGFilterRegistry(GUIDFromCString(L"{09E7F58E-71A1-419D-B0A0-E524AE1454A9}"), MERIT64_DO_NOT_USE));
 	m_transform.emplace_back(DNew CFGFilterRegistry(GUIDFromCString(L"{5899CFB9-948F-4869-A999-5544ECB38BA5}"), MERIT64_DO_NOT_USE));
 	m_transform.emplace_back(DNew CFGFilterRegistry(GUIDFromCString(L"{F78CF248-180E-4713-B107-B13F7B5C31E1}"), MERIT64_DO_NOT_USE));

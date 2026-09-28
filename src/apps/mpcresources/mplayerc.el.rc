@@ -218,11 +218,11 @@ CAPTION "Περί"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "Copyright © 2002-2026 βλέπε Authors.txt",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "Έκδοση :",IDC_VERSION,30,34,90,8
-    LTEXT           "MPC-BE Compiler :",IDC_STATIC,30,66,90,8
+    LTEXT           "MPC-WJ Compiler :",IDC_STATIC,30,66,90,8
     LTEXT           "FFmpeg Compiler :",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil :",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,9 +230,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "Αυτό το πρόγραμμα είναι ελεύθερο και κυκλοφορεί υπό τη Γενική Δημόσια Άδεια GNU.",IDC_STATIC,30,138,200,18
     LTEXT           "Ελληνική μετάφραση : geogeo.gr && Λάμπρος Ζουλούμης && Γιώργος Γεωργίου",IDC_STATIC,30,161,200,18
@@ -673,7 +673,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Προειδοποίηση"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "Το MPC-BE δεν μπορεί να αποδόσει κάποια από τα pin στο γράφημα. Ίσως να μην έχετε εγκατεστημένους τους απαραίτητους κωδικοποιητές ή φίλτρα στο σύστημα.",IDC_STATIC1,5,5,286,18
+    LTEXT           "Το MPC-WJ δεν μπορεί να αποδόσει κάποια από τα pin στο γράφημα. Ίσως να μην έχετε εγκατεστημένους τους απαραίτητους κωδικοποιητές ή φίλτρα στο σύστημα.",IDC_STATIC1,5,5,286,18
     LTEXT           "Τα παρακάτω pin απέτυχαν να βρούν ένα φίλτρο προς σύνδεση:",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -2356,7 +2356,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2550,7 +2550,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2654,7 +2654,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "Σχετική χρωματομετρική"
     IDS_CM_INTENT_SATURATION "Κορεσμός"
     IDS_CM_INTENT_ABSOLUTECM "Απόλυτη χρωματομετρική"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Η προεπισκόπηση είναι αυτή τη στιγμή απενεργοποιημένη.Μπορείτε να το ενεργοποιήσετε στις επιλογές του MPC-BE."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Η προεπισκόπηση είναι αυτή τη στιγμή απενεργοποιημένη.Μπορείτε να το ενεργοποιήσετε στις επιλογές του MPC-WJ."
 END
 
 STRINGTABLE
@@ -2700,7 +2700,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "Η προεπιλεγμένη τιμή χρησιμοποιείται και σε άλλα στυλ, όπου δεν έχει καθοριστεί"
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "Η απενεργοποίηση αυτής της επιλογής θα αποτρέψει την αναλαμπή των υποτίτλων, αλλά μπορεί να προκαλέσει την παράλειψη ορισμένων καρέ βίντεο από την απόδοση βίντεο."
     IDC_CHECK_SPCANIMWITHBUFFER  "Επιτρέπετε η κίνηση του υπότιτλου όταν χρησιμοποιείται μια προσωρινή επιμέρους εικόνα μεγαλύτερη από 0. Η απενεργοποίηση αυτής της επιλογής θα μειώσει τη χρήση της CPU. Επίσης να το απενεργοποιήσετε εάν οι υπότιτλοι αναβοσβήνουν."
-    IDC_BUTTON_EXT_SET      "Μετά το κλικ σε αυτό το κουμπί, το επιλεγμένο μέλος της ομάδας μορφής, θα αντικατοπτρίζει την πραγματική συσχέτιση αρχείου για το MPC-BE. Μια επέκταση που προστέθηκε πρόσφατα, θα είναι συνήθως γκρι, ώστε να μην ξεχάσετε να το ελέγξτε ξανά πριν να κλείσετε αυτό το παράθυρο διαλόγου!"
+    IDC_BUTTON_EXT_SET      "Μετά το κλικ σε αυτό το κουμπί, το επιλεγμένο μέλος της ομάδας μορφής, θα αντικατοπτρίζει την πραγματική συσχέτιση αρχείου για το MPC-WJ. Μια επέκταση που προστέθηκε πρόσφατα, θα είναι συνήθως γκρι, ώστε να μην ξεχάσετε να το ελέγξτε ξανά πριν να κλείσετε αυτό το παράθυρο διαλόγου!"
 END
 
 STRINGTABLE
@@ -2893,8 +2893,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "&Ροή βίντεο"
     IDS_MENU_VIDEO_ANGLE    "&Γωνία βίντεο"
     IDS_RESET_SETTINGS      "Εξαγωγή ρυθμίσεων"
-    IDS_RESET_SETTINGS_WARNING  "Είστε βέβαιος ότι θέλετε να επαναφέρετε το MPC-BE στις προεπιλεγμένες ρυθμίσεις;\nΝα έχετε υπόψιν ότι όλες οι τρέχουσες ρυθμίσεις θα χαθούν!"
-    IDS_RESET_SETTINGS_MUTEX  "Παρακαλώ κλείστε όλες τις προβολές του MPC-BE, έτσι ώστε να γίνει επαναφορά των προεπιλεγμένων ρυθμίσεων."
+    IDS_RESET_SETTINGS_WARNING  "Είστε βέβαιος ότι θέλετε να επαναφέρετε το MPC-WJ στις προεπιλεγμένες ρυθμίσεις;\nΝα έχετε υπόψιν ότι όλες οι τρέχουσες ρυθμίσεις θα χαθούν!"
+    IDS_RESET_SETTINGS_MUTEX  "Παρακαλώ κλείστε όλες τις προβολές του MPC-WJ, έτσι ώστε να γίνει επαναφορά των προεπιλεγμένων ρυθμίσεων."
     IDS_EXPORT_SETTINGS     "Εξαγωγή ρυθμίσεων"
     IDS_EXPORT_SETTINGS_WARNING  "Ορισμένες αλλαγές δεν αποθηκεύτηκαν ακόμη.\nΘέλετε να τις αποθηκεύσετε πριν την εξαγωγή;"
     IDS_EXPORT_SETTINGS_SUCCESS  "Οι ρυθμίσεις έχουν εξαχθεί επιτυχώς."
@@ -3127,9 +3127,9 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "Αυτόματη προσαρμογή"
     IDS_ZOOM_AUTOFITLARGE   "Αυτόματη προσαρμογή (μόνο μεγαλύτερο)"
-    IDS_ADD_TO_PLAYLIST     "Προσθήκη στη λίστα αναπαραγωγής του MPC-BE"
-    IDS_OPEN_WITH_MPC       "Αναπαραγωγή με το MPC-BE"
-    IDS_CANNOT_CHANGE_FORMAT  "Το MPC-BE δεν έχει δικαιώματα για να αλλάξει τις συσχετίσεις των μορφών αρχείων. Παρακαλούμε κάντε κλικ στο κουμπί ""Τροποποίηση"" για να ληφθούν δικαιώματα διαχειριστή."
+    IDS_ADD_TO_PLAYLIST     "Προσθήκη στη λίστα αναπαραγωγής του MPC-WJ"
+    IDS_OPEN_WITH_MPC       "Αναπαραγωγή με το MPC-WJ"
+    IDS_CANNOT_CHANGE_FORMAT  "Το MPC-WJ δεν έχει δικαιώματα για να αλλάξει τις συσχετίσεις των μορφών αρχείων. Παρακαλούμε κάντε κλικ στο κουμπί ""Τροποποίηση"" για να ληφθούν δικαιώματα διαχειριστή."
     IDS_APP_DESCRIPTION     "Ένα από τα πιο ισχυρά, προσαρμόσιμα προγράμματα αναπαραγωγής πολυμέσων για το λειτουργικό σύστημα των Windows. Αρχικά δημιουργήθηκε από έναν Ούγγρο προγραμματιστή, γνωστό ως Gabest. Αυτή η έκδοση έχει πρόσθετες δυνατότητες όπως η κατάσταση λειτουργίας Direct 3D πλήρους οθόνης και καλύτερη υποστήριξη για Windows Vista/7."
     IDS_MAINFRM_12          "κανάλι"
     IDS_MAINFRM_13          "κανάλια"
@@ -3172,7 +3172,7 @@ STRINGTABLE
 BEGIN
     IDS_ADDTOPLS_FROMDIR_SIMILAR "similar files from folder"
     IDS_ADDTOPLS_FROMDIR_ALL "all files from folder"
-    IDS_EXCLUSIVE_FS_WARNING  "Η επιλογή αυτή έχει σχεδιαστεί για την αποφυγή σχισίματος. Ωστόσο, θα αποτρέψει επίσης το MPC-BE\nαπό την εμφάνιση των μενού περιβάλλοντος και παραθύρων διαλόγου κατά την αναπαραγωγή.\n\nΓια να βγείτε από την αναπαραγωγή Direct3D πλήρους οθόνης, πρέπει να πιέσετε: Ctrl + C.\n\nΕίστε βέβαιος ότι θέλετε να ενεργοποιήσετε αυτήν την επιλογή;"
+    IDS_EXCLUSIVE_FS_WARNING  "Η επιλογή αυτή έχει σχεδιαστεί για την αποφυγή σχισίματος. Ωστόσο, θα αποτρέψει επίσης το MPC-WJ\nαπό την εμφάνιση των μενού περιβάλλοντος και παραθύρων διαλόγου κατά την αναπαραγωγή.\n\nΓια να βγείτε από την αναπαραγωγή Direct3D πλήρους οθόνης, πρέπει να πιέσετε: Ctrl + C.\n\nΕίστε βέβαιος ότι θέλετε να ενεργοποιήσετε αυτήν την επιλογή;"
     IDS_MAINFRM_139         "Καθυστέρηση υποτίτλων: %ld ms"
     IDS_AG_TITLE2           "Τίτλος: %02d/%02d"
     IDS_THUMB_ROWNUMBER     "Γραμμές:"
@@ -3243,7 +3243,7 @@ BEGIN
     IDS_GAIN_OSD            "Κέρδος: %+.1f dB"
     IDS_BALANCE_OSD         "Ισορροπία: %s"
     IDS_FULLSCREENMONITOR_CURRENT "Τρέχουσα"
-    IDS_MPC_CRASH           "Το MPC-BE τερματίστηκε απροσδόκητα. Για να βοηθήσετε να διορθωθεί αυτό το πρόβλημα, παρακαλούμε να στείλετε το αρχείο ""%s"" στην κονσόλα παρακολούθησης σφαλμάτων μας.\n\nΘέλετε να ανοίξετε το φάκελο που περιέχει το αρχείο ένδειξης σφαλμάτων και να επισκεφθείτε την κονσόλα παρακολούθησης σφαλμάτων τώρα;"
+    IDS_MPC_CRASH           "Το MPC-WJ τερματίστηκε απροσδόκητα. Για να βοηθήσετε να διορθωθεί αυτό το πρόβλημα, παρακαλούμε να στείλετε το αρχείο ""%s"" στην κονσόλα παρακολούθησης σφαλμάτων μας.\n\nΘέλετε να ανοίξετε το φάκελο που περιέχει το αρχείο ένδειξης σφαλμάτων και να επισκεφθείτε την κονσόλα παρακολούθησης σφαλμάτων τώρα;"
     IDS_MPC_MINIDUMP_FAIL   "Απέτυχε η δημιουργία αρχείου ένδειξης σφαλμάτων σε ""%s"" (σφάλμα %d)"
     IDS_MAINFRM_DIR_TITLE   "Επιλέξτε κατάλογο"
     IDS_MAINFRM_DIR_CHECK   "Περιλαμβάνονται υποφάκελοι"
@@ -3301,7 +3301,7 @@ BEGIN
     IDS_AG_REMOVING         "Αφαίρεση: "
     IDS_MAINFRM_134         "Προειδοποίηση: CMainFrame::CloseMedia() κλήθηκε δύο ή περισσότερες φορές\n"
     IDS_MAINFRM_135         "ΚΡΙΣΙΜΟ ΣΦΑΛΜΑ: !!! Πρέπει να τερματιστεί η διεργασία ανοίγματος !!!"
-    IDS_MAINFRM_136         "Αποκλειστική πλήρης οθόνη MPC-BE"
+    IDS_MAINFRM_136         "Αποκλειστική πλήρης οθόνη MPC-WJ"
     IDS_MAINFRM_137         "Άγνωστη μορφή"
     IDS_MAINFRM_138         "Μετατόπιση υποτίτλων: %ld ms"
     IDS_VOLUME_GAIN_INC     "Διεύρυνση αύξησης έντασης"
@@ -3330,7 +3330,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Χρήση: mpc-be.exe ""κατάλογος"" [παράμετροι]"
+    IDS_CMD_USAGE           "Χρήση: mpc-wj.exe ""κατάλογος"" [παράμετροι]"
     IDS_CMD_PATHNAME        """κατάλογος""\tΤο κύριο αρχείο ή ο κατάλογος που θα φορτωθεί\n(τα wildcards επιτρέπονται)"
     IDS_CMD_HELP            "/help /h /?\tΕμφάνιση βοήθειας σχετικά με τις παραμέτρους της γραμμής εντολών"
     IDS_CMD_DUB             "/dub ""αρχείο ήχου""\tΦόρτωση ενός πρόσθετου αρχείου ήχου"
@@ -3352,7 +3352,7 @@ BEGIN
     IDS_CMD_SHUTDOWN        "/shutdown\tΤερματισμός του συστήματος μετά την αναπαραγωγή"
     IDS_CMD_FULLSCREEN      "/fullscreen\tΈκκίνηση σε λειτουργία πλήρους οθόνης"
     IDS_CMD_MINIMIZED       "/minimized\tΈκκίνηση σε ελαχιστοποιημένη λειτουργία"
-    IDS_CMD_NEW             "/new\tΕκκινεί μια νέα παρουσία του MPC-BE"
+    IDS_CMD_NEW             "/new\tΕκκινεί μια νέα παρουσία του MPC-WJ"
     IDS_CMD_ADD             "/add\tΠροσθήκη του ""κατάλογος"" στη λίστα αναπαραγωγής.\nΜπορεί να συνδυαστεί με /open και /play"
 END
 
@@ -3367,7 +3367,7 @@ BEGIN
     IDS_CMD_START           "/start ms\tΈναρξη αναπαραγωγής στα ""ms"" (= χιλιοστά δευτερολέπτου)"
     IDS_CMD_STARTPOS        "/startpos hh:mm:ss\tΈναρξη αναπαραγωγής στη θέση hh:mm:ss"
     IDS_CMD_FIXEDSIZE       "/fixedsize w,h\tΟρίζει το μέγεθος ενός σταθερού παραθύρου"
-    IDS_CMD_MONITOR         "/monitor N\tΕκκίνηση του MPC-BE στην οθόνη N (όπου το N ξεκινά από 1)"
+    IDS_CMD_MONITOR         "/monitor N\tΕκκίνηση του MPC-WJ στην οθόνη N (όπου το N ξεκινά από 1)"
     IDS_CMD_AUDIORENDERER   "/audiorenderer ""name""\tStart using audiorenderer, where ""name"" is the name\nof the audio renderer (see ""Audio"" settings)"
     IDS_CMD_VOLUME          "/volume N\tSet Volume, where N is a range from 0 to 100"
     IDS_CMD_CLIPBOARD       "/clipboard\tΆνοιγμα διαδρομών/συνδέσεων από το πρόχειρο"
@@ -3771,7 +3771,7 @@ BEGIN
     IDS_RESET_COLOR         "Επαναφορά ρυθμίσεων χρώματος"
     IDS_UPDATE_ERROR_DATA   "The update server gives the wrong data.\n\nPlease try later."
     IDS_USING_NEWER_VERSION "Χρησιμοποιείτε ήδη την πιο πρόσφατη έκδοση %s."
-    IDS_NEW_UPDATE_AVAILABLE  "Μια νέα %s είναι διαθέσιμη.\n\nΘέλεις να επισκεφτείς την ιστοσελίδα του MPC-BE's για λήψη;"
+    IDS_NEW_UPDATE_AVAILABLE  "Μια νέα %s είναι διαθέσιμη.\n\nΘέλεις να επισκεφτείς την ιστοσελίδα του MPC-WJ's για λήψη;"
     IDS_UPDATE_ERROR_CONNECT  "Ο διακομιστής ενημερώσεων δεν βρέθηκε.\n\nΠαρακαλώ ελέγξτε τη σύνδεση διαδικτύου σας ή προσπαθήστε πάλι αργότερα."
     IDS_UPDATE_CLOSE        "&Κλείσιμο"
     IDS_OSD_ZOOM            "Εστίαση: %.0lf%%"
@@ -3805,7 +3805,7 @@ BEGIN
     IDS_GOTO_ERROR_PARSING_FPS "Σφάλμα ανάλυσης του ρυθμού καρέ που έχει εισαχθεί!"
     IDS_FRAME_STEP_ERROR_RENDERER  "Δεν είναι δυνατό το βήμα καρέ.\nΔοκιμάστε μια διαφορετική απόδοση βίντεο."
     IDS_SCREENSHOT_ERROR_SHOCKWAVE  "Οι επιλογές ""Αποθήκευση εικόνας"" και ""Αποθήκευση μικρογραφιών"" δεν λειτουργούν για αρχεία Shockwave."
-    IDS_SCREENSHOT_ERROR_OVERLAY  "Οι επιλογές ""Αποθήκευση εικόνας"" και ""Αποθήκευση μικρογραφιών"" δεν λειτουργούν με την απόδοση βίντεο Overlay Mixer.\nΑλλάξτε την απόδοση βίντεο στις επιλογές εξόδου του MPC-BE και ανοίξτε πάλι το αρχείο."
+    IDS_SCREENSHOT_ERROR_OVERLAY  "Οι επιλογές ""Αποθήκευση εικόνας"" και ""Αποθήκευση μικρογραφιών"" δεν λειτουργούν με την απόδοση βίντεο Overlay Mixer.\nΑλλάξτε την απόδοση βίντεο στις επιλογές εξόδου του MPC-WJ και ανοίξτε πάλι το αρχείο."
     IDS_SUBDL_DLG_CONNECT_ERROR  "Δεν ήταν δυνατή η σύνδεση με τη βάση δεδομένων υποτίτλων."
 END
 
@@ -3983,14 +3983,14 @@ BEGIN
     BEGIN
         BLOCK "040804e5"
         BEGIN
-            VALUE "Comments", "Greek language resource for MPC-BE"
+            VALUE "Comments", "Greek language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Greek language resource for MPC-BE"
+            VALUE "FileDescription", "Greek language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.el.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

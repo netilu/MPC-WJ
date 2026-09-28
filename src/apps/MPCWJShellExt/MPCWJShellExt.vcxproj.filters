@@ -7,13 +7,13 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MPCBEShellExt.cpp">
+    <ClCompile Include="MPCWJShellExt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MPCBEContextMenu.cpp">
+    <ClCompile Include="MPCWJContextMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MPCBEShellExt_i.c">
+    <ClCompile Include="MPCWJShellExt_i.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -21,7 +21,7 @@
     <ClInclude Include="dllmain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MPCBEContextMenu.h">
+    <ClInclude Include="MPCWJContextMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
@@ -30,17 +30,17 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MPCBEShellExt_i.h">
+    <ClInclude Include="MPCWJShellExt_i.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="MPCBEShellExt.idl" />
+    <Midl Include="MPCWJShellExt.idl" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="MPCBEShellExt.def" />
-    <None Include="MPCBEContextMenu.rgs" />
-    <None Include="MPCBEShellExt.rgs" />
+    <None Include="MPCWJShellExt.def" />
+    <None Include="MPCWJContextMenu.rgs" />
+    <None Include="MPCWJShellExt.rgs" />
     <None Include="res\film_add.bmp">
       <Filter>Resource Files</Filter>
     </None>
@@ -60,7 +60,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="MPCBEShellExt.rc">
+    <ResourceCompile Include="MPCWJShellExt.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>

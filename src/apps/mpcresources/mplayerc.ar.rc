@@ -218,11 +218,11 @@ CAPTION "حول"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "حقوق النشر © 2002-2026 انظر ملف Authors.txt",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "الإصدار:",IDC_VERSION,30,34,90,8
-    LTEXT           "مترجم MPC-BE:",IDC_STATIC,30,66,90,8
+    LTEXT           "مترجم MPC-WJ:",IDC_STATIC,30,66,90,8
     LTEXT           "مترجم FFmpeg:",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil:",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,9 +230,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "هذا البرنامج مجاني ويوزع تحت رخصة GNU العامة.",IDC_STATIC,30,138,200,18
     LTEXT           "الترجمة: Amer Alhlhli(Al3mer) م.عامر عبده الحلحلي  ",IDC_STATIC,30,161,200,18
@@ -409,7 +409,7 @@ BEGIN
     PUSHBUTTON      "&تحرير",IDC_BUTTON5,42,198,63,14,NOT WS_VISIBLE
     PUSHBUTTON      "&الكل",IDC_BUTTON1,108,198,40,14
     PUSHBUTTON      "&لا شيء",IDC_BUTTON6,150,198,40,14
-    CONTROL         "استخدام أيقونات MPC-BE",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,200,201,70,9
+    CONTROL         "استخدام أيقونات MPC-WJ",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,200,201,70,9
     GROUPBOX        "تشغيل تلقائي (XP فقط)",IDC_STATIC1,5,217,108,37
     CONTROL         "فيديو",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,229,47,9
     CONTROL         "موسيقى",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,241,47,9
@@ -673,7 +673,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "تحذير"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "لا يمكن لـ MPC-BE تقديم بعض نقاط الرسم البياني، حيث أن المرشحات أو برامج الترميز اللازمة غير موجودة على جهازك.",IDC_STATIC1,5,5,286,18
+    LTEXT           "لا يمكن لـ MPC-WJ تقديم بعض نقاط الرسم البياني، حيث أن المرشحات أو برامج الترميز اللازمة غير موجودة على جهازك.",IDC_STATIC1,5,5,286,18
     LTEXT           "لم يتمكن العنصر (العناصر) التالي من العثور على مرشح مناسب:",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -1784,12 +1784,12 @@ BEGIN
     MENUITEM "ال&مفضلة",                  ID_SUBMENU_FAVORITES_MAIN
     POPUP "&مساعدة"
     BEGIN
-        MENUITEM "&موقع MPC-BE على الويب",                  ID_HELP_HOMEPAGE
+        MENUITEM "&موقع MPC-WJ على الويب",                  ID_HELP_HOMEPAGE
         MENUITEM "التحقق من الت&حديثات",          ID_HELP_CHECKFORUPDATE
         MENUITEM "خيارات سطر الأوامر",      ID_HELP_SHOWCOMMANDLINESWITCHES
         MENUITEM "تنزيل &أشرطة الأدوات",    ID_HELP_TOOLBARIMAGES
         MENUITEM SEPARATOR
-        MENUITEM "&حول MPC-BE...",                   ID_HELP_ABOUT
+        MENUITEM "&حول MPC-WJ...",                   ID_HELP_ABOUT
     END
 END
 
@@ -2044,11 +2044,11 @@ BEGIN
         MENUITEM "ال&مفضلة",                  ID_SUBMENU_FAVORITES
         POPUP "&مساعدة"
         BEGIN
-            MENUITEM "&موقع MPC-BE على الويب",                  ID_HELP_HOMEPAGE
+            MENUITEM "&موقع MPC-WJ على الويب",                  ID_HELP_HOMEPAGE
             MENUITEM "التحقق من التحديثات",          ID_HELP_CHECKFORUPDATE
             MENUITEM "خيارات سطر الأوامر",      ID_HELP_SHOWCOMMANDLINESWITCHES
             MENUITEM SEPARATOR
-            MENUITEM "&حول MPC-BE...",                   ID_HELP_ABOUT
+            MENUITEM "&حول MPC-WJ...",                   ID_HELP_ABOUT
         END
         MENUITEM SEPARATOR
         MENUITEM "ال&مرشحات",                    ID_SUBMENU_FILTERS
@@ -2354,7 +2354,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2548,7 +2548,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2652,7 +2652,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "قياس الألوان النسبي"
     IDS_CM_INTENT_SATURATION "تشبع"
     IDS_CM_INTENT_ABSOLUTECM "قياس الألوان المطلق"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "المعاينة معطلة حاليًا. يمكنك تمكينها في خيارات MPC-BE."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "المعاينة معطلة حاليًا. يمكنك تمكينها في خيارات MPC-WJ."
 END
 
 STRINGTABLE
@@ -2698,7 +2698,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "الحالة الافتراضية تصبح موروثة للأنماط الأخرى حيث لا تزال غير محددة بوضوح"
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "تعطيل هذا الخيار سيمنع وميض الترجمات، ولكن قد يتسبب في تخطي محرك عرض الفيديو لبعض إطارات الفيديو."
     IDC_CHECK_SPCANIMWITHBUFFER  "يسمح باستخدام الترجمات عند استخدام buffer للصور الفرعية أكبر من 0. تعطيل هذا الخيار سيقلل من استخدام المعالج. قم بتعطيله إذا واجهت وميضًا في الترجمات."
-    IDC_BUTTON_EXT_SET      "بعد النقر على هذا الزر، يجب أن تعكس خانة الاختيار لمجموعة التنسيق الارتباط الحالي للملف مع MPC-BE. عادةً ما تكون الامتدادات المُضافة حديثًا معتمدة، لا تنسَ تحديدها مرة أخرى قبل إغلاق مربع الحوار هذا!"
+    IDC_BUTTON_EXT_SET      "بعد النقر على هذا الزر، يجب أن تعكس خانة الاختيار لمجموعة التنسيق الارتباط الحالي للملف مع MPC-WJ. عادةً ما تكون الامتدادات المُضافة حديثًا معتمدة، لا تنسَ تحديدها مرة أخرى قبل إغلاق مربع الحوار هذا!"
 END
 
 STRINGTABLE
@@ -2891,8 +2891,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "مسار &الفيديو"
     IDS_MENU_VIDEO_ANGLE    "زاوية ال&فيديو"
     IDS_RESET_SETTINGS      "إعادة تعيين الإعدادات"
-    IDS_RESET_SETTINGS_WARNING  "هل أنت متأكد من أنك تريد استعادة الإعدادات الافتراضية لـ MPC-BE؟\nلاحظ أن جميع إعداداتك الحالية سيتم فقدانها!"
-    IDS_RESET_SETTINGS_MUTEX  "يرجى إغلاق جميع نسخ MPC-BE ليتم استعادة الإعدادات الافتراضية."
+    IDS_RESET_SETTINGS_WARNING  "هل أنت متأكد من أنك تريد استعادة الإعدادات الافتراضية لـ MPC-WJ؟\nلاحظ أن جميع إعداداتك الحالية سيتم فقدانها!"
+    IDS_RESET_SETTINGS_MUTEX  "يرجى إغلاق جميع نسخ MPC-WJ ليتم استعادة الإعدادات الافتراضية."
     IDS_EXPORT_SETTINGS     "تصدير الإعدادات"
     IDS_EXPORT_SETTINGS_WARNING  "بعض التغييرات لم يتم حفظها بعد.\nهل ترغب في تطبيقها قبل التصدير؟"
     IDS_EXPORT_SETTINGS_SUCCESS  "تم تصدير الإعدادات بنجاح."
@@ -3125,9 +3125,9 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "ضبط تلقائي"
     IDS_ZOOM_AUTOFITLARGE   "ضبط تلقائي (أكبر فقط)"
-    IDS_ADD_TO_PLAYLIST     "إضافة إلى قائمة تشغيل MPC-BE"
-    IDS_OPEN_WITH_MPC       "تشغيل بواسطة MPC-BE"
-    IDS_CANNOT_CHANGE_FORMAT  "ليس لديك أذونات كافية لتغيير ارتباطات تنسيقات الملفات. يرجى النقر على زر ""تعديل"" لمنح MPC-BE صلاحيات المسؤول."
+    IDS_ADD_TO_PLAYLIST     "إضافة إلى قائمة تشغيل MPC-WJ"
+    IDS_OPEN_WITH_MPC       "تشغيل بواسطة MPC-WJ"
+    IDS_CANNOT_CHANGE_FORMAT  "ليس لديك أذونات كافية لتغيير ارتباطات تنسيقات الملفات. يرجى النقر على زر ""تعديل"" لمنح MPC-WJ صلاحيات المسؤول."
     IDS_APP_DESCRIPTION     "واحد من أقوى مشغلات الوسائط وقابل للتخصيص لأنظمة Windows. أنشئه في الأصل مطور مجري معروف باسم Gabest، تحتوي هذه النسخة على ميزات متقدمة مثل وضع Direct 3D لملء الشاشة ودعم أفضل لنظامي Windows Vista/7."
     IDS_MAINFRM_12          "قناة"
     IDS_MAINFRM_13          "قنوات"
@@ -3170,14 +3170,14 @@ STRINGTABLE
 BEGIN
     IDS_ADDTOPLS_FROMDIR_SIMILAR "ملفات مشابهة في المجلد"
     IDS_ADDTOPLS_FROMDIR_ALL "جميع الملفات في المجلد"
-    IDS_EXCLUSIVE_FS_WARNING  "هذا الخيار مصمم لمنع التمزق. ومع ذلك، فإنه يمنع MPC-BE من عرض القوائم السياقية ومربعات الحوار أثناء التشغيل.\n\nللخروج من وضع ملء الشاشة الحصري لـ Direct3D وإيقاف التشغيل، يجب استخدام الاختصار ""Ctrl + C"".\n\nهل أنت متأكد حقًا من أنك تريد تمكين هذا الخيار؟"
+    IDS_EXCLUSIVE_FS_WARNING  "هذا الخيار مصمم لمنع التمزق. ومع ذلك، فإنه يمنع MPC-WJ من عرض القوائم السياقية ومربعات الحوار أثناء التشغيل.\n\nللخروج من وضع ملء الشاشة الحصري لـ Direct3D وإيقاف التشغيل، يجب استخدام الاختصار ""Ctrl + C"".\n\nهل أنت متأكد حقًا من أنك تريد تمكين هذا الخيار؟"
     IDS_MAINFRM_139         "تأخير الترجمات: %ld ms"
     IDS_AG_TITLE2           "العنوان: %02d/%02d"
     IDS_THUMB_ROWNUMBER     "الصفوف:"
     IDS_THUMB_COLNUMBER     "الأعمدة:"
     IDS_THUMB_IMAGE_WIDTH   "عرض الصورة"
     IDS_PPSDB_URLCORRECT    "عنوان الموقع صحيح"
-    IDS_PPSDB_PROTOCOLERR   "بروتوكول اتصال غير صحيح، يرجى تحديث MPC-BE أو تحديد عنوان آخر"
+    IDS_PPSDB_PROTOCOLERR   "بروتوكول اتصال غير صحيح، يرجى تحديث MPC-WJ أو تحديد عنوان آخر"
 END
 
 STRINGTABLE
@@ -3241,7 +3241,7 @@ BEGIN
     IDS_GAIN_OSD            "كسب: %+.1f dB"
     IDS_BALANCE_OSD         "التوازن: %s"
     IDS_FULLSCREENMONITOR_CURRENT "حالي"
-    IDS_MPC_CRASH           "أغلق MPC-BE بشكل غير متوقع. لمساعدتنا في حل هذه المشكلة، يرجى إرسال هذا الملف '%s' إلى أداة تتبع الأخطاء الخاصة بنا.\n\nهل تريد فتح المجلد الذي يحتوي على ملف التفريغ المصغر وزيارة أداة تتبع الأخطاء الآن؟"
+    IDS_MPC_CRASH           "أغلق MPC-WJ بشكل غير متوقع. لمساعدتنا في حل هذه المشكلة، يرجى إرسال هذا الملف '%s' إلى أداة تتبع الأخطاء الخاصة بنا.\n\nهل تريد فتح المجلد الذي يحتوي على ملف التفريغ المصغر وزيارة أداة تتبع الأخطاء الآن؟"
     IDS_MPC_MINIDUMP_FAIL   "تعذر إنشاء التفريغ المصغر '%s' (خطأ %d)"
     IDS_MAINFRM_DIR_TITLE   "حدد الدليل"
     IDS_MAINFRM_DIR_CHECK   "تضمين المجلدات الفرعية"
@@ -3299,7 +3299,7 @@ BEGIN
     IDS_AG_REMOVING         "جاري الإزالة: "
     IDS_MAINFRM_134         "تحذير: تم استدعاء CMainFrame::CloseMedia() مرتين أو أكثر\n"
     IDS_MAINFRM_135         "خطأ حرج: !!! إجبار على إغلاق العملية المفتوحة !!!"
-    IDS_MAINFRM_136         "وضع ملء الشاشة الحصري لـ MPC-BE"
+    IDS_MAINFRM_136         "وضع ملء الشاشة الحصري لـ MPC-WJ"
     IDS_MAINFRM_137         "تنسيق غير معروف"
     IDS_MAINFRM_138         "إزاحة الترجمات: %ld"
     IDS_VOLUME_GAIN_INC     "زيادة ربح الصوت"
@@ -3328,7 +3328,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "طريقة الاستخدام: mpc-be.exe ""اسم الملف"" [خيارات]"
+    IDS_CMD_USAGE           "طريقة الاستخدام: mpc-wj.exe ""اسم الملف"" [خيارات]"
     IDS_CMD_PATHNAME        """اسم الملف""\tالملف الرئيسي أو الدليل للتحميل (الرموز العامة\nمسموحة)"
     IDS_CMD_HELP            "/help /h /?\tعرض التعليمات لخيارات سطر الأوامر"
     IDS_CMD_DUB             "/dub ""ملف صوتي""\tتحميل ملف صوتي إضافي"
@@ -3350,22 +3350,22 @@ BEGIN
     IDS_CMD_SHUTDOWN        "/shutdown\tإيقاف تشغيل الجهاز بعد التشغيل"
     IDS_CMD_FULLSCREEN      "/fullscreen\tبدء في وضع ملء الشاشة"
     IDS_CMD_MINIMIZED       "/minimized\tبدء في وضع مصغر"
-    IDS_CMD_NEW             "/new\tتشغيل نسخة جديدة من MPC-BE"
+    IDS_CMD_NEW             "/new\tتشغيل نسخة جديدة من MPC-WJ"
     IDS_CMD_ADD             "/add\tإضافة ملف إلى قائمة التشغيل"
 END
 
 STRINGTABLE
 BEGIN
     IDS_CMD_RANDOMIZE       "/randomize\tعشوائية قائمة التشغيل"
-    IDS_CMD_REGVID          "/regvid\tربط تنسيقات الفيديو بـ MPC-BE"
-    IDS_CMD_REGAUD          "/regaud\tربط تنسيقات الصوت بـ MPC-BE"
+    IDS_CMD_REGVID          "/regvid\tربط تنسيقات الفيديو بـ MPC-WJ"
+    IDS_CMD_REGAUD          "/regaud\tربط تنسيقات الصوت بـ MPC-WJ"
     IDS_CMD_REGPL           "/regpl\tإنشاء ارتباطات ملفات لملفات قائمة التشغيل"
     IDS_CMD_REGALL          "/regall\tإنشاء ارتباطات ملفات لجميع أنواع الملفات المدعومة"
-    IDS_CMD_UNREGALL        "/unregall\tإلغاء ربط تنسيقات الفيديو بـ MPC-BE"
+    IDS_CMD_UNREGALL        "/unregall\tإلغاء ربط تنسيقات الفيديو بـ MPC-WJ"
     IDS_CMD_START           "/start ms\tبدء التشغيل عند ""ms"" (مللي ثانية)"
     IDS_CMD_STARTPOS        "/startpos hh:mm:ss\tبدء التشغيل عند الموضع hh:mm:ss"
     IDS_CMD_FIXEDSIZE       "/fixedsize L,H\tضبط حجم نافذة الفيديو إلى LxH"
-    IDS_CMD_MONITOR         "/monitor N\tبدء MPC-BE على الشاشة N (N بدءًا من 1)"
+    IDS_CMD_MONITOR         "/monitor N\tبدء MPC-WJ على الشاشة N (N بدءًا من 1)"
     IDS_CMD_AUDIORENDERER   "/audiorenderer ""name""\tبدء استخدام عارض الصوت، حيث ""name"" هو الاسم\nلعارض الصوت (انظر إعدادات ""الصوت"")"
     IDS_CMD_VOLUME          "/volume N\tضبط مستوى الصوت، حيث N هو نطاق من 0 إلى 100"
     IDS_CMD_CLIPBOARD       "/clipboard\tفتح المسارات/الروابط من الحافظة"
@@ -3769,7 +3769,7 @@ BEGIN
     IDS_RESET_COLOR         "إعادة تعيين إعدادات الألوان"
     IDS_UPDATE_ERROR_DATA   "خادم التحديث يعطي بيانات خاطئة.\n\nيرجى المحاولة مرة أخرى لاحقًا."
     IDS_USING_NEWER_VERSION "أنت تستخدم بالفعل الإصدار الأحدث %s."
-    IDS_NEW_UPDATE_AVAILABLE  "الإصدار %s الجديد متوفر.\n\nهل تريد زيارة موقع MPC-BE لتنزيله؟"
+    IDS_NEW_UPDATE_AVAILABLE  "الإصدار %s الجديد متوفر.\n\nهل تريد زيارة موقع MPC-WJ لتنزيله؟"
     IDS_UPDATE_ERROR_CONNECT  "تعذر التحقق من التحديثات.\n\nتحقق من اتصالك بالإنترنت أو حاول مرة أخرى لاحقًا."
     IDS_UPDATE_CLOSE        "&إغلاق"
     IDS_OSD_ZOOM            "التكبير: %.0lf%%"
@@ -3803,7 +3803,7 @@ BEGIN
     IDS_GOTO_ERROR_PARSING_FPS "فشل تحليل معدل الإطارات المدخل!"
     IDS_FRAME_STEP_ERROR_RENDERER  "لا يمكن استخدام التقدم إطارًا بإطار.\nحاول استخدام عارض فيديو آخر."
     IDS_SCREENSHOT_ERROR_SHOCKWAVE  "وظائف ""حفظ الصورة"" و ""حفظ الصور المصغرة"" لملفات Shockwave."
-    IDS_SCREENSHOT_ERROR_OVERLAY  "وظائف ""حفظ الصورة"" و ""حفظ الصور المصغرة"" لا تعمل مع عرض الفيديو Overlay.\nغير عرض الفيديو في خيارات إخراج MPC-BE وأعد فتح الملف."
+    IDS_SCREENSHOT_ERROR_OVERLAY  "وظائف ""حفظ الصورة"" و ""حفظ الصور المصغرة"" لا تعمل مع عرض الفيديو Overlay.\nغير عرض الفيديو في خيارات إخراج MPC-WJ وأعد فتح الملف."
     IDS_SUBDL_DLG_CONNECT_ERROR  "تعذر الاتصال بقاعدة بيانات الترجمة عبر الإنترنت."
 END
 
@@ -3981,14 +3981,14 @@ BEGIN
     BEGIN
         BLOCK "040104b0"
         BEGIN
-            VALUE "Comments", "Arabic language resource for MPC-BE"
+            VALUE "Comments", "Arabic language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Arabic language resource for MPC-BE"
+            VALUE "FileDescription", "Arabic language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.ar.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

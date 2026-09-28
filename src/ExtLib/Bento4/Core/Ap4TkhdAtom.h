@@ -83,7 +83,7 @@ public:
     AP4_UI32 GetWidth() const {return m_Width;}
     AP4_UI32 GetHeight() const {return m_Height;}
 
-// MPC-BE custom code start
+// MPC-WJ custom code start
     AP4_Integer GetRotation() {
         double rotation = atan2((double)(AP4_Integer)m_Matrix[1], (double)(AP4_Integer)m_Matrix[0]) * 180 / M_PI;
         if (rotation < 0) {
@@ -95,7 +95,7 @@ public:
         num = m_PictARNum;
         den = m_PictARDen;
     }
-// MPC-BE custom code end
+// MPC-WJ custom code end
 
  private:
     // members

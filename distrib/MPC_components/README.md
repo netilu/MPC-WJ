@@ -1,4 +1,4 @@
-Binary files for the MPC-BE installer.
+Binary files for the MPC-WJ installer.
 
 ## DirectX
 * d3dcompiler_47.dll (6.3.9600.16384)

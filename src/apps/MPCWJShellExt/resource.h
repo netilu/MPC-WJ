@@ -1,12 +1,12 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by MPCBEShellExt.rc
+// Used by MPCWJShellExt.rc
 //
 #define IDS_PROJNAME                    100
-#define IDR_MPCBESHELLEXT               101
-#define IDR_MPCBECONTEXTMENU            103
-#define IDB_MPCBEBMP_PLAY               200
-#define IDB_MPCBEBMP_ADD                201
+#define IDR_MPCWJSHELLEXT               101
+#define IDR_MPCWJCONTEXTMENU            103
+#define IDB_MPCWJBMP_PLAY               200
+#define IDB_MPCWJBMP_ADD                201
 
 // Next default values for new objects
 // 

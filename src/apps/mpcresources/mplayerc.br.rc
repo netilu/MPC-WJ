@@ -218,11 +218,11 @@ CAPTION "Sobre"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "Copyright © 2002-2026 - veja o arquivo Authors.txt",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "Versão :",IDC_VERSION,30,34,90,8
-    LTEXT           "Compilador MPC-BE :",IDC_STATIC,30,66,90,8
+    LTEXT           "Compilador MPC-WJ :",IDC_STATIC,30,66,90,8
     LTEXT           "Compilador FFmpeg :",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil :",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,9 +230,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "Este programa é freeware e liberado sob a GNU Licença Pública Geral.",IDC_STATIC,30,138,200,18
     LTEXT           "Tradução para o Português (Brasil) por Siegfried Janke",IDC_STATIC,30,161,200,18
@@ -673,7 +673,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Aviso"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "MPC-BE não conseguiu renderizar alguns dos pinos no gráfico, você pode não ter os codecs ou filtros necessários instalados no sistema.",IDC_STATIC1,5,5,286,18
+    LTEXT           "MPC-WJ não conseguiu renderizar alguns dos pinos no gráfico, você pode não ter os codecs ou filtros necessários instalados no sistema.",IDC_STATIC1,5,5,286,18
     LTEXT           "Os seguintes pinos não conseguiram encontrar um filtro conectável:",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -2356,7 +2356,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2550,7 +2550,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2654,7 +2654,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "Colorimétrico relativo"
     IDS_CM_INTENT_SATURATION "Saturação"
     IDS_CM_INTENT_ABSOLUTECM "Colorimétrico absoluto"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Prévia está desativada no momento. Você pode ativá-la nas opções MPC-BE."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Prévia está desativada no momento. Você pode ativá-la nas opções MPC-WJ."
 END
 
 STRINGTABLE
@@ -2700,7 +2700,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "O estado padrão é herdado para outros estilos onde ainda é indefinido"
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "Desativar esta opção impedirá que as legendas pisquem, mas pode fazer com que o renderizador de vídeo pule alguns quadros de vídeo."
     IDC_CHECK_SPCANIMWITHBUFFER  "Permitir animação de legenda ao usar um buffer de legenda maior que 0. Desativar esta opção diminuirá o uso da CPU. Também desative se houver legendas piscando."
-    IDC_BUTTON_EXT_SET      "Após clicar neste botão, o estado marcado do grupo de formatos refletirá a associação de arquivo real do MPC-BE. Uma extensão recém-adicionada geralmente a deixará em cinza, então não se esqueça de verificar novamente antes de fechar este diálogo!"
+    IDC_BUTTON_EXT_SET      "Após clicar neste botão, o estado marcado do grupo de formatos refletirá a associação de arquivo real do MPC-WJ. Uma extensão recém-adicionada geralmente a deixará em cinza, então não se esqueça de verificar novamente antes de fechar este diálogo!"
 END
 
 STRINGTABLE
@@ -2893,8 +2893,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "&Fluxo de vídeo"
     IDS_MENU_VIDEO_ANGLE    "Ângu&lo de vídeo"
     IDS_RESET_SETTINGS      "Resetar configurações"
-    IDS_RESET_SETTINGS_WARNING  "Tem certeza e quer restaurar as configurações padrão do MPC-BE?\nSeja avisado que TODAS as configurações atuais serão perdidas!"
-    IDS_RESET_SETTINGS_MUTEX  "Fechar todas as instâncias do MPC-BE para que as configurações padrão possam ser restauradas."
+    IDS_RESET_SETTINGS_WARNING  "Tem certeza e quer restaurar as configurações padrão do MPC-WJ?\nSeja avisado que TODAS as configurações atuais serão perdidas!"
+    IDS_RESET_SETTINGS_MUTEX  "Fechar todas as instâncias do MPC-WJ para que as configurações padrão possam ser restauradas."
     IDS_EXPORT_SETTINGS     "Configurar exportar"
     IDS_EXPORT_SETTINGS_WARNING  "Algumas mudanças ainda não foram salvas.\nDeseja salvá-las antes de exportar?"
     IDS_EXPORT_SETTINGS_SUCCESS  "As configurações foram exportadas com sucesso."
@@ -3127,9 +3127,9 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "Autoajustar"
     IDS_ZOOM_AUTOFITLARGE   "Autoajustar (apenas maior)"
-    IDS_ADD_TO_PLAYLIST     "Adicionar à lista de reprodução do MPC-BE"
-    IDS_OPEN_WITH_MPC       "Reproduzir com MPC-BE"
-    IDS_CANNOT_CHANGE_FORMAT  "MPC-BE não tem privilégios suficientes para mudar associações de formatos de arquivos. Clique no botão ""Modificar"" para obter direitos de administrador."
+    IDS_ADD_TO_PLAYLIST     "Adicionar à lista de reprodução do MPC-WJ"
+    IDS_OPEN_WITH_MPC       "Reproduzir com MPC-WJ"
+    IDS_CANNOT_CHANGE_FORMAT  "MPC-WJ não tem privilégios suficientes para mudar associações de formatos de arquivos. Clique no botão ""Modificar"" para obter direitos de administrador."
     IDS_APP_DESCRIPTION     "Um dos mais poderosos reprodutores multimídia configuráveis ​​para o sistema operacional Windows. Originalmente feita por um desenvolvedor húngaro conhecido como Gabest, esta versão possui recursos adicionais, como modo de tela cheia exclusivo e melhor suporte para Windows Vista/7."
     IDS_MAINFRM_12          "Canal"
     IDS_MAINFRM_13          "Canais"
@@ -3172,7 +3172,7 @@ STRINGTABLE
 BEGIN
     IDS_ADDTOPLS_FROMDIR_SIMILAR "arquivos semelhantes da pasta"
     IDS_ADDTOPLS_FROMDIR_ALL "todos os arquivos da pasta"
-    IDS_EXCLUSIVE_FS_WARNING  "A opção foi projetada para evitar distorção. No entanto, também impedirá que o MPC-BE exiba o menu de contexto e qualquer diálogo durante a reprodução.\n\nPara sair da tela cheia exclusiva, use as teclas: Alt+Enter, Ctrl+Enter ou Ctrl+C.\n\nVocê realmente deseja ativar esta opção?"
+    IDS_EXCLUSIVE_FS_WARNING  "A opção foi projetada para evitar distorção. No entanto, também impedirá que o MPC-WJ exiba o menu de contexto e qualquer diálogo durante a reprodução.\n\nPara sair da tela cheia exclusiva, use as teclas: Enter, Ctrl+Enter ou Ctrl+C.\n\nVocê realmente deseja ativar esta opção?"
     IDS_MAINFRM_139         "Sub demora: %ld ms"
     IDS_AG_TITLE2           "Título: %02d/%02d"
     IDS_THUMB_ROWNUMBER     "Linhas: "
@@ -3243,7 +3243,7 @@ BEGIN
     IDS_GAIN_OSD            "Ganho: %+.1f dB"
     IDS_BALANCE_OSD         "Balanço: %s"
     IDS_FULLSCREENMONITOR_CURRENT "Atual"
-    IDS_MPC_CRASH           "MPC-BE encerrado inesperadamente. Para nos ajudar a corrigir esse problema, envie este arquivo '%s' para nosso rastreador de bug.\n\nDeseja abrir a pasta que contém o arquivo minidespejo e visitar o rastreador de bug agora?"
+    IDS_MPC_CRASH           "MPC-WJ encerrado inesperadamente. Para nos ajudar a corrigir esse problema, envie este arquivo '%s' para nosso rastreador de bug.\n\nDeseja abrir a pasta que contém o arquivo minidespejo e visitar o rastreador de bug agora?"
     IDS_MPC_MINIDUMP_FAIL   "Falhou ao criar arquivo de despejo para '%s' (erro %d)"
     IDS_MAINFRM_DIR_TITLE   "Selecionar diretório"
     IDS_MAINFRM_DIR_CHECK   "Incluir subdiretórios"
@@ -3301,7 +3301,7 @@ BEGIN
     IDS_AG_REMOVING         "Removendo: "
     IDS_MAINFRM_134         "AVISO: CMainFrame::CloseMedia() chamado duas vezes ou mais\n"
     IDS_MAINFRM_135         "ERRO CRÍTICO: !!! Deve cancelar o encadeamento !!!"
-    IDS_MAINFRM_136         "MPC-BE em tela cheia exclusiva"
+    IDS_MAINFRM_136         "MPC-WJ em tela cheia exclusiva"
     IDS_MAINFRM_137         "Formato desconhecido"
     IDS_MAINFRM_138         "Sub deslocamento: %ld"
     IDS_VOLUME_GAIN_INC     "Aumentar ganho de volume"
@@ -3330,7 +3330,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Uso: mpc-be.exe ""pathname"" [opções]"
+    IDS_CMD_USAGE           "Uso: mpc-wj.exe ""pathname"" [opções]"
     IDS_CMD_PATHNAME        """pathname""\tO arquivo principal ou diretório a ser carregado\n(curingas permitidos)"
     IDS_CMD_HELP            "/help /h /?\tMostrar ajuda sobre opção linha de comando"
     IDS_CMD_DUB             "/dub ""dubname""\tCarregar um arquivo de áudio adicional"
@@ -3771,7 +3771,7 @@ BEGIN
     IDS_RESET_COLOR         "Resetar configurações de cor"
     IDS_UPDATE_ERROR_DATA   "The update server gives the wrong data.\n\nPlease try later."
     IDS_USING_NEWER_VERSION "Você já está usando a versão mais recente %s."
-    IDS_NEW_UPDATE_AVAILABLE  "Uma nova versão %s está disponível.\n\nDeseja visitar o site do MPC-BE para baixá-la?"
+    IDS_NEW_UPDATE_AVAILABLE  "Uma nova versão %s está disponível.\n\nDeseja visitar o site do MPC-WJ para baixá-la?"
     IDS_UPDATE_ERROR_CONNECT  "Servidor de atualização não encontrado.\n\nVerificar conexão com a Internet ou tente novamente mais tarde."
     IDS_UPDATE_CLOSE        "&Fechar"
     IDS_OSD_ZOOM            "Zoom: %.0lf%%"
@@ -3983,14 +3983,14 @@ BEGIN
     BEGIN
         BLOCK "041604b0"
         BEGIN
-            VALUE "Comments", "Portuguese (Brasil) language resource for MPC-BE"
+            VALUE "Comments", "Portuguese (Brasil) language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Portuguese (Brasil) language resource for MPC-BE"
+            VALUE "FileDescription", "Portuguese (Brasil) language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.br.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

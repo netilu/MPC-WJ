@@ -1,14 +1,14 @@
 /*
  * (C) 2012-2024 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -22,18 +22,18 @@
 #include <algorithm>
 #include <shellapi.h>
 #include <shlwapi.h>
-#include "MPCBEContextMenu.h"
+#include "MPCWJContextMenu.h"
 
-#define MPC_WND_CLASS_NAME L"MPC-BE"
+#define MPC_WND_CLASS_NAME L"MPC-WJ"
 
-// CMPCBEContextMenu
-#define ID_MPCBE_PLAY 0
+// CMPCWJContextMenu
+#define ID_MPCWJ_PLAY 0
 
-#define PLAY_MPC_RU  L"&Воспроизвести в MPC-BE"
-#define ADDTO_MPC_RU L"&Добавить в плейлист MPC-BE"
+#define PLAY_MPC_RU  L"&Воспроизвести в MPC-WJ"
+#define ADDTO_MPC_RU L"&Добавить в плейлист MPC-WJ"
 
-#define PLAY_MPC_EN  L"&Play with MPC-BE"
-#define ADDTO_MPC_EN L"&Add to MPC-BE Playlist"
+#define PLAY_MPC_EN  L"&Play with MPC-WJ"
+#define ADDTO_MPC_EN L"&Add to MPC-WJ Playlist"
 
 static HBITMAP TransparentBitmap(HBITMAP hBmp)
 {
@@ -102,13 +102,13 @@ static HBITMAP TransparentBitmap(HBITMAP hBmp)
 	return RetBmp;
 }
 
-CMPCBEContextMenu::CMPCBEContextMenu()
-	: m_hPlayBmp(TransparentBitmap(LoadBitmapW(_AtlBaseModule.GetModuleInstance(), MAKEINTRESOURCEW(IDB_MPCBEBMP_PLAY))))
-	, m_hAddBmp(TransparentBitmap(LoadBitmapW(_AtlBaseModule.GetModuleInstance(), MAKEINTRESOURCEW(IDB_MPCBEBMP_ADD))))
+CMPCWJContextMenu::CMPCWJContextMenu()
+	: m_hPlayBmp(TransparentBitmap(LoadBitmapW(_AtlBaseModule.GetModuleInstance(), MAKEINTRESOURCEW(IDB_MPCWJBMP_PLAY))))
+	, m_hAddBmp(TransparentBitmap(LoadBitmapW(_AtlBaseModule.GetModuleInstance(), MAKEINTRESOURCEW(IDB_MPCWJBMP_ADD))))
 {
 }
 
-CMPCBEContextMenu::~CMPCBEContextMenu()
+CMPCWJContextMenu::~CMPCWJContextMenu()
 {
 	if (m_hPlayBmp) {
 		DeleteObject(m_hPlayBmp);
@@ -169,14 +169,14 @@ static HRESULT DragFiles(LPDATAOBJECT lpdobj, std::vector<CStringW>& fileNames)
 
 // IShellExtInit
 
-STDMETHODIMP CMPCBEContextMenu::Initialize(LPCITEMIDLIST pidlFolder, LPDATAOBJECT lpdobj, HKEY hkeyProgID)
+STDMETHODIMP CMPCWJContextMenu::Initialize(LPCITEMIDLIST pidlFolder, LPDATAOBJECT lpdobj, HKEY hkeyProgID)
 {
 	return DragFiles(lpdobj, m_fileNames);
 }
 
 // IContextMenu
 
-STDMETHODIMP CMPCBEContextMenu::InvokeCommand(LPCMINVOKECOMMANDINFO lpici)
+STDMETHODIMP CMPCWJContextMenu::InvokeCommand(LPCMINVOKECOMMANDINFO lpici)
 {
 	if (0 != HIWORD(lpici->lpVerb)) {
 		return E_INVALIDARG;
@@ -184,10 +184,10 @@ STDMETHODIMP CMPCBEContextMenu::InvokeCommand(LPCMINVOKECOMMANDINFO lpici)
 
 	HRESULT hr = S_OK;
 	switch (LOWORD(lpici->lpVerb)) {
-		case ID_MPCBE_PLAY:
+		case ID_MPCWJ_PLAY:
 			SendData(false);
 			break;
-		case ID_MPCBE_PLAY + 1:
+		case ID_MPCWJ_PLAY + 1:
 			SendData(true);
 			break;
 		default:
@@ -197,7 +197,7 @@ STDMETHODIMP CMPCBEContextMenu::InvokeCommand(LPCMINVOKECOMMANDINFO lpici)
 	return hr;
 }
 
-STDMETHODIMP CMPCBEContextMenu::QueryContextMenu(HMENU hmenu, UINT indexMenu, UINT idCmdFirst, UINT idCmdLast, UINT uFlags)
+STDMETHODIMP CMPCWJContextMenu::QueryContextMenu(HMENU hmenu, UINT indexMenu, UINT idCmdFirst, UINT idCmdLast, UINT uFlags)
 {
 	// If the flags include CMF_DEFAULTONLY then we shouldn't do anything.
 	if ((uFlags & CMF_DEFAULTONLY)
@@ -232,13 +232,13 @@ STDMETHODIMP CMPCBEContextMenu::QueryContextMenu(HMENU hmenu, UINT indexMenu, UI
 
 	::InsertMenuW(hmenu, indexMenu++, MF_SEPARATOR | MF_BYPOSITION, 0, NULL);
 
-	::InsertMenuW(hmenu, indexMenu, MF_STRING | MF_BYPOSITION, idCmdFirst + ID_MPCBE_PLAY, PLAY_MPC);
+	::InsertMenuW(hmenu, indexMenu, MF_STRING | MF_BYPOSITION, idCmdFirst + ID_MPCWJ_PLAY, PLAY_MPC);
 	if (NULL != m_hPlayBmp) {
 		::SetMenuItemBitmaps(hmenu, indexMenu, MF_BYPOSITION, m_hPlayBmp, NULL);
 	}
 	indexMenu++;
 
-	::InsertMenuW(hmenu, indexMenu, MF_STRING | MF_BYPOSITION, idCmdFirst + ID_MPCBE_PLAY + 1, ADDTO_MPC);
+	::InsertMenuW(hmenu, indexMenu, MF_STRING | MF_BYPOSITION, idCmdFirst + ID_MPCWJ_PLAY + 1, ADDTO_MPC);
 	if (NULL != m_hAddBmp) {
 		::SetMenuItemBitmaps(hmenu, indexMenu, MF_BYPOSITION, m_hAddBmp, NULL);
 	}
@@ -246,12 +246,12 @@ STDMETHODIMP CMPCBEContextMenu::QueryContextMenu(HMENU hmenu, UINT indexMenu, UI
 
 	::InsertMenuW(hmenu, indexMenu++, MF_SEPARATOR | MF_BYPOSITION, 0, NULL);
 
-	return MAKE_HRESULT(SEVERITY_SUCCESS, FACILITY_NULL, (ID_MPCBE_PLAY + 2));
+	return MAKE_HRESULT(SEVERITY_SUCCESS, FACILITY_NULL, (ID_MPCWJ_PLAY + 2));
 }
 
 // IDropTarget
 
-STDMETHODIMP CMPCBEContextMenu::DragEnter(LPDATAOBJECT lpdobj, DWORD grfKeyState, POINTL pt, DWORD* pdwEffect)
+STDMETHODIMP CMPCWJContextMenu::DragEnter(LPDATAOBJECT lpdobj, DWORD grfKeyState, POINTL pt, DWORD* pdwEffect)
 {
 	auto hr = DragFiles(lpdobj, m_fileNames);
 	if (hr == S_OK) {
@@ -263,7 +263,7 @@ STDMETHODIMP CMPCBEContextMenu::DragEnter(LPDATAOBJECT lpdobj, DWORD grfKeyState
 	return hr;
 }
 
-STDMETHODIMP CMPCBEContextMenu::Drop(LPDATAOBJECT lpdobj, DWORD grfKeyState, POINTL pt, DWORD* pdwEffect)
+STDMETHODIMP CMPCWJContextMenu::Drop(LPDATAOBJECT lpdobj, DWORD grfKeyState, POINTL pt, DWORD* pdwEffect)
 {
 	SendData(false, true, ::MonitorFromWindow(::GetForegroundWindow(), MONITOR_DEFAULTTONEAREST));
 
@@ -290,7 +290,7 @@ static CStringW GetMPCPath()
 	}
 
 	if (mpcPath.IsEmpty()) {
-		if (ERROR_SUCCESS == key.Open(HKEY_LOCAL_MACHINE, L"Software\\MPC-BE", KEY_READ)) {
+		if (ERROR_SUCCESS == key.Open(HKEY_LOCAL_MACHINE, L"Software\\MPC-WJ", KEY_READ)) {
 			len = (ULONG)std::size(buff);
 			ZeroMemory(buff, len);
 			if (ERROR_SUCCESS == key.QueryStringValue(L"ExePath", buff, &len) && ::PathFileExistsW(buff)) {
@@ -302,7 +302,7 @@ static CStringW GetMPCPath()
 
 #ifdef _WIN64
 	if (mpcPath.IsEmpty()) {
-		if (ERROR_SUCCESS == key.Open(HKEY_LOCAL_MACHINE, L"Software\\Wow6432Node\\MPC-BE", KEY_READ)) {
+		if (ERROR_SUCCESS == key.Open(HKEY_LOCAL_MACHINE, L"Software\\Wow6432Node\\MPC-WJ", KEY_READ)) {
 			len = (ULONG)std::size(buff);
 			ZeroMemory(buff, len);
 			if (ERROR_SUCCESS == key.QueryStringValue(L"ExePath", buff, &len) && ::PathFileExistsW(buff)) {
@@ -328,7 +328,7 @@ static BOOL Execute(LPCWSTR lpszCommand, LPCWSTR lpszParameters, HMONITOR hMonit
 	return ShellExecuteExW(&ShExecInfo);
 }
 
-void CMPCBEContextMenu::SendData(const bool bAddPlaylist, const bool bCheckMultipleInstances/* = false*/, HMONITOR hMonitor/* = nullptr*/)
+void CMPCWJContextMenu::SendData(const bool bAddPlaylist, const bool bCheckMultipleInstances/* = false*/, HMONITOR hMonitor/* = nullptr*/)
 {
 	bool bMultipleInstances = false;
 	if (bCheckMultipleInstances) {

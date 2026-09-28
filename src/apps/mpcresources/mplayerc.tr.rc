@@ -218,11 +218,11 @@ CAPTION "Hakkında"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "Telif Hakkı © 2002-2026, Authors.txt dosyasına bakınız",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "Sürüm :",IDC_VERSION,30,34,90,8
-    LTEXT           "MPC-BE Derleyici :",IDC_STATIC,30,66,90,8
+    LTEXT           "MPC-WJ Derleyici :",IDC_STATIC,30,66,90,8
     LTEXT           "FFmpeg Derleyici :",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil :",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,12 +230,12 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "Bu program ücretsiz olup GNU Genel Kamu Lisansı altında sunulmaktadır.",IDC_STATIC,30,138,200,18
-    LTEXT           "bosluk (Sinan Hunerel) tarafından Türkçeleştirilmiş, cmhrky   (C. Kaya KURTOĞLU) MPC-BE için eklemelerle düzenlemiştir.",IDC_STATIC,30,161,200,18
+    LTEXT           "bosluk (Sinan Hunerel) tarafından Türkçeleştirilmiş, cmhrky   (C. Kaya KURTOĞLU) MPC-WJ için eklemelerle düzenlemiştir.",IDC_STATIC,30,161,200,18
     DEFPUSHBUTTON   "Tamam",IDOK,185,183,50,14,WS_GROUP
 END
 
@@ -673,7 +673,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Uyarı"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "MPC-BE, grafikteki bazı bağlantıları oluşturamadı. Sistemde gerekli çözücüler ya da süzgeçler yüklü olmayabilir.",IDC_STATIC1,5,5,286,18
+    LTEXT           "MPC-WJ, grafikteki bazı bağlantıları oluşturamadı. Sistemde gerekli çözücüler ya da süzgeçler yüklü olmayabilir.",IDC_STATIC1,5,5,286,18
     LTEXT           "Aşağıdaki bağlantı(lar) bağlanabilir bir süzgeç bulamadı:",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -2356,7 +2356,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2550,7 +2550,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2654,7 +2654,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "Göreceli Renkölçümsel"
     IDS_CM_INTENT_SATURATION "Doygunluk"
     IDS_CM_INTENT_ABSOLUTECM "Kesin Renkölçümsel"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Ön izleme şu anda devre dışı. MPC-BE ayarlarından etkinleştirebilirsiniz."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Ön izleme şu anda devre dışı. MPC-WJ ayarlarından etkinleştirebilirsiniz."
 END
 
 STRINGTABLE
@@ -2664,7 +2664,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDC_EXCLUSIVE_FULLSCREEN_CHECK  "Kopuklukları engeller, ancak araç çubuğu gösterimine izin vermez. Bu modda tam ekran görünümünden çıkmak için Alt+Enter, Ctrl+Enter ya da Ctrl+C tuşlarına basın."
+    IDC_EXCLUSIVE_FULLSCREEN_CHECK  "Kopuklukları engeller, ancak araç çubuğu gösterimine izin vermez. Bu modda tam ekran görünümünden çıkmak için Enter, Ctrl+Enter ya da Ctrl+C tuşlarına basın."
 END
 
 STRINGTABLE
@@ -2700,7 +2700,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "Varsayılan durum hâlâ tanımsız olduğu için diğer biçimlerden etkileniyor"
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "Bu seçeneğin devre dışı bırakılması alt yazıların yanıp sönmesini engeller ancak video işleyicinin bazı video karelerini atlamasına neden olabilir."
     IDC_CHECK_SPCANIMWITHBUFFER  "0'dan büyük bir ara bellek kullanıldığında alt yazı animasyonuna izin verir. Bu seçeneğin devre dışı bırakılması CPU kullanımını azaltacaktır. Ayrıca yanıp sönen alt yazılarla karşılaşırsanız devre dışı bırakın."
-    IDC_BUTTON_EXT_SET      "Bu tuşa tıkladıktan sonra, seçili olan grup biçimi MPC-BE'nin geçerli dosya ilişkilendirmesi seçeneği olarak ayarlanacaktır. Genellikle yeni eklenen uzantı gri renkle gösterilecektir, yani bu ekranı kapatmadan önce uzantıyı tekrar seçmeniz gerektiğini unutmayınız!"
+    IDC_BUTTON_EXT_SET      "Bu tuşa tıkladıktan sonra, seçili olan grup biçimi MPC-WJ'nin geçerli dosya ilişkilendirmesi seçeneği olarak ayarlanacaktır. Genellikle yeni eklenen uzantı gri renkle gösterilecektir, yani bu ekranı kapatmadan önce uzantıyı tekrar seçmeniz gerektiğini unutmayınız!"
 END
 
 STRINGTABLE
@@ -2893,8 +2893,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "Video A&kışı"
     IDS_MENU_VIDEO_ANGLE    "Video Açı&sı"
     IDS_RESET_SETTINGS      "Ayarları sıfırla"
-    IDS_RESET_SETTINGS_WARNING  "MPC-BE uygulamasını varsayılan ayarlarına döndürmek istiyor musunuz?\nTüm geçerli ayarlarınızın KAYBEDİLECEĞİNİ önemle hatırlatırız!"
-    IDS_RESET_SETTINGS_MUTEX  "Varsayılan ayarların geri alınabilmesi için lütfen tüm açık MPC-BE pencerelerini kapatınız."
+    IDS_RESET_SETTINGS_WARNING  "MPC-WJ uygulamasını varsayılan ayarlarına döndürmek istiyor musunuz?\nTüm geçerli ayarlarınızın KAYBEDİLECEĞİNİ önemle hatırlatırız!"
+    IDS_RESET_SETTINGS_MUTEX  "Varsayılan ayarların geri alınabilmesi için lütfen tüm açık MPC-WJ pencerelerini kapatınız."
     IDS_EXPORT_SETTINGS     "Ayarları ver"
     IDS_EXPORT_SETTINGS_WARNING  "Bazı ayarlar kaydedilmemiş.\nDışarı aktarmadan önce kaydetmek istiyor musunuz?"
     IDS_EXPORT_SETTINGS_SUCCESS  "Ayarlar başarıyla dışarı verildi."
@@ -3127,9 +3127,9 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "Oto Sığdır"
     IDS_ZOOM_AUTOFITLARGE   "Oto Sığdır (Sadece daha büyük)"
-    IDS_ADD_TO_PLAYLIST     "MPC-BE Oynatma Listesine Ekle"
-    IDS_OPEN_WITH_MPC       "MPC-BE ile Oynat"
-    IDS_CANNOT_CHANGE_FORMAT  "MPC-BE, dosya biçimi ilişkilendirmelerini ayarlayabilmek için gerekli ayrıcalığa sahip değil. Lütfen yönetici haklarını almak için ""Değiştir"" tuşuna tıklayınız."
+    IDS_ADD_TO_PLAYLIST     "MPC-WJ Oynatma Listesine Ekle"
+    IDS_OPEN_WITH_MPC       "MPC-WJ ile Oynat"
+    IDS_CANNOT_CHANGE_FORMAT  "MPC-WJ, dosya biçimi ilişkilendirmelerini ayarlayabilmek için gerekli ayrıcalığa sahip değil. Lütfen yönetici haklarını almak için ""Değiştir"" tuşuna tıklayınız."
     IDS_APP_DESCRIPTION     "Windows işletim sistemi için hazırlanmış en güçlü ve en uyarlanabilir multimedya oynatıcılarından biri. Orjinal sürümü Gabest olarak bilinen Macar bir yapımcı tarafından hazırlanmıştır, bu sürüm ise özel tam ekran ve Windows Vista/7 için daha fazla destek gibi üstün özellikler sunmaktadır."
     IDS_MAINFRM_12          "kanal"
     IDS_MAINFRM_13          "kanal"
@@ -3172,7 +3172,7 @@ STRINGTABLE
 BEGIN
     IDS_ADDTOPLS_FROMDIR_SIMILAR "Klasördeki benzer dosyalar"
     IDS_ADDTOPLS_FROMDIR_ALL "Klasördeki tüm dosyalar"
-    IDS_EXCLUSIVE_FS_WARNING  "Bu seçenek kopuklukları önlemek için eklenmiştir, ancak video oynatılırken MPC-BE içerik menüsü ve diyalog kutuları görüntülenemeyecektir.\n\nHerhangi bir problemde Alt+Enter, Ctrl+Enter ya da Ctrl + C tuşuna basarak bu seçeneği kapatabilirsiniz.\n\nBu ayarı etkinleştirmek istediğinizden emin misiniz?"
+    IDS_EXCLUSIVE_FS_WARNING  "Bu seçenek kopuklukları önlemek için eklenmiştir, ancak video oynatılırken MPC-WJ içerik menüsü ve diyalog kutuları görüntülenemeyecektir.\n\nHerhangi bir problemde Enter, Ctrl+Enter ya da Ctrl + C tuşuna basarak bu seçeneği kapatabilirsiniz.\n\nBu ayarı etkinleştirmek istediğinizden emin misiniz?"
     IDS_MAINFRM_139         "Alt Yazı Gecikmesi: %ld ms"
     IDS_AG_TITLE2           "Başlık: %02d/%02d"
     IDS_THUMB_ROWNUMBER     "Satır:"
@@ -3243,7 +3243,7 @@ BEGIN
     IDS_GAIN_OSD            "Ses Kazancı: %+.1f dB"
     IDS_BALANCE_OSD         "Denge: %s"
     IDS_FULLSCREENMONITOR_CURRENT "Geçerli"
-    IDS_MPC_CRASH           "MPC-BE beklenmedik şekilde sonlandırıldı. Bu sorunu düzeltmemize yardımcı olmak için lütfen bu dosyayı '%s' hata izleme sistemimize gönderin.\n\nŞimdi minidump dosyasını içeren klasörü açıp hata izleyiciyi ziyaret etmek istiyor musunuz?"
+    IDS_MPC_CRASH           "MPC-WJ beklenmedik şekilde sonlandırıldı. Bu sorunu düzeltmemize yardımcı olmak için lütfen bu dosyayı '%s' hata izleme sistemimize gönderin.\n\nŞimdi minidump dosyasını içeren klasörü açıp hata izleyiciyi ziyaret etmek istiyor musunuz?"
     IDS_MPC_MINIDUMP_FAIL   "%d hatası yüzünden '%s' döküm dosyası oluşturulamadı"
     IDS_MAINFRM_DIR_TITLE   "Lütfen bir klasör seçiniz"
     IDS_MAINFRM_DIR_CHECK   "Alt klasörler dahil"
@@ -3301,7 +3301,7 @@ BEGIN
     IDS_AG_REMOVING         "Siliniyor: "
     IDS_MAINFRM_134         "UYARI: CMainFrame::CloseMedia() iki ya da daha fazla açıldı\n"
     IDS_MAINFRM_135         "KRİTİK HATA: !!! Açılış isteği kapatılmalıdır !!!"
-    IDS_MAINFRM_136         "MPC-BE Özel Tam Ekran"
+    IDS_MAINFRM_136         "MPC-WJ Özel Tam Ekran"
     IDS_MAINFRM_137         "Bilinmeyen biçim"
     IDS_MAINFRM_138         "Alt Yazı Atlaması : %ld ms"
     IDS_VOLUME_GAIN_INC     "Ses Kazancı Arttır"
@@ -3330,7 +3330,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Kullanım: mpc-be.exe ""yol_adı"" [anahtarlar]"
+    IDS_CMD_USAGE           "Kullanım: mpc-wj.exe ""yol_adı"" [anahtarlar]"
     IDS_CMD_PATHNAME        """yol_adı""\tYüklenecek dosya ya da klasör (özel\nkarakterler desteklenmektedir)"
     IDS_CMD_HELP            "/help /h /?\tKomut satırı anahtarları hakkında yardım görüntülenir"
     IDS_CMD_DUB             "/dub ""dublaj_adı""\tHarici bir ses dosyası yüklemek için"
@@ -3771,7 +3771,7 @@ BEGIN
     IDS_RESET_COLOR         "Renk Ayarlarını Sıfırla"
     IDS_UPDATE_ERROR_DATA   "Güncelleştirme sunucusu yanlış veri veriyor.\n\nLütfen daha sonra deneyin."
     IDS_USING_NEWER_VERSION "Zaten son sürümü kullanıyorsunuz: %s."
-    IDS_NEW_UPDATE_AVAILABLE  "Yeni %s mevcut.\n\nYeni sürümü indirmek için MPC-BE sitesini ziyaret etmek istiyor musunuz?"
+    IDS_NEW_UPDATE_AVAILABLE  "Yeni %s mevcut.\n\nYeni sürümü indirmek için MPC-WJ sitesini ziyaret etmek istiyor musunuz?"
     IDS_UPDATE_ERROR_CONNECT  "Güncelleştirme sunucusu bulunamadı.\n\nLütfen internet bağlantınızı kontrol ediniz ya da daha sonra yeniden deneyiniz."
     IDS_UPDATE_CLOSE        "&Kapat"
     IDS_OSD_ZOOM            "Büyütme: %.0lf%%"
@@ -3805,7 +3805,7 @@ BEGIN
     IDS_GOTO_ERROR_PARSING_FPS "Girilen kare hızı ayrıştırılamıyor!"
     IDS_FRAME_STEP_ERROR_RENDERER  "Kare kare ilerlenemiyor. Başka bir video işleyici deneyiniz."
     IDS_SCREENSHOT_ERROR_SHOCKWAVE  "'Resim Kaydet' ve 'Küçük Resimler Kaydet' özellikleri Shockwave dosyaları ile çalışmaz."
-    IDS_SCREENSHOT_ERROR_OVERLAY  "'Resim Kaydet' ve 'Küçük Resimler Kaydet' özellikleri, Ters Süzme Karıştırıcı video işleyici ile çalışmaz.\nMPC-BE video ayarlarından başka bir işleyici seçip dosyayı yeniden açınız."
+    IDS_SCREENSHOT_ERROR_OVERLAY  "'Resim Kaydet' ve 'Küçük Resimler Kaydet' özellikleri, Ters Süzme Karıştırıcı video işleyici ile çalışmaz.\nMPC-WJ video ayarlarından başka bir işleyici seçip dosyayı yeniden açınız."
     IDS_SUBDL_DLG_CONNECT_ERROR  "Çevrim içi alt yazı veritabanına bağlanılamıyor."
 END
 
@@ -3822,7 +3822,7 @@ BEGIN
     IDS_FILTERS_VIDEO       "Video Çözücüler"
     IDS_FILTERS_AUDIO       "Ses Çözücüler"
     IDS_GOTO_ERROR_INVALID_TIME  "Girilen süre dosya süresinden daha büyük."
-    IDS_SCREENSHOT_ERROR_MADVR  "'Resim Kaydet' ve 'Küçük Resimler Kaydet' özellikleri madVR video işleyici ile çalışmaz.\nMPC-BE video ayarlarından başka bir işleyici seçip dosyayı yeniden açınız."
+    IDS_SCREENSHOT_ERROR_MADVR  "'Resim Kaydet' ve 'Küçük Resimler Kaydet' özellikleri madVR video işleyici ile çalışmaz.\nMPC-WJ video ayarlarından başka bir işleyici seçip dosyayı yeniden açınız."
     IDS_SUBDL_DLG_FILENAME_COL "Dosya"
     IDS_SUBDL_DLG_LANGUAGE_COL "Dil"
     IDS_SUBDL_DLG_FORMAT_COL "Biçim"
@@ -3983,14 +3983,14 @@ BEGIN
     BEGIN
         BLOCK "041f04b0"
         BEGIN
-            VALUE "Comments", "Turkish language resource for MPC-BE"
+            VALUE "Comments", "Turkish language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Turkish language resource for MPC-BE"
+            VALUE "FileDescription", "Turkish language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.tr.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

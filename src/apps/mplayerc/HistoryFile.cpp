@@ -1,14 +1,14 @@
 /*
  * (C) 2021-2025 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -41,7 +41,7 @@ FILE* CMpcLstFile::CheckOpenFileForRead(bool& valid)
 
 	FILE* pFile;
 
-	do { // Open mpc-be.ini in UNICODE mode, retry if it is already being used by another process
+	do { // Open mpc-wj.ini in UNICODE mode, retry if it is already being used by another process
 		pFile = _wfsopen(m_filename, L"r, ccs=UNICODE", _SH_SECURE);
 		if (pFile || GetLastError() != ERROR_SHARING_VIOLATION) {
 			break;
@@ -257,7 +257,7 @@ bool CHistoryFile::WriteFile()
 	CStdioFile file(pFile);
 	CStringW str;
 	try {
-		file.WriteString(L"; MPC-BE History File 0.1\n");
+		file.WriteString(L"; MPC-WJ History File 0.1\n");
 		int i = 1;
 		for (const auto& sesInfo : m_SessionInfos) {
 			if (sesInfo.Path.GetLength()) {
@@ -522,7 +522,7 @@ bool CFavoritesFile::WriteFile()
 	CStdioFile file(pFile);
 	CStringW str;
 	try {
-		file.WriteString(L"; MPC-BE Favorites File 0.1\n");
+		file.WriteString(L"; MPC-WJ Favorites File 0.1\n");
 		int i = 1;
 		for (const auto& sesInfo : m_Files) {
 			if (sesInfo.Path.GetLength()) {
@@ -777,7 +777,7 @@ bool CPlaylistConfigFile::WriteFile()
 	CStdioFile file(pFile);
 	CStringW str;
 	try {
-		file.WriteString(L"; MPC-BE Playlist Config File 0.1\n");
+		file.WriteString(L"; MPC-WJ Playlist Config File 0.1\n");
 		int i = 1;
 		for (const auto& plsInfo : m_PlaylistInfos) {
 			if (plsInfo.Path.GetLength() || plsInfo.Type == PLS_Explorer) {

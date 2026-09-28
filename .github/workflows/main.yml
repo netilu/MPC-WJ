@@ -1,4 +1,4 @@
-name: Build MPC-BE
+name: Build MPC-WJ
 
 on:
   push:
@@ -40,8 +40,8 @@ jobs:
           curl -sSL https://github.com/Aleksoid1978/MSYS/raw/main/MSYS_MinGW-w64_GCC_1521_x86-x64.7z -o MSYS.7z
           7z x MSYS.7z -oC:\\MSYS
           echo '@ECHO OFF' > environments.bat
-          echo 'SET "MPCBE_MSYS=C:\\MSYS"' >> environments.bat
-          echo 'SET "MPCBE_MINGW=C:\\MSYS\\mingw"' >> environments.bat
+          echo 'SET "MPCWJ_MSYS=C:\\MSYS"' >> environments.bat
+          echo 'SET "MPCWJ_MINGW=C:\\MSYS\\mingw"' >> environments.bat
           .\\update_gcc.bat
         shell: pwsh
 
@@ -50,7 +50,7 @@ jobs:
           .\\build.bat Clean All NoWait
         shell: pwsh
 
-      - name: Build MPC-BE
+      - name: Build MPC-WJ
         run: |
           .\\build.bat Build Packages NoWait
         shell: pwsh
@@ -59,26 +59,26 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: "Installer x64" 
-          path: _bin/Packages/**/MPC-BE*.x64-installer.zip
+          path: _bin/Packages/**/MPC-WJ*.x64-installer.zip
           compression-level: 0
 
       - name: Upload Zip x64
         uses: actions/upload-artifact@v7
         with:
           name: "Zip x64" 
-          path: _bin/Packages/**/MPC-BE*.x64.7z
+          path: _bin/Packages/**/MPC-WJ*.x64.7z
           compression-level: 0
 
       - name: Upload Installer x86
         uses: actions/upload-artifact@v7
         with:
           name: "Installer x86" 
-          path: _bin/Packages/**/MPC-BE*.x86-installer.zip
+          path: _bin/Packages/**/MPC-WJ*.x86-installer.zip
           compression-level: 0
 
       - name: Upload Zip x86
         uses: actions/upload-artifact@v7
         with:
           name: "Zip x86" 
-          path: _bin/Packages/**/MPC-BE*.x86.7z
+          path: _bin/Packages/**/MPC-WJ*.x86.7z
           compression-level: 0

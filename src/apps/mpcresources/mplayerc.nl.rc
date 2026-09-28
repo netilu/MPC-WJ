@@ -218,11 +218,11 @@ CAPTION "Info"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "Copyright © 2002-2026 zie Authors.txt bestand",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "Versie :",IDC_VERSION,30,34,90,8
-    LTEXT           "MPC-BE Compiler :",IDC_STATIC,30,66,90,8
+    LTEXT           "MPC-WJ Compiler :",IDC_STATIC,30,66,90,8
     LTEXT           "FFmpeg Compiler :",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil :",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -230,9 +230,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "Dit vrije programma is gratis en uitgegeven onder de GNU General Public License.",IDC_STATIC,30,138,200,18
     LTEXT           "Deze vertaling is gebaseerd o/d versie van Computer Paul",IDC_STATIC,30,161,200,18
@@ -673,7 +673,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Waarschuwing"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "MPC-BE kon sommige pins in de graph niet renderen. Misschien zijn de nodige codecs of filters niet op het systeem geïnstalleerd.",IDC_STATIC1,5,5,286,18
+    LTEXT           "MPC-WJ kon sommige pins in de graph niet renderen. Misschien zijn de nodige codecs of filters niet op het systeem geïnstalleerd.",IDC_STATIC1,5,5,286,18
     LTEXT           "Voor de volgende pin(s) is/zijn er geen filter gevonden:",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -2356,7 +2356,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2550,7 +2550,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2654,7 +2654,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "Relatief colorimetrisch"
     IDS_CM_INTENT_SATURATION "Verzadiging"
     IDS_CM_INTENT_ABSOLUTECM "Absoluut colorimetrisch"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Voorvertoning is momenteel uitgeschakeld. U kunt het in de opties van MPC-BE inschakelen."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Voorvertoning is momenteel uitgeschakeld. U kunt het in de opties van MPC-WJ inschakelen."
 END
 
 STRINGTABLE
@@ -2664,7 +2664,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDC_EXCLUSIVE_FULLSCREEN_CHECK  "Vermindert tearing, maar blokkeert de weergave van de werkbalk. Om volledig scherm in dit modus te verlaten, druk op Alt+Enter, Ctrl+Enter of Ctrl+C."
+    IDC_EXCLUSIVE_FULLSCREEN_CHECK  "Vermindert tearing, maar blokkeert de weergave van de werkbalk. Om volledig scherm in dit modus te verlaten, druk op Enter, Ctrl+Enter of Ctrl+C."
 END
 
 STRINGTABLE
@@ -2700,7 +2700,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "Standaardwaarden worden ook op andere stijlen toegepast, waar nog geen waarde voor bepaald is."
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "Deactivering van deze optie zal de flikkering van ondertitelingen vermijden, maar het zal ook de videorenderer beïnvloeden om sommige frames over te slaan."
     IDC_CHECK_SPCANIMWITHBUFFER  "Maakt ondertitelingsanimatie mogelijk bij een subafbeeldingsbuffer groter dan 0. Dit uitzetten zal de CPU ontlasten. Zet dit ook uit als de ondertiteling flikkert."
-    IDC_BUTTON_EXT_SET      "Als je hierop klikt, zal de aangevinkte status bij de formatengroep overeenkomen met de daadwerkelijke bestandskoppeling van MPC-BE. Een nieuw toegevoegde bestandsextensie zal het meestal grijs maken, dus vergeet die niet weer aan te vinken voordat u deze dialoog sluit!"
+    IDC_BUTTON_EXT_SET      "Als je hierop klikt, zal de aangevinkte status bij de formatengroep overeenkomen met de daadwerkelijke bestandskoppeling van MPC-WJ. Een nieuw toegevoegde bestandsextensie zal het meestal grijs maken, dus vergeet die niet weer aan te vinken voordat u deze dialoog sluit!"
 END
 
 STRINGTABLE
@@ -2893,8 +2893,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "Videos&tream"
     IDS_MENU_VIDEO_ANGLE    "&Camerahoek"
     IDS_RESET_SETTINGS      "Instellingen resetten"
-    IDS_RESET_SETTINGS_WARNING  "Bent u zeker om MPC-BE naar de standaardinstellingen terug te zetten?\nPas op dat ALLE instellingen zullen verloren zijn!"
-    IDS_RESET_SETTINGS_MUTEX  "Om naar de standaardinstellingen terug te zetten, sluit alle instanties van MPC-BE a.u.b."
+    IDS_RESET_SETTINGS_WARNING  "Bent u zeker om MPC-WJ naar de standaardinstellingen terug te zetten?\nPas op dat ALLE instellingen zullen verloren zijn!"
+    IDS_RESET_SETTINGS_MUTEX  "Om naar de standaardinstellingen terug te zetten, sluit alle instanties van MPC-WJ a.u.b."
     IDS_EXPORT_SETTINGS     "Instellingen exporteren"
     IDS_EXPORT_SETTINGS_WARNING  "Sommige wijzigingen zijn nog niet opgeslagen.\nWilt u hen opslaan voordat u hen exporteert?"
     IDS_EXPORT_SETTINGS_SUCCESS  "De instellingen zijn met succes geëxporteerd."
@@ -3127,9 +3127,9 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "Autom. passend"
     IDS_ZOOM_AUTOFITLARGE   "Autom. passend (enkel als video groter is)"
-    IDS_ADD_TO_PLAYLIST     "Aan afspeellijst van MPC-BE toevoegen"
-    IDS_OPEN_WITH_MPC       "Afspelen met MPC-BE"
-    IDS_CANNOT_CHANGE_FORMAT  "MPC-BE heeft beheerdersrechten nodig om bestandskoppelingen te wijzigen. Klik op ""Beheren"" om deze rechten te verkrijgen."
+    IDS_ADD_TO_PLAYLIST     "Aan afspeellijst van MPC-WJ toevoegen"
+    IDS_OPEN_WITH_MPC       "Afspelen met MPC-WJ"
+    IDS_CANNOT_CHANGE_FORMAT  "MPC-WJ heeft beheerdersrechten nodig om bestandskoppelingen te wijzigen. Klik op ""Beheren"" om deze rechten te verkrijgen."
     IDS_APP_DESCRIPTION     "Een van de krachtigste en meest configureerbare mediaspeler voor Windows. Oorspronkelijk gemaakt door een Hongaar onder de naam Gabest. Deze versie heeft allerlei extra's. zoals exclusieve volledigschermmodus en beter ondersteuning voor Windows Vista/7."
     IDS_MAINFRM_12          "kanaal"
     IDS_MAINFRM_13          "kanalen"
@@ -3243,7 +3243,7 @@ BEGIN
     IDS_GAIN_OSD            "Volumeversterking: %+.1f dB"
     IDS_BALANCE_OSD         "Balans: %s"
     IDS_FULLSCREENMONITOR_CURRENT "Huidig"
-    IDS_MPC_CRASH           "MPC-BE wordt onverwacht beëindigd. Om ons te helpen herstellen, stuur a.u.b. dit bestand '%s' naar onze bug tracker.\n\nWilt u de map met dit minidumpbestand openen en onze bug tracker nu bezoeken?"
+    IDS_MPC_CRASH           "MPC-WJ wordt onverwacht beëindigd. Om ons te helpen herstellen, stuur a.u.b. dit bestand '%s' naar onze bug tracker.\n\nWilt u de map met dit minidumpbestand openen en onze bug tracker nu bezoeken?"
     IDS_MPC_MINIDUMP_FAIL   "Dumpbestand '%s' kon niet gemaakt worden (fout %d)"
     IDS_MAINFRM_DIR_TITLE   "Map kiezen"
     IDS_MAINFRM_DIR_CHECK   "Inclusief submappen"
@@ -3301,7 +3301,7 @@ BEGIN
     IDS_AG_REMOVING         "Verwijderen: "
     IDS_MAINFRM_134         "WAARSCHUWING: CMainFrame::CloseMedia() meerdere keren aangeroepen\n"
     IDS_MAINFRM_135         "KRITISCHE FOUT: !!! Opener-Thread moet beëindigd worden !!!"
-    IDS_MAINFRM_136         "MPC-BE Exclusieve volledigschermmodus"
+    IDS_MAINFRM_136         "MPC-WJ Exclusieve volledigschermmodus"
     IDS_MAINFRM_137         "Onbekend formaat"
     IDS_MAINFRM_138         "Ondertitelingsverschuiving: %ld ms"
     IDS_VOLUME_GAIN_INC     "Volumeversterking verhogen"
@@ -3330,7 +3330,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Gebruik: mpc-be.exe ""padnaam"" [parameters]"
+    IDS_CMD_USAGE           "Gebruik: mpc-wj.exe ""padnaam"" [parameters]"
     IDS_CMD_PATHNAME        """padnaam""\tHet te laden bestand of map (wildcards\ntoegestaan)"
     IDS_CMD_HELP            "/help /h /?\tToon help over opdrachtregel-parameters"
     IDS_CMD_DUB             "/dub ""dubnaam""\tLaad nog een geluidsbestand"
@@ -3771,7 +3771,7 @@ BEGIN
     IDS_RESET_COLOR         "Kleurinstellingen resetten"
     IDS_UPDATE_ERROR_DATA   "De updateserver geeft verkeerde gegevens.\n\nProbeer het later."
     IDS_USING_NEWER_VERSION "U bent al de laatste versie %s aan het gebruiken."
-    IDS_NEW_UPDATE_AVAILABLE  "Een nieuw %s is beschikbaar.\n\nWilt u MPC-BE's website bezoeken om te downloaden?"
+    IDS_NEW_UPDATE_AVAILABLE  "Een nieuw %s is beschikbaar.\n\nWilt u MPC-WJ's website bezoeken om te downloaden?"
     IDS_UPDATE_ERROR_CONNECT  "Updateserver niet gevonden.\n\nControleer uw internetverbinding of probeer later opnieuw a.u.b."
     IDS_UPDATE_CLOSE        "Sl&uiten"
     IDS_OSD_ZOOM            "Zoom: %.0lf%%"
@@ -3983,14 +3983,14 @@ BEGIN
     BEGIN
         BLOCK "041304b0"
         BEGIN
-            VALUE "Comments", "Dutch language resource for MPC-BE"
+            VALUE "Comments", "Dutch language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Dutch language resource for MPC-BE"
+            VALUE "FileDescription", "Dutch language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.nl.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

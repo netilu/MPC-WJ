@@ -104,7 +104,7 @@ void CThumbnailGenerator::Start(CMainFrame* frame, const CStringW& source, const
     if (options.logo) {
         RECT r = { options.margin, options.margin + m_layout.headerHeight - 28,
                    options.width - options.margin, options.margin + m_layout.headerHeight };
-        const int old = m_options.infoSize; m_options.infoSize = 20; Text(L"MPC-BE", r, false); m_options.infoSize = old;
+        const int old = m_options.infoSize; m_options.infoSize = 20; Text(L"MPC-WJ", r, false); m_options.infoSize = old;
     }
     frame->Pause();
     if (frame->m_pBA) frame->m_pBA->put_Volume(-10000);

@@ -217,11 +217,11 @@ CAPTION "Giới thiệu"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_MAINFRAME_ICON,5,5,21,20
-    LTEXT           "MPC-BE",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
+    LTEXT           "MPC-WJ",IDC_STATIC1,30,5,195,8,SS_NOPREFIX
     CONTROL         "Bản quyền © 2002-2026 xem Authors.txt",IDC_AUTHORS_LINK,
                     "SysLink",WS_TABSTOP,30,17,195,8
     LTEXT           "Phiên bản:",IDC_VERSION,30,34,90,8
-    LTEXT           "Trình biên dịch MPC-BE:",IDC_STATIC,30,66,90,8
+    LTEXT           "Trình biên dịch MPC-WJ:",IDC_STATIC,30,66,90,8
     LTEXT           "Trình biên dịch FFmpeg:",IDC_STATIC,30,83,90,8
     LTEXT           "Libavcodec / Libavutil:",IDC_STATIC,30,99,90,8
     EDITTEXT        IDC_VERSION_NUMBER,120,32,110,13,ES_AUTOHSCROLL | ES_READONLY
@@ -229,9 +229,9 @@ BEGIN
     EDITTEXT        IDC_MPC_COMPILER,120,64,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_FFMPEG_COMPILER,120,81,110,13,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_LIBAVCODEC_VERSION,120,97,110,13,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "<a>https://sourceforge.net/projects/mpcbe/</a>",IDC_SOURCEFORGE_LINK,
+    CONTROL         "<a>https://sourceforge.net/projects/mpcwj/</a>",IDC_SOURCEFORGE_LINK,
                     "SysLink",WS_TABSTOP,30,114,200,8
-    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-BE</a>",IDC_GITHUB_LINK,
+    CONTROL         "<a>https://github.com/Aleksoid1978/MPC-WJ</a>",IDC_GITHUB_LINK,
                     "SysLink",WS_TABSTOP,30,126,200,8
     LTEXT           "Chương trình này là phần mềm miễn phí và được phát hành theo Giấy phép Công cộng GNU.",IDC_STATIC,30,138,200,18
     LTEXT           "Bản dịch tiếng Việt bởi Vũ Anh Vũ",IDC_STATIC,30,161,200,18
@@ -672,7 +672,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Cảnh báo"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "MPC-BE không thể kết xuất một số pin trong biểu đồ, có thể bạn chưa cài đặt codec hoặc bộ lọc cần thiết trên hệ thống.",IDC_STATIC1,5,5,286,18
+    LTEXT           "MPC-WJ không thể kết xuất một số pin trong biểu đồ, có thể bạn chưa cài đặt codec hoặc bộ lọc cần thiết trên hệ thống.",IDC_STATIC1,5,5,286,18
     LTEXT           "Các pin sau đây không tìm thấy bộ lọc có thể kết nối:",IDC_STATIC2,5,27,286,8
     COMBOBOX        IDC_COMBO1,5,39,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,56,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -2353,7 +2353,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "MPC-BE"
+    IDR_MAINFRAME           "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2547,7 +2547,7 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "MPC-BE"
+    AFX_IDS_APP_TITLE       "MPC-WJ"
 END
 
 STRINGTABLE
@@ -2651,7 +2651,7 @@ BEGIN
     IDS_CM_INTENT_RELATIVECM "Relative Colorimetric"
     IDS_CM_INTENT_SATURATION "Saturation"
     IDS_CM_INTENT_ABSOLUTECM "Absolute Colorimetric"
-    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Tính năng xem trước hiện đang bị tắt. Bạn có thể bật nó trong tùy chọn của MPC-BE."
+    IDS_WEBUI_DISABLED_PREVIEW_MSG  "Tính năng xem trước hiện đang bị tắt. Bạn có thể bật nó trong tùy chọn của MPC-WJ."
 END
 
 STRINGTABLE
@@ -2661,7 +2661,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDC_EXCLUSIVE_FULLSCREEN_CHECK  "Giảm hiện tượng xé hình nhưng ngăn không cho thanh công cụ hiển thị. Để thoát toàn màn hình ở chế độ này, nhấn Alt+Enter, Ctrl+Enter hoặc Ctrl+C."
+    IDC_EXCLUSIVE_FULLSCREEN_CHECK  "Giảm hiện tượng xé hình nhưng ngăn không cho thanh công cụ hiển thị. Để thoát toàn màn hình ở chế độ này, nhấn Enter, Ctrl+Enter hoặc Ctrl+C."
 END
 
 STRINGTABLE
@@ -2697,7 +2697,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "Trạng thái mặc định được kế thừa cho các kiểu khác mà nó vẫn chưa được xác định"
     IDC_CHECK_ALLOW_DROPPING_SUBPIC  "Vô hiệu hóa tùy chọn này sẽ ngăn phụ đề bị nhấp nháy nhưng có thể khiến trình kết xuất video bỏ qua một số khung hình video."
     IDC_CHECK_SPCANIMWITHBUFFER  "Cho phép hoạt ảnh phụ đề khi sử dụng bộ đệm hình ảnh phụ lớn hơn 0. Vô hiệu hóa tùy chọn này sẽ giảm mức sử dụng CPU. Đồng thời vô hiệu hóa nếu bạn thấy phụ đề bị chớp tắt."
-    IDC_BUTTON_EXT_SET      "Sau khi nhấp vào nút này, trạng thái đã chọn của nhóm định dạng sẽ phản ánh liên kết tệp thực tế cho MPC-BE. Một phần mở rộng mới được thêm vào thường sẽ bị làm mờ, vì vậy đừng quên kiểm tra lại trước khi đóng hộp thoại này!"
+    IDC_BUTTON_EXT_SET      "Sau khi nhấp vào nút này, trạng thái đã chọn của nhóm định dạng sẽ phản ánh liên kết tệp thực tế cho MPC-WJ. Một phần mở rộng mới được thêm vào thường sẽ bị làm mờ, vì vậy đừng quên kiểm tra lại trước khi đóng hộp thoại này!"
 END
 
 STRINGTABLE
@@ -2890,8 +2890,8 @@ BEGIN
     IDS_MENU_VIDEO_STREAM   "Luồng &video"
     IDS_MENU_VIDEO_ANGLE    "Góc &video"
     IDS_RESET_SETTINGS      "Đặt lại cài đặt"
-    IDS_RESET_SETTINGS_WARNING  "Bạn có chắc chắn muốn khôi phục MPC-BE về cài đặt mặc định không?\nHãy cẩn thận vì TẤT CẢ cài đặt hiện tại của bạn sẽ bị mất!"
-    IDS_RESET_SETTINGS_MUTEX  "Vui lòng đóng tất cả các phiên bản của MPC-BE để khôi phục cài đặt mặc định."
+    IDS_RESET_SETTINGS_WARNING  "Bạn có chắc chắn muốn khôi phục MPC-WJ về cài đặt mặc định không?\nHãy cẩn thận vì TẤT CẢ cài đặt hiện tại của bạn sẽ bị mất!"
+    IDS_RESET_SETTINGS_MUTEX  "Vui lòng đóng tất cả các phiên bản của MPC-WJ để khôi phục cài đặt mặc định."
     IDS_EXPORT_SETTINGS     "Xuất cài đặt"
     IDS_EXPORT_SETTINGS_WARNING  "Một số thay đổi chưa được lưu.\nBạn có muốn lưu chúng trước khi xuất không?"
     IDS_EXPORT_SETTINGS_SUCCESS  "Cài đặt đã được xuất thành công."
@@ -3124,9 +3124,9 @@ STRINGTABLE
 BEGIN
     IDS_ZOOM_AUTOFIT        "Vừa khít tự động"
     IDS_ZOOM_AUTOFITLARGE   "Vừa khít tự động (chỉ cho tệp lớn hơn)"
-    IDS_ADD_TO_PLAYLIST     "Thêm vào danh sách phát MPC-BE"
-    IDS_OPEN_WITH_MPC       "Phát với MPC-BE"
-    IDS_CANNOT_CHANGE_FORMAT  "MPC-BE không đủ quyền để thay đổi liên kết định dạng tệp. Vui lòng nhấp vào nút ""Chỉnh sửa"" để lấy quyền quản trị viên."
+    IDS_ADD_TO_PLAYLIST     "Thêm vào danh sách phát MPC-WJ"
+    IDS_OPEN_WITH_MPC       "Phát với MPC-WJ"
+    IDS_CANNOT_CHANGE_FORMAT  "MPC-WJ không đủ quyền để thay đổi liên kết định dạng tệp. Vui lòng nhấp vào nút ""Chỉnh sửa"" để lấy quyền quản trị viên."
     IDS_APP_DESCRIPTION     "Một trong những trình phát đa phương tiện mạnh mẽ và tùy biến nhất cho hệ điều hành Windows. Ban đầu được tạo bởi một nhà phát triển người Hungary tên là Gabest, phiên bản này có các tính năng bổ sung như chế độ toàn màn hình độc quyền và hỗ trợ tốt hơn cho Windows Vista/7."
     IDS_MAINFRM_12          "kênh"
     IDS_MAINFRM_13          "kênh"
@@ -3169,7 +3169,7 @@ STRINGTABLE
 BEGIN
     IDS_ADDTOPLS_FROMDIR_SIMILAR "các tệp tương tự từ thư mục"
     IDS_ADDTOPLS_FROMDIR_ALL "tất cả tệp từ thư mục"
-    IDS_EXCLUSIVE_FS_WARNING  "Tùy chọn này được thiết kế để tránh xé hình. Tuy nhiên, nó cũng sẽ ngăn MPC-BE hiển thị menu ngữ cảnh và bất kỳ hộp thoại nào trong khi phát.\n\nĐể thoát toàn màn hình độc quyền, hãy sử dụng các phím: Alt+Enter, Ctrl+Enter hoặc Ctrl+C.\n\nBạn có thực sự muốn kích hoạt tùy chọn này?"
+    IDS_EXCLUSIVE_FS_WARNING  "Tùy chọn này được thiết kế để tránh xé hình. Tuy nhiên, nó cũng sẽ ngăn MPC-WJ hiển thị menu ngữ cảnh và bất kỳ hộp thoại nào trong khi phát.\n\nĐể thoát toàn màn hình độc quyền, hãy sử dụng các phím: Enter, Ctrl+Enter hoặc Ctrl+C.\n\nBạn có thực sự muốn kích hoạt tùy chọn này?"
     IDS_MAINFRM_139         "Độ trễ phụ đề: %ld ms"
     IDS_AG_TITLE2           "Tiêu đề: %02d/%02d"
     IDS_THUMB_ROWNUMBER     "Hàng:"
@@ -3240,7 +3240,7 @@ BEGIN
     IDS_GAIN_OSD            "Độ lợi: %+.1f dB"
     IDS_BALANCE_OSD         "Cân bằng: %s"
     IDS_FULLSCREENMONITOR_CURRENT "Hiện tại"
-    IDS_MPC_CRASH           "MPC-BE đã kết thúc đột ngột. Để giúp chúng tôi sửa vấn đề này, vui lòng gửi tệp '%s' này tới trình theo dõi lỗi của chúng tôi.\n\nBạn có muốn mở thư mục chứa tệp minidump và truy cập trình theo dõi lỗi ngay bây giờ không?"
+    IDS_MPC_CRASH           "MPC-WJ đã kết thúc đột ngột. Để giúp chúng tôi sửa vấn đề này, vui lòng gửi tệp '%s' này tới trình theo dõi lỗi của chúng tôi.\n\nBạn có muốn mở thư mục chứa tệp minidump và truy cập trình theo dõi lỗi ngay bây giờ không?"
     IDS_MPC_MINIDUMP_FAIL   "Không thể tạo tệp dump tới '%s' (lỗi %d)"
     IDS_MAINFRM_DIR_TITLE   "Chọn thư mục"
     IDS_MAINFRM_DIR_CHECK   "Bao gồm thư mục con"
@@ -3298,7 +3298,7 @@ BEGIN
     IDS_AG_REMOVING         "Đang xóa: "
     IDS_MAINFRM_134         "CẢNH BÁO: CMainFrame::CloseMedia() được gọi hai lần trở lên\n"
     IDS_MAINFRM_135         "LỖI NGHIÊM TRỌNG: !!! Phải hủy luồng mở tệp !!!"
-    IDS_MAINFRM_136         "Toàn màn hình độc quyền MPC-BE"
+    IDS_MAINFRM_136         "Toàn màn hình độc quyền MPC-WJ"
     IDS_MAINFRM_137         "Định dạng không xác định"
     IDS_MAINFRM_138         "Dịch chuyển phụ đề: %ld ms"
     IDS_VOLUME_GAIN_INC     "Tăng độ lợi âm lượng"
@@ -3327,7 +3327,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Cách dùng: mpc-be.exe ""pathname"" [tham số]"
+    IDS_CMD_USAGE           "Cách dùng: mpc-wj.exe ""pathname"" [tham số]"
     IDS_CMD_PATHNAME        """pathname""\tTệp chính hoặc thư mục cần tải (cho phép dùng\nký tự đại diện)"
     IDS_CMD_HELP            "/help /h /?\tHiển thị trợ giúp về các tham số dòng lệnh"
     IDS_CMD_DUB             "/dub ""dubname""\tTải thêm một tệp âm thanh"
@@ -3768,7 +3768,7 @@ BEGIN
     IDS_RESET_COLOR         "Đặt lại cài đặt màu"
     IDS_UPDATE_ERROR_DATA   "Máy chủ cập nhật cung cấp dữ liệu sai.\n\nVui lòng thử lại sau."
     IDS_USING_NEWER_VERSION "Bạn đã sử dụng phiên bản mới nhất %s."
-    IDS_NEW_UPDATE_AVAILABLE  "Đã có phiên bản mới %s.\n\nBạn có muốn truy cập trang web của MPC-BE để tải xuống không?"
+    IDS_NEW_UPDATE_AVAILABLE  "Đã có phiên bản mới %s.\n\nBạn có muốn truy cập trang web của MPC-WJ để tải xuống không?"
     IDS_UPDATE_ERROR_CONNECT  "Không tìm thấy máy chủ cập nhật.\n\nVui lòng kiểm tra kết nối internet của bạn hoặc thử lại sau."
     IDS_UPDATE_CLOSE        "Đón&g"
     IDS_OSD_ZOOM            "Thu phóng: %.0lf%%"
@@ -3980,14 +3980,14 @@ BEGIN
     BEGIN
         BLOCK "042A04b0"
         BEGIN
-            VALUE "Comments", "Vietnamese language resource for MPC-BE"
+            VALUE "Comments", "Vietnamese language resource for MPC-WJ"
             VALUE "CompanyName", MPC_COMP_NAME_STR
-            VALUE "FileDescription", "Vietnamese language resource for MPC-BE"
+            VALUE "FileDescription", "Vietnamese language resource for MPC-WJ"
             VALUE "FileVersion", MPC_VERSION_FULL_STR
-            VALUE "InternalName", "mpc-be"
+            VALUE "InternalName", "mpc-wj"
             VALUE "LegalCopyright", MPC_COPYRIGHT_STR
             VALUE "OriginalFilename", "mpcresources.vi.dll"
-            VALUE "ProductName", "MPC-BE"
+            VALUE "ProductName", "MPC-WJ"
             VALUE "ProductVersion", MPC_VERSION_STR
         END
     END

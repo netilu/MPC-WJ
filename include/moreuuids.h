@@ -2,14 +2,14 @@
  * (C) 2003-2006 Gabest
  * (C) 2006-2026 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-WJ.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-WJ is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-WJ is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -1084,7 +1084,7 @@ DEFINE_MEDIATYPE_GUID(MEDIASUBTYPE_APE, MAKEFOURCC('A','P','E',0x20));
 // {5355504F-0000-0010-8000-00AA00389B71}
 DEFINE_MEDIATYPE_GUID(MEDIASUBTYPE_OPUS, FCC('OPUS'));
 
-// {949F97FD-56F6-4527-B4AE-DDEB375AB80F}   Mpc-be specific !
+// {949F97FD-56F6-4527-B4AE-DDEB375AB80F}   Mpc-wj specific !
 DEFINE_GUID(MEDIASUBTYPE_HDMV_LPCM_AUDIO, 0x949f97fd, 0x56f6, 0x4527, 0xb4, 0xae, 0xdd, 0xeb, 0x37, 0x5a, 0xb8, 0x0f);
 
 // {20504C4D-0000-0010-8000-00AA00389B71}

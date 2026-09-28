@@ -1,6 +1,6 @@
 """Validate the OSD controls in compiled resources without executing the modules.
 
-Usage: python tests/check_overlay_seekbar_resources.py _bin/mpc-be_x64
+Usage: python tests/check_overlay_seekbar_resources.py _bin/mpc-wj_x64
 """
 import ctypes as c
 from ctypes import wintypes as w
@@ -87,7 +87,7 @@ def check_module(path):
 
 if __name__ == "__main__":
     build = Path(sys.argv[1])
-    modules = [build / "mpc-be64.exe", *sorted((build / "Lang").glob("mpcresources.*.dll"))]
+    modules = [build / "mpc-wj64.exe", *sorted((build / "Lang").glob("mpcresources.*.dll"))]
     assert len(modules) == 31, "Build the main program and all 30 language resources."
     for module in modules:
         check_module(module)
