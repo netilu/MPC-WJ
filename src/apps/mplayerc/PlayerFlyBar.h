@@ -63,6 +63,7 @@ private:
 	CRect r_MinIcon;
 	CRect r_RestoreIcon;
 	CRect r_SettingsIcon;
+	CRect r_PreviewIcon;
 	CRect r_InfoIcon;
 	CRect r_FSIcon;
 	CRect r_LockIcon;
@@ -88,6 +89,7 @@ public:
 
 private:
 	void DrawButton(CDC *pDC, int nImage, int x, int z);
+	void DrawPreviewButton(CDC *pDC, int x);
 	void UpdateWnd(CPoint point);
 	void DrawWnd();
 

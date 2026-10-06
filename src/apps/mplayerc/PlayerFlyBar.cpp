@@ -129,6 +129,7 @@ void CFlyBar::CalcButtonsRect()
 	//
 	r_InfoIcon		= CRect(rcBar.right - 5 - (iw * 6), rcBar.top + 5, rcBar.right - 5 - (iw * 5), rcBar.bottom - 5);
 	r_SettingsIcon	= CRect(rcBar.right - 5 - (iw * 7), rcBar.top + 5, rcBar.right - 5 - (iw * 6), rcBar.bottom - 5);
+	r_PreviewIcon	= CRect(rcBar.right - 5 - (iw * 8), rcBar.top + 5, rcBar.right - 5 - (iw * 7), rcBar.bottom - 5);
 	//
 	r_LockIcon		= CRect(rcBar.right - 5 - (iw * 9), rcBar.top + 5, rcBar.right - 5 - (iw * 8), rcBar.bottom - 5);
 }
@@ -168,6 +169,31 @@ void CFlyBar::DrawButton(CDC *pDC, int nImage, int x, int z)
 	m_pButtonImages->Draw(pDC, nImage, POINT{ x - 5 - (iw * z), 5 }, ILD_NORMAL);
 }
 
+void CFlyBar::DrawPreviewButton(CDC *pDC, int x)
+{
+	const int left = x - 5 - iw * 8;
+	const auto px = [&](int value) { return left + MulDiv(value, iw, 120); };
+	const auto py = [&](int value) { return 5 + MulDiv(value, iw, 120); };
+	const bool enabled = AfxGetAppSettings().fSmartSeek;
+	const COLORREF color = m_btIdx == 8 ? RGB(255, 255, 255)
+		: enabled ? RGB(225, 225, 225) : RGB(145, 145, 145);
+	CPen pen(PS_SOLID, std::max(1, MulDiv(8, iw, 120)), color);
+	CPen* oldPen = pDC->SelectObject(&pen);
+	CBrush* oldBrush = static_cast<CBrush*>(pDC->SelectStockObject(NULL_BRUSH));
+	POINT eye[] = {
+		{ px(22), py(60) }, { px(42), py(33) }, { px(77), py(33) }, { px(98), py(60) },
+		{ px(77), py(87) }, { px(42), py(87) }, { px(22), py(60) }
+	};
+	pDC->PolyBezier(eye, std::size(eye));
+	pDC->Ellipse(px(51), py(51), px(69), py(69));
+	if (!enabled) {
+		pDC->MoveTo(px(32), py(91));
+		pDC->LineTo(px(88), py(29));
+	}
+	pDC->SelectObject(oldBrush);
+	pDC->SelectObject(oldPen);
+}
+
 void CFlyBar::OnLButtonUp(UINT nFlags, CPoint point)
 {
 	m_pMainFrame->SetFocus();
@@ -194,6 +220,11 @@ void CFlyBar::OnLButtonUp(UINT nFlags, CPoint point)
 	} else if (r_SettingsIcon.PtInRect(p)) {
 		m_pMainFrame->PostMessageW(WM_COMMAND, ID_VIEW_OPTIONS);
 		Invalidate();
+	} else if (r_PreviewIcon.PtInRect(p)) {
+		CAppSettings& s = AfxGetAppSettings();
+		m_pMainFrame->SetSmartSeekEnabled(!s.fSmartSeek);
+		s.SaveSettings();
+		UpdateWnd(point);
 	} else if (r_InfoIcon.PtInRect(p)) {
 		OAFilterState fs = m_pMainFrame->GetMediaState();
 		if (fs != -1) {
@@ -275,6 +306,14 @@ void CFlyBar::UpdateWnd(CPoint point)
 			m_tooltip.UpdateTipText(ResStr(IDS_AG_OPTIONS), this);
 		}
 		m_btIdx = 7;
+	}
+	else if (r_PreviewIcon.PtInRect(point)) {
+		str2 = AfxGetAppSettings().fSmartSeek ? ResStr(IDS_TOOLTIP_DISABLE_SEARCH_PREVIEW)
+			: ResStr(IDS_TOOLTIP_ENABLE_SEARCH_PREVIEW);
+		if (str != str2) {
+			m_tooltip.UpdateTipText(str2, this);
+		}
+		m_btIdx = 8;
 	}
 	else if (r_LockIcon.PtInRect(point)) {
 		str2 = AfxGetAppSettings().fFlybarOnTop ? ResStr(IDS_TOOLTIP_UNLOCK) : ResStr(IDS_TOOLTIP_LOCK);
@@ -361,6 +400,7 @@ void CFlyBar::DrawWnd()
 
 		nImage = (m_btIdx == 7) ? IMG_SETS_A : IMG_SETS;
 		DrawButton(&mdc, nImage, x, 7);
+		DrawPreviewButton(&mdc, x);
 
 		if (s.fFlybarOnTop) {
 			nImage = (m_btIdx == 9) ? IMG_LOCK_A : IMG_LOCK;

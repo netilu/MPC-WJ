@@ -3874,6 +3874,8 @@ BEGIN
     IDS_TOOLTIP_FULLSCREEN  "Ikusleiho-osoa"
     IDS_TOOLTIP_LOCK        "Blokeatu"
     IDS_TOOLTIP_UNLOCK      "Desblokeatu"
+    IDS_TOOLTIP_ENABLE_SEARCH_PREVIEW  "Enable search preview"
+    IDS_TOOLTIP_DISABLE_SEARCH_PREVIEW "Disable search preview"
 END
 
 STRINGTABLE
@@ -4025,4 +4027,3 @@ LANGUAGE 9, 1
 #endif
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
-

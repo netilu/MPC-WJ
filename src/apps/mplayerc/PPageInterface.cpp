@@ -177,10 +177,14 @@ BOOL CPPageInterface::OnApply()
 	s.fUseTimeTooltip		= !!m_fUseTimeTooltip;
 	s.nTimeTooltipPosition	= m_TimeTooltipPosition.GetCurSel();
 
-	s.fSmartSeek			= !!m_fSmartSeek;
+	const bool smartSeekChanged = s.fSmartSeek != !!m_fSmartSeek
+		|| s.bSmartSeekOnline != !!m_bSmartSeekOnline;
 	s.bSmartSeekOnline		= !!m_bSmartSeekOnline;
 	s.iSmartSeekSize		= m_edSmartSeekSize;
 	s.iSmartSeekVR	= m_SmartSeekVR.GetCurSel();
+	if (smartSeekChanged) {
+		pFrame->SetSmartSeekEnabled(!!m_fSmartSeek);
+	}
 
 	s.fChapterMarker		= !!m_fChapterMarker;
 	s.fFlybar				= !!m_fFlybar;

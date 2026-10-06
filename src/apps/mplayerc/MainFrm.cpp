@@ -12469,6 +12469,102 @@ void CMainFrame::ReleasePreviewGraph()
 		m_pGB_preview->RemoveFromROT();
 		m_pGB_preview.Release();
 	}
+	m_bWndPreViewOn = false;
+}
+
+bool CMainFrame::CreatePreviewGraphForCurrentMedia()
+{
+	if (m_pGB_preview) {
+		m_bWndPreViewOn = true;
+		return true;
+	}
+	if (m_eMediaLoadState != MLS_LOADED || m_bAudioOnly || !m_wndSeekBar.HasDuration()
+			|| m_previewSourcePath.IsEmpty()) {
+		return false;
+	}
+
+	const CAppSettings& s = AfxGetAppSettings();
+	if (GetPlaybackMode() == PM_FILE && !m_bCustomGraph) {
+		if (!s.bSmartSeekOnline) {
+			CUrlParser urlParser(m_previewSourcePath);
+			if (urlParser.IsValid()) {
+				return false;
+			}
+		}
+		auto pFGManager_preview = DNew CFGManagerPlayer(L"CFGManagerPlayer", nullptr, m_wndPreView.GetVideoHWND(), s.iSmartSeekVR + 1);
+		m_pGB_preview = pFGManager_preview;
+		if (pFGManager_preview) {
+			pFGManager_preview->SetUserAgent(http::userAgent);
+		}
+	} else if (GetPlaybackMode() == PM_DVD) {
+		m_pGB_preview = DNew CFGManagerDVD(L"CFGManagerDVD", nullptr, m_wndPreView.GetVideoHWND(), true);
+	} else {
+		return false;
+	}
+	if (!m_pGB_preview) {
+		return false;
+	}
+
+	m_pGB_preview->AddToROT();
+	m_pMC_preview = m_pGB_preview;
+	m_pMS_preview = m_pGB_preview;
+	m_pVW_preview = m_pGB_preview;
+	m_pBV_preview = m_pGB_preview;
+	if (FAILED(m_pGB_preview->RenderFile(m_previewSourcePath, nullptr))) {
+		ReleasePreviewGraph();
+		return false;
+	}
+
+	if (GetPlaybackMode() == PM_DVD) {
+		BeginEnumFilters(m_pGB_preview, pEF, pBF) {
+			if ((m_pDVDC_preview = pBF) && (m_pDVDI_preview = pBF)) {
+				break;
+			}
+		}
+		EndEnumFilters;
+		if (!m_pDVDC_preview || !m_pDVDI_preview) {
+			ReleasePreviewGraph();
+			return false;
+		}
+		m_pDVDC_preview->SetOption(DVD_ResetOnStop, FALSE);
+		m_pDVDC_preview->SetOption(DVD_HMSF_TimeCodeEvents, TRUE);
+	}
+
+	m_pGB_preview->FindInterface(IID_PPV_ARGS(&m_pMFVDC_preview), TRUE);
+	m_pGB_preview->FindInterface(IID_PPV_ARGS(&m_pCAP_preview), TRUE);
+	RECT wr;
+	m_wndPreView.GetClientRect(&wr);
+	if (m_pMFVDC_preview) {
+		m_pMFVDC_preview->SetVideoWindow(m_wndPreView.GetVideoHWND());
+		m_pMFVDC_preview->SetVideoPosition(nullptr, &wr);
+	}
+	if (m_pCAP_preview) {
+		m_pCAP_preview->SetPosition(wr, wr);
+	}
+	m_pMC_preview->Pause();
+	m_bWndPreViewOn = true;
+	return true;
+}
+
+void CMainFrame::SetSmartSeekEnabled(bool enabled)
+{
+	CAppSettings& s = AfxGetAppSettings();
+	if (!enabled) {
+		PreviewWindowHide();
+		ReleasePreviewGraph();
+	} else if (m_eMediaLoadState == MLS_LOADED) {
+		CUrlParser urlParser(m_previewSourcePath);
+		if (GetPlaybackMode() == PM_FILE && !s.bSmartSeekOnline && urlParser.IsValid()) {
+			PreviewWindowHide();
+			ReleasePreviewGraph();
+		} else {
+			CreatePreviewGraphForCurrentMedia();
+		}
+	}
+	s.fSmartSeek = enabled;
+	if (m_wndFlyBar.GetSafeHwnd()) {
+		m_wndFlyBar.Invalidate();
+	}
 }
 
 HRESULT CMainFrame::PreviewWindowHide()
@@ -12643,6 +12739,7 @@ CString CMainFrame::OpenFile(OpenFileData* pOFD, const CStringW& youtubeUrl)
 		}
 
 		CorrectAceStream(fn);
+		m_previewSourcePath = fn;
 
 		if (SUCCEEDED(hr)) {
 			CStringW oldcurdir;
@@ -13064,6 +13161,7 @@ void CMainFrame::SetupChapters()
 
 CString CMainFrame::OpenDVD(OpenDVDData* pODD)
 {
+	m_previewSourcePath = pODD->path;
 	HRESULT hr = m_pGB->RenderFile(pODD->path, nullptr);
 
 	CAppSettings& s = AfxGetAppSettings();
@@ -15001,6 +15099,7 @@ void CMainFrame::CloseMediaPrivate()
 
 	PreviewWindowHide();
 	ReleasePreviewGraph();
+	m_previewSourcePath.Empty();
 
 	m_pProv.Release();
 
@@ -19960,7 +20059,7 @@ CString CMainFrame::FillMessage()
 
 bool CMainFrame::CanPreviewUse()
 {
-	return (m_pGB_preview && m_bWndPreViewOn
+	return (AfxGetAppSettings().fSmartSeek && m_pGB_preview && m_bWndPreViewOn
 			&& m_eMediaLoadState == MLS_LOADED
 			&& !m_bAudioOnly);
 }

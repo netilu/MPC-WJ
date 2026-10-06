@@ -1194,6 +1194,7 @@ public:
 	bool SeekFromOverlay(REFERENCE_TIME position);
 	CPreView			m_wndPreView; // SmartSeek
 	bool				m_bWndPreViewOn = false;
+	CStringW			m_previewSourcePath;
 
 	bool m_bIsMadVRExclusiveMode = false;
 	bool m_bIsMPCVRExclusiveMode = false;
@@ -1207,6 +1208,8 @@ public:
 	void DestroyOSDBar();
 
 	void ReleasePreviewGraph();
+	bool CreatePreviewGraphForCurrentMedia();
+	void SetSmartSeekEnabled(bool enabled);
 	HRESULT PreviewWindowHide();
 	HRESULT PreviewWindowShow(REFERENCE_TIME rtCur2);
 	bool CanPreviewUse();

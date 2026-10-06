@@ -3871,6 +3871,8 @@ BEGIN
     IDS_TOOLTIP_FULLSCREEN  "Toàn màn hình"
     IDS_TOOLTIP_LOCK        "Khóa"
     IDS_TOOLTIP_UNLOCK      "Mở khóa"
+    IDS_TOOLTIP_ENABLE_SEARCH_PREVIEW  "Enable search preview"
+    IDS_TOOLTIP_DISABLE_SEARCH_PREVIEW "Disable search preview"
 END
 
 STRINGTABLE
@@ -4022,4 +4024,3 @@ LANGUAGE 9, 1
 #endif
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
-
